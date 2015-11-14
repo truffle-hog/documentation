@@ -26,3 +26,12 @@
 *.exe
 *.out
 *.app
+
+# TeX output files
+*.aux
+*.out
+
+
+# General files that shouldn't be included
+*.log
+*.pdf
