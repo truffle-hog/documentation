@@ -1,5 +1,27 @@
 \chapter{Zielbestimmung}
 
+Profisnort und PSAnalyzer sollen eine Möglichkeit schaffen, das Intrusion-Detection-System Snort auch mit ProfiNET verwenden zu können.
+Hierbei soll PSAnalyzer eine übersichtliche Darstellung der Beziehungen und Datenflüsse in dem überwachten Netzwerk bieten.
+
 \section{Musskriterien}
 
-\section{Wunschkriterien}
+\subsection{Profisnort}
+\begin{itemize}
+  \item Das Plugin muss Profinet-Pakete erkennen und dekodieren können.
+  \item Das Plugin muss ein Ausgabeinterface bereitstellen damit PSGui die dekodierten Paketdaten empfangen und weiterverarbeiten kann.
+  \item Snort soll in der Lage sein die dekodierten Pakete weiter zu verarbeiten und gegebenenfalls Regeln darauf anwenden.
+  \item Falls Snort einen Alarm auslöst, soll dieser zusätzlich an das Analysetool weitergegeben werden.
+\end{itemize}
+
+\subsection{PSAnalyzer}
+\begin{itemize}
+  \item Das Analyseprogramm soll eine grafische Oberfläche mit folgenden Funktionen bieten:
+  \begin{itemize}
+    \item Übersichtliche Graph-Darstellung der einzelnen Komponenten eines Netzwerks.
+    \item Verwalten der Komponenten über ein Rechts-Klick-Menü (entfernen, zurücksetzen, etc.)
+  \end{itemize}
+  \item Über einen maximalen Zeitraum von x Tagen soll ein Protokoll angefertigt und gespeichert werden.
+  \item Das oben genannte Protokoll soll gespeichert und geladen werden können, um es zu einem späteren Zeitpunkt noch einmal abzuspielen???
+\end{itemize}
+
+\section{Wunschkriterien} 

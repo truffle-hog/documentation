@@ -32,7 +32,7 @@
 *.out
 *.blg
 *.bbl
-*.syntex
+*.synctex
 *.toc
 
 
