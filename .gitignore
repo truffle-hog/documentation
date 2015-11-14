@@ -30,6 +30,10 @@
 # TeX output files
 *.aux
 *.out
+*.blg
+*.bbl
+*.syntex
+*.toc
 
 
 # General files that shouldn't be included
