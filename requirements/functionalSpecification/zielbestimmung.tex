@@ -7,21 +7,28 @@ Hierbei soll PSAnalyzer eine übersichtliche Darstellung der Beziehungen und Dat
 
 \subsection{Profisnort}
 \begin{itemize}
-  \item Das Plugin muss Profinet-Pakete erkennen und dekodieren können.
+  \item Das Plugin muss Ethernet-ProfiNet-Pakete erkennen und dekodieren können.
   \item Das Plugin muss ein Ausgabeinterface bereitstellen damit PSAnalyzer die dekodierten Paketdaten empfangen und weiterverarbeiten kann.
-  \item Snort soll in der Lage sein die dekodierten Pakete weiter zu verarbeiten und gegebenenfalls Regeln darauf anwenden.
-  \item Falls Snort einen Alarm auslöst, soll dieser zusätzlich an das Analysetool weitergegeben werden.
 \end{itemize}
 
 \subsection{PSAnalyzer}
 \begin{itemize}
-  \item Das Analyseprogramm soll eine grafische Oberfläche mit folgenden Funktionen bieten:
+  \item Das Analyseprogramm muss eine grafische Oberfläche mit folgenden Funktionen bieten:
   \begin{itemize}
-    \item Übersichtliche Graph-Darstellung der einzelnen Komponenten eines Netzwerks.
-    \item Verwalten der Komponenten über ein Rechts-Klick-Menü (entfernen, zurücksetzen, etc.)
-    \item Neuanordnung der elemente nach typischen Graph-Layouts.
+    \item Übersichtliche, dynamische Graph-Darstellung der einzelnen Komponenten eines Netzwerks.
+    \item Möglichkeit zur zusätzlichen Darstellung von detaillierten Informationen.
   \end{itemize}
-  \item Das Programm soll in der Lage sein, Protokolle zu speichern und zu einem späteren Zeitpunkt noch einmal abzuspielen.
+  \item Das Analyseprogramm muss die Möglichkeit zur Datenhaltung für möglich spätere Auswertung bieten. 
 \end{itemize}
 
-\section{Wunschkriterien} 
+\section{Wunschkriterien}
+\subsection{Profisnort}
+\begin{itemize}
+  \item Das Plugin kann decodierte Pakete Snort zum prüfen mit gewissen Regeln zur Verfügung stellen. 
+\end{itemize}
+\subsection{PSAnalyzer}
+\begin{itemize}
+  \item Das Analysetool kann dem Nutzer ermöglichen, den Graphen per Drag-and-Drop zu beeinflussen. 
+  \item Das Analysetool kann dem Nutzer grafische Statistiken des bisher stattgefundenen Netzwerkverkehrs anzeigen. 
+  \item Das Analysetool kann von Snort ausgelöste Alerts im Graph darstellen. 
+\end{itemize}
