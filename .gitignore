@@ -1,3 +1,6 @@
+#Project Folders
+.idea
+
 # Compiled Object files
 *.slo
 *.lo
