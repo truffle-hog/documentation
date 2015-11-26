@@ -7,6 +7,15 @@
 \usepackage{ae}
 \usepackage[bookmarks,bookmarksnumbered]{hyperref}
 \usepackage{csquotes}
+\usepackage{longtable}
+\usepackage{enumitem, hyperref}
+\makeatletter
+\def\namedlabel#1#2{\begingroup
+    #2%
+    \def\@currentlabel{#2}%
+    \phantomsection\label{#1}\endgroup
+}
+\makeatother
 
 \newcommand{\sppname}{SPP\_PLACEHOLDER}
 \newcommand{\programname}{PROGRAM\_PLACEHOLDER}

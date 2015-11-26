@@ -3,18 +3,30 @@
 \section{Funktionstests zu prüfen}
 
 \begin{enumerate}
-  \item Der Nutzer startet Netzwerk.IO, wird gefragt ob er Snort mit dem Präprozessor neu starten will, da dieser noch nicht läuft, stellt im Einstellungsmenü die Länge des Kommunikationslogs auf 10 Minuten.
-  \item Ein Kommunikationsteilnehmer wird zum Netzwerk hinzugefügt indem er anfängt PN-Pakete zu senden. Er erscheint auf der GUI, Gerätename/IP-Adresse/MAC-Adresse ist direkt sichtbar. Der Nutzer lässt sich mit einem Klick die Knoten-Details anzeigen.
-  \item Es kommuniziert ein Beispielnetzwerk von 5 Teilnehmern über Profinet, in der GUI baut sich ein Graph selbständig auf und zeigt jeden Kommunikationsteilnehmer sowie die zugehörigen Verbindungen an. Alle Kommunikationswege werden als legal gekennzeichnet. Der Nutzer lässt sich die Log-Dateien der letzten 10 Minuten anzeigen.
-  \item Ein Paketsender sendet den gleichen Datenverkehr zu einem zweiten, neuen Empfänger, die GUI zeigt dies an. Weiter sind die Logs der Verbindungen, welche in der GUI durch den Nutzer abgerufen werden, bis auf die Adressen identisch zwischen beiden Empfängern.
-  \item Der Nutzer stellt im Filtereinstellungsmenü den Namensfilter ein und lässt sich alle Knoten mit Unternamen “Haribo” markieren. //Die GUI graut alle anderen Knoten aus.
-  \item Ein Paketsender wird aus dem Netz entfernt (hört auf zu senden), er wird nach zuvor vom Nutzer eingestellten 5 Sekunden als inaktiv markiert.
-  \item Ein fehlerhaftes Paket wird von einem Paketsender gesendet, der Nutzer lässt sich die Log-Dateien anzeigen und sieht das als fehlerhaft markierte Paket.
-  \item Ein Angreifer mit Blacklist-Adresse im Netzwerks löst Illegale-Kommunikation-Alarm aus und erscheint auf der GUI inklusive Warnung für den Nutzer. Die Kommunikation wird als illegal angezeigt.
-  \item Nach 8. hört der Angreifer auf zu kommunizieren. Daraufhin wird er als inaktiv aber weiterhin als Angreifer angezeigt. Seine Logs werden separat gespeichert und sind für den Nutzer lesbar.
-  \item \programname (Programm) beenden.
-  \item \programname-Prozess wird terminiert.
+  \item \namedlabel{start}{Programm starten} Der Nutzer startet Netzwerk.IO, wird gefragt ob er Snort mit dem Präprozessor neu starten will, da dieser noch nicht läuft, stellt im Einstellungsmenü die Länge des Kommunikationslogs auf 10 Minuten.
+  \item \label{2} Ein Kommunikationsteilnehmer wird zum Netzwerk hinzugefügt indem er anfängt PN-Pakete zu senden. Er erscheint auf der GUI, Gerätename/IP-Adresse/MAC-Adresse ist direkt sichtbar. Der Nutzer lässt sich mit einem Klick die Knoten-Details anzeigen.
+  \item \label{3} Es kommuniziert ein Beispielnetzwerk von 5 Teilnehmern über Profinet, in der GUI baut sich ein Graph selbständig auf und zeigt jeden Kommunikationsteilnehmer sowie die zugehörigen Verbindungen an. Alle Kommunikationswege werden als legal gekennzeichnet. Der Nutzer lässt sich die Log-Dateien der letzten 10 Minuten anzeigen.
+  \item \label{4}Ein Paketsender sendet den gleichen Datenverkehr zu einem zweiten, neuen Empfänger, die GUI zeigt dies an. Weiter sind die Logs der Verbindungen, welche in der GUI durch den Nutzer abgerufen werden, bis auf die Adressen identisch zwischen beiden Empfängern.
+  \item \label{5} Der Nutzer stellt im Filtereinstellungsmenü den Namensfilter ein und lässt sich alle Knoten mit Unternamen “Haribo” markieren. //Die GUI graut alle anderen Knoten aus.
+  \item \label{6} Ein Paketsender wird aus dem Netz entfernt (hört auf zu senden), er wird nach zuvor vom Nutzer eingestellten 5 Sekunden als inaktiv markiert.
+  \item \label{7}Ein fehlerhaftes Paket wird von einem Paketsender gesendet, der Nutzer lässt sich die Log-Dateien anzeigen und sieht das als fehlerhaft markierte Paket.
+  \item \label{8}Ein Angreifer mit Blacklist-Adresse im Netzwerks löst Illegale-Kommunikation-Alarm aus und erscheint auf der GUI inklusive Warnung für den Nutzer. Die Kommunikation wird als illegal angezeigt.
+  \item \label{9}Nach 8. hört der Angreifer auf zu kommunizieren. Daraufhin wird er als inaktiv aber weiterhin als Angreifer angezeigt. Seine Logs werden separat gespeichert und sind für den Nutzer lesbar.
+  \item \label{Exit} \programname (Programm) beenden.
+  \item \label{Absturz} \programname-Prozess wird terminiert.
 \end{enumerate}
 
 \section{Testszenarien}
 
+\begin{itemize}
+  \item \ref{start}, \ref{Exit}
+  \item \ref{1}, \ref{2}, \ref{Exit}
+  \item \ref{1}, \ref{3}, \ref{Exit}
+  \item \ref{1}, \ref{3}, \ref{4}, \ref{Exit}
+  \item \ref{1}, \ref{5}, \ref{Exit}
+  \item \ref{1}, \ref{3}, \ref{6}, \ref{Exit}
+  \item \ref{1}, \ref{2}, \ref{7}, \ref{Exit}
+  \item \ref{1}, \ref{3}, \ref{8}, \ref{9}, \ref{Exit}
+  \item \ref{1}, \ref{3}, \ref{Absturz}
+  \item \ref{1}, \ref{3}, \ref{5}, \ref{Absturz}, \ref{1}, \ref{2}, \ref{5}, \ref{7}, \ref{Absturz}, \ref{1}, \ref{3}, \ref{Exit}
+\end{itemize}
