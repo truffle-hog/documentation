@@ -5,30 +5,86 @@ Hierbei soll PSAnalyzer eine übersichtliche Darstellung der Beziehungen und Dat
 
 \section{Musskriterien}
 
-\subsection{Profisnort}
+\subsection{spp\_profinet (Snort Präprozessor)}
+
 \begin{itemize}
-  \item Das Plugin muss Ethernet-ProfiNet-Pakete erkennen und dekodieren können.
-  \item Das Plugin muss ein Ausgabeinterface bereitstellen damit PSAnalyzer die dekodierten Paketdaten empfangen und weiterverarbeiten kann.
+\item Der Präprozessor muss Ethernet-ProfiNet-Pakete erkennen und dekodieren können.
+
+\item Der Präprozessor muss ein Ausgabeinterface bereitstellen damit Netzwerk.IO die dekodierten Paketdaten empfangen und weiterverarbeiten kann.
+
+\item Der Präprozessor muss die PROFINET Header Daten zusammenfassen und an Netzwerk.IO weitergeben.
 \end{itemize}
 
-\subsection{PSAnalyzer}
+\subsection{Netzwerk.IO (Analyseprogramm)}
+
 \begin{itemize}
-  \item Das Analyseprogramm muss eine grafische Oberfläche mit folgenden Funktionen bieten:
-  \begin{itemize}
-    \item Übersichtliche, dynamische Graph-Darstellung der einzelnen Komponenten eines Netzwerks.
-    \item Möglichkeit zur zusätzlichen Darstellung von detaillierten Informationen.
-  \end{itemize}
-  \item Das Analyseprogramm muss die Möglichkeit zur Datenhaltung für möglich spätere Auswertung bieten. 
+\item Das Analyseprogramm muss eine grafische Oberfläche mit folgenden Funktionen bieten:
+
+\item Übersichtliche, dynamische Graph-Darstellung der einzelnen Komponenten eines Netzwerks.
+
+\item Möglichkeit zur zusätzlichen Darstellung von detaillierten Informationen.
+
+\item Legale und illegale Kommunikation müssen unterschiedlich dargestellt werden.
+
+\item Möglichkeit, den Graphen zu skalieren.
+
+\item Über ein Einstellungsmenü sollen Darstellungsvarianten spezifiziert werden können.
+
+\item Das Analyseprogramm muss die Möglichkeit zur Datenhaltung für möglich spätere Auswertung bieten.
 \end{itemize}
 
-\section{Wunschkriterien}
-\subsection{Profisnort}
+\section{Kannkritierien}
+
+\subsection{spp\_profinet}
+
 \begin{itemize}
-  \item Das Plugin kann decodierte Pakete Snort zum prüfen mit gewissen Regeln zur Verfügung stellen. 
+
+\item Der Präprozessor kann decodierte Pakete Snort zur Verfügung stellen, damit sie dort weiterverarbeitet werden können. 
+
+\item Der Präprozessor kann ProfiNET TCP Pakete erkennen und dekodieren.
+
+\item Der Präprozessor ist in der Lage andere Protokollarten zur Weiterverarbeitung an Netzwerk.IO weiterzugeben.
 \end{itemize}
-\subsection{PSAnalyzer}
+
+\subsection{Netzwerk.IO}
+
 \begin{itemize}
-  \item Das Analysetool kann dem Nutzer ermöglichen, den Graphen per Drag-and-Drop zu beeinflussen. 
-  \item Das Analysetool kann dem Nutzer grafische Statistiken des bisher stattgefundenen Netzwerkverkehrs anzeigen. 
-  \item Das Analysetool kann von Snort ausgelöste Alerts im Graph darstellen. 
+\item Es gibt ein Einstellungsmenü welches dem Nutzer ermöglicht grundlegende Einstellungen vorzunehmen.
+
+\item Das Analysetool kann dem Nutzer grafische Statistiken des bisher stattgefundenen Netzwerkverkehrs anzeigen.
+
+\item Das Analysetool kann von Snort ausgelöste Alerts im Graph darstellen.
+
+\item Die Kommunikationswege und -richtungen können im Graphen dargestellt werden.
+
+\item Der Paketdurchsatz kann im Graph dargestellt werden (z. B. Farbe der Kante)
+
+\item Der Übertragungstyp kann, soweit bekannt, im Graph dargestellt werden. 
+
+\item Ausgabe eines Kommunikationslogs bei Klicken auf eine Kante zwischen zwei Netzkomponenten.
+
+\item Dem Benutzer wird ermöglicht, Knoten anhand von Kriterien zu filtern.
+
+\item Die Maximalgröße des aufzuzeichnenden Logs kann in dem Einstellungsmenü festgelegt werden.
+
+\item Der Benutzer hat die Möglichkeit über ein Menü verschiedene Algorithmen zur Graphdarstellung auszuwählen.
+
+\item Das Programm funktioniert eigenständig und hat möglichst wenige Abhängigkeiten.
+\end{itemize}
+
+\section{Abgrenzungskriterien}
+
+\subsection{spp\_profinet}
+\begin{itemize}
+\item Das Plugin soll nicht die Arbeit von Snort und dem Analysetool übernehmen.
+
+\item Das Plugin soll nur dekodieren und nicht analysieren.
+
+\end{itemize}
+
+\subsection{Netzwerk.IO}
+\begin{itemize}
+
+\item Das Analyse Tool bietet keinen aktiven Schutz vor Angriffen sondern zeigt solche nur an (dient lediglich der Analyse und Visualisierung des Netzwerkverkehrs)
+content...
 \end{itemize}
