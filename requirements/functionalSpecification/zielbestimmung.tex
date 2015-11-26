@@ -1,21 +1,21 @@
 \chapter{Zielbestimmung}
 
-Profisnort und PSAnalyzer sollen eine Möglichkeit schaffen, das Intrusion-Detection-System Snort auch mit ProfiNET verwenden zu können.
+\programname und PSAnalyzer sollen eine Möglichkeit schaffen, das Intrusion-Detection-System Snort auch mit PROFINET verwenden zu können.
 Hierbei soll PSAnalyzer eine übersichtliche Darstellung der Beziehungen und Datenflüsse in dem überwachten Netzwerk bieten.
 
 \section{Musskriterien}
 
-\subsection{spp\_profinet (Snort Präprozessor)}
+\subsection{\sppname (Snort Präprozessor)}
 
 \begin{itemize}
-\item Der Präprozessor muss Ethernet-ProfiNet-Pakete erkennen und dekodieren können.
+\item Der Präprozessor muss Ethernet-PROFINET-Pakete erkennen und dekodieren können.
 
-\item Der Präprozessor muss ein Ausgabeinterface bereitstellen damit Netzwerk.IO die dekodierten Paketdaten empfangen und weiterverarbeiten kann.
+\item Der Präprozessor muss ein Ausgabeinterface bereitstellen damit \programname die dekodierten Paketdaten empfangen und weiterverarbeiten kann.
 
-\item Der Präprozessor muss die PROFINET Header Daten zusammenfassen und an Netzwerk.IO weitergeben.
+\item Der Präprozessor muss die PROFINET Header Daten zusammenfassen und an \programname weitergeben.
 \end{itemize}
 
-\subsection{Netzwerk.IO (Analyseprogramm)}
+\subsection{\programname (Analyseprogramm)}
 
 \begin{itemize}
 \item Das Analyseprogramm muss eine grafische Oberfläche mit folgenden Funktionen bieten:
@@ -35,18 +35,18 @@ Hierbei soll PSAnalyzer eine übersichtliche Darstellung der Beziehungen und Dat
 
 \section{Kannkritierien}
 
-\subsection{spp\_profinet}
+\subsection{\sppname}
 
 \begin{itemize}
 
-\item Der Präprozessor kann decodierte Pakete Snort zur Verfügung stellen, damit sie dort weiterverarbeitet werden können. 
+\item Der Präprozessor kann decodierte Pakete Snort zur Verfügung stellen, damit sie dort weiterverarbeitet werden können.
 
-\item Der Präprozessor kann ProfiNET TCP Pakete erkennen und dekodieren.
+\item Der Präprozessor kann PROFINET TCP Pakete erkennen und dekodieren.
 
-\item Der Präprozessor ist in der Lage andere Protokollarten zur Weiterverarbeitung an Netzwerk.IO weiterzugeben.
+\item Der Präprozessor ist in der Lage andere Protokollarten zur Weiterverarbeitung an \programname weiterzugeben.
 \end{itemize}
 
-\subsection{Netzwerk.IO}
+\subsection{\programname}
 
 \begin{itemize}
 \item Es gibt ein Einstellungsmenü welches dem Nutzer ermöglicht grundlegende Einstellungen vorzunehmen.
@@ -59,7 +59,7 @@ Hierbei soll PSAnalyzer eine übersichtliche Darstellung der Beziehungen und Dat
 
 \item Der Paketdurchsatz kann im Graph dargestellt werden (z. B. Farbe der Kante)
 
-\item Der Übertragungstyp kann, soweit bekannt, im Graph dargestellt werden. 
+\item Der Übertragungstyp kann, soweit bekannt, im Graph dargestellt werden.
 
 \item Ausgabe eines Kommunikationslogs bei Klicken auf eine Kante zwischen zwei Netzkomponenten.
 
@@ -74,7 +74,7 @@ Hierbei soll PSAnalyzer eine übersichtliche Darstellung der Beziehungen und Dat
 
 \section{Abgrenzungskriterien}
 
-\subsection{spp\_profinet}
+\subsection{\sppname}
 \begin{itemize}
 \item Das Plugin soll nicht die Arbeit von Snort und dem Analysetool übernehmen.
 
@@ -82,9 +82,9 @@ Hierbei soll PSAnalyzer eine übersichtliche Darstellung der Beziehungen und Dat
 
 \end{itemize}
 
-\subsection{Netzwerk.IO}
+\subsection{\programname}
 \begin{itemize}
 
 \item Das Analyse Tool bietet keinen aktiven Schutz vor Angriffen sondern zeigt solche nur an (dient lediglich der Analyse und Visualisierung des Netzwerkverkehrs)
 content...
-\end{itemize}
+\end{itemize} 

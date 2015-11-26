@@ -1,7 +1,7 @@
 \chapter{Funktionale Anforderungen}
 
 \renewcommand{\arraystretch}{2}
-\section{spp\_profinet}
+\section{\sppname}
 \begin{tabular}{lp{0.9\linewidth}}
 
 FA10: & \textit{Erkennung fehlerhafter Pakete: }Der Präprozessor muss fehlerhafte Pakete erkennen und diese als solche markieren können, bevor sie an das Analysetool weitergereicht werden. \\
@@ -12,28 +12,28 @@ FA30: & \textit{Dekodieren von PROFINET Pakten: }Der Präprozessor muss die erka
 
 FA40: & \textit{Unterscheiden der verschiedenen Frame IDs: }Der Präprozessor muss die verschiedenen von PROFINET spezifizierten Frame IDs unterscheiden können.\\
 
-FA50: & \textit{Output Kanal zu Netzwerk.IO: }Es muss eine Interprozesskommunikation für die Weitergabe der dekodierten Daten möglich sein.\\
+FA50: & \textit{Output Kanal zu \programname: }Es muss eine Interprozesskommunikation für die Weitergabe der dekodierten Daten möglich sein.\\
 
-FA60: & \textit{Starten von Netzwerk.IO: }Wenn in der .config Datei eingestellt, startet sich Netzwerk.IO automatisch. Diese Option ist standardmäßig deaktiviert.\\
+FA60: & \textit{Starten von \programname: }Wenn in der .config Datei eingestellt, startet sich \programname automatisch. Diese Option ist standardmäßig deaktiviert.\\
 
-FA70: & \textit{Ausgabeschnittstelle: }spp\_profinet muss eine einheitliche Schnittstelle zum Übertragen der Daten an Netzwerk.IO verwenden. Diese Schnittstelle muss prinzipiell auf andere Protokolle erweiterbar sein.\\
+FA70: & \textit{Ausgabeschnittstelle: }\sppname muss eine einheitliche Schnittstelle zum Übertragen der Daten an \programname verwenden. Diese Schnittstelle muss prinzipiell auf andere Protokolle erweiterbar sein.\\
 
-FA80: & \textit{Fehlerhafte Pakete: }spp\_profinet markiert fehlerhafte Pakete und leitet diese weiter. \\
+FA80: & \textit{Fehlerhafte Pakete: }\sppname markiert fehlerhafte Pakete und leitet diese weiter. \\
 
 \end{tabular}
 
-\section{Netzwerk.IO}
+\section{\programname}
 \subsection{Funktionalität}
 
 \begin{longtable}{lp{0.9\linewidth}}
 
 FA90: & \textit{Starten von Snort: }Wenn Snort noch nicht läuft wird Snort automatisch gestartet. \\
 
-FA100: & \textit{spp\_profinet anschalten: }Wenn spp\_profinet in der Snort Konfiguration deaktiviert ist, wird der Benutzer gefragt ob er dies aktivieren möchte. Falls der Benutzer spp\_profinet nicht aktiviert, beendet sich Netzwerk.IO. \\
+FA100: & \textit{\sppname anschalten: }Wenn \sppname in der Snort Konfiguration deaktiviert ist, wird der Benutzer gefragt ob er dies aktivieren möchte. Falls der Benutzer \sppname nicht aktiviert, beendet sich \programname. \\
 
-FA110: & \textit{Snort läuft aber spp\_profinet ist deaktiviert: }Falls Snort schon läuft aber spp\_profinet deaktiviert ist, wird dem Benutzer die Wahl gestellt das Plugin zu aktivieren oder Netzwerk.IO zu deaktivieren. Falls das Plugin aktiviert werden soll, wird Snort mit dem reload Befehl neu geladen.\\
+FA110: & \textit{Snort läuft aber \sppname ist deaktiviert: }Falls Snort schon läuft aber \sppname deaktiviert ist, wird dem Benutzer die Wahl gestellt das Plugin zu aktivieren oder \programname zu deaktivieren. Falls das Plugin aktiviert werden soll, wird Snort mit dem reload Befehl neu geladen.\\
 
-FA120: & \textit{Empfangen von Paketinformationen: }Netzwerk.IO muss Paketinformationen empfangen können, die in dem in FA70 genannten Interface entsprechen. \\
+FA120: & \textit{Empfangen von Paketinformationen: }\programname muss Paketinformationen empfangen können, die in dem in FA70 genannten Interface entsprechen. \\
 
 FA130: & \textit{Erkennen neuer Netzwerkteilnehmer: }Das Programm erkennt neue Netzwerkteilnehmer und erstellt einen neuen Knoten. Zusätzlich wird eine kurze Warnung ausgegeben, die nach kurzer Zeit verschwindet. \\
 
@@ -59,13 +59,13 @@ FA230: & \textit{Sprachwechsel: }Das Programm soll so gebaut sein, dass ein einf
 
 FA240: & \textit{Timeoutbenachrichtigung: }Wenn ein IO\_Controller ein Identify Request sendet und ein Timeout stattfindet wird der Nutzer grafisch darüber in Kenntnis gesetzt. \\
 
-FA250: & \textit{Kantenunterschied: }Die Unterschiedlichen Profinet Protokollen werden durch Labels oder Farben voneinander unterscheidbar sein. \\
+FA250: & \textit{Kantenunterschied: }Die Unterschiedlichen PROFINET Protokollen werden durch Labels oder Farben voneinander unterscheidbar sein. \\
 
 FA260: & \textit{Logging: }Das Programm erstellt ein Log aller Pakete mit kritischen Informationen und kann dieses auf Benutzerwunsch als Textdatei ausgeben. \\
 
 FA270: & \textit{Spezifisches Logging: }Das Programm erstellt spezifische Logdateien zu einzelnen Knoten mit von diesem Knoten gesendeten/empfangenen Paketen. \\
 
-FA280: & \textit{Fehlerhafte Pakete: }Von spp\_profinet als fehlerhaft erkannte Pakete werden als fehlerhaft ins Log übernommen. 
+FA280: & \textit{Fehlerhafte Pakete: }Von \sppname als fehlerhaft erkannte Pakete werden als fehlerhaft ins Log übernommen.
 
 \end{longtable}
 
