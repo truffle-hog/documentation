@@ -36,7 +36,7 @@
 *.bbl
 *.synctex
 *.synctex.gz
-*fdb_latexmk
+*.fdb_latexmk
 *.fls
 *.toc
 
