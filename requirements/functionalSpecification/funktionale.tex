@@ -1,1 +1,136 @@
 \chapter{Funktionale Anforderungen}
+
+\renewcommand{\arraystretch}{2}
+\section{spp\_profinet}
+\begin{tabular}{lp{0.9\linewidth}}
+
+FA10: & \textit{Erkennung fehlerhafter Pakete: }Der Präprozessor muss fehlerhafte Pakete erkennen und diese als solche markieren können, bevor sie an das Analysetool weitergereicht werden. \\
+
+FA20: & \textit{Erkennen von PROFINET Paketen: }Der Präprozessor muss PROFINET Pakete erkennen können. \\
+
+FA30: & \textit{Dekodieren von PROFINET Pakten: }Der Präprozessor muss die erkannten Pakete dekodieren können. \\
+
+FA40: & \textit{Unterscheiden der verschiedenen Frame IDs: }Der Präprozessor muss die verschiedenen von PROFINET spezifizierten Frame IDs unterscheiden können.\\
+
+FA50: & \textit{Output Kanal zu Netzwerk.IO: }Es muss eine Interprozesskommunikation für die Weitergabe der dekodierten Daten möglich sein.\\
+
+FA60: & \textit{Starten von Netzwerk.IO: }Wenn in der .config Datei eingestellt, startet sich Netzwerk.IO automatisch. Diese Option ist standardmäßig deaktiviert.\\
+
+FA70: & \textit{Ausgabeschnittstelle: }spp\_profinet muss eine einheitliche Schnittstelle zum Übertragen der Daten an Netzwerk.IO verwenden. (optional ->) Diese Schnittstelle soll auf andere Protokolle erweiterbar sein.\\
+
+FA80: & \textit{Fehlerhafte Pakete: }spp\_profinet markiert fehlerhafte Pakete und leitet diese weiter. \\
+
+\end{tabular}
+
+\section{Netzwerk.IO}
+\subsection{Funktionalität}
+
+\begin{longtable}{lp{0.9\linewidth}}
+
+FA90: & \textit{Starten von Snort: }Wenn Snort noch nicht läuft wird Snort automatisch gestartet. \\
+
+FA100: & \textit{spp\_profinet anschalten: }Wenn spp\_profinet in der Snort Konfiguration deaktiviert ist, wird der Benutzer gefragt ob er dies aktivieren möchte. Falls der Benutzer spp\_profinet nicht aktiviert, beendet sich Netzwerk.IO. \\
+
+FA110: & \textit{Snort läuft aber spp\_profinet ist deaktiviert: }Falls Snort schon läuft aber spp\_profinet deaktiviert ist, wird dem Benutzer die Wahl gestellt das Plugin zu aktivieren oder Netzwerk.IO zu deaktivieren. Falls das Plugin aktiviert werden soll, wird Snort mit dem reload Befehl neu geladen.\\
+
+FA120: & \textit{Empfangen von Paketinformationen: }Netzwerk.IO muss Paketinformationen empfangen können, die dem in XXXX genannten Interface entsprechen. \\
+
+FA130: & \textit{Erkennen neuer Netzwerkteilnehmer: }Das Programm erkennt neue Netzwerkteilnehmer und erstellt einen neuen Knoten. Zusätzlich wird eine kurze Warnung ausgegeben, die nach kurzer Zeit verschwindet. \\
+
+FA140: & \textit{Erkennen von Gerätenamen: }Das Analysetool soll Gerätenamen, falls vorhanden, erkennen und dem entsprechenden Knoten hinzufügen. \\
+
+FA150: & \textit{Kennzeichnen illegaler Knoten: }Ein Knoten der ein Gerät aus einem illegalen Adressraum repräsentiert oder eine unbekannte/unerwünschte/illegale Identität hat werden für den Nutzer auffällig gekennzeichnet. \\
+
+FA160: & \textit{Kennzeichnen illegaler Kanten: }Kanten, die eingehende und ausgehende Kommunikation eines illegalen Knotens repräsentieren werden für den Nutzer auffällig gekennzeichnet. \\
+
+FA170: & \textit{Erkennen der Kommunikationswege: }Das Programm muss basierend auf Adressen/Gerätenamen einen Kommunikationsgraphen erstellen können. \\
+
+FA180: & \textit{Paketaustausch Statistik: }Das Programm muss berechnen können, wie viele Pakete einzelne Knoten pro Sekunde senden bzw. Empfangen. Diese Information muss in dem Fenster zur Detaillierten Knotenstatistik darstellbar sein. \\
+
+FA190: & \textit{Gesamtzahl der Pakete: }Das Programm muss die gesamte Zahl der empfangenen und gesendeten Pakete in dem Fenster zur Detaillierten Knotenstatistik darstellen können. \\
+
+FA200: & \textit{Kennzeichnen inaktiver Knoten: }Knoten werden nach einer im Einstellungsmenü spezifizierten Zeit als inaktiv gekennzeichnet, wenn sie in dieser Zeit keine Pakete empfangen oder gesendet haben. \\
+
+FA210: & Darstellung des Paketvolumens: Das Paketvolumen der Pakete ist im Graph visuell darstellbar. Diese Darstellung kann in den Einstellungen der Übersicht halber deaktiviert werden. \\
+
+FA220: & Zeichnen des Graphen: Der Graph kann mittels verschiedener Graphalgorithmen gezeichnet werden. \\
+
+FA230: & \textit{Sprachwechsel: }Das Programm soll so gebaut sein, dass ein einfacher Sprachwechsel der GUI möglich ist. \\
+
+FA240: & \textit{Timeoutbenachrichtigung: }Wenn ein IO\_Controller ein Identify Request sendet und ein Timeout stattfindet wird der Nutzer grafisch darüber in Kenntnis gesetzt. \\
+
+FA250: & \textit{Kantenunterschied: }Die Unterschiedlichen Profinet Protokollen werden durch Labels oder Farben voneinander unterscheidbar sein. \\
+
+FA260: & \textit{Logging: }Das Programm erstellt ein Log aller Pakete mit kritischen Informationen und kann dieses auf Benutzerwunsch als Textdatei ausgeben. \\
+
+FA270: & \textit{Spezifisches Logging: }Das Programm erstellt spezifische Logdateien zu einzelnen Knoten mit von diesem Knoten gesendeten/empfangenen Paketen. \\
+
+FA280: & \textit{Fehlerhafte Pakete: }Von spp\_profinet als fehlerhaft erkannte Pakete werden als fehlerhaft ins Log übernommen. 
+
+\end{longtable}
+
+\subsection{Optionale Funktionalität}
+\begin{tabular}{lp{0.9\linewidth}}
+
+FA290: & \textit{Rückverfolgung: }Der Nutzer kann den zeitlichen Ablauf grafisch zurückverfolgen (wie ein Video) und sämtliche Kommunikationswege erneut abspielen. \\
+
+FA300: & \textit{Kennzeichnen inaktiver Teilnehmer: }Knoten, die lange Zeit keine Pakete empfangen oder versenden, werden als inaktiv gekennzeichnet. \\
+
+FA310: & \textit{Abgrenzen gefilterter Knoten: }Alle Knoten, die nicht den Filteroptionen genügen, werden optisch vom Rest des Graphen getrennt. \\
+
+\end{tabular}
+
+\subsection{Datenhaltung}
+
+\begin{tabular}{lp{0.9\linewidth}}
+
+FA320: & \textit{Speichern des Datenverkehrs: }Der Datenverkehr wird in einer Datenbank gespeichert. \\
+
+FA330: & \textit{Kategorisierung der Daten: }Die Daten werden nach den verschiedenen Kommunikationstypen kategorisiert. \\
+
+FA340: & \textit{Datenausgabe: }Auf Anforderungen des Benutzers müssen Daten ausgelesen und ausgegeben werden. \\
+
+FA350: & \textit{Zeitraum der Datenspeicherung: }Der Zeitraum über den die Daten gespeichert werden sollen kann in den Einstellungen festgelegt werden. \\
+
+\end{tabular}
+
+\subsection{Benutzerinteraktion}
+
+\begin{tabular}{lp{0.9\linewidth}}
+
+FA360: & \textit{Speichern der Einstellungen: }Das Programm speichert nach Änderungen des Nutzers automatisch bzw. nach klick auf den Speichern Knopf die neuen Einstellungen. \\
+
+FA 370: & \textit{Fehlerhafte Nutzereingaben: }Die Nutzereingaben im Einstellungsmenü und Filtermenü werden auf Fehler überprüft. Bei Fehlern wird der Benutzer zur neuen Eingabe aufgefordert und der vorherige Wert nicht verändert. \\
+
+FA380: & \textit{Skalierung des Graphen: }Der Benutzer ist in der Lage über das Scrollrad die Skalierung des Graphen zu verändern. \\
+
+FA390: & \textit{Detaillierte Information zu Knoten: }Ein Overlay mit detaillierten Informationen wird bei Klick auf einen Knoten dargestellt. \\
+
+FA400: & \textit{Generelle Informationen: }In einem Overlay werden generelle Informationen über den Graph angezeigt. \\
+
+FA 410: & \textit{Hover statt Klick: }Hovern erfüllt im Graph die selben Funktionen wie klicken. Zusätzlich zum aktuellen Knoten werden zum Vergleich Informationen des aktuell gehoverten Knotens angezeigt. \\
+
+FA420: & \textit{Blacklist: }Der Nutzer hat die Möglichkeit, bestimmte MAC- und IP Adressräume sowie Gerätenamen als legal oder illegal zu markieren. \\
+
+\end{tabular}
+
+\subsection{Optionale Benutzerinteraktion}
+
+\begin{tabular}{lp{0.9\linewidth}}
+
+FA430: & \textit{Statistiken zu Knoten: }Ein Overlay mit zeitlichen Statistiken wird bei Klick auf einen Knoten angezeigt. \\
+
+FA440: & \textit{Filtereinstellungen: }Die Filtereinstellungen können im Einstellungsmenü angepasst werden. \\
+
+FA450: & \textit{Filteroptionen: }Die Knoten können nach IP, MAC Adresse,, Netzwerkaktivität oder Gerätenamen gefiltert werden. \\
+
+FA460: & \textit{Filter deaktivieren/reaktivieren: }Es gibt einen Hotkey und eine Option im Filterfenster zum aktivieren oder deaktivieren von Filtern. \\
+
+FA470: & \textit{IO\_Supervisor festlegen: }Der Nutzer kann Geräte eindeutlig spezifizieren, die das Programm als IO Supervisor markiert \\ % TODO (wie) wollen wir das im graphen repräsentieren?
+
+FA480: & \textit{Verbindungsrichtung: }Wenn mindestens x\% (standardmäßig 90\%, konfigurierbar) der Pakete aus einer Richtung kommen, werden Verbindungen im Graph gerichtet angezeigt. \\
+
+FA490: & \textit{Graphdarstellungsalgorithmen: }Die Graphdarstellungsalgorithmen können über das Einstellungsmenü ausgewählt/geändert werden. \\
+
+FA500: & \textit{Kategorisierung: }Einzelne Knoten können im Graphen als unwichtig eingestuft werden, um diese visuell weniger hervorzuheben. \\
+\end{tabular}
