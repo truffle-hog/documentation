@@ -1,1 +1,47 @@
 \chapter{GUI}
+
+\section{Hauptbild}
+Die grafische Benutzeroberfläche ist vollbildoptimiert, lässt sich aber auch in
+Fenstern skaliert anzeigen. Interaktion mit dem Benutzer findet über Hotkeys,
+Mausposition und -klicks statt.
+Die GUI ist standardmäßig auf Englisch.
+
+  \begin{figure}[h!]
+    \includegraphics[scale=0.45]{./img/GUI.png}
+    \caption{Die grafische Benutzeroberfläche für \programname}
+  \end{figure}
+
+\noindent \textbf{Hintergrund:} Der Netzgraph wird im Hintergrund dauerhaft dargestellt und
+aktualisiert. Standardmäßig wird nur dieser dargestellt und er ist für die
+dauerhafte, interaktionslose Anzeige auf Status- oder Präsentationsdisplays
+optimiert.
+\\ \\
+\textbf{Mittelgrund:} Einstellungsfenster, Filterfenster und optionales Statistikfenster
+werden freischwebend über den Graph dargestellt und können verschoben und
+geschlossen werden. Grundlegende Daten zum Graphen und Knoten werden an fester
+Position als Overlay über dem Grahen angezeigt.
+\\ \\
+\textbf{Vordergrund:} Alarmfenster werden über allen anderen Fenstern angezeigt und
+verschwinden nach Interaktion.
+
+\section{Einstellungsfenster}
+Das Einstellungsfenster dient zur Regelung der Einstellungen. Hier kann
+beispielsweise die darstellung des Graphen angepasst werden, verschiedene
+Graphalgorithmen ausgewählt werden etc.
+
+\begin{figure}[h!]
+  \includegraphics[scale=0.45]{./img/Preferences.png}
+  \caption{Das Einstellungsfenster von \programname}
+\end{figure}
+
+\newpage
+\section{Filterfenster}
+Das Filtermenu erleichtert dem Benutzter die Beobachtung gewuenschter Knoten
+durch die Hervorhebung dieser. Zum Beispiel können mit dem Namenfilter alle
+Knoten die einen gemeinsamen Substring enthalten gefunden werden. In diesem
+Bild werden alle Siemens Maschinen gefunden.
+
+\begin{figure}[h!]
+  \includegraphics[scale=0.45]{./img/Filters.png}
+  \caption{Das Filterfenster von \programname}
+\end{figure}
