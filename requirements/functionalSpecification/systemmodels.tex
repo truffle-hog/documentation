@@ -37,10 +37,142 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 
 \section{Anwendungsfälle}
 
-\subsection{Benutzerinteraktion}
+\subsection{Markieren von Adressen und Namen}
+
+\begin{tabular}{lp{0.9\linewidth}}
+
+\textbf{Name} & Anpassen erlaubter/unerlaubter Adressen und Namen \\
+
+\textbf{Teilnehmender Akteur} & Benutzer \\
+
+\textbf{Eingangsbedingung} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+				
+				\item \programname und Snort mit \sppname sind in Betrieb
+
+				\end{itemize}
+				\end{minipage} \\
+\textbf{Ereignisfluss} & 
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+
+				\item Benutzer navigiert ins Einstellungsmenü
+				\item Benutzer passt die gewünschte Liste an
+				\item Benutzer bestätigt Änderungen
+				
+				\end{itemize}
+				\end{minipage} \\
+
+\end{tabular}
+
+\subsection{Netzwerkaktivität beoboachten}
+
+\begin{tabular}{lp{0.9\linewidth}}
+\textbf{Name} & Netzwerkaktivität beobachten \\
+
+\textbf{Teilnehmender Akteur} & Benutzer \\
+
+\textbf{Eingangsbedingung} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+				
+				\item \programname und Snort mit \sppname sind in Betrieb
+				\item Aktiver Datenverkehr zwischen Geräten des Netzwerkes
+
+				\end{itemize}
+				\end{minipage} \\
+\textbf{Ereignisfluss} & 
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+
+				\item Benutzer beobachtet und interagiert mit der Benutzeroberfläche
+				\end{itemize}
+				\end{minipage} \\
+
+\end{tabular}
+
+\subsection{Graph skalieren}
+
+\begin{tabular}{lp{0.9\linewidth}}
+\textbf{Name} & Graph skalieren \\
+
+\textbf{Teilnehmender Akteur} & Benutzer \\
+
+\textbf{Eingangsbedingung} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+				
+				\item \programname und Snort mit \sppname sind in Betrieb
+				\item Aktiver Datenverkehr zwischen Geräten des Netzwerkes
+
+				\end{itemize}
+				\end{minipage} \\
+\textbf{Ereignisfluss} & 
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+				\item Benutzer dreht das Mausrad
+				\end{itemize}
+				\end{minipage} \\
+\end{tabular}
+
+\subsection{Einstellungen speichern}
+
+\begin{tabular}{lp{0.9\linewidth}}
+\textbf{Name} & Graph skalieren \\
+
+\textbf{Teilnehmender Akteur} & Benutzer \\
+
+\textbf{Eingangsbedingung} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+				
+				\item \programname und Snort mit \sppname sind in Betrieb
+
+				\end{itemize}
+				\end{minipage} \\
+\textbf{Ereignisfluss} & 
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+				\item Benutzer navigiert ins Einstellungsmenü
+				\item Benutzer klickt auf den "Einstellungen speichern" Eintrag
+				\end{itemize}
+				\end{minipage} \\
+\end{tabular}
+
+\subsection{Programm beenden}
+
+\begin{tabular}{lp{0.9\linewidth}}
+\textbf{Name} & Graph skalieren \\
+
+\textbf{Teilnehmender Akteur} & Benutzer \\
+
+\textbf{Eingangsbedingung} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+				
+				\item \programname und Snort mit \sppname sind in Betrieb
+
+				\end{itemize}
+				\end{minipage} \\
+\textbf{Ereignisfluss} & 
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+				\item Benutzer navigiert ins File Menü
+				\item Benutzer klickt auf den Eintrag "Exit"
+				\item Benutzer wird gefragt ob Einstellungen gespeichert werden sollen
+				\item Programm wird beendet
+				\end{itemize}
+				\end{minipage} \\
+\end{tabular}
 
 
+\pagebreak
 \subsection*{Anwendungsfalldiagramm - Benutzerinteraktion}
+	
+\begin{tabular}{lp{0.9\linewidth}}
+\textbf{Teilnehmender Akteur} & Benutzer
+\end{tabular}
 
 \includegraphics[width=\textwidth]{../diagrams/UC_Benutzerinteraktion.png}
 
