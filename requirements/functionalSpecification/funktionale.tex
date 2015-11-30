@@ -33,19 +33,19 @@ FA110: & \textit{Snort läuft aber \sppname ist deaktiviert: }Falls Snort schon 
 
 FA120: & \textit{Empfangen von Paketinformationen: }\programname muss Paketinformationen empfangen können, die dem in FA70 genannten Interface entsprechen. \\
 
-FA130: & \textit{Erkennen neuer Netzwerkteilnehmer: }Das Programm erkennt neue Netzwerkteilnehmer und erstellt einen neuen Knoten. Der Nutzer wird darüber graphisch informiert. \\
+FA130: & \textit{Erkennen neuer Netzwerkteilnehmer: }Das Programm erkennt neue Netzwerkteilnehmer und erstellt einen neuen Knoten. Der Nutzer wird darüber grafisch informiert. \\
 
 FA140: & \textit{Erkennen von Gerätenamen: }Das Analysetool soll Gerätenamen, falls vorhanden, erkennen und dem entsprechenden Knoten hinzufügen. \\
 
 FA150: & \textit{Kennzeichnen illegaler Knoten: }Ein Knoten der ein Gerät aus einem illegalen Adressraum repräsentiert oder eine unbekannte/unerwünschte/illegale Identität hat werden für den Benutzer auffällig gekennzeichnet. \\
 
-FA160: & \textit{Kennzeichnen illegaler Kanten: }Kanten, die eingehende und ausgehende Kommunikation eines illegalen Knotens repräsentieren werden für den Benutzer auffällig gekennzeichnet. \\
+FA160: & \textit{Kennzeichnen illegaler Kanten: }Kanten, die eingehende und ausgehende Kommunikation eines illegalen Knotens repräsentieren, werden für den Benutzer auffällig gekennzeichnet. \\
 
 FA170: & \textit{Erkennen der Kommunikationswege: }Das Programm muss basierend auf Adressen/Gerätenamen einen Kommunikationsgraphen erstellen können. \\
 
-FA180: & \textit{Paketaustausch Statistik: }Das Programm muss berechnen können, wie viele Pakete einzelne Knoten pro Sekunde senden bzw. Empfangen. Diese Information muss in dem Fenster zur Detaillierten Knotenstatistik darstellbar sein. \\
+FA180: & \textit{Paketaustausch Statistik: }Das Programm muss berechnen können, wie viele Pakete einzelne Knoten pro Sekunde senden bzw. empfangen. Diese Information muss in dem Fenster zur detaillierten Knotenstatistik darstellbar sein. \\
 
-FA190: & \textit{Gesamtzahl der Pakete: }Das Programm muss die gesamte Zahl der empfangenen und gesendeten Pakete in dem Fenster zur Detaillierten Knotenstatistik darstellen können. \\
+FA190: & \textit{Gesamtzahl der Pakete: }Das Programm muss die gesamte Zahl der empfangenen und gesendeten Pakete in dem Fenster zur detaillierten Knotenstatistik darstellen können. \\
 
 FA210: & \textit{Darstellung des Paketvolumens: }Das Paketvolumen der Pakete ist im Graph visuell darstellbar. Diese Darstellung kann in den Einstellungen der Übersicht halber deaktiviert werden. \\
 
@@ -53,15 +53,13 @@ FA220: & \textit{Zeichnen des Graphen: }Der Graph kann mittels verschiedener Gra
 
 FA230: & \textit{Sprachwechsel: }Das Programm soll so gebaut sein, dass ein einfacher Sprachwechsel der GUI möglich ist. \\
 
-FA240: & \textit{Timeoutbenachrichtigung: }Wenn ein IO\_Controller ein Identify Request sendet und ein Timeout stattfindet wird der Benutzer grafisch darüber in Kenntnis gesetzt. \\
-
-FA250: & \textit{Kantenunterschied: }Die Unterschiedlichen PROFINET Protokollen werden durch Labels oder Farben voneinander unterscheidbar sein. \\
+FA250: & \textit{Kantenunterschied: }Die unterschiedlichen PROFINET Protokolle werden durch Labels oder Farben voneinander unterscheidbar sein. \\
 
 FA260: & \textit{Logging: }Das Programm erstellt ein Log aller Pakete mit kritischen Informationen und kann dieses auf Benutzerwunsch als Textdatei ausgeben. \\
 
-FA270: & \textit{Spezifisches Logging: }Das Programm erstellt spezifische Logdateien zu einzelnen Knoten mit von diesem Knoten gesendeten/empfangenen Paketen. \\
+FA270: & \textit{Spezifisches Logging: }Das Programm erstellt spezifische Logdateien zu einzelnen Knoten mit den von diesem Knoten gesendeten/empfangenen Paketen. \\
 
-FA280: & \textit{Fehlerhafte Pakete: }Von \sppname als fehlerhaft erkannte Pakete werden als fehlerhaft ins Log übernommen.
+FA280: & \textit{Fehlerhafte Pakete: }Von \sppname als fehlerhaft erkannte Pakete werden mit einem Fehlerflag versehen und so in das Log übernommen.
 
 \end{longtable}
 
@@ -73,6 +71,8 @@ FA290: & \textit{Rückverfolgung: }Der Benutzer kann den zeitlichen Ablauf grafi
 FA300: & \textit{Kennzeichnen inaktiver Knoten: }Knoten werden nach einer im Einstellungsmenü spezifizierten Zeit als inaktiv gekennzeichnet, wenn sie in dieser Zeit keine Pakete empfangen oder gesendet haben. \\
 
 FA310: & \textit{Abgrenzen gefilterter Knoten: }Alle Knoten, die nicht den Filteroptionen genügen, werden optisch vom Rest des Graphen getrennt. \\
+
+FA315: & \textit{Timeoutbenachrichtigung: }Wenn ein IO\_Controller ein Identify Request sendet und ein Timeout stattfindet, wird der Benutzer grafisch darüber in Kenntnis gesetzt. \\
 
 \end{tabular}
 
