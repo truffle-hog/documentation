@@ -53,7 +53,7 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 
 				\end{itemize}
 				\end{minipage} \\
-\textbf{Ereignisfluss} & 
+\textbf{Ereignisfluss} &
 				\begin{minipage}[t]{\linewidth}
 				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
 
@@ -82,7 +82,7 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 
 				\end{itemize}
 				\end{minipage} \\
-\textbf{Ereignisfluss} & 
+\textbf{Ereignisfluss} &
 				\begin{minipage}[t]{\linewidth}
 				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
 
@@ -108,7 +108,7 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 
 				\end{itemize}
 				\end{minipage} \\
-\textbf{Ereignisfluss} & 
+\textbf{Ereignisfluss} &
 				\begin{minipage}[t]{\linewidth}
 				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
 				\item Benutzer dreht das Mausrad
@@ -131,7 +131,7 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 
 				\end{itemize}
 				\end{minipage} \\
-\textbf{Ereignisfluss} & 
+\textbf{Ereignisfluss} &
 				\begin{minipage}[t]{\linewidth}
 				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
 				\item Benutzer navigiert ins Einstellungsmenü
@@ -155,7 +155,7 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 
 				\end{itemize}
 				\end{minipage} \\
-\textbf{Ereignisfluss} & 
+\textbf{Ereignisfluss} &
 				\begin{minipage}[t]{\linewidth}
 				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
 				\item Benutzer navigiert ins File Menü
@@ -169,12 +169,13 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 
 \pagebreak
 \subsection*{Anwendungsfalldiagramm - Benutzerinteraktion}
-	
-\begin{tabular}{lp{0.9\linewidth}}
-\textbf{Teilnehmender Akteur} & Benutzer
-\end{tabular}
 
-\includegraphics[width=\textwidth]{../diagrams/UC_Benutzerinteraktion.png}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{../diagrams/UC_Benutzerinteraktion.png}
+    \caption{Anwendungsfalldiagramm Benutzerinteraktion}
+\end{figure}
 
 %\section{Objektmodelle}
 
@@ -211,9 +212,11 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 	& Das Programm wird bei Bedarf beendet
 	
 	\end{easylist}
-	
-	\includegraphics[width=\textwidth]{../diagrams/AD_Programmablauf}
 
+    \begin{figure}[h!]
+        \hspace*{0.15cm}\includegraphics[width=\textwidth]{../diagrams/AD_Programmablauf}
+        \caption{Aktivitätsdiagramm Programmablauf}
+    \end{figure}
 
 \pagebreak
 \subsection{Beschreibung: Starte Programm}
@@ -234,7 +237,11 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 	
 	\end{easylist}
 	
-	\includegraphics[width=\textwidth]{../diagrams/AD_Starte_Programm}
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=\textwidth]{../diagrams/AD_Starte_Programm}
+        \caption{Aktivitätsdiagramm Starte Programm}
+    \end{figure}
 
 \pagebreak
 \subsection{Beschreibung: Pluginaktivitäten}
@@ -252,7 +259,11 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 	
 	\end{easylist}
 	
-	\includegraphics[width=0.5\textwidth]{../diagrams/AD_Pluginaktivitaeten}
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.5\textwidth]{../diagrams/AD_Pluginaktivitaeten}
+        \caption{Aktivitätsdiagramm Pluginaktivitäten}
+    \end{figure}
 
 \pagebreak
 \subsection{Beschreibung: Verarbeite Paketdaten}
@@ -270,4 +281,8 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 	
 	\end{easylist}
 	
-	\includegraphics[width=0.5\textwidth]{../diagrams/AD_Verarbeite_Paketdaten}
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.5\textwidth]{../diagrams/AD_Verarbeite_Paketdaten}
+        \caption{Aktivitätsdiagramm Verarbeite Paketdaten}
+    \end{figure}

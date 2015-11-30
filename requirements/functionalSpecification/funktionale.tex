@@ -25,21 +25,21 @@ FA70: & \textit{Ausgabeschnittstelle: }\sppname muss eine einheitliche Schnittst
 
 \begin{longtable}{lp{0.9\linewidth}}
 
-FA90: & \textit{Starten von Snort: }Wenn Snort noch nicht läuft wird Snort automatisch gestartet. \\
+FA90: & \textit{Starten von Snort: }Wenn Snort noch nicht läuft, wird Snort automatisch gestartet. \\
 
-FA100: & \textit{\sppname anschalten: }Wenn \sppname in der Snort Konfiguration deaktiviert ist, wird der Benutzer gefragt ob er dies aktivieren möchte. Falls der Benutzer \sppname nicht aktiviert, beendet sich \programname. \\
+FA100: & \textit{\sppname anschalten: }Wenn \sppname in der Snort Konfiguration deaktiviert ist, wird der Benutzer gefragt ob, er dieses aktivieren möchte. Falls der Benutzer \sppname nicht aktiviert, beendet sich \programname. \\
 
-FA110: & \textit{Snort läuft aber \sppname ist deaktiviert: }Falls Snort schon läuft aber \sppname deaktiviert ist, wird dem Benutzer die Wahl gestellt das Plugin zu aktivieren oder \programname zu deaktivieren. Falls das Plugin aktiviert werden soll, wird Snort mit dem reload Befehl neu geladen.\\
+FA110: & \textit{Snort läuft aber \sppname ist deaktiviert: }Falls Snort schon läuft aber \sppname deaktiviert ist, hat der Benutzer die Wahl, \sppname zu aktivieren oder \programname zu deaktivieren. Falls das Plugin aktiviert werden soll, wird Snort mit dem reload Befehl neu geladen.\\
 
-FA120: & \textit{Empfangen von Paketinformationen: }\programname muss Paketinformationen empfangen können, die in dem in FA70 genannten Interface entsprechen. \\
+FA120: & \textit{Empfangen von Paketinformationen: }\programname muss Paketinformationen empfangen können, die dem in FA70 genannten Interface entsprechen. \\
 
-FA130: & \textit{Erkennen neuer Netzwerkteilnehmer: }Das Programm erkennt neue Netzwerkteilnehmer und erstellt einen neuen Knoten. Zusätzlich wird eine kurze Warnung ausgegeben, die nach kurzer Zeit verschwindet. \\
+FA130: & \textit{Erkennen neuer Netzwerkteilnehmer: }Das Programm erkennt neue Netzwerkteilnehmer und erstellt einen neuen Knoten. Der Nutzer wird darüber graphisch informiert. \\
 
 FA140: & \textit{Erkennen von Gerätenamen: }Das Analysetool soll Gerätenamen, falls vorhanden, erkennen und dem entsprechenden Knoten hinzufügen. \\
 
-FA150: & \textit{Kennzeichnen illegaler Knoten: }Ein Knoten der ein Gerät aus einem illegalen Adressraum repräsentiert oder eine unbekannte/unerwünschte/illegale Identität hat werden für den Nutzer auffällig gekennzeichnet. \\
+FA150: & \textit{Kennzeichnen illegaler Knoten: }Ein Knoten der ein Gerät aus einem illegalen Adressraum repräsentiert oder eine unbekannte/unerwünschte/illegale Identität hat werden für den Benutzer auffällig gekennzeichnet. \\
 
-FA160: & \textit{Kennzeichnen illegaler Kanten: }Kanten, die eingehende und ausgehende Kommunikation eines illegalen Knotens repräsentieren werden für den Nutzer auffällig gekennzeichnet. \\
+FA160: & \textit{Kennzeichnen illegaler Kanten: }Kanten, die eingehende und ausgehende Kommunikation eines illegalen Knotens repräsentieren werden für den Benutzer auffällig gekennzeichnet. \\
 
 FA170: & \textit{Erkennen der Kommunikationswege: }Das Programm muss basierend auf Adressen/Gerätenamen einen Kommunikationsgraphen erstellen können. \\
 
@@ -53,7 +53,7 @@ FA220: & \textit{Zeichnen des Graphen: }Der Graph kann mittels verschiedener Gra
 
 FA230: & \textit{Sprachwechsel: }Das Programm soll so gebaut sein, dass ein einfacher Sprachwechsel der GUI möglich ist. \\
 
-FA240: & \textit{Timeoutbenachrichtigung: }Wenn ein IO\_Controller ein Identify Request sendet und ein Timeout stattfindet wird der Nutzer grafisch darüber in Kenntnis gesetzt. \\
+FA240: & \textit{Timeoutbenachrichtigung: }Wenn ein IO\_Controller ein Identify Request sendet und ein Timeout stattfindet wird der Benutzer grafisch darüber in Kenntnis gesetzt. \\
 
 FA250: & \textit{Kantenunterschied: }Die Unterschiedlichen PROFINET Protokollen werden durch Labels oder Farben voneinander unterscheidbar sein. \\
 
@@ -68,7 +68,7 @@ FA280: & \textit{Fehlerhafte Pakete: }Von \sppname als fehlerhaft erkannte Paket
 \subsection{Optionale Funktionalität}
 \begin{tabular}{lp{0.9\linewidth}}
 
-FA290: & \textit{Rückverfolgung: }Der Nutzer kann den zeitlichen Ablauf grafisch zurückverfolgen (wie ein Video) und sämtliche Kommunikationswege erneut abspielen. \\
+FA290: & \textit{Rückverfolgung: }Der Benutzer kann den zeitlichen Ablauf grafisch zurückverfolgen (wie ein Video) und sämtliche Kommunikationswege erneut abspielen. \\
 
 FA300: & \textit{Kennzeichnen inaktiver Knoten: }Knoten werden nach einer im Einstellungsmenü spezifizierten Zeit als inaktiv gekennzeichnet, wenn sie in dieser Zeit keine Pakete empfangen oder gesendet haben. \\
 
@@ -94,9 +94,9 @@ FA350: & \textit{Zeitraum der Datenspeicherung: }Der Zeitraum über den die Date
 
 \begin{tabular}{lp{0.9\linewidth}}
 
-FA360: & \textit{Speichern der Einstellungen: }Das Programm speichert nach Änderungen des Nutzers automatisch bzw. nach klick auf den Speichern Knopf die neuen Einstellungen. \\
+FA360: & \textit{Speichern der Einstellungen: }Das Programm speichert nach Änderungen des Benutzers automatisch bzw. nach klick auf den Speichern Knopf die neuen Einstellungen. \\
 
-FA 370: & \textit{Fehlerhafte Nutzereingaben: }Die Nutzereingaben im Einstellungsmenü und Filtermenü werden auf Fehler überprüft. Bei Fehlern wird der Benutzer zur neuen Eingabe aufgefordert und der vorherige Wert nicht verändert. \\
+FA 370: & \textit{Fehlerhafte Benutzereingaben: }Die Benutzereingaben im Einstellungsmenü und Filtermenü werden auf Fehler überprüft. Bei Fehlern wird der Benutzer zur neuen Eingabe aufgefordert und der vorherige Wert nicht verändert. \\
 
 FA380: & \textit{Skalierung des Graphen: }Der Benutzer ist in der Lage über das Scrollrad die Skalierung des Graphen zu verändern. \\
 
@@ -106,11 +106,11 @@ FA400: & \textit{Generelle Informationen: }In einem Overlay werden generelle Inf
 
 FA410: & \textit{Hover statt Klick: }Hovern erfüllt im Graph die selben Funktionen wie klicken. Zusätzlich zum aktuellen Knoten werden zum Vergleich Informationen des aktuell gehoverten Knotens angezeigt. \\
 
-FA420: & \textit{Blacklist: }Der Nutzer hat die Möglichkeit, bestimmte MAC- und IP Adressräume sowie Gerätenamen als illegal zu markieren. \\
+FA420: & \textit{Blacklist: }Der Benutzer hat die Möglichkeit, bestimmte MAC- und IP Adressräume sowie Gerätenamen als illegal zu markieren. \\
 
-FA425: & \textit{Whitelist: }Der Nutzer hat die Möglichkeit, bestimmte MAC- und IP Adressräume sowie Gerätenamen als legal zu markieren. \\
+FA425: & \textit{Whitelist: }Der Benutzer hat die Möglichkeit, bestimmte MAC- und IP Adressräume sowie Gerätenamen als legal zu markieren. \\
 
-FA427: & \textit{Whitelist/Blacklist aktivieren: }Der Nutzer kann über das Einstellungsmenü wählen, welche Listen verwendet werden sollen. \\
+FA427: & \textit{Whitelist/Blacklist aktivieren: }Der Benutzer kann über das Einstellungsmenü wählen, welche Listen verwendet werden sollen. \\
 
 \end{tabular}
 
@@ -126,7 +126,7 @@ FA450: & \textit{Filteroptionen: }Die Knoten können nach IP, MAC Adresse,, Netz
 
 FA460: & \textit{Filter deaktivieren/reaktivieren: }Es gibt einen Hotkey und eine Option im Filterfenster zum aktivieren oder deaktivieren von Filtern. \\
 
-FA470: & \textit{IO\_Supervisor festlegen: }Der Nutzer kann Geräte eindeutlig spezifizieren, die das Programm als IO Supervisor markiert \\ % TODO (wie) wollen wir das im graphen repräsentieren?
+FA470: & \textit{IO\_Supervisor festlegen: }Der Benutzer kann Geräte eindeutlig spezifizieren, die das Programm als IO Supervisor markiert \\ % TODO (wie) wollen wir das im graphen repräsentieren?
 
 FA480: & \textit{Verbindungsrichtung: }Wenn mindestens x\% (standardmäßig 90\%, konfigurierbar) der Pakete aus einer Richtung kommen, werden Verbindungen im Graph gerichtet angezeigt. \\
 
