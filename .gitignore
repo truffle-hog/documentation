@@ -29,18 +29,6 @@
 *.out
 *.app
 
-# TeX output files
-*.aux
-*.out
-*.blg
-*.bbl
-*.synctex
-*.synctex.gz
-*.fdb_latexmk
-*.fls
-*.toc
-
-
 # General files that shouldn't be included
 *.log
 *.pdf

@@ -4,15 +4,15 @@
 \section{\sppname}
 \begin{tabular}{lp{0.9\linewidth}}
 
-FA10: & \textit{Erkennung fehlerhafter Pakete: }Der Präprozessor muss fehlerhafte Pakete erkennen und diese als solche markieren können, bevor sie an das Analysetool weitergereicht werden. \\
+FA10: & \textit{Erkennung fehlerhafter Pakete: }Der \gls{praeprozessor} muss fehlerhafte Pakete erkennen und diese als solche markieren können, bevor sie an das Analysetool weitergereicht werden. \\
 
-FA20: & \textit{Erkennen von PROFINET Paketen: }Der Präprozessor muss PROFINET Pakete erkennen können. \\
+FA20: & \textit{Erkennen von \gls{profinet} Paketen: }Der \gls{praeprozessor} muss \gls{profinet} Pakete erkennen können. \\
 
-FA30: & \textit{Dekodieren von PROFINET Pakten: }Der Präprozessor muss die erkannten Pakete dekodieren können. \\
+FA30: & \textit{Dekodieren von \gls{profinet} Pakten: }Der \gls{praeprozessor} muss die erkannten Pakete dekodieren können. \\
 
-FA40: & \textit{Unterscheiden der verschiedenen Frame IDs: }Der Präprozessor muss die verschiedenen von PROFINET spezifizierten Frame IDs unterscheiden können.\\
+FA40: & \textit{Unterscheiden der verschiedenen \gls{frameid}s: }Der \gls{praeprozessor} muss die verschiedenen von \gls{profinet} spezifizierten \gls{frameid}s unterscheiden können.\\
 
-FA50: & \textit{Output Kanal zu \programname: }Es muss eine Interprozesskommunikation für die Weitergabe der dekodierten Daten möglich sein.\\
+FA50: & \textit{Output Kanal zu \programname: }Es muss eine \gls{interprocess} für die Weitergabe der dekodierten Daten möglich sein.\\
 
 FA60: & \textit{Starten von \programname: }Wenn in der .config Datei eingestellt, startet sich \programname automatisch. Diese Option ist standardmäßig deaktiviert.\\
 
@@ -25,11 +25,11 @@ FA70: & \textit{Ausgabeschnittstelle: }\sppname muss eine einheitliche Schnittst
 
 \begin{longtable}{lp{0.9\linewidth}}
 
-FA90: & \textit{Starten von Snort: }Wenn Snort noch nicht läuft, wird Snort automatisch gestartet. \\
+FA90: & \textit{Starten von \gls{snort}: }Wenn \gls{snort} noch nicht läuft, wird \gls{snort} automatisch gestartet. \\
 
-FA100: & \textit{\sppname anschalten: }Wenn \sppname in der Snort Konfiguration deaktiviert ist, wird der Benutzer gefragt ob, er dieses aktivieren möchte. Falls der Benutzer \sppname nicht aktiviert, beendet sich \programname. \\
+FA100: & \textit{\sppname anschalten: }Wenn \sppname in der \gls{snort} Konfiguration deaktiviert ist, wird der Benutzer gefragt ob, er dieses aktivieren möchte. Falls der Benutzer \sppname nicht aktiviert, beendet sich \programname. \\
 
-FA110: & \textit{Snort läuft aber \sppname ist deaktiviert: }Falls Snort schon läuft aber \sppname deaktiviert ist, hat der Benutzer die Wahl, \sppname zu aktivieren oder \programname zu deaktivieren. Falls der Präprozessor aktiviert werden soll, wird Snort mit dem reload Befehl neu geladen.\\
+FA110: & \textit{\gls{snort} läuft aber \sppname ist deaktiviert: }Falls \gls{snort} schon läuft aber \sppname deaktiviert ist, hat der Benutzer die Wahl, \sppname zu aktivieren oder \programname zu deaktivieren. Falls der \gls{praeprozessor} aktiviert werden soll, wird \gls{snort} mit dem reload Befehl neu geladen.\\
 
 FA120: & \textit{Empfangen von Paketinformationen: }\programname muss Paketinformationen empfangen können, die dem in FA70 genannten Interface entsprechen. \\
 
@@ -41,25 +41,25 @@ FA150: & \textit{Kennzeichnen illegaler Knoten: }Ein Knoten der ein Gerät aus e
 
 FA160: & \textit{Kennzeichnen illegaler Kanten: }Kanten, die eingehende und ausgehende Kommunikation eines illegalen Knotens repräsentieren, werden für den Benutzer auffällig gekennzeichnet. \\
 
-FA170: & \textit{Erkennen der Kommunikationswege: }Das Programm muss basierend auf Adressen/Gerätenamen einen Kommunikationsgraphen erstellen können. \\
+FA170: & \textit{Erkennen der Kommunikationswege: }Das Programm muss basierend auf Adressen/Gerätenamen einen Kommunikationsgraph erstellen können. \\
 
-FA180: & \textit{Paketaustausch Statistik: }Das Programm muss berechnen können, wie viele Pakete einzelne Knoten pro Sekunde senden bzw. empfangen. Diese Information muss in dem Fenster zur detaillierten Knotenstatistik darstellbar sein. \\
+FA180: & \textit{Paketaustausch Statistik: }Das Programm muss berechnen können, wie viele \glspl{paket} einzelne Knoten pro Sekunde senden bzw. empfangen. Diese Information muss in dem Fenster zur detaillierten Knotenstatistik darstellbar sein. \\
 
-FA190: & \textit{Gesamtzahl der Pakete: }Das Programm muss die gesamte Zahl der empfangenen und gesendeten Pakete in dem Fenster zur detaillierten Knotenstatistik darstellen können. \\
+FA190: & \textit{Gesamtzahl der Pakete: }Das Programm muss die gesamte Zahl der empfangenen und gesendeten \glspl{paket} in dem Fenster zur detaillierten Knotenstatistik darstellen können. \\
 
 FA210: & \textit{Darstellung des Paketvolumens: }Das Paketvolumen der Pakete ist im Graph visuell darstellbar. Diese Darstellung kann in den Einstellungen der Übersicht halber deaktiviert werden. \\
 
 FA220: & \textit{Zeichnen des Graphen: }Der Graph kann mittels verschiedener Graphalgorithmen gezeichnet werden. \\
 
-FA230: & \textit{Sprachwechsel: }Das Programm soll so gebaut sein, dass ein einfacher Sprachwechsel der GUI möglich ist. \\
+FA230: & \textit{Sprachwechsel: }Das Programm soll so gebaut sein, dass ein einfacher Sprachwechsel der \gls{gui} möglich ist. \\
 
-FA250: & \textit{Kantenunterschied: }Die unterschiedlichen PROFINET Protokolle werden durch Labels oder Farben voneinander unterscheidbar sein. \\
+FA250: & \textit{Kantenunterschied: }Die unterschiedlichen \gls{profinet} Protokolle werden durch Labels oder Farben voneinander unterscheidbar sein. \\
 
-FA260: & \textit{Logging: }Das Programm erstellt ein Log aller Pakete mit kritischen Informationen und kann dieses auf Benutzerwunsch als Textdatei ausgeben. \\
+FA260: & \textit{Logging: }Das Programm erstellt ein \gls{log} aller \glspl{paket} mit kritischen Informationen und kann dieses auf Benutzerwunsch als Textdatei ausgeben. \\
 
-FA270: & \textit{Spezifisches Logging: }Das Programm erstellt spezifische Logdateien zu einzelnen Knoten mit den von diesem Knoten gesendeten/empfangenen Paketen. \\
+FA270: & \textit{Spezifisches Logging: }Das Programm erstellt spezifische \glspl{log} zu einzelnen Knoten mit den von diesem Knoten gesendeten/empfangenen \glspl{paket}n. \\
 
-FA280: & \textit{Fehlerhafte Pakete: }Von \sppname als fehlerhaft erkannte Pakete werden mit einem Fehlerflag versehen und so in das Log übernommen.
+FA280: & \textit{Fehlerhafte Pakete: }Von \sppname als fehlerhaft erkannte \glspl{paket} werden mit einem \gls{fehlerflag} versehen und so in das \gls{log} übernommen.
 
 \end{longtable}
 
@@ -68,13 +68,13 @@ FA280: & \textit{Fehlerhafte Pakete: }Von \sppname als fehlerhaft erkannte Paket
 
 FA290: & \textit{Rückverfolgung: }Der Benutzer kann den zeitlichen Ablauf grafisch zurückverfolgen (wie ein Video) und sämtliche Kommunikationswege erneut abspielen. \\
 
-FA300: & \textit{Kennzeichnen inaktiver Knoten: }Knoten werden nach einer im Einstellungsmenü spezifizierten Zeit als inaktiv gekennzeichnet, wenn sie in dieser Zeit keine Pakete empfangen oder gesendet haben. \\
+FA300: & \textit{Kennzeichnen inaktiver Knoten: }Knoten werden nach einer im Einstellungsmenü spezifizierten Zeit als inaktiv gekennzeichnet, wenn sie in dieser Zeit keine \glspl{paket} empfangen oder gesendet haben. \\
 
 FA310: & \textit{Abgrenzen gefilterter Knoten: }Alle Knoten, die nicht den Filteroptionen genügen, werden optisch vom Rest des Graphen getrennt. \\
 
-FA315: & \textit{Timeoutbenachrichtigung: }Wenn ein IO\_Controller einen Identify Request sendet und ein Timeout stattfindet, wird der Benutzer grafisch darüber in Kenntnis gesetzt.\\
+FA315: & \textit{Timeoutbenachrichtigung: }Wenn ein \gls{iocontroller} einen \gls{identifyrequest} sendet und ein Timeout stattfindet, wird der Benutzer grafisch darüber in Kenntnis gesetzt.\\
 
-FA316: & \textit{Darstellen von Snort Alerts: }Falls Snort Alerts auftreten, werden diese Grafisch dargestellt.
+FA316: & \textit{Darstellen von \gls{snort} Alerts: }Falls \gls{snort} Alerts auftreten, werden diese Grafisch dargestellt.
 
 \end{tabular}
 
@@ -108,9 +108,9 @@ FA400: & \textit{Generelle Informationen: }In einem Overlay werden generelle Inf
 
 FA410: & \textit{Hover über einem Knoten: }Hovern erfüllt im Graph dieselben Funktionen wie klicken. Zusätzlich zum aktuell angeklickten Knoten werden zum Vergleich Informationen des aktuell gehoverten Knotens angezeigt. \\
 
-FA420: & \textit{Blacklist: }Der Benutzer hat die Möglichkeit, bestimmte MAC- und IP Adressräume sowie Gerätenamen als illegal zu markieren. \\
+FA420: & \textit{\gls{blacklist}: }Der Benutzer hat die Möglichkeit, bestimmte \gls{mac}- und \gls{ip} Adressräume sowie Gerätenamen als illegal zu markieren. \\
 
-FA425: & \textit{Whitelist: }Der Benutzer hat die Möglichkeit, bestimmte MAC- und IP Adressräume sowie Gerätenamen als legal zu markieren. \\
+FA425: & \textit{\gls{whitelist}: }Der Benutzer hat die Möglichkeit, bestimmte \gls{mac}- und \gls{ip} Adressräume sowie Gerätenamen als legal zu markieren. \\
 
 FA427: & \textit{Whitelist/Blacklist aktivieren: }Der Benutzer kann über das Einstellungsmenü wählen, welche Listen verwendet werden sollen. \\
 
@@ -124,13 +124,13 @@ FA430: & \textit{Statistiken zu Knoten: }Ein Overlay mit zeitlichen Statistiken 
 
 FA440: & \textit{Filtereinstellungen: }Die Filtereinstellungen können im Einstellungsmenü angepasst werden. \\
 
-FA450: & \textit{Filteroptionen: }Die Knoten können nach IP, MAC Adresse, Netzwerkaktivität oder Gerätenamen gefiltert werden. \\
+FA450: & \textit{Filteroptionen: }Die Knoten können nach \gls{ip}, \gls{mac} Adresse, Netzwerkaktivität oder Gerätenamen gefiltert werden. \\
 
 FA460: & \textit{Filter deaktivieren/reaktivieren: }Es gibt einen Hotkey und eine Option im Filterfenster zum aktivieren oder deaktivieren von Filtern. \\
 
-FA470: & \textit{IO\_Supervisor festlegen: }Der Benutzer kann Geräte eindeutig spezifizieren, die das Programm als IO Supervisor markiert. \\ % TODO (wie) wollen wir das im graphen repräsentieren?
+FA470: & \textit{\gls{io-supervisor} festlegen: }Der Benutzer kann Geräte als \gls{io-supervisor} markieren. \\
 
-FA480: & \textit{Verbindungsrichtung: }Wenn mindestens x\% (standardmäßig 90\%, konfigurierbar) der Pakete aus einer Richtung kommen, werden Verbindungen im Graph gerichtet angezeigt. \\
+FA480: & \textit{Verbindungsrichtung: }Wenn mindestens x\% (standardmäßig 90\%, konfigurierbar) der \glspl{paket} aus einer Richtung kommen, werden Verbindungen im Graph gerichtet angezeigt. \\
 
 FA490: & \textit{Graphdarstellungsalgorithmen: }Die Graphdarstellungsalgorithmen können über das Einstellungsmenü ausgewählt/geändert werden. \\
 
