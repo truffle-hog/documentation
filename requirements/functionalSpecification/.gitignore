@@ -3,6 +3,7 @@
 *.glo
 *.gls
 *.ist
+*.ilg
 *.aux
 *.out
 *.blg

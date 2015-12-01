@@ -1,26 +1,26 @@
 \chapter{Zielbestimmung}
 
-\programname und \sppname sollen eine Möglichkeit schaffen, das Intrusion-Detection-System Snort auch mit PROFINET verwenden zu können.
-Hierbei soll \programname eine übersichtliche Darstellung der Beziehungen und Datenflüsse in dem überwachten Netzwerk bieten.
+\gls{programname} und \gls{sppname} sollen eine Möglichkeit schaffen, das \gls{ids} \gls{snort} auch mit \gls{profinet} verwenden zu können.
+Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen und Datenflüsse in dem überwachten Netzwerk bieten.
 
 \section{Musskriterien}
 
-\subsection{\sppname (Snort Präprozessor)}
+\subsection{\gls{sppname}}
 
 \begin{itemize}
-\item Der Präprozessor muss Ethernet-PROFINET-Pakete erkennen und dekodieren können.
+\item Der \gls{praeprozessor} muss \gls{ethernet} \gls{profinet} Pakete erkennen und dekodieren können.
 
-\item Der Präprozessor muss ein Ausgabeinterface bereitstellen damit \programname die dekodierten Paketdaten empfangen und weiterverarbeiten kann.
+\item Der \gls{praeprozessor} muss ein Ausgabeinterface bereitstellen damit \gls{programname} die dekodierten Paketdaten empfangen und weiterverarbeiten kann.
 
-\item Der Präprozessor muss die PROFINET Header Daten zusammenfassen und an \programname weitergeben.
+\item Der \gls{praeprozessor} muss die \gls{profinet} \gls{headerdaten} zusammenfassen und an \gls{programname} weitergeben.
 \end{itemize}
 
-\subsection{\programname (Analyseprogramm)}
+\subsection{\gls{programname} (Analyseprogramm)}
 
 \begin{itemize}
 \item Das Analyseprogramm muss eine grafische Oberfläche mit folgenden Funktionen bieten:
 
-    \subitem Übersichtliche, dynamische Graph-Darstellung der einzelnen Komponenten eines Netzwerks.
+    \subitem Übersichtliche, dynamische Graphdarstellung der einzelnen Komponenten eines Netzwerks.
 
     \subitem Möglichkeit zur zusätzlichen Darstellung von detaillierten Informationen.
 
@@ -28,7 +28,7 @@ Hierbei soll \programname eine übersichtliche Darstellung der Beziehungen und D
 
 \item Legale und illegale Kommunikation müssen unterschiedlich dargestellt werden.
 
-\item Es gibt eine Möglichkeit Bestimmte Subnetze auf eine Blacklist bzw. Whitelist zu setzen.
+\item Es gibt eine Möglichkeit Bestimmte Subnetze auf eine \gls{blacklist} bzw. \gls{whitelist} zu setzen.
 
 \item Über ein Einstellungsmenü sollen Darstellungsvarianten spezifiziert werden können.
 
@@ -37,25 +37,25 @@ Hierbei soll \programname eine übersichtliche Darstellung der Beziehungen und D
 
 \section{Kannkritierien}
 
-\subsection{\sppname}
+\subsection{\gls{sppname}}
 
 \begin{itemize}
 
-\item Der Präprozessor kann decodierte Pakete Snort zur Verfügung stellen, damit sie dort weiterverarbeitet werden können.
+\item Der \gls{praeprozessor} kann dekodierte Pakete \gls{snort} zur Verfügung stellen, damit sie dort weiterverarbeitet werden können.
 
-\item Der Präprozessor kann PROFINET TCP Pakete erkennen und dekodieren.
+\item Der \gls{praeprozessor} kann \gls{profinet} \gls{tcp} Pakete erkennen und dekodieren.
 
-\item Der Präprozessor ist in der Lage andere Protokollarten zur Weiterverarbeitung an \programname weiterzugeben.
+\item Der \gls{praeprozessor} ist in der Lage andere Protokollarten zur Weiterverarbeitung an \gls{programname} weiterzugeben.
 \end{itemize}
 
-\subsection{\programname}
+\subsection{\gls{programname}}
 
 \begin{itemize}
 \item Es gibt ein Einstellungsmenü welches dem Nutzer ermöglicht grundlegende Einstellungen vorzunehmen.
 
 \item Das Analysetool kann dem Nutzer grafische Statistiken des bisher stattgefundenen Netzwerkverkehrs anzeigen.
 
-\item Das Analysetool kann von Snort ausgelöste Alerts im Graph darstellen.
+\item Das Analysetool kann von \gls{snort} ausgelöste \gls{alert} im Graph darstellen.
 
 \item Die Kommunikationswege und -richtungen können im Graphen dargestellt werden.
 
@@ -63,11 +63,11 @@ Hierbei soll \programname eine übersichtliche Darstellung der Beziehungen und D
 
 \item Der Übertragungstyp kann, soweit bekannt, im Graph dargestellt werden.
 
-\item Ausgabe eines Kommunikationslogs bei Klicken auf eine Kante zwischen zwei Netzkomponenten.
+\item Ausgabe eines \gls{log} mit Informationen zur Kommunikation bei Klicken auf eine Kante zwischen zwei Netzkomponenten.
 
 \item Dem Benutzer wird ermöglicht, Knoten anhand von Kriterien zu filtern.
 
-\item Die Maximalgröße des aufzuzeichnenden Logs kann in dem Einstellungsmenü festgelegt werden.
+\item Die Maximalgröße des aufzuzeichnenden \glspl{log} kann in dem Einstellungsmenü festgelegt werden.
 
 \item Der Benutzer hat die Möglichkeit über ein Menü verschiedene Algorithmen zur Graphdarstellung auszuwählen.
 
@@ -76,21 +76,21 @@ Hierbei soll \programname eine übersichtliche Darstellung der Beziehungen und D
 
 \section{Abgrenzungskriterien}
 
-\subsection{\sppname}
+\subsection{\gls{sppname}}
 \begin{itemize}
-\item Der Präprozessor soll nicht die Arbeit von Snort und dem Analysetool übernehmen.
+\item Der \gls{praeprozessor} soll nicht die Arbeit von \gls{snort} und dem Analysetool übernehmen.
 
-\item Der Präprozessor soll nur dekodieren und nicht analysieren.
+\item Der \gls{praeprozessor} soll nur dekodieren und nicht analysieren.
 
 \end{itemize}
 
-\subsection{\programname}
+\subsection{\gls{programname}}
 \begin{itemize}
 
-\item \programname bietet keinen aktiven Schutz vor Angriffen, sondern zeigt solche nur an. (dient lediglich der Analyse und Visualisierung des Netzwerkverkehrs)
+\item \gls{programname} bietet keinen aktiven Schutz vor Angriffen, sondern zeigt solche nur an. (dient lediglich der Analyse und Visualisierung des Netzwerkverkehrs)
 
 \item Die Graphalgorithmen  werden einer Bibliothek entnommen und nicht selbst entwickelt.
 
-\item Die GUI wird nicht von Grund auf neu entwickelt, sondern verwendet Bibliotheken um die Entwicklung zu erleichtern.
+\item Die \gls{gui} wird nicht von Grund auf neu entwickelt, sondern verwendet Bibliotheken um die Entwicklung zu erleichtern.
 
 \end{itemize}
