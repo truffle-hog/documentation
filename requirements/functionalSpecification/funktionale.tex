@@ -29,7 +29,7 @@ FA90: & \textit{Starten von Snort: }Wenn Snort noch nicht läuft, wird Snort aut
 
 FA100: & \textit{\sppname anschalten: }Wenn \sppname in der Snort Konfiguration deaktiviert ist, wird der Benutzer gefragt ob, er dieses aktivieren möchte. Falls der Benutzer \sppname nicht aktiviert, beendet sich \programname. \\
 
-FA110: & \textit{Snort läuft aber \sppname ist deaktiviert: }Falls Snort schon läuft aber \sppname deaktiviert ist, hat der Benutzer die Wahl, \sppname zu aktivieren oder \programname zu deaktivieren. Falls das Plugin aktiviert werden soll, wird Snort mit dem reload Befehl neu geladen.\\
+FA110: & \textit{Snort läuft aber \sppname ist deaktiviert: }Falls Snort schon läuft aber \sppname deaktiviert ist, hat der Benutzer die Wahl, \sppname zu aktivieren oder \programname zu deaktivieren. Falls der Präprozessor aktiviert werden soll, wird Snort mit dem reload Befehl neu geladen.\\
 
 FA120: & \textit{Empfangen von Paketinformationen: }\programname muss Paketinformationen empfangen können, die dem in FA70 genannten Interface entsprechen. \\
 
@@ -72,7 +72,9 @@ FA300: & \textit{Kennzeichnen inaktiver Knoten: }Knoten werden nach einer im Ein
 
 FA310: & \textit{Abgrenzen gefilterter Knoten: }Alle Knoten, die nicht den Filteroptionen genügen, werden optisch vom Rest des Graphen getrennt. \\
 
-FA315: & \textit{Timeoutbenachrichtigung: }Wenn ein IO\_Controller ein Identify Request sendet und ein Timeout stattfindet, wird der Benutzer grafisch darüber in Kenntnis gesetzt. \\
+FA315: & \textit{Timeoutbenachrichtigung: }Wenn ein IO\_Controller einen Identify Request sendet und ein Timeout stattfindet, wird der Benutzer grafisch darüber in Kenntnis gesetzt.\\
+
+FA316: & \textit{Darstellen von Snort Alerts: }Falls Snort Alerts auftreten, werden diese Grafisch dargestellt.
 
 \end{tabular}
 
@@ -133,4 +135,4 @@ FA480: & \textit{Verbindungsrichtung: }Wenn mindestens x\% (standardmäßig 90\%
 FA490: & \textit{Graphdarstellungsalgorithmen: }Die Graphdarstellungsalgorithmen können über das Einstellungsmenü ausgewählt/geändert werden. \\
 
 FA500: & \textit{Kategorisierung: }Einzelne Knoten können im Graph als unwichtig eingestuft werden, um diese visuell abzugrenzen. \\
-\end{tabular} 
+\end{tabular}
