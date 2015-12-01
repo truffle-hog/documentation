@@ -288,6 +288,12 @@ Alice öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und
 \section{Statische Modelle}
 
 \subsection{Komponentenmodell}
+\begin{easylist}[enumerate]
+	\ListProperties(Style2*=,Numbers=a,Numbers1=R,FinalMark1={.},FinalMark2={.},FinalMark3={.},Numbers4=l)
+    &Der Neztwerkverkehr erreicht Snort über einen Port und wird innerhalb von Snort von Komponente zu Komponente 
+    &nach unten weiter bearbeitet. Unser einprogrammierter Präprozessor leitet die Pakete über die vordefinierte &Schnittstelle an den Controller von Netzwerk.IO, damit dieser entscheiden kann, wie die Pakete einzuordnen &sind. Des Weiteren gibt es eine optionale Schnittstelle eines Snort-Output-Plugins um die Alerts an den Controller des \programname weiter zu schicken.
+
+	\end{easylist}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{../diagrams/CMP_Architekturdiagramm.png}
