@@ -8,9 +8,9 @@
 
 \begin{tabular}{lp{0.9\linewidth}}
 
-Tom & Der Benutzer des Programms \programname. \\
+Alice & Der Benutzer des Programms \programname. \\
 
-Udo & Der Angreifer des Firmennetzwerkes. \\
+Bob & Der Angreifer des Firmennetzwerkes. \\
 
 Insekura & Die Firma dessen Geräte ProfiNet zur internen Kommunikation verwenden. \\
 
@@ -20,19 +20,19 @@ Insekura & Die Firma dessen Geräte ProfiNet zur internen Kommunikation verwende
 
 \subsection{Szenario 1: Hinzufügen von erlaubten Adressen}
 
-Tom's Firma Insekura nutzt das industrielle Protokoll ProfiNet für die Kommunikation zwischen den Geräten des Systems. Bisher hat Tom keine Möglichkeit gehabt den Netzwerkverkehr zwischen den Drehmaschinen zu kontrollieren. Während des laufenden Betriebs greift der ehemalige Mitarbeiter Udo unbeobachtet auf den Maschinenablauf zu und verursacht dadurch eine Werkzeugkollision. Der materielle Schaden für die Firma ist groß, ein Mitarbeiter wurde leicht verletzt. Zudem kann Tom den Ablauf der Kommunikation und damit die Ursache des Schadens nicht zurückverfolgen.
+Alice's Firma Insekura nutzt das industrielle Protokoll ProfiNet für die Kommunikation zwischen den Geräten des Systems. Bisher hat Alice keine Möglichkeit gehabt den Netzwerkverkehr zwischen den Drehmaschinen zu kontrollieren. Während des laufenden Betriebs greift der ehemalige Mitarbeiter Bob unbeobachtet auf den Maschinenablauf zu und verursacht dadurch eine Werkzeugkollision. Der materielle Schaden für die Firma ist groß, ein Mitarbeiter wurde leicht verletzt. Zudem kann Alice den Ablauf der Kommunikation und damit die Ursache des Schadens nicht zurückverfolgen.
 
-In der Hoffnung Unfälle und Attacken solcher Art in Zukunft vermeiden zu können, installiert er die freie Software \programname und lässt sie auf einem gut sichtbaren Bildschirm in seinem Büro dauerhaft in Betrieb. Auf dem Display sieht er sämtliche \textbf{Geräte als Knoten} eines Graphen und kann die \textbf{Kommunikationswege zwischen Geräten und Controllern durch gerichtete Kanten} gut verfolgen. In den Einstellungen von \programname \textbf{fügt er den Adressraum des Firmennetzes zu den erlaubten Kommunikationsadressen hinzu}.
+In der Hoffnung Unfälle und Attacken solcher Art in Zukunft vermeiden zu können, installiert sie die freie Software \programname und lässt sie auf einem gut sichtbaren Bildschirm in ihrem Büro dauerhaft in Betrieb. Auf dem Display sieht sie sämtliche \textbf{Geräte als Knoten} eines Graphen und kann die \textbf{Kommunikationswege zwischen Geräten und Controllern durch gerichtete Kanten} gut verfolgen. In den Einstellungen von \programname \textbf{fügt sie den Adressraum des Firmennetzes zu den erlaubten Kommunikationsadressen hinzu}.
 
 \subsection{Szenario 2: Echtzeit Beobachtung von Angriffen}
 
-Im Laufe der nächsten Tage startet Udo einen weiteren Versuch seiner alten Firma zu schaden. Letztes Mal hat das wunderbar funktioniert, keiner konnte seine fremde Adresse identifizieren und er hatte uneingeschränkte Möglichkeiten falsche Daten an die Drehmaschinen zu übermitteln.
+Im Laufe der nächsten Tage startet Bob einen weiteren Versuch seiner alten Firma zu schaden. Letztes Mal hat das wunderbar funktioniert, keiner konnte seine fremde Adresse identifizieren und er hatte uneingeschränkte Möglichkeiten falsche Daten an die Drehmaschinen zu übermitteln.
 
-Während sich Udo den Zugang auf das System verschafft, sitzt Tom in seinem Büro und hat seinen Blick gerade auf den Bildschirm mit dem laufenden \programname gerichtet. Er sieht wie ein roter Knoten auf dem Bildschirm erscheint und mit einer der Drehmaschinen beginnt zu kommunizieren. Die Kommunikationskante ist auch rot gekennzeichnet. Sofort eilt Tom zur Tür und drückt auf den Notfall Ausschalter des Systems. Schlimmeres konnte verhindert werden.
+Während sich Bob den Zugang auf das System verschafft, sitzt Alice in ihrem Büro und hat ihren Blick gerade auf den Bildschirm mit dem laufenden \programname gerichtet. Sie sieht wie ein roter Knoten auf dem Bildschirm erscheint und mit einer der Drehmaschinen beginnt zu kommunizieren. Die Kommunikationskante ist auch rot gekennzeichnet. Sofort eilt Alice zur Tür und drückt auf den Notfall Ausschalter des Systems. Schlimmeres konnte verhindert werden.
 
 \subsection{Szenario 3: Auslesen von Log Dateien}
 
-Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und kann dadurch zurückverfolgen wer sich unerlaubten Zugriff auf das Firmennetzwerk verschafft hat. Udo steht eine große Schadensersatzklage bevor.
+Alice öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und kann dadurch zurückverfolgen wer sich unerlaubten Zugriff auf das Firmennetzwerk verschafft hat. Bob steht eine große Schadensersatzklage bevor.
 
 
 \section{Anwendungsfälle}
@@ -48,7 +48,7 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 \textbf{Eingangsbedingung} &
 				\begin{minipage}[t]{\linewidth}
 				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
-				
+
 				\item \programname und Snort mit \sppname sind in Betrieb
 
 				\end{itemize}
@@ -60,7 +60,7 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 				\item Benutzer navigiert ins Einstellungsmenü
 				\item Benutzer passt die gewünschte Liste an
 				\item Benutzer bestätigt Änderungen
-				
+
 				\end{itemize}
 				\end{minipage} \\
 
@@ -76,7 +76,7 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 \textbf{Eingangsbedingung} &
 				\begin{minipage}[t]{\linewidth}
 				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
-				
+
 				\item \programname und Snort mit \sppname sind in Betrieb
 				\item Aktiver Datenverkehr zwischen Geräten des Netzwerkes
 
@@ -102,7 +102,7 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 \textbf{Eingangsbedingung} &
 				\begin{minipage}[t]{\linewidth}
 				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
-				
+
 				\item \programname und Snort mit \sppname sind in Betrieb
 				\item Aktiver Datenverkehr zwischen Geräten des Netzwerkes
 
@@ -126,7 +126,7 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 \textbf{Eingangsbedingung} &
 				\begin{minipage}[t]{\linewidth}
 				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
-				
+
 				\item \programname und Snort mit \sppname sind in Betrieb
 
 				\end{itemize}
@@ -150,7 +150,7 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 \textbf{Eingangsbedingung} &
 				\begin{minipage}[t]{\linewidth}
 				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
-				
+
 				\item \programname und Snort mit \sppname sind in Betrieb
 
 				\end{itemize}
@@ -184,33 +184,33 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 
 
 	\subsection{Beschreibung: Programmablauf}
-	
+
 	\begin{easylist}[enumerate]
 	\ListProperties(Style2*=,Numbers=a,Numbers1=R,FinalMark1={.},FinalMark2={.},FinalMark3={.},Numbers4=l)
-	
-	
+
+
 	& \programname wird gestartet (siehe Grafik "Starte Programm")
-	
+
 	& \programname und \sppname laufen als getrennte Prozesse
-	
+
 		&& Prozess: Wenn Snort noch nicht läuft wird Snort gestartet und sendet Paketdaten an den \programname Prozess (siehe Grafik "Pluginaktivitäten")
-		
+
 		&& Prozess: \programname startet mehrere Threads
-		
+
 			&&& Kontrollfluss:
 			&&&& Prüfen auf neue Pakete
 			&&&& Vorhandenes Paket wird gelesen und aus dem Puffer gelöscht
 			&&&& Paket wird verarbeitet wenn vorhanden (siehe Grafik "Verarbeite Paketdaten")
-			
+
 			&&& Kontrollfluss:
 			&&&& \programname reagiert und verarbeitet Benutzerinteraktion (siehe Anwendungsfälle "Benutzerinteraktion")
-			
+
 			&&& Kontrollfluss:
 			&&&& \programname empfängt Paketdaten von Snort und schreibt sie in den Prozessinternen Paketpuffer
-			
+
 	& Unabhängig voneinander wird die GUI nach jeder Veränderung durch neue Paketdaten oder Benutzereingaben aktualisiert
 	& Das Programm wird bei Bedarf beendet
-	
+
 	\end{easylist}
 
     \begin{figure}[h!]
@@ -220,23 +220,23 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 
 \pagebreak
 \subsection{Beschreibung: Starte Programm}
-	
+
 	\begin{easylist}[enumerate]
 	\ListProperties(Style2*=,Numbers=a,Numbers1=R,FinalMark1={.},FinalMark2={.},FinalMark3={.},Numbers4=l)
-	
-	
+
+
 	& Initialisiere relevante Daten
-	
+
 	& Wenn Snort noch nicht läuft, frage den Benutzer ob Snort gestartet werden soll
 		&& Wenn der Benutzer zustimmt wird Snort mit Plugin gestartet
 		&& Wenn der Benutzer ablehnt wird Netzwerk.IO beendet
-	
+
 	& Wenn Snort schon läuft, dann Benutzer fragen ob Plugin gestartet werden soll
 	    && Wenn der Benutzer zustimmt wird Snort mit dem Plugin neu geladen
 	    && Wenn der Benutzer nicht zustimmt wird Netzwerk.IO beendet
-	
+
 	\end{easylist}
-	
+
     \begin{figure}[h!]
         \centering
         \includegraphics[width=\textwidth]{../diagrams/AD_Starte_Programm}
@@ -248,17 +248,17 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 
 	\begin{easylist}[enumerate]
 	\ListProperties(Style2*=,Numbers=a,FinalMark1={.},FinalMark2={.},FinalMark3={.},Numbers4=l)
-	
-	
+
+
 	& Das Snort Plugin empfängt ein neues Paket
 	& Das Paket wird dekodiert
 	& Das dekodierte Paket wird auf Fehler geprüft
 	    && Wenn ein Fehler gefunden wurde wird das Paket als fehlerhaft markiert
 	& Das Paket wird an Netzwerk.IO weitergesendet
 	& Das Paket wird für weitere Analysen auch an Snort weitergegeben
-	
+
 	\end{easylist}
-	
+
     \begin{figure}[h!]
         \centering
         \includegraphics[width=0.5\textwidth]{../diagrams/AD_Pluginaktivitaeten}
@@ -270,17 +270,17 @@ Tom öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und k
 
 	\begin{easylist}[enumerate]
 	\ListProperties(Style2*=,Numbers=a,Numbers1=R,FinalMark1={.},FinalMark2={.},FinalMark3={.},Numbers4=l)
-	
-	
+
+
 	& Das Snort Plugin empfängt ein neues Paket
 	& Das Paket wird dekodiert
 	& Das dekodierte Paket wird auf Fehler geprüft
 	    && Wenn ein Fehler gefunden wurde wird das Paket als fehlerhaft markiert
 	& Das Paket wird an Netzwerk.IO weitergesendet
 	& Das Paket wird für weitere Analysen auch an Snort weitergegeben
-	
+
 	\end{easylist}
-	
+
     \begin{figure}[h!]
         \centering
         \includegraphics[width=0.5\textwidth]{../diagrams/AD_Verarbeite_Paketdaten}

@@ -7,8 +7,8 @@
   \item[\namedlabel{addNetNode}{Kommunikationsteilnehmer hinzufügen}] Ein Kommunikationsteilnehmer wird zum Netzwerk hinzugefügt indem er anfängt PN-Pakete zu senden. Er erscheint auf der GUI, Gerätename/IP-Adresse/MAC-Adresse ist direkt sichtbar. Der Nutzer lässt sich mit einem Klick die Knoten-Details anzeigen.
   \item[\namedlabel{normalWatch}{Normale Netzwerküberwachung}] Es kommuniziert ein Beispielnetzwerk von 5 Teilnehmern über PROFINET, in der GUI baut sich ein Graph selbständig auf und zeigt jeden Kommunikationsteilnehmer sowie die zugehörigen Verbindungen an. Alle Kommunikationswege werden als legal gekennzeichnet. Der Nutzer lässt sich die Log-Dateien der letzten 10 Minuten anzeigen.
   \item[\namedlabel{guiDisplay}{Korrekte GUI Darstellung}] Ein Paketsender sendet den gleichen Datenverkehr zu einem zweiten, neuen Empfänger, die GUI zeigt dies an. Weiter sind die Logs der Verbindungen, welche in der GUI durch den Nutzer abgerufen werden, bis auf die Adressen identisch zwischen beiden Empfängern.
-  \item[\namedlabel{filter}{Filter anwenden}] Der Nutzer stellt im Filtereinstellungsmenü den Namensfilter ein und lässt sich alle Knoten mit Unternamen “Haribo” markieren. //Die GUI graut alle anderen Knoten aus.
-  \item[\namedlabel{guiChanging}{Graph verändern}] Der Nutzer skaliert den Graphen klein(zoomt raus). //Der Nutzer wählt einen alternativen Graph-Darstellungsalgorithmus.
+  \item[\namedlabel{filter}{Filter anwenden}] Der Nutzer stellt im Filtereinstellungsmenü den Namensfilter ein und lässt sich alle Knoten mit Unternamen “Haribo” markieren. \\Die GUI graut alle anderen Knoten aus.
+  \item[\namedlabel{guiChanging}{Graph verändern}] Der Nutzer skaliert den Graphen klein(zoomt raus). \\Der Nutzer wählt einen alternativen Graph-Darstellungsalgorithmus.
   \item[\namedlabel{inactive}{Netzteilnehmer wird inaktiv}] Ein Paketsender wird aus dem Netz entfernt (hört auf zu senden), er wird nach zuvor vom Nutzer eingestellten 5 Sekunden als inaktiv markiert.
   \item[\namedlabel{errpak}{Fehlerhaftes Paket}] Ein fehlerhaftes Paket wird von einem Paketsender gesendet, der Nutzer lässt sich die Log-Dateien anzeigen und sieht das als fehlerhaft markierte Paket.
   \item[\namedlabel{blacklist}{Blacklist}] Ein Angreifer mit Blacklist-Adresse im Netzwerks löst Illegale-Kommunikation-Alarm aus und erscheint auf der GUI inklusive Warnung für den Nutzer. Die Kommunikation wird als illegal angezeigt.
@@ -31,4 +31,4 @@
   \item \ref{start}, \ref{normalWatch}, \ref{blacklist}, \ref{inactiveBlacklist}, \ref{Exit}
   \item \ref{start}, \ref{normalWatch}, \ref{Absturz}
   \item \ref{start}, \ref{normalWatch}, \ref{filter}, \ref{Absturz}, \ref{start}, \ref{addNetNode}, \ref{filter}, \ref{errpak}, \ref{Absturz}, \ref{start}, \ref{normalWatch}, \ref{Exit}
-\end{itemize} 
+\end{itemize}
