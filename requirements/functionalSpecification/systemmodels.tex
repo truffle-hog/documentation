@@ -189,7 +189,7 @@ Alice öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und
 
 	& \programname und \sppname laufen als getrennte Prozesse
 
-		&& Prozess: Wenn Snort noch nicht läuft wird Snort gestartet und sendet Paketdaten an den \programname Prozess (siehe Grafik "Pluginaktivitäten")
+		&& Prozess: Wenn Snort noch nicht läuft wird Snort gestartet und sendet Paketdaten an den \programname Prozess (siehe Grafik "Präprozessoraktivitäten")
 
 		&& Prozess: \programname startet mehrere Threads
 
@@ -226,11 +226,11 @@ Alice öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und
 	& Initialisiere relevante Daten
 
 	& Wenn Snort noch nicht läuft, frage den Benutzer ob Snort gestartet werden soll
-		&& Wenn der Benutzer zustimmt wird Snort mit Plugin gestartet
+		&& Wenn der Benutzer zustimmt wird Snort mit dem Präprozessor gestartet
 		&& Wenn der Benutzer ablehnt wird Netzwerk.IO beendet
 
-	& Wenn Snort schon läuft, dann Benutzer fragen ob Plugin gestartet werden soll
-	    && Wenn der Benutzer zustimmt wird Snort mit dem Plugin neu geladen
+	& Wenn Snort schon läuft, dann Benutzer fragen ob Präprozessor gestartet werden soll
+	    && Wenn der Benutzer zustimmt wird Snort mit dem Präprozessor neu geladen
 	    && Wenn der Benutzer nicht zustimmt wird Netzwerk.IO beendet
 
 	\end{easylist}
@@ -242,13 +242,13 @@ Alice öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und
     \end{figure}
 
 \pagebreak
-\subsection{Beschreibung: Pluginaktivitäten}
+\subsection{Beschreibung: Präprozessoraktivitäten}
 
 	\begin{easylist}[enumerate]
 	\ListProperties(Style2*=,Numbers=a,FinalMark1={.},FinalMark2={.},FinalMark3={.},Numbers4=l)
 
 
-	& Das Snort Plugin empfängt ein neues Paket
+	& Der Snort Präprozessor empfängt ein neues Paket
 	& Das Paket wird dekodiert
 	& Das dekodierte Paket wird auf Fehler geprüft
 	    && Wenn ein Fehler gefunden wurde wird das Paket als fehlerhaft markiert
@@ -259,8 +259,8 @@ Alice öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und
 
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.5\textwidth]{../diagrams/AD_Pluginaktivitaeten}
-        \caption{Aktivitätsdiagramm Pluginaktivitäten}
+        \includegraphics[width=0.5\textwidth]{../diagrams/AD_Praeprozessoraktivitaeten}
+        \caption{Aktivitätsdiagramm Präprozessoraktivitäten}
     \end{figure}
 
 \pagebreak
@@ -270,7 +270,7 @@ Alice öffnet die log Datei des roten Knotens, der den Angriff gestartet hat und
 	\ListProperties(Style2*=,Numbers=a,Numbers1=R,FinalMark1={.},FinalMark2={.},FinalMark3={.},Numbers4=l)
 
 
-	& Das Snort Plugin empfängt ein neues Paket
+	& Der Snort Präprozessor empfängt ein neues Paket
 	& Das Paket wird dekodiert
 	& Das dekodierte Paket wird auf Fehler geprüft
 	    && Wenn ein Fehler gefunden wurde wird das Paket als fehlerhaft markiert
