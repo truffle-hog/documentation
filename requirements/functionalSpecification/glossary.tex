@@ -22,70 +22,79 @@
 [description={Ist eine vom Institute of Electrical and Electronics Engineers (IEEE) entworfene Erweiterung des OSI-Modells.}]
 {mac}{MAC}{Media Access Control}
 
-  \newglossaryentry{alert}{
+\newglossaryentry{alert} {
   name=Alert,
   plural=Alerts,
   description={Ein von Snort versendeter Alarm, welcher durch verschieden Regeln abgefangen und verarbeitet werden kann.}
 }
 
-  \newglossaryentry{whitelist}{
+\newglossaryentry{whitelist} {
   name=Whitelist,
-  description={Eine Liste auf der sich vertrauenswürdig Geräte (Knoten) befinden. Alle Geräte die sich nicht auf dieser Liste befinden werden als potenziell gefährlich gewertet und blockiert.}
+  description={Eine Liste auf der sich vertrauenswürdig Geräte befinden. Alle Geräte die sich nicht auf dieser Liste befinden werden als potenziell gefährlich gewertet und blockiert.}
 }
 
-  \newglossaryentry{blacklist}{
+\newglossaryentry{blacklist}{
   name=Blacklist,
-  description={Eine Liste auf der sicht \textbf{nicht} vertrauenswürdig Geräte (Knoten) befinden. Alle Geräte die sich auf dieser Liste befinden werden blockiert, alle anderen nicht.}
-
+  description={Eine Liste auf der sicht nicht vertrauenswürdig Geräte (Knoten) befinden. Alle Geräte die sich auf dieser Liste befinden werden blockiert, alle anderen nicht.}
 }
 
-  \newglossaryentry{ethernet}{
+\newglossaryentry{ethernet}{
   name=Ethernet,
   description={Eine Technologie, die Software und Hardware für kabelgebundene Datennetze spezifiziert, welche ursprünglich für lokale Datennetze (LANs) gedacht war und daher auch als LAN-Technik bezeichnet wird.}
 }
-  \newglossaryentry{headerdaten}{
+
+\newglossaryentry{headerdaten}{
   name=Headerdaten,
   description={Ein Datenstück aus den eigentlichen Daten das generelle information über diese beinhaltet. (Bsp. IP Addresse in den Headerdaten einer E-mail) }
 }
-  \newglossaryentry{io-supervisor}{
+
+\newglossaryentry{io-supervisor}{
   name=IO\_Supervisor,
   description={is a programmable machine that receives input,
                stores and manipulates data, and provides
                output in a useful format}
 }
-  \newglossaryentry{linux}{
+
+\newglossaryentry{linux}{
   name=Linux,
   description={Freie, unix basierende Betriebssysteme, die auf dem Linux-Kernel basieren. Also eine Betriebssystemart.}
 }
-  \newglossaryentry{programname}{
+
+\newglossaryentry{programname}{
   name=\programname,
   description={Das Netzwerktool worum es sich unter anderem in diesem Dokument handelt. Das Programm dient zur darstellung des Netzwerkgraphen.}
 }
-  \newglossaryentry{netzwerkpakete}{
+
+\newglossaryentry{netzwerkpakete}{
   name=Netzwerkpaket,
   plural=Netzwerkpakete,
-  description={Eine in sich geschlossene Dateneinheiten, die ein Sender (z. B. ein digitaler Messfühler) oder auch ein sendender Prozess einem Empfänger über ein Netzwerk (i.d.R. das Internet) sendet. }
+  description={Eine in sich geschlossene Dateneinheiten, die ein Sender (z.B. ein digitaler Messfühler) oder auch ein sendender Prozess einem Empfänger über ein Netzwerk (i.d.R. das Internet) sendet. }
 }
-  \newglossaryentry{profinet}{
+
+\newglossaryentry{profinet}{
   name=PROFINET,
   description={PROFINET (Process Field Network) ist der offene Industrial Ethernet-Standard von Profibus \& Profinet International (PI) für die Automatisierung. Profinet nutzt \gls{tcp}/\gls{ip} und IT-Standards, ist Echtzeit-\gls{ethernet}-fähig und ermöglicht die Integration von Feldbus-Systemen.}
 }
-  \newglossaryentry{profinet-tcp}{
+
+\newglossaryentry{profinet-tcp}{
   name=PROFINET TCP,
   description={is a programmable machine that receives input,
                stores and manipulates data, and provides
                output in a useful format}
 }
-  \newglossaryentry{snort}{
+
+\newglossaryentry{snort}{
   name=Snort,
   description={Snort ist ein open source \gls{ids} mit realtime Paketanalyse und Paketlogging.}
 }
-  \newglossaryentry{praeprozessor}{
+
+\newglossaryentry{praeprozessor}{
   name=Präprozessor,
   plural=Präprozessoren,
   description={Ein Präprozessor ist eine art Plugin für \gls{snort}. Er wird nach den Decodern und vor der Rules Engine aufgerufen. Er dient zur fortgeschrittenen Paketverarbeitung wie z.B. Normalisierung oder weiteres Decodieren.}
 }
-  \newglossaryentry{sppname}{
+
+\newglossaryentry{sppname}{
   name=\sppname,
   description={Der Name des Präprozessors. Der Präprozessor ist dafür zuständig \gls{profinet} \glspl{paket} zu dekodieren.}
 }
@@ -101,6 +110,7 @@
     name=Interprozesskommunikation,
     description={adfssekjghsalkgtjreah}
 }
+
 \newglossaryentry{paket}{
     name=Paket,
     plural=Pakete,
