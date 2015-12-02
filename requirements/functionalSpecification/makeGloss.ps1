@@ -1,0 +1,1 @@
+makeindex -s functionalSpecificationPS.ist -o functionalSpecificationPS.gls functionalSpecificationPS.glo
