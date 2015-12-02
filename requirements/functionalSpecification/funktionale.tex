@@ -1,37 +1,37 @@
 \chapter{Funktionale Anforderungen}
 
 \renewcommand{\arraystretch}{2}
-\section{\sppname}
+\section{\gls{sppname}}
 \begin{tabular}{lp{0.9\linewidth}}
 
 FA10: & \textit{Erkennung fehlerhafter Pakete: }Der \gls{praeprozessor} muss fehlerhafte Pakete erkennen und diese als solche markieren können, bevor sie an das Analysetool weitergereicht werden. \\
 
-FA20: & \textit{Erkennen von \gls{profinet} Paketen: }Der \gls{praeprozessor} muss \gls{profinet} Pakete erkennen können. \\
+FA20: & \textit{Erkennen von \gls{profinet} \glspl{paket}n: }Der \gls{praeprozessor} muss \gls{profinet} \glspl{paket} erkennen können. \\
 
-FA30: & \textit{Dekodieren von \gls{profinet} Pakten: }Der \gls{praeprozessor} muss die erkannten Pakete dekodieren können. \\
+FA30: & \textit{Dekodieren von \gls{profinet} \glspl{paket}n: }Der \gls{praeprozessor} muss die erkannten \glspl{paket} dekodieren können. \\
 
 FA40: & \textit{Unterscheiden der verschiedenen \gls{frameid}s: }Der \gls{praeprozessor} muss die verschiedenen von \gls{profinet} spezifizierten \gls{frameid}s unterscheiden können.\\
 
-FA50: & \textit{Output Kanal zu \programname: }Es muss eine \gls{interprocess} für die Weitergabe der dekodierten Daten möglich sein.\\
+FA50: & \textit{Output Kanal zu \gls{programname}: }Es muss eine \gls{interprocess} für die Weitergabe der dekodierten Daten möglich sein.\\
 
-FA60: & \textit{Starten von \programname: }Wenn in der .config Datei eingestellt, startet sich \programname automatisch. Diese Option ist standardmäßig deaktiviert.\\
+FA60: & \textit{Starten von \gls{programname}: }Wenn in der .config Datei eingestellt, startet sich \gls{programname} automatisch. Diese Option ist standardmäßig deaktiviert.\\
 
-FA70: & \textit{Ausgabeschnittstelle: }\sppname muss eine einheitliche Schnittstelle zum Übertragen der Daten an \programname verwenden. Diese Schnittstelle muss prinzipiell auf andere Protokolle erweiterbar sein.\\
+FA70: & \textit{Ausgabeschnittstelle: }\gls{sppname} muss eine einheitliche Schnittstelle zum Übertragen der Daten an \gls{programname} verwenden. Diese Schnittstelle muss prinzipiell auf andere Protokolle erweiterbar sein.\\
 
 \end{tabular}
 
-\section{\programname}
+\section{\gls{programname}}
 \subsection{Funktionalität}
 
 \begin{longtable}{lp{0.9\linewidth}}
 
 FA90: & \textit{Starten von \gls{snort}: }Wenn \gls{snort} noch nicht läuft, wird \gls{snort} automatisch gestartet. \\
 
-FA100: & \textit{\sppname anschalten: }Wenn \sppname in der \gls{snort} Konfiguration deaktiviert ist, wird der Benutzer gefragt ob, er dieses aktivieren möchte. Falls der Benutzer \sppname nicht aktiviert, beendet sich \programname. \\
+FA100: & \textit{\gls{sppname} anschalten: }Wenn \gls{sppname} in der \gls{snort} Konfiguration deaktiviert ist, wird der Benutzer gefragt ob, er dieses aktivieren möchte. Falls der Benutzer \gls{sppname} nicht aktiviert, beendet sich \gls{programname}. \\
 
-FA110: & \textit{\gls{snort} läuft aber \sppname ist deaktiviert: }Falls \gls{snort} schon läuft aber \sppname deaktiviert ist, hat der Benutzer die Wahl, \sppname zu aktivieren oder \programname zu deaktivieren. Falls der \gls{praeprozessor} aktiviert werden soll, wird \gls{snort} mit dem reload Befehl neu geladen.\\
+FA110: & \textit{\gls{snort} läuft aber \gls{sppname} ist deaktiviert: }Falls \gls{snort} schon läuft aber \gls{sppname} deaktiviert ist, hat der Benutzer die Wahl, \gls{sppname} zu aktivieren oder \gls{programname} zu deaktivieren. Falls der \gls{praeprozessor} aktiviert werden soll, wird \gls{snort} mit dem reload Befehl neu geladen.\\
 
-FA120: & \textit{Empfangen von Paketinformationen: }\programname muss Paketinformationen empfangen können, die dem in FA70 genannten Interface entsprechen. \\
+FA120: & \textit{Empfangen von Paketinformationen: }\gls{programname} muss Paketinformationen empfangen können, die dem in FA70 genannten Interface entsprechen. \\
 
 FA130: & \textit{Erkennen neuer Netzwerkteilnehmer: }Das Programm erkennt neue Netzwerkteilnehmer und erstellt einen neuen Knoten. Der Nutzer wird darüber grafisch informiert. \\
 
@@ -59,7 +59,7 @@ FA260: & \textit{Logging: }Das Programm erstellt ein \gls{log} aller \glspl{pake
 
 FA270: & \textit{Spezifisches Logging: }Das Programm erstellt spezifische \glspl{log} zu einzelnen Knoten mit den von diesem Knoten gesendeten/empfangenen \glspl{paket}n. \\
 
-FA280: & \textit{Fehlerhafte Pakete: }Von \sppname als fehlerhaft erkannte \glspl{paket} werden mit einem \gls{fehlerflag} versehen und so in das \gls{log} übernommen.
+FA280: & \textit{Fehlerhafte Pakete: }Von \gls{sppname} als fehlerhaft erkannte \glspl{paket} werden mit einem \gls{fehlerflag} versehen und so in das \gls{log} übernommen.
 
 \end{longtable}
 
