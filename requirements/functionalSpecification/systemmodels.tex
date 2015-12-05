@@ -20,7 +20,7 @@ Insekura & Die Firma dessen Geräte ProfiNet zur internen Kommunikation verwende
 
 \subsection{Szenario 1: Hinzufügen von erlaubten Adressen}
 
-Alice's Firma Insekura nutzt das industrielle Protokoll \gls{profinet} für die Kommunikation zwischen den Geräten des Systems. Bisher hat Alice keine Möglichkeit gehabt, den Netzwerkverkehr zwischen den Drehmaschinen zu kontrollieren. Während des laufenden Betriebs greift der ehemalige Mitarbeiter Bob unbeobachtet auf den Maschinenablauf zu, und verursacht dadurch eine Werkzeugkollision. Der materielle Schaden für die Firma ist groß, ein Mitarbeiter wurde leicht verletzt. Zudem kann Alice den Ablauf der Kommunikation, und damit die Ursache des Schadens, nicht zurückverfolgen.
+Alice's Firma Insekura nutzt das industrielle Protokoll \gls{profinet} für die Kommunikation zwischen den Geräten des Systems. Bisher hat Alice keine Möglichkeit gehabt, den Netzwerkverkehr zwischen den Drehmaschinen zu kontrollieren. Während des laufenden Betriebs greift der ehemalige Mitarbeiter Bob unbeobachtet auf den Maschinenablauf zu und verursacht dadurch eine Werkzeugkollision. Der materielle Schaden für die Firma ist groß, ein Mitarbeiter wurde leicht verletzt. Zudem kann Alice den Ablauf der Kommunikation, und damit die Ursache des Schadens, nicht zurückverfolgen.
 
 In der Hoffnung Unfälle und Attacken solcher Art in Zukunft vermeiden zu können, installiert sie die freie Software \gls{programname} und lässt sie auf einem gut sichtbaren Bildschirm in ihrem Büro dauerhaft in Betrieb. Auf dem Display sieht sie sämtliche \textbf{Geräte als Knoten} eines Graphen und kann die \textbf{Kommunikationswege zwischen Geräten und Controllern durch gerichtete Kanten} gut verfolgen. In den Einstellungen von \gls{programname} \textbf{fügt sie den Adressraum des Firmennetzes zu den erlaubten Kommunikationsadressen hinzu}.
 
@@ -32,7 +32,7 @@ Während sich Bob den Zugang auf das System verschafft, sitzt Alice in ihrem Bü
 
 \subsection{Szenario 3: Auslesen von Log Dateien}
 
-Alice öffnet die log Datei des roten Knotens, der den Angriff gestartet hat, und kann dadurch zurückverfolgen wer sich unerlaubten Zugriff auf das Firmennetzwerk verschafft hat. Bob steht eine große Schadensersatzklage bevor.
+Alice öffnet die log Datei des roten Knotens, der den Angriff gestartet hat, und kann dadurch zurückverfolgen, wer sich unerlaubten Zugriff auf das Firmennetzwerk verschafft hat. Bob steht eine große Schadensersatzklage bevor.
 
 
 \section{Anwendungsfälle}
@@ -160,7 +160,7 @@ Alice öffnet die log Datei des roten Knotens, der den Angriff gestartet hat, un
 				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
 				\item Benutzer navigiert ins File Menü
 				\item Benutzer klickt auf den Eintrag "Exit"
-				\item Benutzer wird gefragt ob Einstellungen gespeichert werden sollen
+				\item Benutzer wird gefragt, ob Einstellungen gespeichert werden sollen
 				\item Programm wird beendet
 				\end{itemize}
 				\end{minipage} \\
@@ -251,7 +251,7 @@ Alice öffnet die log Datei des roten Knotens, der den Angriff gestartet hat, un
 	& Der \gls{snort} \gls{praeprozessor} empfängt ein neues \gls{paket}
 	& Das \gls{paket} wird dekodiert
 	& Das dekodierte \gls{paket} wird auf Fehler geprüft
-	    && Wenn ein Fehler gefunden wurde wird das \gls{paket} als fehlerhaft markiert
+	    && Wenn ein Fehler gefunden wurde, wird das \gls{paket} als fehlerhaft markiert
 	& Das \gls{paket} wird an \gls{programname} weitergesendet
 	& Das \gls{paket} wird für weitere Analysen auch an \gls{snort} weitergegeben
 
