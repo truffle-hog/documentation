@@ -3,15 +3,22 @@
 \section{Funktionstests zu prüfen}
 
 \begin{description}[style=multiline, leftmargin=4cm, labelwidth=4cm]
-  \item[\namedlabel{start}{Programm starten}] Der Nutzer startet \gls{programname}, wird gefragt ob er Snort mit dem \gls{praeprozessor} neu starten will, da dieser noch nicht läuft, stellt im Einstellungsmenü die Länge des Kommunikationslogs auf 10 Minuten.
-  \item[\namedlabel{addNetNode}{Kommunikationsteilnehmer hinzufügen}] Ein Kommunikationsteilnehmer wird zum Netzwerk hinzugefügt indem er anfängt \gls{profinet}-\glspl{paket} zu senden. Er erscheint auf der \gls{gui}, Gerätename/\gls{ip}-Adresse/\gls{mac}-Adresse ist direkt sichtbar. Der Nutzer lässt sich mit einem Klick die Knoten-Details anzeigen.
-  \item[\namedlabel{normalWatch}{Normale Netzwerküberwachung}] Es kommuniziert ein Beispielnetzwerk von 5 Teilnehmern über \gls{profinet}, in der \gls{gui} baut sich ein Graph selbständig auf und zeigt jeden Kommunikationsteilnehmer sowie die zugehörigen Verbindungen an. Alle Kommunikationswege werden als legal gekennzeichnet. Der Nutzer lässt sich die \gls{log}-Dateien der letzten 10 Minuten anzeigen.
+  \item[\namedlabel{start}{Programm starten}] Der Nutzer startet \gls{programname}(FA 60), wird gefragt ob er Snort mit dem \gls{praeprozessor} neu starten will (FA 90, 100, 110), da dieser noch nicht läuft, stellt im Einstellungsmenü die Länge des Kommunikationslogs auf 10 Minuten (FA 350).
+  \item[Beschreibung] Ein Programmstart-Szenario, das das Verhalten der Komponenten beim Start zueinander testet und eine Einstellung für Logs.
+  \item[\namedlabel{addNetNode}{Kommunikationsteilnehmer hinzufügen}] Ein Kommunikationsteilnehmer wird zum Netzwerk hinzugefügt indem er anfängt \gls{profinet}-\glspl{paket} zu senden. \gls{praeprozessor} erkennt die Kommunikation als \gls{profinet} (FA 20, 30), sendet die nötigen Informationen an \gls{programname} (FA 50, 70, 120). Er erscheint auf der \gls{gui} (FA 130), Gerätename/\gls{ip}-Adresse/\gls{mac}-Adresse ist direkt sichtbar (FA 140). 
+  \item[Beschreibung] Ein einfacher Testfall, in welchem eine einzige Kommunikationsverbindung und der entsprechende Sender erkannt und verarbeitet werden muss.
+  \item[\namedlabel{infobox}{Details anzeigen}] Der Nutzer lässt sich mit einem Klick die Knoten-Details eines vorhandenen Knotens anzeigen (FA 180, 190, 390).
+  \item[\namedlabel{normalWatch}{Normale Netzwerküberwachung}] Es kommuniziert ein Beispielnetzwerk von 5 Teilnehmern über \gls{profinet} mit verschiedenen Protokollen (FA 40), in der \gls{gui} baut sich ein Graph selbständig auf (FA 220) und zeigt jeden Kommunikationsteilnehmer sowie die zugehörigen Verbindungen (FA 170) mit Unterscheidung der Protokolle an (FA 250). Alle Kommunikationswege werden als legal gekennzeichnet und die \gls{gui} zeigt Randinformationen an (FA 400).
+  \item[Beschreibung] Ein größerer Test, der die Unterscheidungen aller Art von mehreren Teilnehmern prüfen soll.
+  \item[\namedlabel{logs}{Log-Dateien anzeigen}] Der Nutzer lässt sich die \gls{log}-Dateien eines Knotens der letzten 10 Minuten anzeigen (FA 260, 270, 320, 330, 340).
+  \item[Beschreibung] Die komplexen FAs für Log-Dateien lassen sich in einem solchem Umfeld mit einer Ausgabe auf Korrektheit prüfen.
   \item[\namedlabel{guiDisplay}{Korrekte GUI Darstellung}] Ein Paketsender sendet den gleichen Datenverkehr zu einem zweiten, neuen Empfänger, die \gls{gui} zeigt dies an. Weiter sind die \glspl{log} der Verbindungen, welche in der \gls{gui} durch den Nutzer abgerufen werden, bis auf die Adressen identisch zwischen beiden Empfängern.
-  \item[\namedlabel{filter}{Filter anwenden}] Der Nutzer stellt im Filtereinstellungsmenü den Namensfilter ein und lässt sich alle Knoten mit Unternamen “Haribo” markieren. \\Die \gls{gui} graut alle anderen Knoten aus.
-  \item[\namedlabel{guiChanging}{Graph verändern}] Der Nutzer skaliert den Graphen klein(zoomt raus). \\Der Nutzer wählt einen alternativen Graph-Darstellungsalgorithmus.
-  \item[\namedlabel{inactive}{Netzteilnehmer wird inaktiv}] Ein Paketsender wird aus dem Netz entfernt (hört auf zu senden), er wird nach zuvor vom Nutzer eingestellten 5 Sekunden als inaktiv markiert.
-  \item[\namedlabel{errpak}{Fehlerhaftes Paket}] Ein fehlerhaftes \gls{paket} wird von einem Paketsender gesendet, der Nutzer lässt sich die \gls{log}-Dateien anzeigen und sieht das als fehlerhaft markierte \gls{paket}.
-  \item[\namedlabel{blacklist}{Blacklist}] Ein Angreifer mit \gls{blacklist}-Adresse im Netzwerks löst Illegale-Kommunikation-Alarm aus und erscheint auf der \gls{gui} inklusive Warnung für den Nutzer. Die Kommunikation wird als illegal angezeigt.
+  \item[Beschreibung] Ein seperater Test zur Prüfung der Korrektheit und Konsistenz der Log-Funktionalität.
+  \item[\namedlabel{filter}{Filter anwenden}] //OPTIONALE, siehe Issue Nr.26//Der Nutzer stellt im Filtereinstellungsmenü den Namensfilter ein (FA 360, 440, 450), zunächst eine fehlerhafte Eingabe, nach Korrektur eine gültige (FA 370), und lässt sich alle Knoten mit Unternamen “Haribo” markieren. Falls implementiert: Die \gls{gui} unterscheidet gefilterte Knoten von den gesuchten (FA 310).
+  \item[\namedlabel{guiChanging}{Graph verändern}] Der Nutzer skaliert den Graphen klein(zoomt raus) (FA 380). Falls implementiert: Der Nutzer wählt einen alternativen Graph-Darstellungsalgorithmus (FA 490).
+  \item[\namedlabel{inactive}{Netzteilnehmer wird inaktiv}] Ein Paketsender wird aus dem Netz entfernt (hört auf zu senden) (FA 300). Falls implementiert: Er wird nach zuvor vom Nutzer eingestellten 5 Sekunden als inaktiv markiert (FA 300).
+  \item[\namedlabel{errpak}{Fehlerhaftes Paket}] Ein fehlerhaftes \gls{paket} wird von einem Paketsender gesendet, erkannt (FA 10) und der Nutzer lässt sich die \gls{log}-Dateien anzeigen und sieht das als fehlerhaft markierte \gls{paket}(FA 280) .
+  \item[\namedlabel{blacklist}{Blacklist}] Ein Angreifer mit \gls{blacklist}-Adresse im Netzwerks löst Illegale-Kommunikation-Alarm aus und erscheint auf der \gls{gui} inklusive Warnung für den Nutzer. Die Kommunikation wird als illegal angezeigt (FA 150, 160).
   \item[\namedlabel{inactiveBlacklist}{Inaktiver geblacklisteter Teilnehmer}] Nach \gls{blacklist} hört der Angreifer auf zu kommunizieren. Daraufhin wird er als inaktiv aber weiterhin als Angreifer angezeigt. Seine \glspl{log} werden separat gespeichert und sind für den Nutzer lesbar.
   \item[\namedlabel{Exit}{Exit}] \gls{programname} (Programm) beenden.
   \item[\namedlabel{Absturz}{Absturz}] \gls{programname}-Prozess wird terminiert. Es muss sichergestellt sein, dass keine Dateninkonsistenzen auftreten.
@@ -21,14 +28,14 @@
 
 \begin{itemize}
   \item \ref{start}, \ref{Exit}
-  \item \ref{start}, \ref{addNetNode}, \ref{Exit}
-  \item \ref{start}, \ref{normalWatch}, \ref{Exit}
-  \item \ref{start}, \ref{normalWatch}, \ref{guiDisplay}, \ref{Exit}
+  \item \ref{start}, \ref{addNetNode}, \ref{infobox}, \ref{Exit}
+  \item \ref{start}, \ref{normalWatch},\ref{infobox}, \ref{Exit}
+  \item \ref{start}, \ref{normalWatch}, \ref{guiDisplay}, \ref{logs}, \ref{Exit}
   \item \ref{start}, \ref{filter}, \ref{Exit}
-  \item \ref{start}, \ref{normalWatch}, \ref{guiChanging}, \ref{Exit}
+  \item \ref{start}, \ref{normalWatch}, \ref{guiChanging}, \ref{infobox}, \ref{Exit}
   \item \ref{start}, \ref{normalWatch}, \ref{inactive}, \ref{Exit}
-  \item \ref{start}, \ref{addNetNode}, \ref{errpak}, \ref{Exit}
+  \item \ref{start}, \ref{addNetNode}, \ref{errpak}, \ref{logs}, \ref{Exit}
   \item \ref{start}, \ref{normalWatch}, \ref{blacklist}, \ref{inactiveBlacklist}, \ref{Exit}
   \item \ref{start}, \ref{normalWatch}, \ref{Absturz}
-  \item \ref{start}, \ref{normalWatch}, \ref{filter}, \ref{Absturz}, \ref{start}, \ref{addNetNode}, \ref{filter}, \ref{errpak}, \ref{Absturz}, \ref{start}, \ref{normalWatch}, \ref{Exit}
+  \item \ref{start}, \ref{normalWatch}, \ref{filter}, \ref{infobox}, \ref{Absturz}, \ref{start}, \ref{addNetNode}, \ref{filter}, \ref{errpak}, \ref{logs}, \ref{Absturz}, \ref{start}, \ref{normalWatch}, \ref{infobox}, \ref{logs}, \ref{Exit}
 \end{itemize}
