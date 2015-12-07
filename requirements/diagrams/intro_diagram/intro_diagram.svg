@@ -27,11 +27,11 @@
      inkscape:window-height="1056"
      inkscape:window-width="1920"
      showgrid="false"
-     inkscape:current-layer="layer16"
+     inkscape:current-layer="layer10"
      inkscape:document-units="px"
-     inkscape:cy="612.08284"
-     inkscape:cx="414.08936"
-     inkscape:zoom="2"
+     inkscape:cy="552.21395"
+     inkscape:cx="439.43096"
+     inkscape:zoom="1"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -537,6 +537,20 @@
          x="216.5127"
          id="tspan5574-0"
          sodipodi:role="line">SNORT</tspan></text>
+    <text
+       inkscape:export-ydpi="377.94641"
+       inkscape:export-xdpi="377.94641"
+       sodipodi:linespacing="125%"
+       id="text5572-1-7"
+       y="298.43005"
+       x="229.99365"
+       style="font-style:normal;font-weight:normal;font-size:30.40507507px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff;fill-opacity:1"
+         y="298.43005"
+         x="229.99365"
+         id="tspan5574-0-0"
+         sodipodi:role="line">TruffleHog</tspan></text>
   </g>
   <g
      style="display:inline"
@@ -577,7 +591,7 @@
          y="667.84106"
          x="506.58847"
          id="tspan5596"
-         sodipodi:role="line">sendet PROFINET</tspan><tspan
+         sodipodi:role="line">sende PROFINET</tspan><tspan
          id="tspan5637"
          style="font-size:12.5px;text-align:end;text-anchor:end"
          y="683.46606"
