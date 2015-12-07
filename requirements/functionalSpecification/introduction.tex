@@ -10,7 +10,7 @@ Dieses Projekt setzt an dieser Stelle an und soll dem \gls{ids} \gls{snort} erm�
   \caption{Strukturübersicht des Projekts}\label{fig:diagram}
 \end{figure}
 
-\\Das Diagramm~\ref{fig:diagram} zeigt im unteren Teil den \gls{profinet} \gls{praeprozessor}, welcher \gls{snort} die Dekodierung von \gls{profinet} Paketen ermöglicht. Die dekodierten \glspl{paket} werden per \gls{ipc} zum \gls{programname} Prozess gesendet.\\
+Das Diagramm~\ref{fig:diagram} zeigt im unteren Teil den \gls{profinet} \gls{praeprozessor}, welcher \gls{snort} die Dekodierung von \gls{profinet} Paketen ermöglicht. Die dekodierten \glspl{paket} werden per \gls{ipc} zum \gls{programname} Prozess gesendet.\\
 \Gls{programname} ist nach dem \gls{mvc} Prinzip strukturiert.\\
 Das \textit{MODEL} holt die Pakete von der \gls{ipc} Schnittstelle. Sobald neue Daten zur Verfügung stehen werden diese in die vorhandene Datenstruktur eingeordnet und der \textit{VIEW} wird mitgeteilt, dass \textit{neue Daten} zur Verfügung stehen. \textit{VIEW} holt daraufhin die neuen Daten und präsentiert sie entsprechend auf der \gls{gui}.\\
 \textit{Benutzereingaben} im \textit{VIEW} werden dem \textit{CONTROLER} gemeldet. Dieser erzeugt \textit{Feedback} im \textit{VIEW} welches vom Benutzer wahrgenommen werden kann. Der \textit{CONTROLER} hat außerdem die Möglichkeit durch Benutzerbefehle oder andere Geschäftslogiken induzierte Manipulationen am \textit{MODEL} vorzunehmen.
