@@ -29,11 +29,17 @@ FA90: & \textit{Starten von \gls{snort}: }Wenn \gls{snort} noch nicht läuft, wi
 
 FA100: & \textit{\gls{sppname} anschalten: }Wenn \gls{sppname} in der \gls{snort} Konfiguration deaktiviert ist, wird der Benutzer gefragt ob, er dieses aktivieren möchte. Falls der Benutzer \gls{sppname} nicht aktiviert, beendet sich \gls{programname}. \\
 
-FA110: & \textit{\gls{snort} läuft aber \gls{sppname} ist deaktiviert: }Falls \gls{snort} schon läuft aber \gls{sppname} deaktiviert ist, hat der Benutzer die Wahl, \gls{sppname} zu aktivieren oder \gls{programname} zu beenden. Falls der \gls{praeprozessor} aktiviert werden soll, wird \gls{snort} mit dem reload Befehl neu geladen.\\
+FA110: & \textit{\gls{snort} läuft aber \gls{sppname} ist deaktiviert: }Falls \gls{snort} schon läuft aber \gls{sppname} deaktiviert ist, hat der Benutzer die Wahl, \gls{sppname} zu aktivieren oder \gls{programname} zu beenden\. Falls der \gls{praeprozessor} aktiviert werden soll, wird \gls{snort} mit dem reload Befehl neu geladen. \\
 
 FA120: & \textit{Empfangen von Paketinformationen: }\gls{programname} muss Paketinformationen empfangen können, die dem in FA70 genannten Interface entsprechen. \\
 
-FA130: & \textit{Erkennen neuer Netzwerkteilnehmer: }Das Programm erkennt neue Netzwerkteilnehmer und erstellt einen neuen Knoten. Der Nutzer wird darüber grafisch informiert. \\
+FA130: & \textit{Erkennen neuer Netzwerkteilnehmer: }Das Programm erkennt neue Netzwerkteilnehmer. \\
+
+FA132: & \textit{Erkennen neuer Netzwerkkommunikation: }Das Programm erkennt aufkommende Kommunikation im betrachteten Netzwerk. \\
+
+FA133: & \textit{Erstellen neuer Kanten: }Wenn eine neue Kommunikation erkannt wurde, wird diese im Graphen durch eine gerichtete Kante repräsentiert, wobei die Richtung der Kante vom Sender zum Empfänger zeigt. \\
+
+FA135: & \textit{Erstellen neuer Knoten: }Wenn ein neuer Netzwerkteilnehmer erkannt wurde, wird dieser im Graphen durch einen neuen Knoten repräsentiert. \\
 
 FA140: & \textit{Erkennen von Gerätenamen: }Das Analysetool soll Gerätenamen, falls vorhanden, erkennen und dem entsprechenden Knoten hinzufügen. \\
 
