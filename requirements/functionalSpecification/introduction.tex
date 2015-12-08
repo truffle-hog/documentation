@@ -8,7 +8,7 @@ Die Abbildung~\ref{fig:diagram} zeigt im unteren Teil den \gls{profinet} \gls{pr
 Das \textit{MODEL} holt die Pakete von der \gls{ipc} Schnittstelle. Sobald neue Daten zur Verfügung stehen werden diese in die vorhandene Datenstruktur eingeordnet und der \textit{VIEW} wird mitgeteilt, dass \textit{neue Daten} zur Verfügung stehen. \textit{VIEW} holt daraufhin die neuen Daten und präsentiert sie entsprechend auf der \gls{gui}.\\
 \textit{Benutzereingaben} im \textit{VIEW} werden dem \textit{CONTROLLER} gemeldet. Dieser erzeugt \textit{Feedback} im \textit{VIEW} welches vom Benutzer wahrgenommen werden kann. Der \textit{CONTROLLER} hat außerdem die Möglichkeit durch Benutzerbefehle oder andere Geschäftslogiken induzierte Manipulationen am \textit{MODEL} vorzunehmen.
 
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
   \includegraphics[width=300pt]{../diagrams/intro_diagram/intro_diagram.png}
   \caption[Strukturübersicht des Projekts]{Strukturübersicht des Projekts}\label{fig:diagram}
