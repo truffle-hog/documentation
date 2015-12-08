@@ -33,7 +33,7 @@ FA110: & \textit{\gls{snort} läuft aber \gls{sppname} ist deaktiviert: }Falls \
 
 FA120: & \textit{Empfangen von Paketinformationen: }\gls{programname} muss Paketinformationen empfangen können, die dem in FA70 genannten Interface entsprechen. \\
 
-FA130: & \textit{Erkennen neuer Netzwerkteilnehmer: }Das Programm erkennt neue Netzwerkteilnehmer und, falls wie in FA 420/425 beschrieben und aktiviert, vergleicht den Netzwerkteilnehmer mit der \gls{whitelist} und \gls{blacklist}. Sollte ein \gls{blacklist}-Treffer vorliegen, wird Kante und Knoten als illegal markiert. \\
+FA130: & \textit{Erkennen neuer Netzwerkteilnehmer: }Das Programm erkennt neue Netzwerkteilnehmer und überprüft seine Legalität (siehe FA 150). \\
 
 FA132: & \textit{Erkennen neuer Netzwerkkommunikation: }Das Programm erkennt aufkommende Kommunikation im betrachteten Netzwerk. \\
 
@@ -43,7 +43,7 @@ FA135: & \textit{Erstellen neuer Knoten: }Wenn ein neuer Netzwerkteilnehmer erka
 
 FA140: & \textit{Erkennen von Gerätenamen: }Das Analysetool soll Gerätenamen, falls vorhanden, erkennen und dem entsprechenden Knoten hinzufügen. \\
 
-FA150: & \textit{Kennzeichnen illegaler Knoten: }Ein Knoten, der ein Gerät aus einem illegalen Adressraum repräsentiert oder eine unbekannte/unerwünschte/illegale Identität hat, wird für den Benutzer auffällig gekennzeichnet. \\
+FA150: & \textit{Kennzeichnen illegaler Knoten: }Ein Knoten, der ein Gerät aus einem illegalen Adressraum repräsentiert oder eine unbekannte/unerwünschte/illegale Identität (nicht auf der \gls{whitelist} hat, wird für den Benutzer auffällig gekennzeichnet. \\
 
 FA160: & \textit{Kennzeichnen illegaler Kanten: }Kanten, die eingehende und ausgehende Kommunikation eines illegalen Knotens repräsentieren, werden für den Benutzer auffällig gekennzeichnet. \\
 
