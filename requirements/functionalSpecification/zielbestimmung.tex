@@ -20,19 +20,23 @@ Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen 
 \begin{itemize}
 \item Das Analyseprogramm muss eine grafische Oberfläche mit folgenden Funktionen bieten:
 
-    \subitem Übersichtliche, dynamische Graphdarstellung der einzelnen Komponenten eines Netzwerks.
+	\begin{itemize}
+    \item Übersichtliche, dynamische Graphdarstellung der einzelnen Komponenten eines Netzwerks.
 
-    \subitem Möglichkeit zur zusätzlichen Darstellung von detaillierten Informationen.
+    \item Möglichkeit zur zusätzlichen Darstellung von detaillierten Informationen.
 
-    \subitem Möglichkeit, den Graphen zu skalieren.
+    \item Möglichkeit, den Graphen zu skalieren.
 
-    \subitem Es gibt ein Einstellungsmenü, welches dem Nutzer ermöglicht grundlegende Einstellungen vorzunehmen.
+    \item Es gibt ein Einstellungsmenü, welches dem Nutzer ermöglicht grundlegende Einstellungen vorzunehmen.
+    \end{itemize}
 
 \item Legale und illegale Kommunikation müssen unterschiedlich dargestellt werden.
 
 \item Es gibt eine Möglichkeit Bestimmte Subnetze auf eine \gls{blacklist} bzw. \gls{whitelist} zu setzen.
 
-\item Die Maximalgröße des aufzuzeichnenden \glspl{log} kann in dem Einstellungsmenü festgelegt werden.
+\item \gls{programname} zeichnet Netzwerkkommunikation in \glspl{log} auf.
+
+\item Die Maximalgröße aufzuzeichnender \glspl{log} kann im Einstellungsmenü festgelegt werden.
 
 \item Über ein Einstellungsmenü sollen Darstellungsvarianten spezifiziert werden können.
 
@@ -63,15 +67,15 @@ Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen 
 \begin{itemize}
 \item Das Analysetool kann dem Nutzer grafische Statistiken des bisher stattgefundenen Netzwerkverkehrs anzeigen.
 
-\item Das Analysetool kann von \gls{snort} ausgelöste \gls{alert} im Graph darstellen.
+\item Das Analysetool kann von \gls{snort} ausgelöste \glspl{alert} im Graph darstellen.
 
-\item Die Kommunikationswege und -richtungen können im Graphen dargestellt werden.
+\item Die Kommunikationswege und -richtungen können im Graph dargestellt werden.
 
-\item Der Paketdurchsatz kann im Graph grafisch dargestellt werden (z. B. Farbe der Kante)
+\item Der Paketdurchsatz kann im Graph visuell gekennzeichnet werden (z. B. Farbe der Kante)
 
 \item Dem Benutzer wird ermöglicht, Knoten anhand von Kriterien zu filtern.
 
-\item Der Benutzer hat die Möglichkeit über ein Menü verschiedene Algorithmen zur Graphdarstellung auszuwählen.
+\item Der Benutzer hat die Möglichkeit über ein Menü verschiedene Algorithmen zur Darstellung des Graphen auszuwählen.
 \end{itemize}
 
 \section{Abgrenzungskriterien}
@@ -87,7 +91,7 @@ Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen 
 \subsection{\gls{programname}}
 \begin{itemize}
 
-\item \gls{programname} bietet keinen aktiven Schutz vor Angriffen, sondern zeigt solche nur an. (dient lediglich der Analyse und Visualisierung des Netzwerkverkehrs)
+\item \gls{programname} bietet keinen aktiven Schutz vor Angriffen, sondern zeigt solche nur an (Das Programm dient lediglich der Analyse und Visualisierung des Netzwerkverkehrs).
 
 \item Die Graphalgorithmen  werden einer Bibliothek entnommen und nicht selbst entwickelt.
 
