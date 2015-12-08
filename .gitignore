@@ -33,3 +33,4 @@
 *.log
 *.pdf
 .DS_Store
+*.bak
