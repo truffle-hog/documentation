@@ -12,7 +12,7 @@ Alice & Die Benutzerin des Programms \gls{programname}. \\
 
 Bob & Der Angreifer des Firmennetzwerkes. \\
 
-Insekura & Die Firma deren Geräte ProfiNet zur internen Kommunikation verwenden. \\
+Insekura & Die Firma deren Geräte \gls{profinet} zur internen Kommunikation verwenden. \\
 
 \gls{programname} & Die Software zur Beobachtung der Netzwerkkommunikation.\\
 
@@ -21,16 +21,16 @@ Insekura & Die Firma deren Geräte ProfiNet zur internen Kommunikation verwenden
 \subsection{Szenario 1: Hinzufügen von erlaubten Adressen}
 
 Alice's Firma Insekura nutzt das industrielle Protokoll \gls{profinet} für die Kommunikation zwischen den Geräten des Systems. Bisher hat Alice keine Möglichkeit gehabt, den Netzwerkverkehr zwischen den Drehmaschinen zu kontrollieren. Während des laufenden Betriebs greift der ehemalige Mitarbeiter Bob unbeobachtet auf den Maschinenablauf zu und verursacht dadurch eine Werkzeugkollision. Der materielle Schaden für die Firma ist groß, ein Mitarbeiter wurde leicht verletzt. Zudem kann Alice den Ablauf der Kommunikation, und damit die Ursache des Schadens, nicht zurückverfolgen.\\
-In der Hoffnung Unfälle und Attacken solcher Art in Zukunft vermeiden zu können, installiert sie die freie Software \gls{programname} und lässt sie auf einem gut sichtbaren Bildschirm in ihrem Büro dauerhaft in Betrieb. Auf dem Display sieht sie sämtliche \textbf{Geräte als Knoten} eines Graphen und kann die \textbf{Kommunikationswege zwischen Geräten und Controllern durch gerichtete Kanten} gut verfolgen. In den Einstellungen von \gls{programname} \textbf{fügt sie den Adressraum des Firmennetzes zu den erlaubten Kommunikationsadressen hinzu}.
+In der Hoffnung Unfälle und Attacken solcher Art in Zukunft vermeiden zu können, installiert sie die freie Software \gls{programname} und lässt sie auf einem gut sichtbaren Bildschirm in ihrem Büro dauerhaft in Betrieb. Auf dem Display sieht sie sämtliche \textit{Geräte als Knoten} eines Graphen und kann die \textit{Kommunikationswege zwischen Geräten und Controllern durch gerichtete Kanten} gut verfolgen. In den Einstellungen von \gls{programname} \textit{fügt sie den Adressraum des Firmennetzes zu den erlaubten Kommunikationsadressen hinzu}.
 
 \subsection{Szenario 2: Echtzeit Beobachtung von Angriffen}
 
 Im Laufe der nächsten Tage startet Bob einen weiteren Versuch seiner alten Firma zu schaden. Letztes Mal hat das wunderbar funktioniert, keiner konnte seine fremde Adresse identifizieren und er hatte uneingeschränkte Möglichkeiten falsche Daten an die Drehmaschinen zu übermitteln.\\
-Während sich Bob den Zugang auf das System verschafft, sitzt Alice in ihrem Büro und hat ihren Blick gerade auf den Bildschirm mit dem laufenden \gls{programname} gerichtet. Sie sieht wie ein roter Knoten auf dem Bildschirm erscheint und mit einer der Drehmaschinen zu kommunizieren beginnt. Die Kommunikationskante ist auch rot gekennzeichnet. Sofort eilt Alice zur Tür und drückt auf den Notfall Ausschalter des Systems. Schlimmeres konnte verhindert werden.
+Während sich Bob den Zugang auf das System verschafft, sitzt Alice in ihrem Büro und hat ihren Blick gerade auf den Bildschirm mit dem laufenden \gls{programname} gerichtet. Sie sieht wie ein \textit{roter Knoten auf dem Bildschirm erscheint} und mit einer der Drehmaschinen zu kommunizieren beginnt. \textit{Die Kommunikationskante ist auch rot gekennzeichnet}. Sofort eilt Alice zur Tür und drückt auf den Notfall Ausschalter des Systems. Schlimmeres konnte verhindert werden.
 
 \subsection{Szenario 3: Auslesen von Logdateien}
 
-Alice öffnet die Logdatei des roten Knotens, der den Angriff gestartet hat, und kann dadurch zurückverfolgen, wer sich unerlaubten Zugriff auf das Firmennetzwerk verschafft hat. Bob steht eine große Schadensersatzklage bevor.
+Alice \textit{öffnet die Logdatei des roten Knotens}, der den Angriff gestartet hat, und kann dadurch zurückverfolgen, wer sich unerlaubten Zugriff auf das Firmennetzwerk verschafft hat. Bob steht eine große Schadensersatzklage bevor.
 
 
 \section{Anwendungsfälle}
