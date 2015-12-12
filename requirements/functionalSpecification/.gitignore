@@ -14,3 +14,5 @@
 *.fls
 *.toc
 *.lof
+*.acr
+*.acn
