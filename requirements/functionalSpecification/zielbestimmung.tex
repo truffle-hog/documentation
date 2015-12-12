@@ -1,7 +1,7 @@
 \chapter{Zielbestimmung}
 
 \gls{programname} und \gls{sppname} sollen eine Möglichkeit schaffen, das \gls{ids} \gls{snort} auch mit \gls{profinet} verwenden zu können.
-Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen und Datenflüsse in dem überwachten Netzwerk bieten.
+Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen und Datenflüsse des überwachten Netzwerkes bieten.
 
 \section{Musskriterien}
 
@@ -22,12 +22,14 @@ Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen 
 
 	\begin{itemize}
     \item Übersichtliche, dynamische Graphdarstellung der einzelnen Komponenten eines Netzwerks.
+    
+    \item Netzwerkteilnehmer werden im Graphen als Knoten dargestellt, Kommunikationswege als Kanten.
 
-    \item Möglichkeit zur zusätzlichen Darstellung von detaillierten Informationen.
+    \item Möglichkeit zur zusätzlichen Darstellung von detaillierten Informationen (z.B. Paketdurchsatz, Adresse).
 
-    \item Möglichkeit, den Graphen zu skalieren.
+    \item Möglichkeit die Darstellung des Graphen zu skalieren.
 
-    \item Es gibt ein Einstellungsmenü, welches dem Nutzer ermöglicht grundlegende Einstellungen vorzunehmen.
+    \item Es gibt ein Einstellungsmenü, welches dem Nutzer ermöglicht grundlegende Einstellungen vorzunehmen (z.B. kennzeichnen illegaler/legaler Adressräume, ).
     \end{itemize}
 
 \item Legale und illegale Kommunikation müssen unterschiedlich dargestellt werden.
@@ -40,13 +42,14 @@ Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen 
 
 \item Über ein Einstellungsmenü sollen Darstellungsvarianten spezifiziert werden können.
 
-\item Das Analyseprogramm muss die Möglichkeit zur Datenhaltung für mögliche spätere Auswertung bieten.
+\item Das Analyseprogramm muss die Möglichkeit zur Datenhaltung und möglichen späteren Auswertung bieten.
 
 \item Das Programm funktioniert eigenständig und hat möglichst wenige Abhängigkeiten.
 
 \item Der Paketdurchsatz kann in einem Detailfenster in textueller Form eingesehen werden.
 
-\item Der Übertragungstyp kann, soweit bekannt, im Graph dargestellt werden.
+\item Die Bezeichnung der \gls{frameid} eines Paketes kann, soweit bekannt, im Graph dargestellt werden.
+
 \end{itemize}
 
 \section{Kannkritierien}
@@ -55,11 +58,11 @@ Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen 
 
 \begin{itemize}
 
-\item Der \gls{praeprozessor} kann dekodierte Pakete \gls{snort} zur Verfügung stellen, damit sie dort weiterverarbeitet werden können.
+\item Der \gls{praeprozessor} kann die dekodierten Pakete \gls{snort} zur Verfügung stellen, damit sie dort weiterverarbeitet werden können.
 
-\item Der \gls{praeprozessor} kann \gls{profinet} \gls{tcp} Pakete erkennen und dekodieren.
+\item Der \gls{praeprozessor} ist in der Lage andere Protokollarten die \gls{profinet} verwendet (z.B. \gls{tcp}, \gls{udp}, \gls{lldp}) zur Weiterverarbeitung an \gls{programname} weiterzugeben.
 
-\item Der \gls{praeprozessor} ist in der Lage andere Protokollarten zur Weiterverarbeitung an \gls{programname} weiterzugeben.
+\item Der \gls{praeprozessor} kann \gls{snort} \glspl{alert} auslösen. Die Rule Engine von \gls{snort} wird dabei nicht verwendet.
 \end{itemize}
 
 \subsection{\gls{programname}}
@@ -69,13 +72,13 @@ Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen 
 
 \item Das Analysetool kann von \gls{snort} ausgelöste \glspl{alert} im Graph darstellen.
 
-\item Die Kommunikationswege und -richtungen können im Graph dargestellt werden.
+\item Die Richtung vom Kommunikationsfluss kann im Graphen dargestellt werden.
 
-\item Der Paketdurchsatz kann im Graph visuell gekennzeichnet werden (z. B. Farbe der Kante)
+\item Der Paketdurchsatz kann im Graph visuell gekennzeichnet werden (z.B. Farbe der Kante).
 
-\item Dem Benutzer wird ermöglicht, Knoten anhand von Kriterien zu filtern.
+\item Dem Benutzer wird ermöglicht, Knoten anhand von Kriterien zu filtern (z.B. Adresse, Name).
 
-\item Der Benutzer hat die Möglichkeit über ein Menü verschiedene Algorithmen zur Darstellung des Graphen auszuwählen.
+\item Der Benutzer hat die Möglichkeit über ein Menü geeignete Algorithmen zur Darstellung des Graphen auszuwählen.
 \end{itemize}
 
 \section{Abgrenzungskriterien}

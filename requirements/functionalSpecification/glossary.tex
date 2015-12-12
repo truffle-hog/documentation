@@ -7,9 +7,18 @@
 \newdualentry{tcp}
 	{TCP}
 	{Transmission Control Protocol}
-	{Ein Netzwerkprotokoll, das definiert, auf welche Art und Weise Daten zwischen Computern ausgetauscht werden}
+	{Das Transmission Control Protocol (TCP) ist ein verbindungsorientiertes Transportprotokoll für den Einsatz in paketvermittelten Netzen. Das Protokoll baut auf dem IP-Protokoll auf, unterstützt die Funktionen der Transportschicht und stellt vor der Datenübertragung eine gesicherte Verbindung zwischen den Instanzen her}
 
+\newdualentry{udp}
+	{UDP}
+	{User Datagram Protocol}
+	{Ein verbindungsloses Transportprotokoll für den Datenaustausch zwischen Rechnern. Das UDP-Protokoll wurde definiert damit Anwendungsprozesse direkt Datagramme versenden können und damit die Anforderungen an transaktionsorientierten Verkehrs erfüllen. Das UDP-Protokoll baut direkt auf dem darunter liegenden IP-Protokoll auf und zeichnet sich durch seinen geringen Overhead und die kurzen Latenzzeiten aus.}
 
+\newdualentry{lldp}
+	{LLDP}
+	{Link Layer Discovery Protocol}
+	{Ein herstellerunabhängiges Protokoll der zweiten Schicht (\gls{osi}) und die Möglichkeit bietet, Informationen zwischen Nachbargeräten auszutauschen}
+	
 \newdualentry{io}
 	{IO}
 	{Input/Output}
@@ -25,7 +34,12 @@
 \newdualentry{ip}
 	{IP}
 	{Internet Protocol}
-	{Protokoll zur Übermittlung von Daten im Internet}
+	{Protokoll zur Übermittlung von Daten im Internet, die Aufgabe des Internetprotokolls (IP) besteht darin, Datenpakete von einem Sender über mehrere Netze hinweg zu einem Empfänger zu transportieren}
+	
+\newdualentry{osi}
+	{OSI-Modell}
+	{Open Systems Interconnection Model}
+	{Das OSI-Referenzmodell der Internationalen Standardisierungs-Organisation (ISO) wurde ab 1977 als Grundlage für die Bildung von Kommunikationsstandards entworfen}
 
 
 \newdualentry{mac}
@@ -72,11 +86,6 @@
   description={Die Kopfzeile eines Datenblocks, die Zusatzinformationen beinhaltet (Bsp. IP Addresse in den Headerdaten einer E-mail)}
 }
 
-\newglossaryentry{io-supervisor}{
-  name=IO\_Supervisor,
-  description={Ein \gls{profinet} IO\_Supervisor ist beispielsweise eine Engineering-Station die für Inbetriebnahmezwecke einen temporären Zugriff auf die Feldgeräte besitzen kann}
-}
-
 \newglossaryentry{linux}{
   name=GNU/Linux,
   description={Freie, unix basierende Betriebssysteme, die auf dem Linux-Kernel basieren und GNU Pakete als Betriebssystemsoftware benutzen.}
@@ -106,7 +115,7 @@
 \newglossaryentry{praeprozessor}{
   name=Präprozessor,
   plural=Präprozessoren,
-  description={Ein Präprozessor ist eine Art Plugin für \gls{snort}. Er wird nach den Decodern und vor der Rules Engine aufgerufen. Er dient zur fortgeschrittenen Paketverarbeitung wie z.B. Normalisierung oder weiteres Decodieren}
+  description={Ein Präprozessor ist eine Art Plugin für \gls{snort}. Er wird nach den Decodern und vor der Rules Engine aufgerufen. Er dient zur fortgeschrittenen Paketverarbeitung wie z.B. Normalisierung oder weiteres Dekodieren}
 }
 
 \newglossaryentry{sppname}{
@@ -116,7 +125,7 @@
 
 \newglossaryentry{frameid}{
   name=Frame ID,
-  description={Ein Realtime-Frame beginnt immer mit einer 2-Byte FrameID. Darin steht in welcher Klasse sich das Frame befindet (z.B. die Geschwindikeitsklasse)}
+  description={Ein Realtime-Frame beginnt immer mit einer 2-Byte FrameID. Darin steht in welcher Klasse sich das Frame befindet (z.B. die Geschwindigkeitsklasse)}
 }
 
 \newglossaryentry{interprocess}{
@@ -141,14 +150,24 @@
     description={Ein Bit, welches bestimmt, ob der Eintrag fehlerhaft ist, oder nicht}
 }
 
+\newglossaryentry{io-supervisor}{
+    name=IO-Supervisor,
+    description={Dies ist typischerweise ein Programmiergerät (PG), Personal Computer (PC) oder Human-Machine-Interface-Gerät (HMI) für die Inbetriebsetzung oder Diagnose (Beispielsweise eine Engineering-Station die für den Zweck der Inbetriebnahme einen temporären Zugriff auf die Feldgeräte besitzen kann)}
+}
+
+\newglossaryentry{io-device}{
+    name=IO-Device,
+    description={Ein IO-Device ist ein dezentral angeordnetes IO-Gerät, das über Profinet IO angekoppelt wird.}
+}
+
 \newglossaryentry{iocontroller}{
-    name=IO\_Controller,
-    description={Ein \gls{profinet} IO-Controller (IO-Controller) hat die Kontrolle über den auf ein oder mehrere Feldgeräte verteilten Prozess. Bei ihm laufen die Prozess-Daten und Alarme ein und werden im Anwenderprogramm verarbeitet. In einer Automatisierungsanlage ist ein IO-Controller normalerweise eine Speicher-Programmierbare-Steuerung (SPS), ein DCS-System oder ein PC. Das Einrichten der Kommunikationswege erfolgt beim System-Hochlauf}
+    name=IO-Controller,
+    description={Ein \gls{profinet} IO-Controller hat die Kontrolle über den auf ein oder mehrere Feldgeräte verteilten Prozess. Bei ihm laufen die Prozess-Daten und Alarme ein und werden im Anwenderprogramm verarbeitet. In einer Automatisierungsanlage ist ein IO-Controller normalerweise eine Speicher-Programmierbare-Steuerung (SPS), ein DCS-System oder ein PC. Das Einrichten der Kommunikationswege erfolgt beim System-Hochlauf}
 }
 
 \newglossaryentry{identifyrequest}{
     name=Identify Request,
-    description={Ein request eines Netzwerkteilnehmers der die Identität eines anderen einfordert}
+    description={Eine Anfrage eines Netzwerkteilnehmers (typischerweise eines \gls{io-supervisor}s oder \gls{iocontroller}s) im \gls{profinet} System der die Identität eines anderen einfordert}
 }
 
 \newglossaryentry{x86}{
