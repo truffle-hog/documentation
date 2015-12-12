@@ -1,5 +1,5 @@
 % Functional specification for ProfiSnort
-\documentclass[a4paper]{scrreprt}
+\documentclass[listof=totoc,a4paper]{scrreprt}
 
 \usepackage[german]{babel}
 \usepackage[utf8]{inputenc}
@@ -14,10 +14,27 @@
 \usepackage[ampersand]{easylist}
 \usepackage{xcolor}
 
-\usepackage[toc]{glossaries}
+\usepackage[toc,acronym]{glossaries}
+\makeglossaries
+
+\setuptoc{toc}{totoc}
+
+\usepackage{xparse}
+\DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
+  \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
+    description={#6},#1
+  }
+  \makeglossaries
+  \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+}
+
+%\usepackage[xindy]{imakeidx}
+%\makeindex
+
 \renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}}
 
 \hypersetup{
+	backref,
     colorlinks,
     linkcolor=[RGB]{241,163,64},
     citecolor={blue!40!black},
@@ -36,10 +53,8 @@
 \newcommand{\sppname}{spp\_profinet}
 \newcommand{\programname}{TruffleHog}
 
-\makeglossaries
 
-
-\input{glossary}
+\loadglsentries{glossary}
 
 
 \begin{document}
@@ -66,12 +81,20 @@
 }
 \maketitle
 
-
+\pagenumbering{Roman}
+\setcounter{page}{2}
 
 \newpage
 \tableofcontents
 \newpage
 \listoffigures
+
+\printglossary[title=Abkürzungsverzeichnis,toctitle=Abkürzungsverzeichnis,type=acronym]
+
+\clearpage
+
+\pagenumbering{arabic}
+\setcounter{page}{6}
 
 \input{introduction}
 
@@ -94,6 +117,8 @@
 \input{gui}
 
 \appendix
-\input{appendix}
+
+\printglossary[title=Glossar,toctitle=Glossar]
+%\input{appendix}
 
 \end{document}
