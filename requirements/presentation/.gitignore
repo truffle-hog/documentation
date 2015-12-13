@@ -1,5 +1,4 @@
 ﻿# TeX temp/output files
-SDQ_vorlage_beamer.pdf
 *.glg
 *.glo
 *.gls
@@ -20,3 +19,4 @@ SDQ_vorlage_beamer.pdf
 *.alg
 *.nav
 !*.pdf
+SDQ_vorlage_beamer.pdf
