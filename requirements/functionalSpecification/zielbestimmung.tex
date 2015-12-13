@@ -1,7 +1,6 @@
 \chapter{Zielbestimmung}
 
-\gls{programname} und \gls{sppname} sollen eine Möglichkeit schaffen, das \gls{ids} \gls{snort} auch mit \gls{profinet} verwenden zu können.
-Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen und Datenflüsse des überwachten Netzwerkes bieten.
+\gls{sppname} soll das \gls{ids} \gls{snort} um das Identifizieren von \gls{profinet} \glspl{paket}n erweitern und dekodierte \glspl{paket} an \gls{programname} senden. Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen und Datenflüsse des überwachten Netzwerkes bieten.
 
 \section{Musskriterien}
 
@@ -21,7 +20,7 @@ Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen 
 \item Das Analyseprogramm muss eine grafische Oberfläche mit folgenden Funktionen bieten:
 
 	\begin{itemize}
-    \item Übersichtliched Darstellung der Kommunikationsbeziehungen eines Netzwerks mithilfe eines Graphen.
+    \item Übersichtliche Darstellung der Kommunikationsbeziehungen eines Netzwerks mithilfe eines Graphen.
 
     \item Netzwerkteilnehmer werden im Graphen als Knoten dargestellt, Kommunikationswege als Kanten.
 
@@ -58,7 +57,7 @@ Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen 
 
 \item Der \gls{praeprozessor} kann die dekodierten Pakete \gls{snort} zur Verfügung stellen, damit sie dort weiterverarbeitet werden können.
 
-\item Der \gls{praeprozessor} ist in der Lage andere Protokollarten die \gls{profinet} verwendet (z.B. \gls{tcp}, \gls{udp}, \gls{lldp}) zur Weiterverarbeitung an \gls{programname} weiterzugeben.
+\item Der \gls{praeprozessor} ist in der Lage andere Protokollarten die \gls{profinet} verwendet zur Weiterverarbeitung an \gls{programname} weiterzugeben (z.B. \gls{tcp}, \gls{udp}, \gls{lldp}).
 
 \item Der \gls{praeprozessor} kann \gls{snort} \glspl{alert} auslösen. Die Rule Engine von \gls{snort} wird dabei nicht verwendet.
 \end{itemize}
