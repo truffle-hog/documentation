@@ -1,0 +1,20 @@
+﻿# TeX temp/output files
+*.glg
+*.glo
+*.gls
+*.ist
+*.ilg
+*.aux
+*.out
+*.blg
+*.bbl
+*.synctex
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.toc
+*.lof
+*.acr
+*.acn
+*.alg
+*.nav
