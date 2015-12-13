@@ -86,11 +86,30 @@
       \pause
       \item Sicherheit?
       \pause
-      \item Paketanalyse mit Snort
+      \item Paketanalyse mit Snort. Visualisierung?
       \pause
-      \item ----
+      \item Möglichkeit zur automatisierten Überwachung
     \end{itemize}
 \end{frame}
+
+
+\begin{frame}
+    \begin{itemize}
+      \item Plugin für Snort zur Identifizierung von ProfiNet Paketen mit Ethertyp 0x8892
+      \item Plugin muss identifizierte Pakete an einen anderen Prozess senden können
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \begin{itemize}
+      \item Trufflehog muss Pakete vom Snort Plugin empfangen können
+      \item Trufflehog muss Pakete auslesen und Netzwerkteilnehmer als Knoten in einem Graphen
+   und Beziehungen als Kanten darstellen
+    \end{itemize}
+\end{frame}
+
+
 \begin{frame}
 \begin{figure}
 	\centering
