@@ -18,3 +18,4 @@
 *.acn
 *.alg
 *.nav
+!*.pdf
