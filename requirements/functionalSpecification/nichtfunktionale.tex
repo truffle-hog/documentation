@@ -1,26 +1,34 @@
 \chapter{Nichtfunktionale Anforderungen}
 
 \section{\gls{sppname}}
+
+\newcommand\nfa[2]{\namedlabel{nfa#1}{NFA#1}: & #2 \\}
+
+
 \begin{tabular}{lp{0.9\linewidth}}
-NFA10: & Es darf kein Paketrückstau durch zu langsame Bearbeitung der \glspl{paket} entstehen. \\
 
-NFA20: & Der \gls{praeprozessor} darf keine Abstürze von \gls{snort} verursachen. \\
+\nfa{10}{Es darf kein Paketrückstau durch zu langsame Bearbeitung der \glspl{paket} entstehen.}
 
-NFA30: & \glspl{paket} werden innerhalb von 1ms verarbeitet.
+\nfa{20}{Der \gls{praeprozessor} darf keine Abstürze von \gls{snort} verursachen.}
+
+\nfa{30}{\glspl{paket} werden innerhalb von 1ms verarbeitet.}
+
 \end{tabular}
+
 \section{\gls{programname}}
+
 \begin{tabular}{lp{0.9\linewidth}}
-NFA40: & Die \gls{gui} zeigt ein Gerät spätestens eine Sekunde nach Paketregistrierung im Netzwerk an. \\
+\nfa{40}{Die \gls{gui} zeigt ein Gerät spätestens eine Sekunde nach Paketregistrierung im Netzwerk an.}
 
-NFA50: & Ein ankommendes \gls{paket} ist nach höchstens 10ms bearbeitet. \\
+\nfa{50}{Ein ankommendes \gls{paket} ist nach höchstens 10ms bearbeitet.}
 
-NFA60: & Das Programm unterstützt mindestens 100 Teilnehmer. \\
+\nfa{60}{Das Programm unterstützt mindestens 100 Teilnehmer.}
 
-NFA70: & Bei Benutzereingaben muss das Programm innerhalb von 500ms reagieren. \\
+\nfa{70}{Bei Benutzereingaben muss das Programm innerhalb von 500ms reagieren.}
 
-NFA80: & \gls{programname} soll möglichst unabhängig von \gls{sppname} agieren. \\
+\nfa{80}{\gls{programname} soll möglichst unabhängig von \gls{sppname} agieren.}
 
-NFA90: & \gls{programname} soll eine möglichst simple Schnittstelle zu \gls{sppname} haben um auch Daten von anderen Netzwerktools darstellen zu können. \\
+\nfa{90}{\gls{programname} soll eine möglichst simple Schnittstelle zu \gls{sppname} haben um auch Daten von anderen Netzwerktools darstellen zu können.}
 
-NFA100: & Das Programm soll so gebaut sein, dass ein einfacher Sprachwechsel der \gls{gui} möglich ist. \\
+\nfa{100}{Das Programm soll so gebaut sein, dass ein einfacher Sprachwechsel der \gls{gui} möglich ist.}
 \end{tabular}
