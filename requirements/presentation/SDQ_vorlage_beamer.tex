@@ -92,26 +92,30 @@
       \only<4->{\begin{figure}
       	\includegraphics[width=0.9\textwidth]{./images/aufgabestellung.jpg}
       \end{figure}}
-      \pause
-      \item Optional: Möglichkeit zur automatisierten Überwachung
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Einleitung: Plugin}
     \begin{itemize}
-      \item Plugin für Snort zur Identifizierung von ProfiNet Paketen mit Ethertyp 0x8892
+      \item Identifizierung und Dekodierung von PROFINET Paketen (Ethertyp 0x8892)
       \pause
-      \item Plugin muss identifizierte Pakete an einen anderen Prozess senden können
+      \item Bereitstellen von Verbindungsdaten für einen Klienten
+      \pause
+      \item Optional: Auslösen von Alerts in Snort zur automatisierten Überwachung
     \end{itemize}
 \end{frame}
 
 
-\begin{frame}{Einleitung: Trufflehog}
+\begin{frame}{Einleitung: TruffleHog}
     \begin{itemize}
-      \item Trufflehog muss Pakete vom Snort Plugin empfangen können
+      \item Empfängt Verbindungsdaten
       \pause
-      \item Trufflehog muss Pakete auslesen und Netzwerkteilnehmer als Knoten in einem Graphen
-   und Beziehungen als Kanten darstellen
+      \item Verarbeitet Pakete und\dots
+      \pause
+      \begin{itemize}
+        \item stellt Netzwerkteilnehmer als Knoten, \pause
+        \item Verbindungen als Kanten dar. 
+      \end{itemize}
     \end{itemize}
 \end{frame}
 
