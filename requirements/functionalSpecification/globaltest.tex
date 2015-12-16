@@ -8,8 +8,10 @@
 
 \newcounter{testnr}[section]
 \newcommand\testno{\arabic{testnr}}
-\newcommand\testcase[2]{\item[\namedlabel{#1}{(\testno) #2}]\stepcounter{testnr}}
 
+%\setcounter{testnr}{10}
+%\newcommand\testcase[2]{\item[\namedlabel{#1}{T\testno #2}]\addtocounter{testnr}{10}}
+\newcommand\testcase[2]{\item[\namedlabel{#1}{(\testno) #2}]\stepcounter{testnr}}
 
 
 \begin{description}[style=multiline, leftmargin=4cm, labelwidth=4cm]
@@ -31,7 +33,7 @@
   \testcase{logs}{Log-Dateien anzeigen} Der Nutzer lässt sich die \gls{log}-Dateien eines Knotens der letzten 10 Minuten anzeigen (\ref{fa260}, \ref{fa270}, \ref{fa320}, \ref{fa330}, \ref{fa340}). \par
       \textit{Beschreibung:} Die komplexen FAs für \gls{log}-Dateien lassen sich in einem solchem Umfeld mit einer Ausgabe auf Korrektheit prüfen.
 
-  \testcase{guiDisplay}{Korrekte GUI Darstellung} Ein Paketsender sendet den gleichen Datenverkehr zu einem zweiten, neuen Empfänger, die \gls{gui} zeigt dies an. Weiter sind die \glspl{log} der Verbindungen, welche in der \gls{gui} durch den Nutzer abgerufen werden, bis auf die Adressen identisch zwischen beiden Empfängern. \par
+  \testcase{guiDisplay}{Korrekte GUI Darstellung} Ein Paketsender sendet den gleichen Datenverkehr zu einem zweiten, neuen Empfänger, die \gls{gui} zeigt dies an. Weiter sind die \glspl{log} der Verbindungen, welche in der \gls{gui} durch den Nutzer abgerufen werden, bis auf die Adressen und Zeitstempel identisch zwischen beiden Empfängern. \par
       \textit{Beschreibung:} Ein seperater Test zur Prüfung der Korrektheit und Konsistenz der \gls{log}-Funktionalität.
 
   \testcase{video}{Rückverfolgung (optional)} Der Nutzer lässt sich, nach 5 Minuten aktiver Kommunikation, durch die Videofunktion (\ref{fa290}) die Situation von vor 3 Minuten anzeigen.
@@ -44,11 +46,11 @@
 
   \testcase{inactive}{Netzteilnehmer wird inaktiv} Ein Paketsender wird aus dem Netz entfernt (hört auf zu senden) (\ref{fa300}). Falls implementiert: Er wird nach zuvor vom Nutzer eingestellten 5 Sekunden als inaktiv markiert (\ref{fa300}).
 
-  \testcase{errpak}{Fehlerhaftes Paket} Ein fehlerhaftes \gls{paket} wird von einem Paketsender gesendet, erkannt (\ref{fa10}) und der Nutzer lässt sich die \gls{log}-Dateien anzeigen und sieht das als fehlerhaft markierte \gls{paket}(\ref{fa280}) .
+  \testcase{errpak}{Fehlerhaftes Paket} Ein fehlerhaftes \gls{paket} wird von einem Paketsender gesendet und vom \gls{praeprozessor} erkannt (\ref{fa80}) und der Nutzer lässt sich die \gls{log}-Dateien anzeigen und sieht das als fehlerhaft markierte \gls{paket}(\ref{fa280}).
 
   \testcase{blacklist}{Blacklist} Das bisher vorhandene Netzwerk wird auf die \gls{whitelist} gesetzt (\ref{fa425}). Alle anderen möglichen Adress-Räume werden geblacklistet (FA 420). Weiter aktiviert der Nutzer beide Listen als Filter im Einstellungsmenü (\ref{fa427}). Ein Angreifer mit \gls{blacklist}-Adresse im Netzwerk löst einen Illegale-Kommunikation-Alarm aus und erscheint auf der \gls{gui} inklusive Warnung für den Nutzer. Die Kommunikation wird als illegal angezeigt (\ref{fa150}, \ref{fa160}). Falls implementiert: Der Angreifer löst einen \gls{snort}-\gls{alert} aus, dieser wird in der GUI sichtbar (\ref{fa317}).
 
-  \testcase{inactiveBlacklist}{Inaktiver geblacklisteter Teilnehmer} Nach \gls{blacklist} hört der Angreifer auf zu kommunizieren. Daraufhin wird er als inaktiv aber weiterhin als Angreifer angezeigt. Seine \glspl{log} werden separat gespeichert und sind für den Nutzer lesbar.
+  \testcase{inactiveBlacklist}{Inaktiver geblacklisteter Teilnehmer} Ein erkannter Angreifer hört auf zu kommunizieren. Daraufhin wird er als inaktiv aber weiterhin als Angreifer angezeigt. Seine \glspl{log} werden gehalten.
 
   \testcase{Exit}{Exit} \gls{programname} (Programm) beenden.
 

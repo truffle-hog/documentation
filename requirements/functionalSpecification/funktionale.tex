@@ -8,8 +8,6 @@
 \section{\gls{sppname}}
 \begin{tabular}{lp{0.9\linewidth}}
 
-\fa{10}{Erkennung fehlerhafter Pakete}{Der \gls{praeprozessor} muss fehlerhafte Pakete erkennen und diese als solche markieren können, bevor sie an das Analysetool weitergereicht werden.}
-
 \fa{20}{Erkennen von \gls{profinet} \glspl{paket}n}{Der \gls{praeprozessor} muss \gls{profinet} \glspl{paket} erkennen können.}
 
 \fa{30}{Dekodieren von \gls{profinet} \glspl{paket}n}{Der \gls{praeprozessor} muss die erkannten \glspl{paket} dekodieren können.}
@@ -19,6 +17,14 @@
 \fa{50}{Output Kanal zu \gls{programname}}{Es muss eine \gls{interprocess} für die Weitergabe der dekodierten Daten möglich sein.}
 
 \fa{70}{Ausgabeschnittstelle}{\gls{sppname} muss eine einheitliche Schnittstelle zum Übertragen der Daten an \gls{programname} verwenden. Diese Schnittstelle muss prinzipiell auf andere Protokolle erweiterbar sein.}
+
+\end{tabular}
+
+\subsection{Optionale Funktionalität}
+
+\begin{tabular}{lp{0.9\linewidth}}
+
+\fa{80}{Markierung fehlerhafter Pakete}{Der \gls{praeprozessor} markiert nicht vollständig dekodierbare Pakete.}
 
 \end{tabular}
 
@@ -63,10 +69,14 @@
 
 \fa{270}{Spezifisches Logging}{Das Programm erstellt spezifische \glspl{log} zu einzelnen Knoten mit den von diesem Knoten gesendeten/empfangenen \glspl{paket}n.}
 
-\fa{280}{Fehlerhafte Pakete}{Von \gls{sppname} als fehlerhaft erkannte \glspl{paket} werden mit einem \gls{fehlerflag} versehen und so in das \gls{log} übernommen.}\end{longtable}
+
+
+\end{longtable}
 
 \subsection{Optionale Funktionalität}
 \begin{longtable}{lp{0.9\linewidth}}
+
+\fa{280}{Fehlerhafte Pakete}{Von \gls{sppname} als fehlerhaft erkannte \glspl{paket} werden mit einem \gls{fehlerflag} versehen und so in das \gls{log} übernommen.}
 
 \fa{290}{Rückverfolgung}{Der Benutzer kann den zeitlichen Ablauf grafisch zurückverfolgen (wie ein Video) und sämtliche Kommunikationswege erneut abspielen.}
 
@@ -115,6 +125,8 @@
 \fa{400}{Generelle Informationen}{In einem Overlay werden generelle Informationen über den Graph angezeigt.}
 
 \fa{410}{Hover über einem Knoten}{Hovern erfüllt im Graph dieselben Funktionen wie klicken. Zusätzlich zum aktuell angeklickten Knoten werden zum Vergleich Informationen des aktuell gehoverten Knotens angezeigt.}
+
+\fa{415}{Die \gls{mac}-Addresse wird als eindeutigen identifikator für einen Knoten des Graphen benutzt.}
 
 \fa{420}{\gls{blacklist}}{Der Benutzer hat die Möglichkeit, bestimmte \gls{mac}- und \gls{ip} Adressräume sowie Gerätenamen als illegal zu markieren.}
 
