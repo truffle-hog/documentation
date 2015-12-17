@@ -17,6 +17,8 @@
 \usepackage[toc,acronym]{glossaries}
 \makeglossaries
 
+\newcounter{savepage}
+
 \setuptoc{toc}{totoc}
 
 \usepackage{xparse}
@@ -93,8 +95,9 @@
 
 \clearpage
 
+\setcounter{savepage}{\arabic{page}}
 \pagenumbering{arabic}
-\setcounter{page}{6}
+\setcounter{page}{\thesavepage}
 
 \input{introduction}
 
