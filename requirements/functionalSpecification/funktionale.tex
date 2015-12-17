@@ -6,6 +6,10 @@
 \newcommand\fa[3]{\namedlabel{fa#1}{FA#1}: & \textit{#2: } #3 \\}
 
 \section{\gls{sppname}}
+
+\subsection{Funktionalität}
+
+\def\arraystretch{1.5}
 \begin{tabular}{lp{0.9\linewidth}}
 
 \fa{20}{Erkennen von \gls{profinet} \glspl{paket}n}{Der \gls{praeprozessor} muss \gls{profinet} \glspl{paket} erkennen können.}
@@ -39,9 +43,9 @@
 
 \fa{110}{\gls{snort} läuft aber \gls{sppname} ist deaktiviert}{Falls \gls{snort} schon läuft aber \gls{sppname} deaktiviert ist, hat der Benutzer die Wahl, \gls{sppname} zu aktivieren oder \gls{programname} zu beenden. Falls der \gls{praeprozessor} aktiviert werden soll, wird \gls{snort} mit dem reload Befehl neu geladen.}
 
-\fa{120}{Empfangen von Paketinformationen}{\gls{programname} muss Paketinformationen empfangen können, die dem in \ref{70} genannten Interface entsprechen.}
+\fa{120}{Empfangen von Paketinformationen}{\gls{programname} muss Paketinformationen empfangen können, die dem in \ref{fa70} genannten Interface entsprechen.}
 
-\fa{130}{Erkennen neuer Netzwerkteilnehmer}{Das Programm erkennt neue Netzwerkteilnehmer und überprüft ihre Legalität (siehe \ref{150}).}
+\fa{130}{Erkennen neuer Netzwerkteilnehmer}{Das Programm erkennt neue Netzwerkteilnehmer und überprüft ihre Legalität (siehe \ref{fa150}).}
 
 \fa{132}{Erkennen neuer Netzwerkkommunikation}{Das Programm erkennt aufkommende Kommunikation im betrachteten Netzwerk.}
 
