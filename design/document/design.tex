@@ -1,0 +1,107 @@
+% Functional specification for ProfiSnort
+\documentclass[listof=totoc,a4paper]{scrreprt}
+
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
+\usepackage[bookmarks,bookmarksnumbered]{hyperref}
+\usepackage{csquotes}
+\usepackage{longtable}
+\usepackage{enumitem, hyperref}
+\usepackage{graphicx}
+
+\usepackage[ampersand]{easylist}
+\usepackage{xcolor}
+
+\usepackage[toc,acronym]{glossaries}
+\makeglossaries
+
+\setuptoc{toc}{totoc}
+
+\usepackage{xparse}
+\DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
+  \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
+    description={#6},#1
+  }
+  \makeglossaries
+  \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+}
+
+\renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}}
+
+\hypersetup{
+	backref,
+    colorlinks,
+    linkcolor=[RGB]{0,153,84},
+    citecolor={blue!40!black},
+    urlcolor={blue!70!black},
+    linktocpage=true
+}
+
+\makeatletter
+\def\namedlabel#1#2{\begingroup
+    #2%
+    \def\@currentlabel{#2}%
+    \phantomsection\label{#1}\endgroup
+}
+\makeatother
+
+\newcounter{savepage}
+
+\newcommand{\sppname}{spp\_profinet}
+\newcommand{\programname}{TruffleHog}
+
+
+\loadglsentries{../../global_tex_files/glossary}
+
+
+\begin{document}
+
+\title{\programname \ \& \sppname \ -- Entwurf}
+\author{
+    Brendl, Julian
+    \texttt{julian.brendl@student.kit.edu}
+    \and
+    Diez, Maximilian
+    \texttt{maximilian.diez@student.kit.edu}
+    \and
+    Giraud, Mark
+    \texttt{mark.giraud@student.kit.edu}
+    \and
+    Hermes, Jan
+    \texttt{jan.hermes@student.kit.edu}
+    \and
+    Höhler, Dimitri
+    \texttt{dimitri.hoehler@student.kit.edu}
+    \and
+    Kiechle, Valentin
+    \texttt{valentin.kiechle@student.kit.edu}
+}
+
+\titlehead{\includegraphics[width=150pt]{images/title.png}}
+
+\maketitle
+
+\pagenumbering{Roman}
+\setcounter{page}{2}
+
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+
+\printglossary[title=Abkürzungsverzeichnis,toctitle=Abkürzungsverzeichnis,type=acronym]
+
+\clearpage
+\setcounter{savepage}{\arabic{page}}
+\pagenumbering{arabic}
+\setcounter{page}{\thesavepage}
+
+\input{chapters/introduction}
+
+\appendix
+
+\printglossary[title=Glossar,toctitle=Glossar]
+
+\end{document}
