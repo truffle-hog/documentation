@@ -17,3 +17,6 @@
 *.acr
 *.acn
 *.alg
+
+# Astah Files
+*.lock
