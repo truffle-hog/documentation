@@ -1,1 +1,13 @@
-\chapter{Architektur und Musterbeschreibung}
+\chapter{Architektur und Musterbeschreibung} 
+Im Groben gehalten funktioniert der Daten- und Befehlsfluss im Trufflehog-Entwurf wie im klassischen MVC, der Presenter aktiviert Services, welche das Model basierend auf dem empfangenen Netzwerkverkehr verändert und das View aktualisiert sich am Model.\newline
+\newline
+\textbf{\gls{commandpkg}:} \newline
+Die Kernfunktionalität innerhalb des Programms stellt das commands-package. Darin befinden sich sowohl die Hierarchie also auch jedes mögliche Command. Vom Prinzip her vergleichbar mit Runnables.\newline
+Es gibt 2 Hauptarten von Commands, UserCommands für die Verwaltung der Benutzeroberflächenbefehle, und TruffleCommands für die Methodenaufrufe im Model-Graph, also die Hauptarbeit am Model.\newline
+\newline
+\textbf{\gls{servicepkg}:}\newline
+In unserem Entwurf haben wir uns außerdem dazu entschieden einige einzelne Arbeitsschritte in das Service-Package auszulagern.\newline
+ //hier Bild von Service-Package einfügen//\newline
+Der truffleproessor ist die Empfangsstelle für die von uns in der IPC benutzen Truffles. Außerdem benutzt der truffleprocessor einen Generator zur Erzeugung der später verwendeten Commands.\newline
+Das datalogging kümmert sich um die gesamte gewünschte Speicherung/Loggen und, falls implementiert, die Verfügbarkeit der Video-Daten. Es speichert sowohl regelmäßige Snapshots des gesamten Graphen, als auch einzelne Commands für eine Schrittweise Rückverfolgung des Ablaufes.\newline
+Der executor ist das Unterpackage, in welchem die Anwendung bzw. Ausführung der Commands stattfindet. Der Presenter startet eine Instanz und stellt die CommandQueue zur Verfügung.
