@@ -174,15 +174,23 @@
   name=x86\_64,
   description={64 Bit Architektur}
 }
-
-\newglossaryentry{commandpkg}{
-    name=command-Package,
-    description={Paket für die Hierarchie und Verfügbarkeit der im Program zentral verwendeten Commands.}
-}
+\begin{comment}
+/////////////////////Entwurfsheftbeginn////////////////////////////////
+\end{comment}
 
 \newglossaryentry{servicepkg}{
     name=service-Package,
     description={Paket für ausgelagerte Aufgaben, welche nicht von selbst anlaufen, sondern aufgerufen werden und dann selbständig durchlaufen}
+}
+
+\newglossaryentry{presenterpkg}{
+    name=presenter-Package,
+    description={}
+}
+
+\newglossaryentry{commandpkg}{
+    name=command-Package,
+    description={Paket für die Hierarchie und Verfügbarkeit der im Program zentral verwendeten Commands.}
 }
 
 \newglossaryentry{modelpkg}{
@@ -200,8 +208,13 @@
     description={Eine Reihe von Enums, welche Nutzerinteraktionen auf \gls{commands} mappt.}
 }
 
-\newglossaryentry{presenterpkg}{
-    name=presenter-Package,
-    description={}
+\newglossaryentry{utilpkg}{
+    name=util-Package,
+    description={Enthält nötige Klasse/Interface für das Verwenden des Observer-Patterns.}
 }
+
+\newdualentry{mvp}
+    {MVP}
+    {Model-View-Presenter}
+    {Erweiterung des \gls{mvc}}
 
