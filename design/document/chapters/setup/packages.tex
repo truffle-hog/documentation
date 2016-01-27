@@ -1,8 +1,8 @@
-\section{Packetbeschreibung}
+\section{Paketbeschreibung}
 
-\subsection{\textbf{\sppname}}
+\subsection{\sppname}
 
-\subsection{\textbf{command}}
+\subsection{command}
 
 Die Kernfunktionalität innerhalb des Programms stellt das \textbf{command Paket}.
 Darin befinden sich sowohl die Hierarchie, vorhandene Datenstruktur als auch jede
@@ -12,7 +12,7 @@ Runnables.\newline
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/commands.png}
-  \caption{\textbf{command Paket}}
+  \caption{command Paket}
 \end{figure}
 
 Es gibt 2 Hauptarten von Commands, UserCommands für die Verwaltung der
@@ -21,62 +21,62 @@ Model-Graph, also die Hauptarbeit am Model. Die Commands machen außerdem den
 Hauptteil der Log-Datein und damit der Video-Funktion aus. Mehr dazu im
 service-Unterpackage datalogging.
 
-\subsection*{\textbf{commanqueue}}
+\subsubsection{Command Queue}
 Die besagte Datenstruktur, welche beispielsweise der executor besitzt. Es
 sind ggf. mehrere tatsächliche Queues vorhanden, was einen Manager verlangt
 um nach dem Round-Robin-Prinzip faire Verteilung zu ermöglichen.
 
 
-\subsection{\textbf{service}}
+\subsection{service}
 
 
 In unserem Entwurf haben wir uns außerdem dazu entschieden einzelne
-durchlaufende Arbeitsschritte in das \textbf{service Paket} auszulagern.\newline
+durchlaufende Arbeitsschritte in das service Paket auszulagern.\newline
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/service.png}
-  \caption{\textbf{service Paket}}
+  \caption{service Paket}
   \medskip
 \end{figure}
 
-    \subsection*{\textbf{truffleprocessor}}
-    Der \textbf{truffleprocessor} ist die Empfangsstelle für die von uns in der
+    \subsubsection{truffleprocessor}
+    Der truffleprocessor ist die Empfangsstelle für die von uns in der
     \gls{ipc} benutzen Truffles. Außerdem erzeugt er die später verwendeten
     Commands und benachrichtigt als \gls{notifier}.
 
-    \subsection*{\textbf{datalogging}}
-    Das \textbf{datalogging} kümmert sich um die gesamte gewünschte
+    \subsubsection{datalogging}
+    Das datalogging kümmert sich um die gesamte gewünschte
     Speicherung/Loggen und, falls implementiert, die Verfügbarkeit der
     Video-Daten. Es speichert sowohl regelmäßige Snapshots des gesamten
     Graphen, als auch einzelne Commands für eine Schrittweise Rückverfolgung
     des Ablaufes.
 
-    \subsection*{\textbf{executor}}
-    Der \textbf{executor} ist das Unterpackage, in welchem die Anwendung bzw.
+    \subsubsection{executor}
+    Der executor ist das Unterpackage, in welchem die Anwendung bzw.
     Ausführung der Commands stattfindet. Er ist ein \gls{listener} für Commands
     von sowohl dem view-Package als auch dem truffleprocessor.
 
 
-\subsection{\textbf{presenter}}
+\subsection{presenter}
 
 
-Der \textbf{presenter} ist für den Aufbau von \gls{programname}, also das
+Der presenter ist für den Aufbau von \gls{programname}, also das
 Initialisieren, Instanziieren und Referenzieren aller Programmelemente zuständig.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/presenter.png}
-  \caption{\textbf{presenter}}
+  \caption{presenter Paket}
 \end{figure}
 
 Er ist der erste Thread und erzeugt alle weiteren, zum Beispiel einen für jeden
 Service. Außerdem liest er aus einer Settings-Datei und stellt das Programm ein.
 Das heisst er initialisiert bestimmte Attribute entsprechend. Danach erschöpft
-sich die Nützlichkeit des \textbf{presenter} bis zu einem neuen Programmstart.
+sich die Nützlichkeit des presenter bis zu einem neuen Programmstart.
 
 
-\subsection{\textbf{util}}
+\subsection{util}
 
 
 Unsere Variante des \gls{observerpattern}s.
@@ -84,7 +84,7 @@ Unsere Variante des \gls{observerpattern}s.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/util.png}
-  \caption{\textbf{util Packet}}
+  \caption{util Paket}
 \end{figure}
 
 Da wir sowohl Interfaces als auch Klassen bzw. abstrakte Klassen als
@@ -95,27 +95,27 @@ Da wir sowohl Interfaces als auch Klassen bzw. abstrakte Klassen als
 Observer.
 
 
-\subsection{\textbf{model}}
+\subsection{model}
 
 
-Die Hauptdatenstruktur von \gls{programname}: das \textbf{model Paket}.
+Die Hauptdatenstruktur von \gls{programname}: das model Paket.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/model.png}
-  \caption{\textbf{model Paket}}
+  \caption{model Paket}
 \end{figure}
 
-    \subsection*{\textbf{graph}}
+    \subsubsection{graph}
 
-    \subsection*{\textbf{filter}}
+    \subsubsection{filter}
 
-    \subsection*{\textbf{settingsdata}}
+    \subsubsection{settingsdata}
 
-    \subsection*{\textbf{graphlog}}
-
-
-\subsection{\textbf{view}}
+    \subsubsection{graphlog}
 
 
-\subsection{\textbf{interactors}}
+\subsection{view}
+
+
+\subsection{interactors}
