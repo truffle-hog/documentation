@@ -1,0 +1,8 @@
+\section{Architekturbeschreibung}
+Im Groben gehalten funktioniert der Daten- und Befehlsfluss im Trufflehog-Entwurf
+wie im klassischen MVC, der Presenter aktiviert Services, welche das Model basierend
+auf dem empfangenen Netzwerkverkehr verändert und das View aktualisiert sich am Model.
+Da viele Threads im Programm parallel durchlaufen aber dennoch kommunizieren müssen,
+verlassen wir uns an einigen Stellen auf das \gls{observerpattern} mit einer
+Multi-Thread kompatiblen Datenstruktur.\newline
+\newline
