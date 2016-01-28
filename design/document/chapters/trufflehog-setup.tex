@@ -11,9 +11,9 @@ Multi-Thread kompatiblen Datenstruktur.\newline
 
 \section{Paketbeschreibung}
 
-\subsection{command}
+\subsection{\Large command}
 
-Die Kernfunktionalität innerhalb des Programms stellt das \textbf{command Paket}.
+Die Kernfunktionalität innerhalb des Programms stellt das \textbf{command-Package}.
 Darin befinden sich sowohl die Hierarchie, vorhandene Datenstruktur als auch jede
 mögliche Command-Klasse und deren Interface. Vom Prinzip her vergleichbar mit
 Runnables.\newline
@@ -21,7 +21,7 @@ Runnables.\newline
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/commands.png}
-  \caption{command Paket}
+  \caption{command-Package}
 \end{figure}
 
 Es gibt 2 Hauptarten von Commands, UserCommands für die Verwaltung der
@@ -30,22 +30,22 @@ Model-Graph, also die Hauptarbeit am Model. Die Commands machen außerdem den
 Hauptteil der Log-Datein und damit der Video-Funktion aus. Mehr dazu im
 service-Unterpackage datalogging.
 
-\subsubsection{Command Queue}
-Die besagte Datenstruktur, welche beispielsweise der executor besitzt. Es
-sind ggf. mehrere tatsächliche Queues vorhanden, was einen Manager verlangt
-um nach dem Round-Robin-Prinzip faire Verteilung zu ermöglichen.
+    \subsubsection{Command Queue}
+    Die besagte Datenstruktur, welche beispielsweise der executor besitzt. Es
+    sind ggf. mehrere tatsächliche Queues vorhanden, was einen Manager verlangt
+    um nach dem Round-Robin-Prinzip faire Verteilung zu ermöglichen.
 
 
-\subsection{service}
+\subsection{\Large service}
 
 
 In unserem Entwurf haben wir uns außerdem dazu entschieden einzelne
-durchlaufende Arbeitsschritte in das service Paket auszulagern.\newline
+durchlaufende Arbeitsschritte in das \textbf{service-Package} auszulagern.\newline
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/service.png}
-  \caption{service Paket}
+  \caption{service-Package}
   \medskip
 \end{figure}
 
@@ -67,7 +67,7 @@ durchlaufende Arbeitsschritte in das service Paket auszulagern.\newline
     von sowohl dem view-Package als auch dem truffleprocessor.
 
 
-\subsection{presenter}
+\subsection{\Large presenter}
 
 
 Der presenter ist für den Aufbau von \gls{programname}, also das
@@ -76,7 +76,7 @@ Initialisieren, Instanziieren und Referenzieren aller Programmelemente zuständi
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/presenter.png}
-  \caption{presenter Paket}
+  \caption{presenter-Package}
 \end{figure}
 
 Er ist der erste Thread und erzeugt alle weiteren, zum Beispiel einen für jeden
@@ -85,7 +85,7 @@ Das heisst er initialisiert bestimmte Attribute entsprechend. Danach erschöpft
 sich die Nützlichkeit des presenter bis zu einem neuen Programmstart.
 
 
-\subsection{util}
+\subsection{\Large util}
 
 
 Unsere Variante des \gls{observerpattern}s.
@@ -93,7 +93,7 @@ Unsere Variante des \gls{observerpattern}s.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/util.png}
-  \caption{util Paket}
+  \caption{util-Package}
 \end{figure}
 
 Da wir sowohl Interfaces als auch Klassen bzw. abstrakte Klassen als
@@ -104,19 +104,19 @@ Da wir sowohl Interfaces als auch Klassen bzw. abstrakte Klassen als
 Observer.
 
 
-\subsection{model}
+\subsection{\Large model}
 
 
-Die Hauptdatenstruktur von \gls{programname}: das model Paket.
+Die Hauptdatenstruktur von \gls{programname}: das model-Package.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/model.png}
-  \caption{model Paket}
+  \caption{model-Package}
 \end{figure}
 
     \subsubsection{graph}
-
+    Dieses Unterpackage macht das eigentliche Modell aus. Der gesamte Graph sowie all seine möglichen Layouts, entsprechende Interfaces und ein Proxy aus dem \gls{proxypattern} für die Entkopplung sind hier enthalten.
     \subsubsection{filter}
 
     \subsubsection{settingsdata}
@@ -124,6 +124,6 @@ Die Hauptdatenstruktur von \gls{programname}: das model Paket.
     \subsubsection{graphlog}
 
 
-\subsection{view}
+\subsection{\Large view}
 
-\subsection{interactors}
+\subsection{\Large interactors}
