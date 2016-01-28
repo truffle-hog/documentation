@@ -1,8 +1,6 @@
-\section{Paketbeschreibung}
+\subsection{Paketbeschreibung}
 
-\subsection{\sppname}
-
-\subsection{command}
+\subsubsection{command}
 
 Die Kernfunktionalität innerhalb des Programms stellt das \textbf{command Paket}.
 Darin befinden sich sowohl die Hierarchie, vorhandene Datenstruktur als auch jede
@@ -21,13 +19,13 @@ Model-Graph, also die Hauptarbeit am Model. Die Commands machen außerdem den
 Hauptteil der Log-Datein und damit der Video-Funktion aus. Mehr dazu im
 service-Unterpackage datalogging.
 
-\subsubsection{Command Queue}
+\paragraph{Command Queue}
 Die besagte Datenstruktur, welche beispielsweise der executor besitzt. Es
 sind ggf. mehrere tatsächliche Queues vorhanden, was einen Manager verlangt
 um nach dem Round-Robin-Prinzip faire Verteilung zu ermöglichen.
 
 
-\subsection{service}
+\subsubsection{service}
 
 
 In unserem Entwurf haben wir uns außerdem dazu entschieden einzelne
@@ -40,25 +38,25 @@ durchlaufende Arbeitsschritte in das service Paket auszulagern.\newline
   \medskip
 \end{figure}
 
-    \subsubsection{truffleprocessor}
+    \paragraph{truffleprocessor}
     Der truffleprocessor ist die Empfangsstelle für die von uns in der
     \gls{ipc} benutzen Truffles. Außerdem erzeugt er die später verwendeten
     Commands und benachrichtigt als \gls{notifier}.
 
-    \subsubsection{datalogging}
+    \paragraph{datalogging}
     Das datalogging kümmert sich um die gesamte gewünschte
     Speicherung/Loggen und, falls implementiert, die Verfügbarkeit der
     Video-Daten. Es speichert sowohl regelmäßige Snapshots des gesamten
     Graphen, als auch einzelne Commands für eine Schrittweise Rückverfolgung
     des Ablaufes.
 
-    \subsubsection{executor}
+    \paragraph{executor}
     Der executor ist das Unterpackage, in welchem die Anwendung bzw.
     Ausführung der Commands stattfindet. Er ist ein \gls{listener} für Commands
     von sowohl dem view-Package als auch dem truffleprocessor.
 
 
-\subsection{presenter}
+\subsubsection{presenter}
 
 
 Der presenter ist für den Aufbau von \gls{programname}, also das
@@ -76,7 +74,7 @@ Das heisst er initialisiert bestimmte Attribute entsprechend. Danach erschöpft
 sich die Nützlichkeit des presenter bis zu einem neuen Programmstart.
 
 
-\subsection{util}
+\subsubsection{util}
 
 
 Unsere Variante des \gls{observerpattern}s.
@@ -95,7 +93,7 @@ Da wir sowohl Interfaces als auch Klassen bzw. abstrakte Klassen als
 Observer.
 
 
-\subsection{model}
+\subsubsection{model}
 
 
 Die Hauptdatenstruktur von \gls{programname}: das model Paket.
@@ -106,16 +104,16 @@ Die Hauptdatenstruktur von \gls{programname}: das model Paket.
   \caption{model Paket}
 \end{figure}
 
-    \subsubsection{graph}
+    \paragraph{graph}
 
-    \subsubsection{filter}
+    \paragraph{filter}
 
-    \subsubsection{settingsdata}
+    \paragraph{settingsdata}
 
-    \subsubsection{graphlog}
-
-
-\subsection{view}
+    \paragraph{graphlog}
 
 
-\subsection{interactors}
+\subsubsection{view}
+
+
+\subsubsection{interactors}
