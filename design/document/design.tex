@@ -21,7 +21,7 @@
 \makeglossaries
 
 \setuptoc{toc}{totoc}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 
 \usepackage{xparse}
 \DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
@@ -101,13 +101,15 @@
 \pagenumbering{arabic}
 \setcounter{page}{\thesavepage}
 
-\input{chapters/introduction/introduction}
+\input{chapters/introduction}
 
-\input{chapters/setup/setup}
+\input{chapters/spp_profinet-setup}
 
-\input{chapters/procedures/procedures}
+\input{chapters/trufflehog-setup}
 
-\input{chapters/resources/resources}
+\input{chapters/procedures}
+
+\input{chapters/resources}
 
 \appendix
 

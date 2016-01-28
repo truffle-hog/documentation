@@ -1,6 +1,17 @@
-\subsection{Paketbeschreibung}
+\chapter{Aufbau \programname}
 
-\subsubsection{command}
+\section{Architekturbeschreibung}
+Im Groben gehalten funktioniert der Daten- und Befehlsfluss im Trufflehog-Entwurf
+wie im klassischen MVC, der Presenter aktiviert Services, welche das Model basierend
+auf dem empfangenen Netzwerkverkehr verändert und das View aktualisiert sich am Model.
+Da viele Threads im Programm parallel durchlaufen aber dennoch kommunizieren müssen,
+verlassen wir uns an einigen Stellen auf das \gls{observerpattern} mit einer
+Multi-Thread kompatiblen Datenstruktur.\newline
+\newline
+
+\section{Paketbeschreibung}
+
+\subsection{command}
 
 Die Kernfunktionalität innerhalb des Programms stellt das \textbf{command Paket}.
 Darin befinden sich sowohl die Hierarchie, vorhandene Datenstruktur als auch jede
@@ -19,13 +30,13 @@ Model-Graph, also die Hauptarbeit am Model. Die Commands machen außerdem den
 Hauptteil der Log-Datein und damit der Video-Funktion aus. Mehr dazu im
 service-Unterpackage datalogging.
 
-\paragraph{Command Queue}
+\subsubsection{Command Queue}
 Die besagte Datenstruktur, welche beispielsweise der executor besitzt. Es
 sind ggf. mehrere tatsächliche Queues vorhanden, was einen Manager verlangt
 um nach dem Round-Robin-Prinzip faire Verteilung zu ermöglichen.
 
 
-\subsubsection{service}
+\subsection{service}
 
 
 In unserem Entwurf haben wir uns außerdem dazu entschieden einzelne
@@ -38,25 +49,25 @@ durchlaufende Arbeitsschritte in das service Paket auszulagern.\newline
   \medskip
 \end{figure}
 
-    \paragraph{truffleprocessor}
+    \subsubsection{truffleprocessor}
     Der truffleprocessor ist die Empfangsstelle für die von uns in der
     \gls{ipc} benutzen Truffles. Außerdem erzeugt er die später verwendeten
     Commands und benachrichtigt als \gls{notifier}.
 
-    \paragraph{datalogging}
+    \subsubsection{datalogging}
     Das datalogging kümmert sich um die gesamte gewünschte
     Speicherung/Loggen und, falls implementiert, die Verfügbarkeit der
     Video-Daten. Es speichert sowohl regelmäßige Snapshots des gesamten
     Graphen, als auch einzelne Commands für eine Schrittweise Rückverfolgung
     des Ablaufes.
 
-    \paragraph{executor}
+    \subsubsection{executor}
     Der executor ist das Unterpackage, in welchem die Anwendung bzw.
     Ausführung der Commands stattfindet. Er ist ein \gls{listener} für Commands
     von sowohl dem view-Package als auch dem truffleprocessor.
 
 
-\subsubsection{presenter}
+\subsection{presenter}
 
 
 Der presenter ist für den Aufbau von \gls{programname}, also das
@@ -74,7 +85,7 @@ Das heisst er initialisiert bestimmte Attribute entsprechend. Danach erschöpft
 sich die Nützlichkeit des presenter bis zu einem neuen Programmstart.
 
 
-\subsubsection{util}
+\subsection{util}
 
 
 Unsere Variante des \gls{observerpattern}s.
@@ -93,7 +104,7 @@ Da wir sowohl Interfaces als auch Klassen bzw. abstrakte Klassen als
 Observer.
 
 
-\subsubsection{model}
+\subsection{model}
 
 
 Die Hauptdatenstruktur von \gls{programname}: das model Paket.
@@ -104,16 +115,15 @@ Die Hauptdatenstruktur von \gls{programname}: das model Paket.
   \caption{model Paket}
 \end{figure}
 
-    \paragraph{graph}
+    \subsubsection{graph}
 
-    \paragraph{filter}
+    \subsubsection{filter}
 
-    \paragraph{settingsdata}
+    \subsubsection{settingsdata}
 
-    \paragraph{graphlog}
-
-
-\subsubsection{view}
+    \subsubsection{graphlog}
 
 
-\subsubsection{interactors}
+\subsection{view}
+
+\subsection{interactors}
