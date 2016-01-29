@@ -13,11 +13,19 @@ Multi-Thread kompatiblen Datenstruktur.\newline
 
 \subsection{command}
 
-Die Kernfunktionalität innerhalb des Programms stellt das \textbf{command-Package}.
-Darin befinden sich sowohl die Hierarchie, vorhandene Datenstruktur als auch jede
-mögliche Command-Klasse und deren Interface. Vom Prinzip her vergleichbar mit
-Runnables.\newline
+Das command-Package beinhaltet Commands. Ein command ist eine art Befehl der auf
+dem Model ausgeführt wird. D.h. alle objekt die das Model irgendwie verändern
+werden als command gekapselt, sodass deren veränderung als command auf dem Model
+ausgeführt wird. Zum Beispiel werden alle empfangene netzwerk\glspl{paket} und
+Benutzerbefehle als command gekapselt, da diese direkt das Model beeinflussen.
 
+Dieses Design hat zwei große Vorteile. Zum einen kann man davon ausgehen, dass
+wenn etwas das Model verändert es dann auch ein Command ist, und zum anderen
+kann man die Commands speichern und zu einem späteren Zeitpunkt auf ein Snapshot
+des Modelles ausführen um den originallen graphen wieder herzustellen. Mehr dazu
+im replaylogging package.
+
+\newline
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/commands.png}
