@@ -129,7 +129,7 @@ eigenen Package. Unten ist erklärt was genau jeder Prozess macht.
     wiederherstellen eines gespeicherten Graphen.
     \newline
     \newline
-    Der \textit{DataLogSaveService}läuft konstant im Hintergrund und empfängt alle
+    Der \textit{DataLogSaveService} läuft konstant im Hintergrund und empfängt alle
     vom \textit{TruffleReciever} verschickte \glspl{command}. Diese werden alle X
     sekunden (vom Benutzter festlegbar) komprimiert und in eine Liste gepackt.
     Komprimiert, heißt, dass viele \glspl{command} die das selbe tun in ein \gls{command}
@@ -139,7 +139,7 @@ eigenen Package. Unten ist erklärt was genau jeder Prozess macht.
     \gls{replaylog} Objekt wird dann von Java serialisiert und gespeichert.
     \newline
     \newline
-    Diese logs können zu einem späteren Zeitpunkt wieder geladen werden um den
+    Diese Logs können zu einem späteren Zeitpunkt wieder geladen werden um den
     Graphen wiederherzustellen. Dazu ist der \textit{DataLogLoadService} da. Wenn
     der user die replay funktion aktiviert, fängt der DataLogLoadService an die
     \glspl{replaylog} zu laden. Denn wird in der view der snapshot graph angezeigt
@@ -153,7 +153,7 @@ eigenen Package. Unten ist erklärt was genau jeder Prozess macht.
     Der DataLogLoadService läuft in seinem eigenen Thread weil er sich darum
     kümmert, dass immer genügend Daten im Speicher liegen. In anderen Worten, er
     buffert die replaylogs vor dammit sich der Graph bei dem Benutzter flüssig
-    abspielt.  
+    abspielt.
 
     \subsubsection{executor}
     \label{subsubsec:executor}
@@ -162,9 +162,20 @@ eigenen Package. Unten ist erklärt was genau jeder Prozess macht.
     \newline
     \newline
 
-    Der executor ist das Unterpackage, in welchem die Anwendung bzw.
-    Ausführung der Commands stattfindet. Er ist ein \gls{listener} für Commands
-    von sowohl dem view-Package als auch dem truffleprocessor.
+    Der executor Service läuft auch wieder konstant im Hintegrund in seinem
+    eigenen Thread. Er ist ein Listener der bei dem TruffleReciever aus dem
+    \hyperref[subsubsec:truffleprocessor]{truffleprocessor}-Package sowohl als
+    auch bei den view controllern aus dem \hyperref[subsec:view]{view}-Package
+    registriert ist. D.h. er bekommt wie das \hyperref[subsubsec:replaylogging]{replaylogging}
+    alle \hyperref[subsubsec:trufflecommand]{Truffle Commands} und führt diese
+    dann auf dem aktuellen Model aus.
+    \newline
+    \newline
+    In \gls{programname} gibt es zwei Instanzen von dem Executor. Die erste bearbeitet
+    den aktuellen Graphen, und die zweite bearbeitet die Ssapshot Instanz, falls
+    eine existiert. So kann der aktuelle Graph weiter bearbeitet werden, wärend
+    gleichzeitig der Benutzter einen alten Graphen rekonstruiert aus
+    \glspl{replaylog} anguckt.
 
 
 \subsection{presenter}
@@ -217,7 +228,9 @@ Die Hauptdatenstruktur von \gls{programname}: das model-Package.
 \end{figure}
 
     \subsubsection{graph}
-    Dieses Unterpackage macht das eigentliche Modell aus. Der gesamte Graph sowie all seine möglichen Layouts, entsprechende Interfaces und ein Proxy aus dem \gls{proxypattern} für die Entkopplung sind hier enthalten.
+    Dieses Unterpackage macht das eigentliche Modell aus. Der gesamte Graph sowie
+    all seine möglichen Layouts, entsprechende Interfaces und ein Proxy aus dem
+    \gls{proxypattern} für die Entkopplung sind hier enthalten.
     \subsubsection{filter}
 
     \subsubsection{settingsdata}

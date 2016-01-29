@@ -248,19 +248,20 @@
 \newglossaryentry{command}{
     name=Command,
 		plural=Commands,
-    description={Ein Befehl der auf dem Model ausgeführt wird. Mehr im \hyperref[subsec:command]{command-Package}-Package}.
+    description={Ein Befehl der auf dem Model ausgeführt wird. Mehr im \hyperref[subsec:command]{command}-Package}.
 }
 
 \newglossaryentry{executor}{
     name=Executor,
 		plural=Executors,
-    description={Ein Befehl der auf dem Model ausgeführt wird. Mehr im \hyperref[subsec:command]{executor-Package}-Package}.
+    description={Der Service der die \gls{programname} Befehle ausführt und sommit das Model verändert. Mehr im \hyperref[subsubsec:executor]{executor}-Package}.
 }
 
 \newglossaryentry{replaylog}{
     name=ReplayLog,
-		plural=Executors,
-    description={Ein Befehl der auf dem Model ausgeführt wird. Mehr im \hyperref[subsec:replaylogging]{replaylogging}-Package}.
+		plural=ReplayLogs,
+    description={Ein Objekt das ein Snapshot von dem Graphen zu einem bestimmten Zeitpunkt mit einer Liste an \glspl{command} beinhaltet. Dieses Objekt wird
+	  von Java serialisiert und dann auf der Festplatte gespeichert um zu einem spätteren Zeitpunkt in der Lage zu sein den Graphen zu rekonstruieren. Mehr im \hyperref[subsec:replaylogging]{replaylogging}-Package}.
 }
 
 \newdualentry{mvp}
