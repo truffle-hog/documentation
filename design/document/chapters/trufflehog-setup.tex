@@ -12,19 +12,19 @@ Multi-Thread kompatiblen Datenstruktur.\newline
 \section{Paketbeschreibung}
 
 \subsection{command}
-
 Das command-Package beinhaltet Commands. Ein command ist eine art Befehl der auf
 dem Model ausgeführt wird. D.h. alle objekt die das Model irgendwie verändern
 werden als command gekapselt, sodass deren veränderung als command auf dem Model
 ausgeführt wird. Zum Beispiel werden alle empfangene netzwerk\glspl{paket} und
 Benutzerbefehle als command gekapselt, da diese direkt das Model beeinflussen.
-
-Dieses Design hat zwei große Vorteile. Zum einen kann man davon ausgehen, dass
-wenn etwas das Model verändert es dann auch ein Command ist, und zum anderen
-kann man die Commands speichern und zu einem späteren Zeitpunkt auf ein Snapshot
-des Modelles ausführen um den originallen graphen wieder herzustellen. Mehr dazu
-im replaylogging package.
-
+\newline
+\newline
+Dieses Design hat zwei große Vorteile. Zum einen herscht eine lose Kopplung zwischen
+dem der das Model verändern will und dem Model selber, was zur modularität des ganzen
+programmes hinzufügt. Zum anderen ann man die Commands speichern und zu einem
+späteren Zeitpunkt auf ein Snapshot des Modelles ausführen um das originalle
+model wieder herzustellen. Mehr dazu im replaylogging-Package.
+\newline
 \newline
 \begin{figure}[H]
   \centering
@@ -32,8 +32,15 @@ im replaylogging package.
   \caption{command-Package}
 \end{figure}
 
-Es gibt 2 Hauptarten von Commands, UserCommands für die Verwaltung der
-Benutzeroberflächenbefehle, und TruffleCommands für die Methodenaufrufe im
+Es gibt 2 Arten von Commands, UserCommands für die Verwaltung der
+Benutzeroberflächenbefehle, und TruffleCommands für die bearbeitung empfangenen
+Paketdaten. D.h. wenn der Benutzter einen Knopf drückt der das Model beeinflusst,
+wird ein command an alle Listener durch das observer pattern im \hyperref[subsec:util]{util-Package})
+losgeschickt.
+\newline
+\newline
+
+im
 Model-Graph, also die Hauptarbeit am Model. Die Commands machen außerdem den
 Hauptteil der Log-Datein und damit der Video-Funktion aus. Mehr dazu im
 service-Unterpackage datalogging.
@@ -94,6 +101,7 @@ sich die Nützlichkeit des presenter bis zu einem neuen Programmstart.
 
 
 \subsection{util}
+\label{subsec:util}
 
 
 Unsere Variante des \gls{observerpattern}s.
