@@ -2,8 +2,8 @@
 
 \section{Architekturbeschreibung}
 Im Groben gehalten funktioniert der Daten- und Befehlsfluss im Trufflehog-Entwurf
-wie im klassischen MVC, der Presenter aktiviert Services, welche das Model basierend
-auf dem empfangenen Netzwerkverkehr verändert und das View aktualisiert sich am Model.
+wie im klassischen \gls{mvc}. Der Presenter aktiviert Services, welche das Model basierend
+auf empfangenem Netzwerkverkehr verändert und das View aktualisiert sich am Model.
 Da viele Threads im Programm parallel durchlaufen aber dennoch kommunizieren müssen,
 verlassen wir uns an einigen Stellen auf das \gls{observerpattern} mit einer
 Multi-Thread kompatiblen Datenstruktur.\newline
@@ -13,34 +13,35 @@ Multi-Thread kompatiblen Datenstruktur.\newline
 
 \subsection{command}
 \label{subsec:command}
-Das command-Package beinhaltet Commands. Ein command ist ein Befehl der auf
-dem Model ausgeführt wird. D.h. alle objekt die das Model irgendwie verändern
-werden als command gekapselt, sodass deren veränderung auf dem Model
-ausgeführt werden kann. Zum Beispiel werden alle empfangene netzwerk\glspl{paket}
-und Benutzerbefehle als command gekapselt, da diese direkt das Model beeinflussen
-in dem sie bie dem \gls{executor} ankommen und dort ausgeführt werden.
+Das command-Package beinhaltet alle Commands, deren Struktur und die wichtige Datenstruktur CommandQueue. Ein Command ist ein Befehl, der auf
+dem Model ausgeführt wird. Das heißt alle Objekte, die das Model irgendwie verändern,
+werden als Command gekapselt, sodass die Veränderung auf dem Model
+ausgeführt werden kann. Es werden alle empfangene Netzwerkpakete 
+und Benutzerbefehle als Command gekapselt, da diese direkt das Model beeinflussen
+indem sie beim Executor ausgeführt werden.
 \newline
 \newline
 Dieses Design hat zwei große Vorteile. Zum einen herscht eine lose Kopplung zwischen
-dem der das Model verändern will und dem Model selber, was zur Modularität des ganzen
-Programmes beiträgt. Zum anderen kann man die Commands speichern und zu einem
-späteren Zeitpunkt auf ein Snapshot des Modelles wieder ausführen um das originale
+allen Programmteilen, welche das Model verändern wollen und dem Model selbst, was zur Modularität des ganzen
+Programms beiträgt. Zum anderen kann man die Commands speichern und zu einem
+späteren Zeitpunkt auf einen Snapshot des Modells wieder ausführen um das originale
 Model wieder herzustellen. Mehr dazu im
-\hyperref[subsubsec:replaylogging]{replaylogging}-Package Weiter bietet dieses
-design den großen Vorteil das es hohes erweiterbakeits Potential hat. Zum Beispiel
-könnte man relativ einfach eine undo und redo Funktion in ein Command einbauen um
+\hyperref[subsubsec:replaylogging]{replaylogging}-Package. Weiter bietet dieses
+Design den großen Vorteil das es hohes Erweiterbarkeitspotential hat. Zum Beispiel
+könnte man relativ einfach eine undo- und redo-Funktion in einen Command einbauen um
 zwischen verschiedene Modelzuständen hin und zurück zu springen. So eine
 Funktionalität ist zwar nicht geplannt, aber sie demonstriert wie einfach man so
 etwas implementieren könnte.
 \newline
 \newline
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/commands.png}
   \caption{command-Package}
 \end{figure}
 
-Es gibt 2 Arten von Commands, TruffleCommands für die bearbeitung empfangener
+Es gibt 2 Arten von Commands, TruffleCommands für die Bearbeitung empfangener
 Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle.
 
       \subsubsection{trufflecommand}
@@ -48,24 +49,23 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
       ***TruffleCommands package image goes here***
       \newline
       \newline
-      Jegliche empfangene Paketdaten werden zuerst in \glspl{truffle} umgewandelt wie
+      Jegliche empfangenen Truffles vom \gls{praeprozessor} werden zuerst in Java-Objekt-Truffles umgewandelt, wie
       im \hyperref[subsubsec:truffleprocessor]{truffleprocessor}-Package erleutert. Dort
-      werden die erzeugten \glspl{truffle} in ein Command gesteckt und per Observer Pattern
-      wie im \hyperref[subsec:util]{util}-Package beschrieben an alle In­te­r­es­senten verschickt
-      (die Listeners).
+      werden die erzeugten Java-Truffles in ein Command gesteckt und per \gls{observerpattern}
+      wie im \hyperref[subsec:util]{util}-Package beschrieben an alle Interessenten, also die \gls{listener} verschickt.
       \newline
       \newline
-      Es gibt nur einen Command Typen für die empfangen Netzwerkpakete, nähmlich den
-      AddPacketDataCommand. Diese Entscheidung wurde getroffen um das Programm simple
-      zu halten. Commands wie addNode() oder addEdge() sind überflüßig, da diese leicht aus
-      einem Netzwerkpaket geschlossen werden können.
+      Es gibt nur einen Command-Typen für die empfangen Truffle-Pakete, nämlich den
+      AddPacketDataCommand. Diese Entscheidung wurde getroffen um das Programm einfach
+      zu halten. Commands wie AddNode oder AddEdge sind überflüßig, da diese leicht aus
+      dem Inhalt des Truffles geschlossen werden können.
       \newline
       \newline
-      Der PluginNotRunningCommand wird genau dann verschickt, wenn sich \gls{programname}
-      nicht mit \gls{sppname} oder einem äquivalenten Plugin nicht verbinden konnte. Wir
-      haben die Funktionalität das \gls{programname} automatisch \gls{sppname} startet
-      aufgegeben um die beiden Programme unabhängiger zu gestallten, und um dem Benutzter
-      mehr Freiheit zu geben.
+      Der PluginNotRunningCommand wird genau dann vom truffleprocessor verschickt, wenn sich \gls{programname}
+      nicht mit \gls{sppname} oder einem äquivalenten Plugin verbinden konnte. Wir
+      haben die Funktionalität, dass \gls{programname} automatisch \gls{sppname} startet,
+      aufgegeben um die beiden Programme unabhängiger zu gestallten und um dem Benutzter
+      mehr Freiheit, beispielsweise bei der \gls{praeprozessor}enwahl, zu geben.
 
       \subsubsection{usercommand}
       \label{subsubsec:usercommand}
@@ -73,27 +73,30 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
       \newline
       \newline
 
-      Wenn der Benutzter eine GUI-Aktion startet die das Model beeinflusst,
-      wird ein Command an alle Listener durch das observer pattern wie im
-      \hyperref[subsec:util]{util-Package}) beschrieben verschickt. Für jede mögliche
-      GUI aktion die das Model beeinflusst gibt es einen passenden Command.
+      Wenn der Benutzter eine GUI-Aktion startet, die das Model beeinflusst,
+      wird ein entsprechender Command an alle \gls{listener} durch das \gls{observerpattern}, wie im
+      \hyperref[subsec:util]{util-Package} beschrieben, verschickt. Für jede mögliche
+      GUI-Aktion, welche das Model beeinflusst, gibt es einen passenden Command.
+      
+      //////hier fehlt wer die usercommmands erstellt und losschickt//////
 
       \subsubsection{queue}
       \label{subsubsec:queue}
-      Die  welche beispielsweise der executor besitzt. Es
-      sind ggf. mehrere tatsächliche Queues vorhanden, was einen Manager verlangt
-      um nach dem Round-Robin-Prinzip faire Verteilung zu ermöglichen.
+      Die Commands, welche beispielsweise der Executor abarbeiten soll, werden in einer passenden Datenstruktur zwischengespeichert. Es
+      sind ggf. mehrere tatsächliche Queues vorhanden, was nach einem Manager verlangt
+      um nach dem Round-Robin-Prinzip faire Verteilung zu ermöglichen. Diese CommandQueue ist das empfangende Ende des \gls{observerpattern} an mehreren Stellen unseres Programms.
+      Bei Aktualisierung durch einen \gls{notifier} geht dieser alle seine \gls{listener} durch und fügt bei jedem in genau eben diese CommandQueue das neue Command-Objekt ein.
+      Eine BlockingQueue ermöglicht in diesem Fall die Kommunikation zwischen Threads.
 
-      *** Bitte jemand anders erleutern, blocking queue idee fehlt etc. ****
+      *** Bitte jemand anders erleutern, blocking queue idee fehlt etc. **** ///wie wärs damit?////
 
 
 \subsection{service}
 \label{subsec:service}
 
-Im service-Package befinden sich alle Prozesse von \programname,
-mit ausnahme vom \hyperref[subsec:view]{view} das sein eigenes Package ist und dem
-haupt Prozess. Jeder Prozess läuft in seinem eigenen Thread und ist in seinem
-eigenen Package. Unten ist erklärt was genau jeder Prozess macht.
+Im service-Package befinden sich alle durchlaufenden Threads von \gls{programname},
+mit Ausnahme vom \hyperref[subsec:view]{view}, das ein eigenes Package zur verzögerungsfreien Darstellung ist, und dem
+main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende Funktionalität, meist eine pro Thread. Unten ist erklärt, was genau jedes Unterpackage macht.
 
 \begin{figure}[H]
   \centering
@@ -108,13 +111,13 @@ eigenen Package. Unten ist erklärt was genau jeder Prozess macht.
     *** truffleprocessor image here ***
     \newline
     \newline
-    Der truffleprocessor Prozess läuft konstant im Hintergrund, in einem eigenen Thread
-    und empfängt die im \sppname erstellten \glspl{truffle} Daten.
-    Diese packt er in ein Java \gls{truffle} Objekt welches dann wiederum von dem
-    \textit{TruffleReciever} in ein \gls{command} gesteckt wird. Da der \textit{TruffleReciever}
-    auch ein \gls{notifier} ist, verschickt er den \gls{command} auch gleich an
-    alle registrierten \gls{listener}, wo die \glspl{command} gleich durch den
-    \gls{executor} auf dem Model angewandt werden.
+    Der truffleprocessor-Service läuft konstant im Hintergrund, in einem eigenen Thread,
+    und empfängt die im \gls{sppname} erstellten Truffles.
+    Diese packt er in ein Java-Truffle-Objekt, welches dann wiederum von dem
+    \textit{TruffleReciever} in ein Command gesteckt wird. Da der \textit{TruffleReciever}
+    auch ein \gls{notifier} ist, verschickt er den Command auch gleich an
+    alle registrierten \gls{listener}, wo die Commands als nächstes durch den
+    CommandExecutor auf dem Model angewandt werden.
 
     \subsubsection{replaylogging}
     \label{subsubsec:replaylogging}
@@ -123,11 +126,37 @@ eigenen Package. Unten ist erklärt was genau jeder Prozess macht.
     \newline
     \newline
 
-    Das datalogging kümmert sich um die gesamte gewünschte
-    Speicherung/Loggen und, falls implementiert, die Verfügbarkeit der
-    Video-Daten. Es speichert sowohl regelmäßige Snapshots des gesamten
-    Graphen, als auch einzelne Commands für eine Schrittweise Rückverfolgung
-    des Ablaufes.
+    Der replaylogging-Service besteht aus 2 Prozessen die jeweils ihre eigenen Threads haben//same//.
+    Der erste ist der \textit{DataLogSaveService} und kümmert sich um das speichern das aktuellen
+    Graphen. Der zweite ist der \textit{DataLogLoadService} und kümmert sich um das
+    wiederherstellen eines gespeicherten Graphen.
+    \newline
+    \newline
+    Der \textit{DataLogSaveService} läuft konstant im Hintergrund und empfängt alle
+    vom \textit{TruffleReciever} verschickten Commands. Diese werden alle X
+    Sekunden (vom Benutzter festlegbar) komprimiert und in eine Liste gepackt.
+    Komprimiert heißt, dass viele Commands, die das selbe tun, in ein Command
+    gepackt werden. Zusätzlich zu den Commands wird auch noch ein Snapshot
+    von dem aktuellen Graphen gemacht, der dann zusammen mit der erstellten
+    Command-Liste in ein ReplayLog-Objekt getan wird. Dieses
+    ReplayLog-Objekt wird dann von Java serialisiert und gespeichert.
+    \newline
+    \newline
+    Diese Logs können zu einem späteren Zeitpunkt wieder geladen werden um den
+    Graphen wiederherzustellen. Dazu ist der \textit{DataLogLoadService} da. Wenn
+    der User die Replayfunktion aktiviert, fängt der DataLogLoadService an die
+    ReplayLogs zu laden. Dann wird in der view der Snapshotgraph angezeigt
+    und die gespeicherten Commands aus dem ReplayLog werden auf
+    diesem Snapshot angewandt. Der DataLogLoadService kontrolliert somit die
+    Wiedergabe des alten Graphen und kann sogar hin und her zwischen Snapshots
+    springen (momentan nicht zwischen einzelnen Commands, da dieses keine undo-
+    und redo-Funktion besitzten).
+    \newline
+    \newline
+    Der DataLogLoadService läuft in seinem eigenen Thread, weil er sich darum
+    kümmert das immer genügend Daten im Speicher liegen. In anderen Worten, er
+    buffert die Replaylogs vor damit sich der Graph bei dem Benutzter flüssig
+    abspielt.
 
     \subsubsection{executor}
     \label{subsubsec:executor}
@@ -136,9 +165,20 @@ eigenen Package. Unten ist erklärt was genau jeder Prozess macht.
     \newline
     \newline
 
-    Der executor ist das Unterpackage, in welchem die Anwendung bzw.
-    Ausführung der Commands stattfindet. Er ist ein \gls{listener} für Commands
-    von sowohl dem view-Package als auch dem truffleprocessor.
+    Der executor-Service läuft auch wieder konstant im Hintegrund in seinem
+    eigenen Thread. Er ist ein \gls{listener} der sowohl bei dem TruffleReciever aus dem
+    \hyperref[subsubsec:truffleprocessor]{truffleprocessor}-Package als
+    auch bei den view-Controllern aus dem \hyperref[subsec:view]{view}-Package
+    registriert ist. D.h. er bekommt, wie das \hyperref[subsubsec:replaylogging]{replaylogging},
+    alle \hyperref[subsubsec:trufflecommand]{TruffleCommands} und führt diese
+    dann auf dem aktuellen Model aus.
+    \newline
+    \newline
+    In \gls{programname} gibt es zwei Instanzen vom Executor. Die erste bearbeitet
+    den aktuellen Graphen, und die zweite bearbeitet die Snapshot-Instanz, falls
+    eine existiert. So kann der aktuelle Graph weiter bearbeitet werden, während
+    gleichzeitig der Benutzter einen alten Graphen aus 
+    ReplayLogs rekonstruiert anschaut.
 
 
 \subsection{presenter}
@@ -146,6 +186,7 @@ eigenen Package. Unten ist erklärt was genau jeder Prozess macht.
 
 Der presenter ist für den Aufbau von \gls{programname}, also das
 Initialisieren, Instanziieren und Referenzieren aller Programmelemente zuständig.
+Er ist sozusagen der \"glue code\" von \gls{programname}.
 
 \begin{figure}[H]
   \centering
@@ -153,15 +194,11 @@ Initialisieren, Instanziieren und Referenzieren aller Programmelemente zuständi
   \caption{presenter-Package}
 \end{figure}
 
-Er ist der erste Thread und erzeugt alle weiteren, zum Beispiel einen für jeden
-Service. Außerdem liest er aus einer Settings-Datei und stellt das Programm ein.
-Das heisst er initialisiert bestimmte Attribute entsprechend. Danach erschöpft
-sich die Nützlichkeit des presenter bis zu einem neuen Programmstart.
-
+Er wird im main-Thread von der main-Klasse erzeugt und ruft alle Konstruktoren auf
+und baut \gls{programname} auf.
 
 \subsection{util}
 \label{subsec:util}
-
 
 Unsere Variante des \gls{observerpattern}s.
 
@@ -191,12 +228,18 @@ Die Hauptdatenstruktur von \gls{programname}: das model-Package.
 \end{figure}
 
     \subsubsection{graph}
-    Dieses Unterpackage macht das eigentliche Modell aus. Der gesamte Graph sowie all seine möglichen Layouts, entsprechende Interfaces und ein Proxy aus dem \gls{proxypattern} für die Entkopplung sind hier enthalten.
+    \label{subsubsec:graph}
+    Dieses Unterpackage macht das eigentliche Modell aus. Der gesamte Graph sowie
+    all seine möglichen Layouts, entsprechende Interfaces und ein Proxy aus dem
+    \gls{proxypattern} für die Entkopplung sind hier enthalten.
     \subsubsection{filter}
+    \label{subsubsec:filter}
 
-    \subsubsection{settingsdata}
+    \subsubsection{configdata}
+    \label{subsubsec:configdata}
 
     \subsubsection{graphlog}
+    \label{subsubsec:graphlog}
 
 
 \subsection{view}
