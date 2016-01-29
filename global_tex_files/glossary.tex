@@ -179,40 +179,7 @@
 /////////////////////Entwurfsheftbeginn////////////////////////////////
 \end{comment}
 
-\newglossaryentry{servicepkg}{
-    name=service-Package,
-    description={Paket für ausgelagerte Aufgaben, welche nicht von selbst anlaufen, sondern aufgerufen werden und dann selbständig durchlaufen}
-}
 
-\newglossaryentry{presenterpkg}{
-    name=presenter-Package,
-    description={}
-}
-
-\newglossaryentry{commandpkg}{
-    name=command-Package,
-    description={Paket für die Hierarchie und Verfügbarkeit der im Program zentral verwendeten Commands.}
-}
-
-\newglossaryentry{modelpkg}{
-    name=Model-Package,
-    description={Das Model im \mvc, Struktur des Graphen auf welcher gearbeitet wird und durch das \gls{viewpkg} dargestellt.}
-}
-
-\newglossaryentry{viewpkg}{
-    name=View-Package,
-    description={Der View im \mvc, welcher den Graphen darstellt und Nutzerinteraktionen entgegen nimmt.}
-}
-
-\newglossaryentry{interactorspkg}{
-    name=interactors-Package,
-    description={Eine Reihe von Enums, welche Nutzerinteraktionen auf \gls{commands} mappt.}
-}
-
-\newglossaryentry{utilpkg}{
-    name=util-Package,
-    description={Enthält nötige Klasse/Interface für das Verwenden des Observer-Patterns. Mehr im \hyperref[subsec:util]{util}-Package.}
-}
 
 \newglossaryentry{notifier}{
     name=Notifier,
@@ -237,31 +204,6 @@
 \newglossaryentry{ethertype}{
     name=Ethertype,
     description={Eine Information aus den \gls{ethernet}-\gls{headerdaten}. Dieser Typ schränkt die nachfolgenden Protokolle auf bestimmte \gls{osi}-Bereiche ein.}
-}
-
-\newglossaryentry{truffle}{
-    name=Truffle,
-		plural=Truffles,
-    description={Die Datenstruktur innerhalb von \gls{programname} die die empfangenen \gls{paket}daten kapselt. Innerhalb von \gls{programname} gibt es keine \gls{paket}daten mehr sondern nur noch Truffles.}
-}
-
-\newglossaryentry{command}{
-    name=Command,
-		plural=Commands,
-    description={Ein Befehl der auf dem Model ausgeführt wird. Mehr im \hyperref[subsec:command]{command}-Package}.
-}
-
-\newglossaryentry{executor}{
-    name=Executor,
-		plural=Executors,
-    description={Der Service der die \gls{programname} Befehle ausführt und sommit das Model verändert. Mehr im \hyperref[subsubsec:executor]{executor}-Package}.
-}
-
-\newglossaryentry{replaylog}{
-    name=ReplayLog,
-		plural=ReplayLogs,
-    description={Ein Objekt das ein Snapshot von dem Graphen zu einem bestimmten Zeitpunkt mit einer Liste an \glspl{command} beinhaltet. Dieses Objekt wird
-	  von Java serialisiert und dann auf der Festplatte gespeichert um zu einem spätteren Zeitpunkt in der Lage zu sein den Graphen zu rekonstruieren. Mehr im \hyperref[subsec:replaylogging]{replaylogging}-Package}.
 }
 
 \newdualentry{mvp}
