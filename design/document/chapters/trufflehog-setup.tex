@@ -43,52 +43,55 @@ etwas implementieren könnte.
 Es gibt 2 Arten von Commands, TruffleCommands für die bearbeitung empfangener
 Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle.
 
-\subsubsection{trufflecommand}
-***TruffleCommands package image goes here***
-\newline
-\newline
-Jegliche empfangene Paketdaten werden zuerst in \glspl{truffle} umgewandelt wie
-im \hyperref[subsubsec:truffleprocessor]{truffleprocessor}-Package erleutert. Dort
-werden die erzeugten \glspl{truffle} in ein Command gesteckt und per Observer Pattern
-wie im \hyperref[subsec:util]{util}-Package beschrieben an alle In­te­r­es­senten verschickt
-(die Listeners).
-\newline
-\newline
-Es gibt nur einen Command Typen für die empfangen Netzwerkpakete, nähmlich den
-AddPacketDataCommand. Diese Entscheidung wurde getroffen um das Programm simple
-zu halten. Commands wie addNode() oder addEdge() sind überflüßig, da diese leicht aus
-einem Netzwerkpaket geschlossen werden können.
-\newline
-\newline
-Der PluginNotRunningCommand wird genau dann verschickt, wenn sich \gls{programname}
-nicht mit \gls{sppname} oder einem äquivalenten Plugin nicht verbinden konnte. Wir
-haben die Funktionalität das \gls{programname} automatisch \gls{sppname} startet
-aufgegeben um die beiden Programme unabhängiger zu gestallten, und um dem Benutzter
-mehr Freiheit zu geben.
+      \subsubsection{trufflecommand}
+      \label{subsubsec:trufflecommand}
+      ***TruffleCommands package image goes here***
+      \newline
+      \newline
+      Jegliche empfangene Paketdaten werden zuerst in \glspl{truffle} umgewandelt wie
+      im \hyperref[subsubsec:truffleprocessor]{truffleprocessor}-Package erleutert. Dort
+      werden die erzeugten \glspl{truffle} in ein Command gesteckt und per Observer Pattern
+      wie im \hyperref[subsec:util]{util}-Package beschrieben an alle In­te­r­es­senten verschickt
+      (die Listeners).
+      \newline
+      \newline
+      Es gibt nur einen Command Typen für die empfangen Netzwerkpakete, nähmlich den
+      AddPacketDataCommand. Diese Entscheidung wurde getroffen um das Programm simple
+      zu halten. Commands wie addNode() oder addEdge() sind überflüßig, da diese leicht aus
+      einem Netzwerkpaket geschlossen werden können.
+      \newline
+      \newline
+      Der PluginNotRunningCommand wird genau dann verschickt, wenn sich \gls{programname}
+      nicht mit \gls{sppname} oder einem äquivalenten Plugin nicht verbinden konnte. Wir
+      haben die Funktionalität das \gls{programname} automatisch \gls{sppname} startet
+      aufgegeben um die beiden Programme unabhängiger zu gestallten, und um dem Benutzter
+      mehr Freiheit zu geben.
 
-\subsubsection{usercommand}
-***UserCommands package image goes here***
-\newline
-\newline
+      \subsubsection{usercommand}
+      \label{subsubsec:usercommand}
+      ***UserCommands package image goes here***
+      \newline
+      \newline
 
-Wenn der Benutzter eine GUI-Aktion startet die das Model beeinflusst,
-wird ein Command an alle Listener durch das observer pattern wie im
-\hyperref[subsec:util]{util-Package}) beschrieben verschickt. Für jede mögliche
-GUI aktion die das Model beeinflusst gibt es einen passenden Command.
+      Wenn der Benutzter eine GUI-Aktion startet die das Model beeinflusst,
+      wird ein Command an alle Listener durch das observer pattern wie im
+      \hyperref[subsec:util]{util-Package}) beschrieben verschickt. Für jede mögliche
+      GUI aktion die das Model beeinflusst gibt es einen passenden Command.
 
-\subsubsection{queue}
-Die  welche beispielsweise der executor besitzt. Es
-sind ggf. mehrere tatsächliche Queues vorhanden, was einen Manager verlangt
-um nach dem Round-Robin-Prinzip faire Verteilung zu ermöglichen.
+      \subsubsection{queue}
+      \label{subsubsec:queue}
+      Die  welche beispielsweise der executor besitzt. Es
+      sind ggf. mehrere tatsächliche Queues vorhanden, was einen Manager verlangt
+      um nach dem Round-Robin-Prinzip faire Verteilung zu ermöglichen.
 
-*** Bitte jemand anders erleutern, blocking queue idee fehlt etc. ****
+      *** Bitte jemand anders erleutern, blocking queue idee fehlt etc. ****
 
 
 \subsection{service}
+\label{subsec:service}
 
-
-In unserem Entwurf haben wir uns außerdem dazu entschieden einzelne
-durchlaufende Arbeitsschritte in das \textbf{service-Package} auszulagern.\newline
+Im service package befinden sich alle Prozesse die ihren eigenen Thread haben,
+mit ausnahme vom
 
 \begin{figure}[H]
   \centering
@@ -112,13 +115,14 @@ durchlaufende Arbeitsschritte in das \textbf{service-Package} auszulagern.\newli
     des Ablaufes.
 
     \subsubsection{executor}
+    \label{subsubsec:executor}
     Der executor ist das Unterpackage, in welchem die Anwendung bzw.
     Ausführung der Commands stattfindet. Er ist ein \gls{listener} für Commands
     von sowohl dem view-Package als auch dem truffleprocessor.
 
 
 \subsection{presenter}
-
+\label{subsec:presenter}
 
 Der presenter ist für den Aufbau von \gls{programname}, also das
 Initialisieren, Instanziieren und Referenzieren aller Programmelemente zuständig.
@@ -156,7 +160,7 @@ Observer.
 
 
 \subsection{model}
-
+\label{subsec:model}
 
 Die Hauptdatenstruktur von \gls{programname}: das model-Package.
 
@@ -176,5 +180,7 @@ Die Hauptdatenstruktur von \gls{programname}: das model-Package.
 
 
 \subsection{view}
+\label{subsec:view}
 
 \subsection{interactors}
+\label{subsec:interactors}
