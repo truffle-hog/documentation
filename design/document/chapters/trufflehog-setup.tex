@@ -12,18 +12,26 @@ Multi-Thread kompatiblen Datenstruktur.\newline
 \section{Paketbeschreibung}
 
 \subsection{command}
-Das command-Package beinhaltet Commands. Ein command ist eine art Befehl der auf
+\label{subsec:command}
+Das command-Package beinhaltet Commands. Ein command ist ein Befehl der auf
 dem Model ausgeführt wird. D.h. alle objekt die das Model irgendwie verändern
-werden als command gekapselt, sodass deren veränderung als command auf dem Model
-ausgeführt wird. Zum Beispiel werden alle empfangene netzwerk\glspl{paket} und
-Benutzerbefehle als command gekapselt, da diese direkt das Model beeinflussen.
+werden als command gekapselt, sodass deren veränderung auf dem Model
+ausgeführt werden kann. Zum Beispiel werden alle empfangene netzwerk\glspl{paket}
+und Benutzerbefehle als command gekapselt, da diese direkt das Model beeinflussen
+in dem sie bie dem \gls{executor} ankommen und dort ausgeführt werden.
 \newline
 \newline
 Dieses Design hat zwei große Vorteile. Zum einen herscht eine lose Kopplung zwischen
-dem der das Model verändern will und dem Model selber, was zur modularität des ganzen
-programmes hinzufügt. Zum anderen ann man die Commands speichern und zu einem
-späteren Zeitpunkt auf ein Snapshot des Modelles ausführen um das originalle
-model wieder herzustellen. Mehr dazu im replaylogging-Package.
+dem der das Model verändern will und dem Model selber, was zur Modularität des ganzen
+Programmes beiträgt. Zum anderen kann man die Commands speichern und zu einem
+späteren Zeitpunkt auf ein Snapshot des Modelles wieder ausführen um das originale
+Model wieder herzustellen. Mehr dazu im
+\hyperref[subsubsec:replaylogging]{replaylogging}-Package Weiter bietet dieses
+design den großen Vorteil das es hohes erweiterbakeits Potential hat. Zum Beispiel
+könnte man relativ einfach eine undo und redo Funktion in ein Command einbauen um
+zwischen verschiedene Modelzuständen hin und zurück zu springen. So eine
+Funktionalität ist zwar nicht geplannt, aber sie demonstriert wie einfach man so
+etwas implementieren könnte.
 \newline
 \newline
 \begin{figure}[H]
@@ -32,23 +40,48 @@ model wieder herzustellen. Mehr dazu im replaylogging-Package.
   \caption{command-Package}
 \end{figure}
 
-Es gibt 2 Arten von Commands, UserCommands für die Verwaltung der
-Benutzeroberflächenbefehle, und TruffleCommands für die bearbeitung empfangenen
-Paketdaten. D.h. wenn der Benutzter einen Knopf drückt der das Model beeinflusst,
-wird ein command an alle Listener durch das observer pattern im \hyperref[subsec:util]{util-Package})
-losgeschickt.
+Es gibt 2 Arten von Commands, TruffleCommands für die bearbeitung empfangener
+Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle.
+
+\subsubsection{trufflecommand}
+***TruffleCommands package image goes here***
+\newline
+\newline
+Jegliche empfangene Paketdaten werden zuerst in \glspl{truffle} umgewandelt wie
+im \hyperref[subsubsec:truffleprocessor]{truffleprocessor}-Package erleutert. Dort
+werden die erzeugten \glspl{truffle} in ein Command gesteckt und per Observer Pattern
+wie im \hyperref[subsec:util]{util}-Package beschrieben an alle In­te­r­es­senten verschickt
+(die Listeners).
+\newline
+\newline
+Es gibt nur einen Command Typen für die empfangen Netzwerkpakete, nähmlich den
+AddPacketDataCommand. Diese Entscheidung wurde getroffen um das Programm simple
+zu halten. Commands wie addNode() oder addEdge() sind überflüßig, da diese leicht aus
+einem Netzwerkpaket geschlossen werden können.
+\newline
+\newline
+Der PluginNotRunningCommand wird genau dann verschickt, wenn sich \gls{programname}
+nicht mit \gls{sppname} oder einem äquivalenten Plugin nicht verbinden konnte. Wir
+haben die Funktionalität das \gls{programname} automatisch \gls{sppname} startet
+aufgegeben um die beiden Programme unabhängiger zu gestallten, und um dem Benutzter
+mehr Freiheit zu geben.
+
+\subsubsection{usercommand}
+***UserCommands package image goes here***
 \newline
 \newline
 
-im
-Model-Graph, also die Hauptarbeit am Model. Die Commands machen außerdem den
-Hauptteil der Log-Datein und damit der Video-Funktion aus. Mehr dazu im
-service-Unterpackage datalogging.
+Wenn der Benutzter eine GUI-Aktion startet die das Model beeinflusst,
+wird ein Command an alle Listener durch das observer pattern wie im
+\hyperref[subsec:util]{util-Package}) beschrieben verschickt. Für jede mögliche
+GUI aktion die das Model beeinflusst gibt es einen passenden Command.
 
-    \subsubsection{Command Queue}
-    Die besagte Datenstruktur, welche beispielsweise der executor besitzt. Es
-    sind ggf. mehrere tatsächliche Queues vorhanden, was einen Manager verlangt
-    um nach dem Round-Robin-Prinzip faire Verteilung zu ermöglichen.
+\subsubsection{queue}
+Die  welche beispielsweise der executor besitzt. Es
+sind ggf. mehrere tatsächliche Queues vorhanden, was einen Manager verlangt
+um nach dem Round-Robin-Prinzip faire Verteilung zu ermöglichen.
+
+*** Bitte jemand anders erleutern, blocking queue idee fehlt etc. ****
 
 
 \subsection{service}
@@ -65,11 +98,13 @@ durchlaufende Arbeitsschritte in das \textbf{service-Package} auszulagern.\newli
 \end{figure}
 
     \subsubsection{truffleprocessor}
+    \label{subsubsec:truffleprocessor}
     Der truffleprocessor ist die Empfangsstelle für die von uns in der
     \gls{ipc} benutzen Truffles. Außerdem erzeugt er die später verwendeten
     Commands und benachrichtigt als \gls{notifier}.
 
-    \subsubsection{datalogging}
+    \subsubsection{replaylogging}
+    \label{subsubsec:replaylogging}
     Das datalogging kümmert sich um die gesamte gewünschte
     Speicherung/Loggen und, falls implementiert, die Verfügbarkeit der
     Video-Daten. Es speichert sowohl regelmäßige Snapshots des gesamten
