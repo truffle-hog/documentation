@@ -2,5 +2,16 @@
 
 \section{Architekturbeschreibung}
 
-Sinn und Zweck dieses \gls{snort} \gls{praeprozessor}s \sppname ist das Abfangen, Komprimieren und Weiterleiten speziell von \gls{profinet}-\glspl{paket}n. Diese sind am \gls{ethertype} erkennbar, er muss der Hexadezimalzahl 0x8892 entsprechen. Des Weiteren soll der \gls{praeprozessor} über eine Reihe von erweiterbaren Decodern wichtige Informationen aus dem empfangenen \gls{paket} auslesen und in eine von uns vordefinierte Datenstruktur names Truffle schreiben. Pro Netzwerk-\gls{paket} entsteht also ein Truffle. Dieses wird dann per \gls{ipc} an unser \programname //valentin: ich mach hier weiter//
+Sinn und Zweck dieses \gls{snort} \gls{praeprozessor}s \sppname ist das Abfangen,
+Komprimieren und Weiterleiten speziell von \gls{profinet}-\glspl{paket}n. Diese
+sind am \gls{ethertype} erkennbar, er muss der Hexadezimalzahl 0x8892 entsprechen.
+Des Weiteren soll der \gls{praeprozessor} über eine Reihe von erweiterbaren
+Decodern wichtige Informationen aus dem empfangenen \gls{paket} auslesen und in
+eine von uns vordefinierte Datenstruktur names Truffle schreiben. Pro
+Netzwerk-\gls{paket} entsteht also ein Truffle. Dieses wird dann per \gls{ipc}
+an unser \programname //valentin: ich mach hier weiter//
+
+// An valentin: schreibe noch hin das wir dort sicherheits checks durchfueren,
+// sodass wir davon ausgehen koennen, dass unsere truffle struktur sicher ist
+
 \section{Paketbeschreibung}
