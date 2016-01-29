@@ -183,6 +183,7 @@ eigenen Package. Unten ist erklärt was genau jeder Prozess macht.
 
 Der presenter ist für den Aufbau von \gls{programname}, also das
 Initialisieren, Instanziieren und Referenzieren aller Programmelemente zuständig.
+Er ist so zu sagen der \"glue code\" von \gls{programname}.
 
 \begin{figure}[H]
   \centering
@@ -190,15 +191,11 @@ Initialisieren, Instanziieren und Referenzieren aller Programmelemente zuständi
   \caption{presenter-Package}
 \end{figure}
 
-Er ist der erste Thread und erzeugt alle weiteren, zum Beispiel einen für jeden
-Service. Außerdem liest er aus einer Settings-Datei und stellt das Programm ein.
-Das heisst er initialisiert bestimmte Attribute entsprechend. Danach erschöpft
-sich die Nützlichkeit des presenter bis zu einem neuen Programmstart.
-
+Er wird im main Thread von der main Klasse erzeugt und rufft alle Konstruktoren auf
+und baut halt \gls{programname} auf.
 
 \subsection{util}
 \label{subsec:util}
-
 
 Unsere Variante des \gls{observerpattern}s.
 
