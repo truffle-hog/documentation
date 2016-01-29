@@ -108,7 +108,7 @@ eigenen Package. Unten ist erklärt was genau jeder Prozess macht.
     *** truffleprocessor image here ***
     \newline
     \newline
-    Der truffleprocessor Prozess läuft konstant im Hintergrund, in einem eigenen Thread
+    Der truffleprocessor Service läuft konstant im Hintergrund, in einem eigenen Thread
     und empfängt die im \sppname erstellten \glspl{truffle} Daten.
     Diese packt er in ein Java \gls{truffle} Objekt welches dann wiederum von dem
     \textit{TruffleReciever} in ein \gls{command} gesteckt wird. Da der \textit{TruffleReciever}
@@ -123,11 +123,37 @@ eigenen Package. Unten ist erklärt was genau jeder Prozess macht.
     \newline
     \newline
 
-    Das datalogging kümmert sich um die gesamte gewünschte
-    Speicherung/Loggen und, falls implementiert, die Verfügbarkeit der
-    Video-Daten. Es speichert sowohl regelmäßige Snapshots des gesamten
-    Graphen, als auch einzelne Commands für eine Schrittweise Rückverfolgung
-    des Ablaufes.
+    Der replaylogging Service besteht aus 2 Prozessen die jeweils ihre eigenen Threads haben.
+    Der erste ist der \textit{DataLogSaveService} und der kümmert sich um das speichern das aktuellen
+    Graphen. Der zweite ist der \textit{DataLogLoadService} und kümmert sich um das
+    wiederherstellen eines gespeicherten Graphen.
+    \newline
+    \newline
+    Der \textit{DataLogSaveService}läuft konstant im Hintergrund und empfängt alle
+    vom \textit{TruffleReciever} verschickte \glspl{command}. Diese werden alle X
+    sekunden (vom Benutzter festlegbar) komprimiert und in eine Liste gepackt.
+    Komprimiert, heißt, dass viele \glspl{command} die das selbe tun in ein \gls{command}
+    gepackt werden. Zusätzlich zu den \glspl{command} wird auch noch ein Snapshot
+    von dem aktuellen Graphen gemacht der dann zusammen mit der erstellten
+    \gls{command}-Liste in ein \gls{replaylog} Objekt getan wird. Dieses
+    \gls{replaylog} Objekt wird dann von Java serialisiert und gespeichert.
+    \newline
+    \newline
+    Diese logs können zu einem späteren Zeitpunkt wieder geladen werden um den
+    Graphen wiederherzustellen. Dazu ist der \textit{DataLogLoadService} da. Wenn
+    der user die replay funktion aktiviert, fängt der DataLogLoadService an die
+    \glspl{replaylog} zu laden. Denn wird in der view der snapshot graph angezeigt
+    und die gespeicherten \glspl{command} aus dem \gls{replaylog} werden auf
+    diesem Snapshot angewandt. Der DataLogLoadService kontrolliert sommit die
+    wiedergabe des alten Graphen, und kann sogar hin und her zwischen snapshots
+    springen (momentan nicht zwischen einzelnen Commands, da dieses keine undo
+    und redo Funktion besitzten).
+    \newline
+    \newline
+    Der DataLogLoadService läuft in seinem eigenen Thread weil er sich darum
+    kümmert, dass immer genügend Daten im Speicher liegen. In anderen Worten, er
+    buffert die replaylogs vor dammit sich der Graph bei dem Benutzter flüssig
+    abspielt.  
 
     \subsubsection{executor}
     \label{subsubsec:executor}
