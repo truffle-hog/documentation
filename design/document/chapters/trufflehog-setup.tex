@@ -90,8 +90,10 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
 \subsection{service}
 \label{subsec:service}
 
-Im service package befinden sich alle Prozesse die ihren eigenen Thread haben,
-mit ausnahme vom
+Im service-Package befinden sich alle Prozesse von \programname,
+mit ausnahme vom \hyperref[subsec:view]{view} das sein eigenes Package ist und dem
+haupt Prozess. Jeder Prozess läuft in seinem eigenen Thread und ist in seinem
+eigenen Package. Unten ist erklärt was genau jeder Prozess macht.
 
 \begin{figure}[H]
   \centering
@@ -102,12 +104,25 @@ mit ausnahme vom
 
     \subsubsection{truffleprocessor}
     \label{subsubsec:truffleprocessor}
-    Der truffleprocessor ist die Empfangsstelle für die von uns in der
-    \gls{ipc} benutzen Truffles. Außerdem erzeugt er die später verwendeten
-    Commands und benachrichtigt als \gls{notifier}.
+
+    *** truffleprocessor image here ***
+    \newline
+    \newline
+    Der truffleprocessor Prozess läuft konstant im Hintergrund, in einem eigenen Thread
+    und empfängt die im \sppname erstellten \glspl{truffle} Daten.
+    Diese packt er in ein Java \gls{truffle} Objekt welches dann wiederum von dem
+    \textit{TruffleReciever} in ein \gls{command} gesteckt wird. Da der \textit{TruffleReciever}
+    auch ein \gls{notifier} ist, verschickt er den \gls{command} auch gleich an
+    alle registrierten \gls{listener}, wo die \glspl{command} gleich durch den
+    \gls{executor} auf dem Model angewandt werden.
 
     \subsubsection{replaylogging}
     \label{subsubsec:replaylogging}
+
+    *** replaylogging image here ***
+    \newline
+    \newline
+
     Das datalogging kümmert sich um die gesamte gewünschte
     Speicherung/Loggen und, falls implementiert, die Verfügbarkeit der
     Video-Daten. Es speichert sowohl regelmäßige Snapshots des gesamten
@@ -116,6 +131,11 @@ mit ausnahme vom
 
     \subsubsection{executor}
     \label{subsubsec:executor}
+
+    *** executor image here ***
+    \newline
+    \newline
+
     Der executor ist das Unterpackage, in welchem die Anwendung bzw.
     Ausführung der Commands stattfindet. Er ist ein \gls{listener} für Commands
     von sowohl dem view-Package als auch dem truffleprocessor.
