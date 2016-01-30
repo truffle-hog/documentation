@@ -13,6 +13,7 @@ Multi-Thread kompatiblen Datenstruktur.\newline
 
 \subsection{command}
 \label{subsec:command}
+
 Das command-Package beinhaltet alle Commands, deren Struktur und die Datenstruktur
 \textit{CommandQueue}. Ein Command ist ein Befehl, der auf
 dem Model ausgeführt wird. Das heißt alle Objekte, die das Model irgendwie verändern,
@@ -55,17 +56,18 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
 
       \subsubsection{trufflecommand}
       \label{subsubsec:trufflecommand}
+      
       \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{../diagramimages/trufflecommand.png}
-        \caption{}\label{}
+        \caption{trufflecommand-Package}
       \end{figure}
-      \newline
-      \newline
+      
+      \medskip
       Jegliche empfangenen Truffles vom \gls{praeprozessor} werden zuerst in Java-Objekt-Truffles umgewandelt, wie
       im \hyperref[subsubsec:truffleprocessor]{truffleprocessor}-Package erklärt. Dort
       werden die erzeugten Java-Truffles in ein Command gesteckt und per \gls{observerpattern}
-      wie im \hyperref[subsec:util]{util}-Package beschrieben an alle Interessenten, also die \gls{listener} verschickt.
+      wie im \hyperref[subsec:util]{util}-Package beschrieben an alle Interessenten, also die \gls{listener}, verschickt.
       \newline
       \newline
       Es gibt nur einen Command-Typen für die empfangen Truffle-\glspl{paket}, nämlich den
@@ -82,24 +84,35 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
 
       \subsubsection{usercommand}
       \label{subsubsec:usercommand}
-      ***UserCommands package image goes here***
-      \newline
-      \newline
-
+      
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{../diagramimages/usercommand.png}
+        \caption{usercommand-Package}
+      \end{figure}
+      
+      \medskip
       Wenn der Benutzter eine GUI-Aktion startet, die das Model beeinflusst,
       wird ein entsprechender Command an alle \gls{listener} durch das \gls{observerpattern}, wie im
       \hyperref[subsec:util]{util}-Package beschrieben, verschickt. Für jede mögliche
       GUI-Aktion, welche das Model beeinflusst, gibt es einen passenden Command.
-      Diese werden in den ViewControllern aus dem \hyperref[subsec:view]{view}-Package
+      Diese werden in den ViewControllern aus dem \hyperref[subsec:view]{view}-Package, wieder nach \gls{observerpattern},
       an den Executor verschickt.
-      //////hier fehlt wer die usercommmands erstellt und losschickt////// **Besser? (von Julian)**
 
       \subsubsection{queue}
       \label{subsubsec:queue}
+      
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{../diagramimages/queue.png}
+        \caption{queue-Package}
+      \end{figure}
+      
+      \medskip
       Die Commands, welche beispielsweise der Executor abarbeiten soll, werden in
       einer passenden Datenstruktur zwischengespeichert. Es sind ggf. mehrere
       tatsächliche Queues vorhanden, was nach einem Manager verlangt um nach dem
-      Round-Robin-Prinzip faire Verteilung zu ermöglichen. Diese CommandQueue
+      Round-Robin-Prinzip faire Abarbeitung zu ermöglichen. Diese CommandQueue
       ist das empfangende Ende des \gls{observerpattern} an mehreren Stellen unseres
       Programms. Bei Aktualisierung durch einen \gls{notifier} geht dieser alle
       seine \gls{listener} durch und fügt bei jedem in genau eben diese
@@ -109,23 +122,27 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
 \subsection{service}
 \label{subsec:service}
 
-Im service-Package befinden sich alle durchlaufenden Threads von \gls{programname},
-mit Ausnahme vom \hyperref[subsec:view]{view}, das ein eigenes Package zur verzögerungsfreien Darstellung ist, und dem
-main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende Funktionalität, meist eine pro Thread. Unten ist erklärt, was genau jedes Unterpackage macht.
-
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/service.png}
   \caption{service-Package}
-  \medskip
 \end{figure}
+
+\medskip
+Im service-Package befinden sich alle durchlaufenden Threads von \gls{programname},
+mit Ausnahme vom \hyperref[subsec:view]{view}, das ein eigenes Package zur verzögerungsfreien Darstellung ist, und dem
+main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende Funktionalität, meist eine pro Thread. Unten ist erklärt, was genau jedes Unterpackage macht.
 
     \subsubsection{truffleprocessor}
     \label{subsubsec:truffleprocessor}
 
-    *** truffleprocessor image here ***
-    \newline
-    \newline
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{../diagramimages/packetdataprocessor.png}
+      \caption{packetdataprocessor-Package}
+    \end{figure}
+    
+    \medskip
     Der truffleprocessor-Service läuft konstant im Hintergrund, in einem eigenen Thread,
     und empfängt die im \gls{sppname} erstellten Truffles.
     Diese packt er in ein Java-Truffle-Objekt, welches dann wiederum von dem
@@ -137,11 +154,14 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     \subsubsection{replaylogging}
     \label{subsubsec:replaylogging}
 
-    *** replaylogging image here ***
-    \newline
-    \newline
-
-    Der replaylogging-Service besteht aus 2 Prozessen die jeweils ihre eigenen Threads haben//same//.
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{../diagramimages/replaylogging.png}
+      \caption{replaylogging-Package}
+    \end{figure}
+    
+    \medskip
+    Der replaylogging-Service besteht aus 2 Prozessen die jeweils ihre eigenen Threads haben        //same//.
     Der erste ist der \textit{ReplayLogSaveService} und kümmert sich um das speichern das aktuellen
     Graphen. Der zweite ist der \textit{ReplayLogLoadService} und kümmert sich um das
     wiederherstellen eines gespeicherten Graphen.
@@ -176,10 +196,13 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     \subsubsection{executor}
     \label{subsubsec:executor}
 
-    *** executor image here ***
-    \newline
-    \newline
-
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{../diagramimages/executor.png}
+      \caption{executor-Package}
+    \end{figure}
+    
+    \medskip
     Der executor-Service läuft auch wieder konstant im Hintegrund in seinem
     eigenen Thread. Er ist ein \gls{listener} der sowohl bei dem TruffleReciever aus dem
     \hyperref[subsubsec:truffleprocessor]{truffleprocessor}-Package als
@@ -190,7 +213,7 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     \newline
     \newline
     In \gls{programname} gibt es zwei Instanzen vom Executor. Die erste bearbeitet
-    den aktuellen Graphen, und die zweite bearbeitet die Snapshot-Instanz, falls
+    den aktuellen Graphen und die zweite bearbeitet die Snapshot-Instanz, falls
     eine existiert. So kann der aktuelle Graph auf dem neusten Stand bleiben, während
     gleichzeitig der Benutzter einen alten Graphen aus
     ReplayLogs rekonstruiert anschaut.
@@ -199,25 +222,21 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
 \subsection{presenter}
 \label{subsec:presenter}
 
-Der presenter ist für den Aufbau von \gls{programname}, also das
-Initialisieren, Instanziieren und Referenzieren aller Programmelemente zuständig.
-Er ist sozusagen der \"glue code\" von \gls{programname}.
-
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/presenter.png}
   \caption{presenter-Package}
 \end{figure}
 
+\medskip
+Der presenter ist für den Aufbau von \gls{programname}, also das
+Initialisieren, Instanziieren und Referenzieren aller Programmelemente zuständig.
+Er ist sozusagen der ``glue code'' von \gls{programname}.
 Er wird im main-Thread von der main-Klasse erzeugt und ruft alle Konstruktoren auf.
 In anderen Worten baut er \gls{programname} auf.
 
 \subsection{util}
 \label{subsec:util}
-
-Im util-Package befinden sich Klassen die komplet von \gls{programname} abgekoppelt
-sind. D.h. sie werden nur als Ressource, wie eine Liste, verwändet und nehmen kein
-Bezug auf das Programm.
 
 \begin{figure}[H]
   \centering
@@ -225,6 +244,10 @@ Bezug auf das Programm.
   \caption{util-Package}
 \end{figure}
 
+\medskip
+Im util-Package befinden sich Klassen die komplett von \gls{programname} abgekoppelt
+sind. D.h. sie werden nur als Ressource, wie eine Liste, verändert und nehmen kein
+Bezug auf das Programm.\newline
 Konkret befinden sich 3 Klassen im util-Package, die alle zusammen eine
 Variation des Observer Patterns realisieren. Der \textit{Notifier} ist dazu da
 ein beliebiges Objekt zu verschicken, deshalb der Generic. Er ist das subjekt aus
