@@ -35,6 +35,14 @@ Funktionalität ist zwar nicht eingeplannt, aber sie währe nicht schwer zu impl
 an Hand der Command Struktur.
 \newline
 \newline
+Ein potenzielles Problem das auftreten kann, währe wenn ein Command zu lange braucht um
+ausgeführt zu werden und so das ganze Programm zum stillstand kommt.
+In dem jetztigen Entwurf wird dieses Problem nicht auftreten, da jedes Command
+nur schnelle Befehle ausführt wie addEdge() oder ähnliche, welche das System nicht
+aufhängen. Jedoch wenn \programname mal so erweitert wird das es doch Commands gibt
+die eine lange Ausführungszeit haben, so sollten diese in seperaten Threads
+ausgeführt werden um zu verhindern das sich das ganze Programm an einem Command
+aufhängt.
 
 \begin{figure}[H]
   \centering
@@ -84,11 +92,15 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
 
       \subsubsection{queue}
       \label{subsubsec:queue}
-      Die Commands, welche beispielsweise der Executor abarbeiten soll, werden in einer passenden Datenstruktur zwischengespeichert. Es
-      sind ggf. mehrere tatsächliche Queues vorhanden, was nach einem Manager verlangt
-      um nach dem Round-Robin-Prinzip faire Verteilung zu ermöglichen. Diese CommandQueue ist das empfangende Ende des \gls{observerpattern} an mehreren Stellen unseres Programms.
-      Bei Aktualisierung durch einen \gls{notifier} geht dieser alle seine \gls{listener} durch und fügt bei jedem in genau eben diese CommandQueue das neue Command-Objekt ein.
-      Die Implementierung der Queues als BlockingQueue ermöglicht in diesem Fall die Kommunikation zwischen Threads.
+      Die Commands, welche beispielsweise der Executor abarbeiten soll, werden in
+      einer passenden Datenstruktur zwischengespeichert. Es sind ggf. mehrere
+      tatsächliche Queues vorhanden, was nach einem Manager verlangt um nach dem
+      Round-Robin-Prinzip faire Verteilung zu ermöglichen. Diese CommandQueue
+      ist das empfangende Ende des \gls{observerpattern} an mehreren Stellen unseres
+      Programms. Bei Aktualisierung durch einen \gls{notifier} geht dieser alle
+      seine \gls{listener} durch und fügt bei jedem in genau eben diese
+      CommandQueue das neue Command-Objekt ein. Die Implementierung der Queues
+      als BlockingQueue ermöglicht in diesem Fall die Kommunikation zwischen Threads.
 
 \subsection{service}
 \label{subsec:service}
@@ -254,7 +266,12 @@ führt zur modularität von \gls{programname} hinzu.
 \subsection{model}
 \label{subsec:model}
 
-Die Hauptdatenstruktur von \gls{programname}: das model-Package.
+Das Model beinhaltet jegliche Datenstrukturen die von \gls{programname} genutzt
+werden. Zum beispiel ist der Graph der im View angezeigt wird hier enthalten, sowohl
+als auch alle Konfigurationen die der Benutzer eingestellt hat. Wir haben die
+Designentscheidung getroffen, dass das Model keine ausführungs Logik enthält.
+D.h. es besitzt kein eigenen Thread und wird wie eine Art Ressource von den
+\hyperref[subsec:service]{Services} und dem \hyperref[subsec:view]{View} verwändet.
 
 \begin{figure}[H]
   \centering
@@ -264,17 +281,33 @@ Die Hauptdatenstruktur von \gls{programname}: das model-Package.
 
     \subsubsection{graph}
     \label{subsubsec:graph}
+    ***graph package image goes here (maybe? if its not too big)***
+    \newline
+    \newline
     Dieses Unterpackage macht das eigentliche Modell aus. Der gesamte Graph sowie
     all seine möglichen Layouts, entsprechende Interfaces und ein Proxy aus dem
     \gls{proxypattern} für die Entkopplung sind hier enthalten.
+
     \subsubsection{filter}
     \label{subsubsec:filter}
+    ***filter package image goes here***
+    \newline
+    \newline
+    Das filter-Package beinhaltet eine \textit{Filter} Klasse die in der Lage ist,
+    Knoten basierend auf Benutztergegebenenkriterien zu klassifizieren. Verschiedene
+    Klassifikationen werden verschieden in der View dargestellt. So kann
+    Beispielsweise eine Blacklist oder Whitelist erstellt werden.
+    Natürlich kann der Benutzer basierend auf \gls{ip}- und \gls{mac}-Addressräumen,
+    Gerätenamen oder Knotenselektionen seine eigenen Filter erstellen.
 
     \subsubsection{configdata}
     \label{subsubsec:configdata}
+    ***configdata package image goes here***
+
 
     \subsubsection{graphlog}
     \label{subsubsec:graphlog}
+    ***graphlog package image goes here***
 
 
 \subsection{view}
