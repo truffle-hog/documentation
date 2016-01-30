@@ -86,7 +86,7 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
       \label{subsubsec:queue}
       Die Commands, welche beispielsweise der Executor abarbeiten soll, werden in einer passenden Datenstruktur zwischengespeichert. Es
       sind ggf. mehrere tatsächliche Queues vorhanden, was nach einem Manager verlangt
-      um nach dem Round-Robin-Prnzip faire Verteilung zu ermöglichen. Diese CommandQueue ist das empfangende Ende des \gls{observerpattern} an mehreren Stellen unseres Programms.
+      um nach dem Round-Robin-Prinzip faire Verteilung zu ermöglichen. Diese CommandQueue ist das empfangende Ende des \gls{observerpattern} an mehreren Stellen unseres Programms.
       Bei Aktualisierung durch einen \gls{notifier} geht dieser alle seine \gls{listener} durch und fügt bei jedem in genau eben diese CommandQueue das neue Command-Objekt ein.
       Die Implementierung der Queues als BlockingQueue ermöglicht in diesem Fall die Kommunikation zwischen Threads.
 
