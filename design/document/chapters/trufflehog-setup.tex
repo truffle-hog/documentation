@@ -1,15 +1,15 @@
 \chapter{Aufbau \gls{programname}}
-                                        TODO: überall wo GUI steht \gls{gui} ersetzen, 
+                                        TODO: überall wo GUI steht \gls{gui} ersetzen,
                                         Superpackages Bilder machen und einfügen.
                                         die unteren 2 Packages noch beschreiben.
                                         Korrekturlesen.
                                         alles ``truffleprocessor'' zu ``packetdataprocessor'' ersetzen.
-                                        
+
 \section{Architekturbeschreibung}
 Im Groben gehalten funktioniert der Daten- und Befehlsfluss im Trufflehog-Entwurf
 wie im klassischen \gls{mvc}. Der Presenter aktiviert Services, welche das Model basierend
 auf empfangenem Netzwerkverkehr verändert und das View aktualisiert sich am Model.
-Da viele Threads im Programm parallel durchlaufen aber dennoch kommunizieren müssen,
+Da viele Threads im Programm parallel arbeiten aber dennoch kommunizieren müssen,
 verlassen wir uns an einigen Stellen auf das \gls{observerpattern} mit einer
 Multi-Thread kompatiblen Datenstruktur.\newline
 \newline
@@ -20,8 +20,8 @@ Multi-Thread kompatiblen Datenstruktur.\newline
 \label{subsec:command}
 
 Das command-Package beinhaltet alle Commands, deren Struktur und die Datenstruktur
-\textit{CommandQueue}. Ein Command ist ein Befehl, der auf
-dem Model ausgeführt wird. Das heißt alle Objekte, die das Model irgendwie verändern,
+\textit{CommandQueue}. Ein Command ist eine Befehlssequenz, die auf
+dem Model ausgeführt wird. Das heißt, alle Objekte, die das Model irgendwie verändern,
 werden als Command gekapselt, sodass die Veränderung auf dem Model
 ausgeführt werden kann. Es werden alle empfangene Netzwerkpakete
 und Benutzerbefehle als Command gekapselt, da diese direkt das Model beeinflussen
@@ -32,22 +32,21 @@ Dieses Design hat zwei große Vorteile. Zum einen herscht eine lose Kopplung zwi
 allen Programmteilen, welche das Model verändern wollen und dem Model selbst, was zur Modularität des ganzen
 Programms beiträgt. Zum anderen kann man die Commands speichern und zu einem
 späteren Zeitpunkt auf einen Snapshot des Modells wieder ausführen um das originale
-Model wieder herzustellen. Mehr dazu im
-\hyperref[subsubsec:replaylogging]{replaylogging}-Package. Weiter bietet dieses
-Design den großen Vorteil das es hohes Erweiterbarkeitspotential hat. Zum Beispiel
-könnte man relativ einfach eine undo- und redo-Funktion in einen Command einbauen um
+Model wiederherzustellen. Weitere Informationen im
+\hyperref[subsubsec:replaylogging]{replaylogging}-Package. Des Weiteren bietet dieses
+Design den großen Vorteil, dass es hohes Erweiterbarkeitspotential hat. Zum Beispiel
+könnte man relativ einfach eine undo- und redo-Funktion in einen Command einbauen, um
 zwischen verschiedene Modelzuständen hin und zurück zu springen. So eine
-Funktionalität ist zwar nicht eingeplannt, aber sie währe nicht schwer zu implementieren
-an Hand der Command Struktur.
+Funktionalität ist zwar nicht eingeplannt, aber sie wäre durch dieses Design nicht schwer zu implementieren.
 \newline
 \newline
-Ein potenzielles Problem das auftreten kann, währe wenn ein Command zu lange braucht um
+Ein potenzielles Problem das auftreten kann, wäre wenn ein Command zu lange braucht, um
 ausgeführt zu werden und so das ganze Programm zum stillstand kommt.
-In dem jetztigen Entwurf wird dieses Problem nicht auftreten, da jedes Command
-nur schnelle Befehle ausführt wie addEdge() oder ähnliche, welche das System nicht
-aufhängen. Jedoch wenn \programname mal so erweitert wird das es doch Commands gibt
+In dem jetztigen Entwurf wird dieses Problem nicht auftreten, da jeder Command
+nur schnelle Befehle ausführt, welche das System nicht
+aufhängen. Wenn jedoch \programname mal so erweitert wird, dass es doch Commands gibt,
 die eine lange Ausführungszeit haben, so sollten diese in seperaten Threads
-ausgeführt werden um zu verhindern das sich das ganze Programm an einem Command
+ausgeführt werden um zu verhindern, dass sich das ganze Programm an einem Command
 aufhängt.
 
 \begin{figure}[H]
