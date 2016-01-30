@@ -47,7 +47,7 @@ aufhängt.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{../diagramimages/commands.png}
+  \includegraphics[width=\textwidth]{../diagramimages/command.png}
   \caption{command-Package}
 \end{figure}
 
@@ -56,13 +56,13 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
 
       \subsubsection{trufflecommand}
       \label{subsubsec:trufflecommand}
-      
+
       \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{../diagramimages/trufflecommand.png}
         \caption{trufflecommand-Package}
       \end{figure}
-      
+
       \medskip
       Jegliche empfangenen Truffles vom \gls{praeprozessor} werden zuerst in Java-Objekt-Truffles umgewandelt, wie
       im \hyperref[subsubsec:truffleprocessor]{truffleprocessor}-Package erklärt. Dort
@@ -84,13 +84,13 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
 
       \subsubsection{usercommand}
       \label{subsubsec:usercommand}
-      
+
       \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{../diagramimages/usercommand.png}
         \caption{usercommand-Package}
       \end{figure}
-      
+
       \medskip
       Wenn der Benutzter eine GUI-Aktion startet, die das Model beeinflusst,
       wird ein entsprechender Command an alle \gls{listener} durch das \gls{observerpattern}, wie im
@@ -101,13 +101,13 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
 
       \subsubsection{queue}
       \label{subsubsec:queue}
-      
+
       \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{../diagramimages/queue.png}
         \caption{queue-Package}
       \end{figure}
-      
+
       \medskip
       Die Commands, welche beispielsweise der Executor abarbeiten soll, werden in
       einer passenden Datenstruktur zwischengespeichert. Es sind ggf. mehrere
@@ -141,7 +141,7 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
       \includegraphics[width=\textwidth]{../diagramimages/packetdataprocessor.png}
       \caption{packetdataprocessor-Package}
     \end{figure}
-    
+
     \medskip
     Der truffleprocessor-Service läuft konstant im Hintergrund, in einem eigenen Thread,
     und empfängt die im \gls{sppname} erstellten Truffles.
@@ -159,7 +159,7 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
       \includegraphics[width=\textwidth]{../diagramimages/replaylogging.png}
       \caption{replaylogging-Package}
     \end{figure}
-    
+
     \medskip
     Der replaylogging-Service besteht aus 2 Prozessen die jeweils ihre eigenen Threads haben        //same//.
     Der erste ist der \textit{ReplayLogSaveService} und kümmert sich um das speichern das aktuellen
@@ -201,7 +201,7 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
       \includegraphics[width=\textwidth]{../diagramimages/executor.png}
       \caption{executor-Package}
     \end{figure}
-    
+
     \medskip
     Der executor-Service läuft auch wieder konstant im Hintegrund in seinem
     eigenen Thread. Er ist ein \gls{listener} der sowohl bei dem TruffleReciever aus dem
