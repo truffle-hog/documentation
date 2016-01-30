@@ -1,5 +1,10 @@
-\chapter{Aufbau \programname}
-
+\chapter{Aufbau \gls{programname}}
+                                        TODO: überall wo GUI steht \gls{gui} ersetzen, 
+                                        Superpackages Bilder machen und einfügen.
+                                        die unteren 2 Packages noch beschreiben.
+                                        Korrekturlesen.
+                                        alles ``truffleprocessor'' zu ``packetdataprocessor'' ersetzen.
+                                        
 \section{Architekturbeschreibung}
 Im Groben gehalten funktioniert der Daten- und Befehlsfluss im Trufflehog-Entwurf
 wie im klassischen \gls{mvc}. Der Presenter aktiviert Services, welche das Model basierend
@@ -224,7 +229,7 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{../diagramimages/presenter.png}
+  \includegraphics[width=0.6\textwidth]{../diagramimages/presenter.png}
   \caption{presenter-Package}
 \end{figure}
 
@@ -274,7 +279,7 @@ Dieses \gls{observerpattern} verwaltet das Verschicken und Empfangen von Command
 \gls{programname}. In anderen Worten, jede Klasse, die Commands verschickt, ist ein
 \gls{notifier}, und jede Klasse, die Commands empfängt, ist ein \gls{listener}. Dieses Design
 hat große Vorteile, da die Sender und die Empfänger komplett voneinander abgekoppelt
-sind. Der \hyperref[subsec:presenter]{Presenter} registriert die \gls{listener} bei Programmstart 
+sind. Der \hyperref[subsec:presenter]{Presenter} registriert die \gls{listener} bei Programmstart
 bei den \gls{notifier}n, somit kennt der \gls{listener} nicht seinen \gls{listener}, und der
 \gls{notifier} weiss nicht, was sich hinter einem \gls{listener} versteckt. Durch diese lose
 Kopplung ist es einfach \gls{programname} um einen zusätzlichen Service zu erweitern,
@@ -294,8 +299,8 @@ trägt zur Modularität von \gls{programname} bei.
 \label{subsec:model}
 
 Das Model beinhaltet jegliche Datenstrukturen, die von \gls{programname} genutzt
-werden. Zum Beispiel ist sowohl der Graph, welcher im View angezeigt wird, 
-als auch alle Konfigurationen, die der Benutzer eingestellt hat, hier enthalten. Wir haben uns 
+werden. Zum Beispiel ist sowohl der Graph, welcher im View angezeigt wird,
+als auch alle Konfigurationen, die der Benutzer eingestellt hat, hier enthalten. Wir haben uns
 dafür entschieden dem Model keine Ausführungslogik zu geben.
 D.h. es besitzt kein eigenen Thread und wird wie eine Datenstruktur von den
 \hyperref[subsec:service]{Services} und dem \hyperref[subsec:view]{View} verwendet.
@@ -318,13 +323,13 @@ D.h. es besitzt kein eigenen Thread und wird wie eine Datenstruktur von den
 
     \subsubsection{filter}
     \label{subsubsec:filter}
-    
+
     \begin{figure}[H]
       \centering
       \includegraphics[width=0.5\textwidth]{../diagramimages/filter.png}
       \caption{filter-Package}
     \end{figure}
-    
+
     \medskip
     Das filter-Package beinhaltet eine \textit{Filter}-Klasse, die in der Lage ist,
     Knoten basierend auf vom Nutzer gesetzen Kriterien zu klassifizieren. Verschiedene
@@ -335,13 +340,13 @@ D.h. es besitzt kein eigenen Thread und wird wie eine Datenstruktur von den
 
     \subsubsection{configdata}
     \label{subsubsec:configdata}
-    
+
     \begin{figure}[H]
       \centering
       \includegraphics[width=\textwidth]{../diagramimages/configdata.png}
       \caption{configdata-Package}
     \end{figure}
-    
+
     \medskip
     Im configdata-Package werden gegliche Konfigurationen gespeichert, hin von den
     Beschriftungen der Knöpfe in der \gls{gui} bis zu den erstellten Filterlisten. Dieses
@@ -364,13 +369,13 @@ D.h. es besitzt kein eigenen Thread und wird wie eine Datenstruktur von den
 
     \subsubsection{truffledatalog}
     \label{subsubsec:graphlog}
-    
+
     \begin{figure}[H]
       \centering
       \includegraphics[width=0.5\textwidth]{../diagramimages/truffledatalog.png}
       \caption{turffledatalog-Package}
     \end{figure}
-    
+
     \medskip
     Das truffledatalog-Package beinhaltet eine \textit{TruffleLogger}-Klasse, von
     welcher jeder Knoten eine Instanz besitzt. Diese wird beim Eintreffenden neuer Truffles
