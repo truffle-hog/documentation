@@ -303,7 +303,26 @@ D.h. es besitzt kein eigenen Thread und wird wie eine Art Ressource von den
     \subsubsection{configdata}
     \label{subsubsec:configdata}
     ***configdata package image goes here***
-    
+    \newline
+    \newline
+    Im configdata-Package werden gegliche Konfigurationen gespeichert, hin von den
+    Beschriftungen der Knöpfe in der GUI bis zu den erstellten Filterlisten. Dieses
+    wird zum großteil durch Java Property files gemacht, welche den vorteil haben, dass
+    sie mit Java Propertyobjekten gekoppelt sind und von daher sehr austauschbar sind.
+    Das heißt, wenn der Benutzter beispielsweise die Sprache des Programmes ändern
+    will, so muss intern nur eine andere Property File geladen werden.
+    \newline
+    \newline
+    Der aufbau dieses Packages besteht darin, dass es eine abstrakte Oberklasse
+    \textit{ConfigDataModel} gibt, die das Zusammenspiel zwischen Property Files
+    und Propertyobjekten verwaltet. Jedes GUI Element welches Daten anzeigt hat
+    ein JavaFX Property-Binding mit einer Unterklasse die \textit{ConfigDataModel}
+    vererbt. So wird automatisch die \hyperref[subsec:view]{view} aktualisiert
+    wenn sich das Darunterliegende ConfigDataModel Objekt ändert. D.h.
+    \textit{FilterMenuModel} beinhaltet alle Konfigurationsdaten inklusiver der
+    Filterlisten des Filter menus. Und das selbe gilt für alle anderen Menus und
+    deren Models auch.
+
 
     \subsubsection{truffledatalog}
     \label{subsubsec:graphlog}
