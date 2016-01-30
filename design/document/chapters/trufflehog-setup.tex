@@ -303,12 +303,20 @@ D.h. es besitzt kein eigenen Thread und wird wie eine Art Ressource von den
     \subsubsection{configdata}
     \label{subsubsec:configdata}
     ***configdata package image goes here***
+    
 
-
-    \subsubsection{graphlog}
+    \subsubsection{truffledatalog}
     \label{subsubsec:graphlog}
     ***graphlog package image goes here***
-
+    \newline
+    \newline
+    Das truffledatalog-Package beinhaltet eine \textit{TruffleLogger} Klasse von
+    der jeder Knoten eine Instanz hat. Diese wird beim eintreffenden neuer Truffles
+    (oder Commands) benutzt um die neuen Daten in einer text oder xml datei zu speichern,
+    sodass bei Bedarf genau gesehen werden kann, was für \glspl{paket} bei einem
+    Knoten eingetroffen sind. D.h., dass jeder Knoten seine eigene text oder xml
+    Datei hat wo genau drin steht was für \glspl{paket} dieser schon erhalten hat,
+    von wem, etc.
 
 \subsection{view}
 \label{subsec:view}
