@@ -126,12 +126,12 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     \newline
 
     Der replaylogging-Service besteht aus 2 Prozessen die jeweils ihre eigenen Threads haben//same//.
-    Der erste ist der \textit{DataLogSaveService} und kümmert sich um das speichern das aktuellen
-    Graphen. Der zweite ist der \textit{DataLogLoadService} und kümmert sich um das
+    Der erste ist der \textit{ReplayLogSaveService} und kümmert sich um das speichern das aktuellen
+    Graphen. Der zweite ist der \textit{ReplayLogLoadService} und kümmert sich um das
     wiederherstellen eines gespeicherten Graphen.
     \newline
     \newline
-    Der \textit{DataLogSaveService} läuft konstant im Hintergrund und empfängt alle
+    Der \textit{ReplayLogSaveService} läuft konstant im Hintergrund und empfängt alle
     vom \textit{TruffleReciever} verschickten Commands. Diese werden alle X
     Sekunden (vom Benutzter festlegbar) komprimiert und in eine Liste gepackt.
     Komprimiert heißt, dass viele Commands, die das selbe tun, in ein Command
@@ -142,17 +142,17 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     \newline
     \newline
     Diese Logs können zu einem späteren Zeitpunkt wieder geladen werden um den
-    Graphen wiederherzustellen. Dazu ist der \textit{DataLogLoadService} da. Wenn
-    der User die Replayfunktion aktiviert, fängt der DataLogLoadService an die
+    Graphen wiederherzustellen. Dazu ist der \textit{ReplayLogLoadService} da. Wenn
+    der User die Replayfunktion aktiviert, fängt der ReplayLogLoadService an die
     ReplayLogs zu laden. Dann wird in der view der Snapshotgraph angezeigt
     und die gespeicherten Commands aus dem ReplayLog werden auf
-    diesem Snapshot angewandt. Der DataLogLoadService kontrolliert somit die
+    diesem Snapshot angewandt. Der ReplayLogLoadService kontrolliert somit die
     Wiedergabe des alten Graphen und kann sogar hin und her zwischen Snapshots
     springen (momentan nicht zwischen einzelnen Commands, da dieses keine undo-
     und redo-Funktion besitzten).
     \newline
     \newline
-    Der DataLogLoadService läuft in seinem eigenen Thread, weil er sich darum
+    Der ReplayLogLoadService läuft in seinem eigenen Thread, weil er sich darum
     kümmert das immer genügend Daten im Speicher liegen. In anderen Worten, er
     buffert die Replaylogs vor damit sich der Graph bei dem Benutzter flüssig
     abspielt.
@@ -199,21 +199,59 @@ In anderen Worten baut er \gls{programname} auf.
 \subsection{util}
 \label{subsec:util}
 
-Im util-Package befinden sich 
+Im util-Package befinden sich Klassen die komplet von \gls{programname} abgekoppelt
+sind. D.h. sie werden nur als Ressource, wie eine Liste, verwändet und nehmen kein
+Bezug auf das Programm.
 
-\begin{figure}[H]
+begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/util.png}
   \caption{util-Package}
 \end{figure}
 
-Da wir sowohl Interfaces als auch Klassen bzw. abstrakte Klassen als
-\gls{notifier} haben, kommen wir nicht um eine Modifizierung des klassischen
-\gls{observerpattern} herum. Nun haben wir die Möglichkeit sowohl ein
-\gls{notifier}-Interface zu erweitern als auch eine abstrakte
-\gls{notifier}-Klasse zu beerben. Der \gls{listener} funktioniert genau wie ein
-Observer.
-
+\newline
+\newline
+Konkret befinden sich 3 Klassen im util-Package, die alle zusammen eine
+Variation des Observer Patterns realisieren. Der \textit{Notifier} ist dazu da
+ein beliebiges Objekt zu verschicken, deshalb der Generic. Er ist das subjekt aus
+dem Observerpattern.
+\newline
+\newline
+Der \textit{INotifier} existiert für den Fall, dass ein
+Objekt ein Notifier sein muss, aber nicht Notifier vererben kann, weil es
+schon eine andere Klasse vererbt. Dieses Problem tritt beispielsweise in der
+\hyperref[subsec:view]{view} auf, wo viele Klassen GUI aktionen als Commands
+gekapselt an den Executor schicken und gleichzeitig JavaFX Klassen vererben müssen.
+Um dieses Problem zu lösen implementieren diese Klassen das INotifer interface
+und haben ein Hilfsobjekt das Notifier vererbt und sommit die gewünschte Funktionalität
+bietet.
+\newline
+\newline
+Der \textit{Listener} ist der Observer aus dem Obsever Pattern. Hier ist nichts
+besonderes, mit Ausnahme der receive Methode bei der wir einen Parameter eingeführt
+haben dammit der Listener das versendete Objekt des Notifiers auch empfangen kann.
+Zu diesem Zweck existiert auch wieder ein Generic.
+\newline
+\newline
+Dieses Observer Pattern verwaltet das verschicken und empfangen von Commands in
+\gls{programname}. In anderen worten, jede Klasse die Commands verschickt ist ein
+INotifier, und jede Klasse die Commands empfängt ist ein Listener. Dieses Design
+hat große Vorteile, da die Sender und die Empfänger komplet voneinander abgekoppelt
+sind. Der \hyperref[subsec:presenter]{Presenter} registriert die Listeners am
+Anfang bei den Notifiern, somit kennt der Listener nicht seinen Notifier, und der
+Notifier weiss nicht, was sich hinter einem Listener versteckt. Durch dieser losen
+Kopplung ist es einfach \gls{programname} um einen zusätzlichen Service zu erweitern
+da kein Service wirklich von einem anderen abhängt.
+\newline
+\newline
+Ein Beispiel dieser losen Kopplung kann man zwischen dem
+\hyperref[subsubsec:truffleprocessor]{truffleprocessor}-Package, dem
+\hyperref[subsubsec:executor]{executor}-Package, und dem
+\hyperref[subsubsec:replaylogging]{replaylogging}-Package finden. Hier erstellt
+der Truffleprocessor neue Commands die sowohl von dem Executor als auch von dem
+ReplayLogSaveService empfangen werden sollen. Obwohl die 3 Packages sehr viel
+mit einander zu tun haben, kenne sie sich gegenseitig nicht. Dieses Design
+führt zur modularität von \gls{programname} hinzu.
 
 \subsection{model}
 \label{subsec:model}
