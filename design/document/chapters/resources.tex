@@ -8,24 +8,31 @@ Im Folgenden ist das Datenhaltungsverzeichnis von \gls{programname} visualisiert
 `-- data
     |-- config
     |   |-- filtermenu_en.properties
+    |   |-- filtermenu_de.properties
     |   |-- graphwindow_en.properties
+    |   |-- graphwindow_de.properties
     |   |-- logwindow_en.properties
+    |   |-- logwindow_de.properties
     |   |-- notificationview_en.properties
+    |   |-- notificationview_de.properties 
     |   |-- settingsmenu_en.properties
-    |   `-- statistics_en.properties
+    |   |-- settingsmenu_de.properties
+    |   |-- statistics_en.properties
+    |   `-- statistics_de.properties
     |-- log
     |   `-- trufflehog.log
     |-- replay_log
-    |   |-- graph_TIMESTAMP2.trufflesnapshot
-    |   `-- graph_TIMESTAMP.trufflesnapshot
+    |   |-- 20151020171450.trufflesnapshot
+    |   `-- 20151020171950.trufflesnapshot
     `-- truffle_data_log
-        |-- nodeA.xml
-        `-- nodeB.xml
+        |-- node_00-0a-95-9d-68-16.xml
+        `-- node_00-0a-95-9d-68-20.xml
 \end{verbatim}
-  \caption[Ordner- und Dateiestruktur von \gls{programname}]{Ordner- und Dateiestruktur von \gls{programname}}
+  \caption[Ordner- und Dateiestruktur von \gls{programname}]{Beispielhafte Ordner- und Dateiestruktur von \gls{programname}}
 \end{figure}
+
 \begin{itemize}
-\item[\texttt{config}] Einen Neustart des Programms überdauernde Informationen über die visuellen Teile des Programms und Speicherung sprachlicher Lokalisierungen. 
+\item[\texttt{config}] Einen Neustart des Programms überdauernde Informationen über die visuellen Teile des Programms und sprachliche Lokalisierungen. 
 \item[\texttt{log}] Zentrale Logdatei des Programms. 
 \item[\texttt{replay\_log}] Gesamtzustand des Graphen zu einem Zeitpunkt plus Veränderungen über eine gewisse Zeitspanne. 
 \item[\texttt{truffle\_data\_log}] Logdatei zu jedem Knoten mit zeilenweiser Auflistung der verarbeiteten Truffles.
@@ -47,4 +54,6 @@ Die Vorteile davon, dass JUNG eine Open Source-Projekt ist verstehen sich von se
 
 \subsubsection{Verwendungsbeschreibung}
 
+Die Verwendung von JUNG ist auf die beiden Packages \texttt{model} und  \texttt{view} beschränkt. Das Package \texttt{model} realisiert Interfaces der Packages \texttt{jung.layout} und \texttt{jung.visualization}, welche die Datenhaltung zu JUNG kompatibilisieren. 
 
+Das Package \texttt{view} realisiert den \texttt{VisualizationServer} aus \texttt{jung.visualization}, welcher die visuelle Darstellung des Graphen bereitstellt. 
