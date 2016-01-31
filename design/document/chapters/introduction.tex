@@ -8,7 +8,7 @@ Das Design von \gls{programname} baut auf dem klassischen \gls{mvc} auf und erwe
 Der Entwurf von \gls{programname} baut auf das klassische \gls{mvc} Design auf, welches bereits im Pflichtenheft präsentiert wurde (siehe Abbildung~\ref{fig:old_arch_diagram}). Das erweiterte \gls{mvc} Modell in Abbildung~\ref{fig:arch_diagram} zeigt, dass der Aufbau sich um folgende Bestandteile
 
 MODEL:
-Wie im traditionellen \gls{mvc} Muster dient das Model ausschließlich zur Speicherung von Daten in geeigneten Datenstrukturen. Im Fall von \gls{programname} umfasst dies den Graphen (siehe Kapitel~\ref{subsubsec:graph}.) und die Programmeinstellungen.
+Wie im traditionellen \gls{mvc} Muster dient das Model ausschließlich zur Speicherung von Daten in geeigneten Datenstrukturen. Im Fall von \gls{programname} umfasst dies den Graphen (siehe Kapitel~\ref{subsubsec:graph}), die Programmeinstellungen (Kapitel~\ref{subsubsec:configdata}), ,.
 
 VIEW:
 Auch der View unterscheidet sich kaum von der ursprünglichen Funktionalität. Er dient weiterhin dazu, dem Benutzer eine Plattform zur Interaktion mit dem Programm zu bieten. Ein wesentlicher Unterschied zum ursprünglichen Aufbau ist hierbei jedoch, dass der View nur spezifische Interaktionen (siehe INTERACTIONS) kennt und ausführen kann. Wobei der View keine Kenntnis über die hinter der Aktion stehende Logik hat.
@@ -32,15 +32,15 @@ Wie  in
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{../diagramimages/praesentationsmodel.png}
-  \caption[Urspr''ungliche Architektur''ubersicht]{Urspr''ungliche Architektur''ubersicht}
+  \caption[Ursprüngliche Architektur''ubersicht]{Ursprüngliche Architektur''ubersicht}
   \medskip
   Ursprünglicher Aufbau der Programme aus dem Pflichtenheft
 \end{figure} 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{../diagramimages/arch_diagram_mvp_single.pdf}
-  \caption[Erweiterte Architekturu''bersicht]{Erweiterte Architekturu''bersicht}
+  \includegraphics[width=0.8\textwidth]{../diagramimages/arch_diagram_mvp_test.png}
+  \caption[Erweiterte Architekturübersicht]{Erweiterte Architekturübersicht}
   \medskip
-  Erweiterte Strukturierung des Programms nach dem \gls{mvp}
+  Erweiterte Strukturierung des Programms nach dem \gls{mvp} Muster
 \end{figure} 
