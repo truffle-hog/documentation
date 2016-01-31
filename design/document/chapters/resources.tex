@@ -1,7 +1,7 @@
 \chapter{Ressourcen}
 \section{Dateien und Strukturen}
 Im Folgenden ist das Datenhaltungsverzeichnis von \gls{programname} visualisiert. Alle persistenten, das heißt einen Neustart des Programms überdauernden Daten sind in Dateien in Unterordnern des Ordners \texttt{data} gespeichert.  
-\begin{figure}[H]
+\begin{figure}[htb]
   \centering
 \begin{verbatim}
 .
@@ -24,4 +24,27 @@ Im Folgenden ist das Datenhaltungsverzeichnis von \gls{programname} visualisiert
 \end{verbatim}
   \caption[Ordner- und Dateiestruktur von \gls{programname}]{Ordner- und Dateiestruktur von \gls{programname}}
 \end{figure}
+\begin{itemize}
+\item[\texttt{config}] Einen Neustart des Programms überdauernde Informationen über die visuellen Teile des Programms und Speicherung sprachlicher Lokalisierungen. 
+\item[\texttt{log}] Zentrale Logdatei des Programms. 
+\item[\texttt{replay\_log}] Gesamtzustand des Graphen zu einem Zeitpunkt plus Veränderungen über eine gewisse Zeitspanne. 
+\item[\texttt{truffle\_data\_log}] Logdatei zu jedem Knoten mit zeilenweiser Auflistung der verarbeiteten Truffles.
+\end{itemize}
+
+\section{Externe Bibliotheken}
+\subsection{Java Universal Network/Graph Framework}
+Die Bibliothek Java Universal Network/Graph Framework (JUNG) ist eine seit 2003 entwickelte Java-Bibliothek zur Speicherung, Visualisierung und zu Rechnen mit Graphen und graphähnlichen Strukturen. Sie ist modular aufgebaut und kapselt alle oben genannten Funktionen in verschiedenen Bibliotheksteilen. Außerdem bietet sie erweiterte Funktionalitäten wie verschiedene Anordnungsalgorithmen, diverse Annotationsmöglichkeiten der Visualisierung und Algorithmen zur Graphanalyse. 
+\subsubsection{Motivation}
+JUNG hat alle für \gls{programname} relevanten Funktionen einer Graphbibliothek und bietet zudem folgende Vorteile gegenüber vergleichbaren Bibliotheken. 
+
+Für sämtliche Klassen der Bibliothek werden Interfaces bereitgestellt. Dies bedeutet, dass ohne Kompatibilitätsverlust neue Funktionen eingebunden werden können. 
+
+Die kritischen Komponenten, also die Visualisierung, Datenhaltung und Graphlogik ist in JUNG modular voneinander abgegrenzt. Dies ermöglicht die perfekte Einbindung in das \gls{mvc}-Konzept von \gls{programname}. Viele andere Graphbibliotheken koppeln Datenhaltung und Visualisierung und würden somit keine klare Trennung des \gls{mvc} ermöglichen. 
+
+JUNG ist als sehr stabile und verlässliche Bibliothek bekannt, die Wert auf Kompatibilität und weitgehende Fehlerfreiheit legt. 
+
+Die Vorteile davon, dass JUNG eine Open Source-Projekt ist verstehen sich von selbst. 
+
+\subsubsection{Verwendungsbeschreibung}
+
 
