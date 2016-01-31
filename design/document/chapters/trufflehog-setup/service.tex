@@ -15,13 +15,6 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     \subsubsection{packetdataprocessor}
     \label{subsubsec:truffleprocessor}
 
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=\textwidth]{../diagramimages/packetdataprocessor.png}
-      \caption{packetdataprocessor-Package}
-    \end{figure}
-
-    \medskip
     Der packetdataprocessor-Service läuft konstant im Hintergrund, in einem eigenen Thread,
     und empfängt die im \gls{sppname} erstellten Truffles.
     Diese packt er in ein Java-Truffle-Objekt, welches dann wiederum von dem
@@ -30,16 +23,17 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     alle registrierten \gls{listener}, sodass der CommandExecutor die bekommt wo die Commands
     als nächstes auf dem Model angewandt werden.
 
+    \clearpage
+    \begin{sidewaysfigure}
+      \centering
+      \includegraphics[width=\textwidth]{../diagramimages/packetdataprocessor.png}
+      \caption{packetdataprocessor-Package}
+    \end{sidewaysfigure}
+    \clearpage
+
     \subsubsection{replaylogging}
     \label{subsubsec:replaylogging}
 
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=\textwidth]{../diagramimages/replaylogging.png}
-      \caption{replaylogging-Package}
-    \end{figure}
-
-    \medskip
     Der replaylogging-Service besteht aus 2 Hauptaufgaben, die jeweils ihren eigenen Thread haben.
     Der erste ist der \textit{ReplayLogSaveService} und kümmert sich um das speichern das aktuellen
     Graphen. Der zweite ist der \textit{ReplayLogLoadService} und kümmert sich um das
@@ -72,6 +66,14 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     buffert die Replaylogs vor damit sich der Graph bei dem Benutzter flüssig
     abspielt.
 
+    \clearpage
+    \begin{sidewaysfigure}
+      \centering
+      \includegraphics[width=\textwidth]{../diagramimages/replaylogging.png}
+      \caption{replaylogging-Package}
+    \end{sidewaysfigure}
+    \clearpage
+
     \subsubsection{executor}
     \label{subsubsec:executor}
 
@@ -96,20 +98,3 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     eine existiert. So kann der aktuelle Graph auf dem neusten Stand bleiben, während
     gleichzeitig der Benutzter einen alten Graphen aus
     ReplayLogs rekonstruiert anschaut.
-
-
-\subsection{presenter}
-\label{subsec:presenter}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.6\textwidth]{../diagramimages/presenter.png}
-  \caption{presenter-Package}
-\end{figure}
-
-\medskip
-Der presenter ist für den Aufbau von \gls{programname}, also das
-Initialisieren, Instanziieren und Referenzieren aller Programmelemente zuständig.
-Er ist sozusagen der ``glue code'' von \gls{programname}.
-Er wird im main-Thread von der main-Klasse erzeugt und ruft alle Konstruktoren auf.
-In anderen Worten baut er \gls{programname} auf.
