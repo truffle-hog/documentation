@@ -20,8 +20,18 @@ D.h. es besitzt kein eigenen Thread und wird wie eine Datenstruktur von den
 
     Dieses Unterpackage macht das eigentliche Modell aus. Der gesamte Graph sowie
     all seine möglichen Layouts, entsprechende Interfaces und ein Proxy aus dem
-    \gls{proxypattern} für die Entkopplung sind hier enthalten. Der Graph selbst ist was man darunter erwarten würde.
-    Besteht aus Knoten, Kanten, und führt die interne Statistiken für jeweils relevante Informationen.
+    \gls{proxypattern} für die Entkopplung sind hier enthalten.\par
+    Wir haben uns dazu entschieden, ein Graphobjekt immer als Proxy zu übergeben, da es damit einfach wird,
+    bei sämtlichen Benutzern des Objekts, die Referenz auf den Graph umzubiegen. Dies ist zum Beispiel
+    für die Replayfunktion nützlich. Wenn ein bestimmter Zustand geladen wird, so wird ein serialisiertes
+    Graphobjekt von der Festplatte geladen und deserialisiert. Anschliesend wird der Graphproxy
+    umgestellt, sodass er auf das neue Graphobjekt zeigt. Damit ist zum Beispiel keine Änderung direkt in der View vonnöten.\par
+    Der NetworkGraphSwitch ist im Prinzip auch eine Art Proxy. Der Unterschied liegt hierbei darin, dass
+    er immer zwei Referenzen auf zwei GraphProxies hält. Dies ist insofern sinnvoll, dass es dann einfach wird
+    den Graphen umzustellen, den die View darstellen soll: Im Programm sind durch die Replayfunktion zwei
+    Graphinstanzen vorhanden. Die eine ist für die aktuell ankommenden Daten zuständig, und die andere realisiert
+    die Replayfunktion. Falls nun der Nutzer auf Playback wechselt, so muss lediglich bei dem NetworkGraphSwitch
+    viewPlayback aufgerufen werden.
 
     \clearpage
     \begin{sidewaysfigure}
