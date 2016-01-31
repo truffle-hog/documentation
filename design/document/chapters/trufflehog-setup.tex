@@ -21,19 +21,18 @@ Dienste in Anspruch nehmen wollen (wie z.B. die View, wenn diese Eingaben vom Be
 \newline
 Das \hyperref[subsec:model]{model}-Package wird zur Datenhaltung verwendet. Durch das Service 
 können am Model Änderungen durchgeführt werden. Falls das Model verändert wird, wird View 
-darüber in Kenntnis gesetzt, damit es sich mit den neuen Daten neuzeichnen kann. In unserer 
-Architektur haben wir eine 2:1:1 Beziehung zwischen Model, View und Control, da wir einen 
-Live- und einen Replaygraphen anbieten wollen.
+darüber in Kenntnis gesetzt (über javafx property bindings), damit es sich mit den neuen Daten
+neuzeichnen kann. In unserer Architektur haben wir eine 2:1:1 Beziehung zwischen Model, 
+View und Control, da wir einen Live- und einen Replaygraphen anbieten wollen.
 \newline
 \newline
-Zum Darstellung des Models wird das \hyperref[subsec:view]{view}-Package verwendet. Dieses 
-hat einen eigenen Thread, der dafür zuständig ist, die Graphdaten bei Bedarf neuzuzeichnen, 
+Zur Darstellung des Models wird das \hyperref[subsec:view]{view}-Package verwendet. Dieses 
+hat einen eigenen Thread, der dafür zuständig ist, die Graphdaten bei Bedarf neu zu zeichnen, 
 sowie mithilfe von Interactors die Benutzereingaben als Commands zum Service zu leiten.
 \newline
 \newline
 Zusätzlich gibt es die \hyperref[subsec:command]{command}-, \hyperref[subsec:interaction]{interaction}- 
-und \hyperref[subsec:util]{util}-Packages, die unserer Variation des \gls{mvc} zur Unterstützung dienen.
-Ihre Funktionsweise wird in 
+und \hyperref[subsec:util]{util}-Packages, die unserer Variation des \gls{mvc} als Unterstützung dienen.
 
 
 \begin{figure}[H]
