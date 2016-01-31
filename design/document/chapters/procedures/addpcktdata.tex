@@ -13,4 +13,9 @@
 \end{sidewaysfigure}
 \FloatBarrier
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+Dieses Sequenzdiagramm stellt grob den Ablauf des AddPacketDataCommands (im Folgenden APDC) dar. Jeder APDC prüft zunächst,
+ob schon ein Knoten unter der entsprechenden MAC-Addresse vorhanden ist. Falls einer der Knoten (source oder destination)
+noch nicht im Graph existiert, wird dieser erstellt und anschließend dem Graph hinzugefügt. Nachdem dies erfolgt ist, wird
+geprüft, ob schon eine Verbindung (Kante) zwischen den Knoten besteht, und falls nötig dem Graph hinzugefügt.
+Im Anschluss daran werden die einzelnen Knoten- und Kantenstatistiken aktualisiert. Dieser vorgang ist nur beispielhaft
+dargestellt, um das Diagramm nicht zu überladen.
