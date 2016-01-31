@@ -44,30 +44,22 @@ D.h. es besitzt kein eigenen Thread und wird wie eine Datenstruktur von den
     \subsubsection{filter}
     \label{subsubsec:filter}
 
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=0.8\textwidth]{../diagramimages/filter.png}
-      \caption{filter-Package}
-    \end{figure}
-
-    \medskip
     Das filter-Package beinhaltet eine \textit{Filter}-Klasse, die in der Lage ist,
     Knoten basierend auf vom Nutzer gesetzen Kriterien zu klassifizieren. Verschiedene
     Klassifikationen werden verschieden in der \gls{gui} dargestellt. So kann
     Beispielsweise eine Blacklist oder Whitelist erstellt werden.
     Natürlich kann der Benutzer basierend auf \gls{ip}- und \gls{mac}-Addressräumen,
     Gerätenamen oder Knotenselektionen seine eigenen Filter definieren.
+    
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.8\textwidth]{../diagramimages/filter.png}
+      \caption{filter-Package}
+    \end{figure}
 
     \subsubsection{configdata}
     \label{subsubsec:configdata}
 
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=\textwidth]{../diagramimages/configdata.png}
-      \caption{configdata-Package}
-    \end{figure}
-
-    \medskip
     Im configdata-Package werden jegliche Konfigurationen gespeichert, hin von den
     Beschriftungen der Bedienelemente in der \gls{gui} bis zu den erstellten Filterlisten. Dieses
     wird zum Großteil durch Java Property Files gemacht, welche den Vorteil haben, dass
@@ -85,18 +77,17 @@ D.h. es besitzt kein eigenen Thread und wird wie eine Datenstruktur von den
     \textit{FilterMenuModel} beinhaltet alle Konfigurationsdaten inklusiver der
     Filterlisten des Filtermenüs. Das Gleiche gilt für alle anderen Menüs und
     deren Models.
+    
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{../diagramimages/configdata.png}
+      \caption{configdata-Package}
+    \end{figure}
 
 
     \subsubsection{truffledatalog}
     \label{subsubsec:graphlog}
 
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=0.5\textwidth]{../diagramimages/truffledatalog.png}
-      \caption{turffledatalog-Package}
-    \end{figure}
-
-    \medskip
     Das truffledatalog-Package beinhaltet eine \textit{TruffleLogger}-Klasse, von
     welcher jeder Knoten eine Instanz besitzt. Diese wird beim Eintreffenden neuer Truffles
     (oder Commands) benutzt um die neuen Daten des \glspl{truffle} in einer Text- oder xml-Datei zu speichern,
@@ -104,3 +95,9 @@ D.h. es besitzt kein eigenen Thread und wird wie eine Datenstruktur von den
     Knoten eingetroffen sind. D.h., dass jeder Knoten seine eigene Text- oder xml-Datei
     hat, wo genau drin steht was für \glspl{paket} dieser schon erhalten hat,
     von wem, etc.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.5\textwidth]{../diagramimages/truffledatalog.png}
+      \caption{turffledatalog-Package}
+    \end{figure}
