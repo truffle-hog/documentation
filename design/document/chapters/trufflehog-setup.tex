@@ -3,16 +3,17 @@
 
 \section{Architekturbeschreibung}
 
-
-
-Im Groben gehalten funktioniert der Daten- und Befehlsfluss im Trufflehog-Entwurf
-wie im klassischen \gls{mvc}. Der Presenter aktiviert Services, welche das Model basierend
-auf empfangenem Netzwerkverkehr verändert und das View aktualisiert sich am Model.
-Da viele Threads im Programm parallel arbeiten aber dennoch kommunizieren müssen,
-verlassen wir uns an einigen Stellen auf das \gls{observerpattern} mit
-Threadsicheren Datenstrukturen.
+\gls{programname} ist nach dem \gls{mvp}-Prinzip Aufgebaut. Der
+\hyperref[subsec:presenter]{Presenter} baut alle anderen Packages auf und
+initialisiert diese. Dadurch hat er Zugriff auf jede andere Komponente in \gls{programname},
+und kann so sehr gut die Kapselung einzelner Komponenten kontrollieren. Dieses Design
+trägt zu der Erweiterbarkeit \gls{programname}s bei, da an einer einzigen
+Stelle entschieden wird welches Package welches andere Package kennt.
 \newline
 \newline
+Das \hyperref[subsec:service]{service}-Package zusammen mit dem \hyperref[subsec:presenter]{Presenter}
+bildet den Controller aus dem \gls{mvc}-Prinzip. Das heißt, das service-Package
+beinhaltet jeden Prozess der ein seinem eigenen Thread läuft. Dazu zählt
 
 \begin{figure}[H]
   \centering
