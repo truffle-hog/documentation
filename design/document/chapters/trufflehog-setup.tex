@@ -15,16 +15,15 @@ Das \hyperref[subsec:service]{service}-Package zusammen mit dem \hyperref[subsec
 bilden den Controller des \gls{mvc}-Musters. Die Services laufen unabhängig voneinander in
 jeweils eigenen Threads und führen bis zur Terminierung des Programms ihre Routinen durch.
 Um Services zu kontaktieren werden Commands benötigt, die von einem Executor (ebenfalls ein
-Service) ausgeführt werden. So sind die Services als Listener gemeldet bei allen, die ihre
+Service) ausgeführt werden. So sind die Services als Listener bei allen gemeldet, die ihre
 Dienste in Anspruch nehmen wollen (wie z.B. die View, wenn diese Eingaben vom Benutzer erhält).
 \newline
 \newline
 Das \hyperref[subsec:model]{model}-Package wird zur Datenhaltung verwendet. Durch das Service
 können am Model Änderungen durchgeführt werden. Falls das Model verändert wird, wird View
-darüber in Kenntnis gesetzt über JavaFX Property Bindings, damit es sich mit den neuen Daten
+darüber in Kenntnis gesetzt (über JavaFX Property Bindings), damit es sich mit den neuen Daten
 aktualisieren kann. In unserer Architektur haben wir eine 2:1:1 Beziehung zwischen Model,
-View und Control, d.h. es gibt 2 Models da wir einen Live- und einen Replaygraphen anbieten wollen,
-aber nur eine View und nur einen Controller.
+View und Controller, da wir einen Live- und einen Replaygraphen anbieten wollen.
 \newline
 \newline
 Zur Darstellung des Models wird das \hyperref[subsec:view]{view}-Package verwendet. Dieses
