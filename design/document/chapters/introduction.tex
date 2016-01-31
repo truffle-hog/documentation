@@ -8,13 +8,16 @@ Das Design von \gls{programname} baut auf dem klassischen \gls{mvc} auf und erwe
 Der Entwurf von \gls{programname} baut auf das klassische \gls{mvc} Design auf, welches bereits im Pflichtenheft präsentiert wurde (siehe Abbildung~\ref{fig:old_arch_diagram}). Das erweiterte \gls{mvc} Modell in Abbildung~\ref{fig:arch_diagram} zeigt, dass der Aufbau sich um folgende Bestandteile
 
 MODEL:
-Wie im traditionellen \gls{mvc} Muster dient das Model ausschließlich zur Speicherung von Daten anhand entsprechender Datenstrukturen. Im Fall von \gls{programname} umfasst dies den Graphen und die Programmeinstellungen.
+Wie im traditionellen \gls{mvc} Muster dient das Model ausschließlich zur Speicherung von Daten in geeigneten Datenstrukturen. Im Fall von \gls{programname} umfasst dies den Graphen (siehe Kapitel~\ref{subsubsec:graph}.) und die Programmeinstellungen.
 
 VIEW:
-Auch der View unterscheidet sich kaum von der ursprünglichen Funktionalität. Er dient weiterhin dazu, dem Benutzer eine Plattform zur Interaktion mit dem Programm zu bieten. Ein wesentlicher Unterschied zum ursprünglichen Aufbau ist hierbei jedoch, dass der View nur spezifische Interaktionen (siehe INTERACTIONS) kennt und ausführen kann. Wobei der View keine Kenntnis über die hinter der Aktion stehende Logik hat. 
+Auch der View unterscheidet sich kaum von der ursprünglichen Funktionalität. Er dient weiterhin dazu, dem Benutzer eine Plattform zur Interaktion mit dem Programm zu bieten. Ein wesentlicher Unterschied zum ursprünglichen Aufbau ist hierbei jedoch, dass der View nur spezifische Interaktionen (siehe INTERACTIONS) kennt und ausführen kann. Wobei der View keine Kenntnis über die hinter der Aktion stehende Logik hat.
 
 INTERACTIONS:
-Wie bereits im vorherigen Absatz beschrieben, dienen Interaktionen dem View als
+Wie bereits im vorherigen Absatz beschrieben, dienen Interaktionen dem View als 
+
+COMMANDS:
+Kommandos sind neben dem SERVICE Package die eigentlichen 
 
 PRESENTER:
 Im Presenter wird die gesamte Aufbauarbeit geleistet. Kommandos werden mit bestimmten Interaktionen gelinkt, grafische Oberflächen werden instanziiert und vorbereitet und das Modell.

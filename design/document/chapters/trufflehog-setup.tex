@@ -1,4 +1,5 @@
 \chapter{Aufbau \gls{programname}}
+\label{ch:aufbau_programname}
                                         TODO:
                                         Superpackages Bilder machen und einfügen.
                                         die unteren 2 Packages noch beschreiben.
@@ -8,8 +9,8 @@ Im Groben gehalten funktioniert der Daten- und Befehlsfluss im Trufflehog-Entwur
 wie im klassischen \gls{mvc}. Der Presenter aktiviert Services, welche das Model basierend
 auf empfangenem Netzwerkverkehr verändert und das View aktualisiert sich am Model.
 Da viele Threads im Programm parallel arbeiten aber dennoch kommunizieren müssen,
-verlassen wir uns an einigen Stellen auf das \gls{observerpattern} mit einer
-Multi-Thread kompatiblen Datenstruktur.\newline
+verlassen wir uns an einigen Stellen auf das \gls{observerpattern} mit
+Threadsicheren Datenstrukturen.\newline
 \newline
 
 \section{Paketbeschreibung}
@@ -23,26 +24,26 @@ dem Model ausgeführt wird. Das heißt, alle Objekte, die das Model irgendwie ve
 werden als Command gekapselt, sodass die Veränderung auf dem Model
 ausgeführt werden kann. Es werden alle empfangene Netzwerkpakete
 und Benutzerbefehle als Command gekapselt, da diese direkt das Model beeinflussen
-indem sie beim Executor ausgeführt werden.
+indem sie im Executor ausgeführt werden.
 \newline
 \newline
-Dieses Design hat zwei große Vorteile. Zum einen herscht eine lose Kopplung zwischen
+Dieses Design hat zwei große Vorteile. Zum einen herrscht eine lose Kopplung zwischen
 allen Programmteilen, welche das Model verändern wollen und dem Model selbst, was zur Modularität des ganzen
 Programms beiträgt. Zum anderen kann man die Commands speichern und zu einem
 späteren Zeitpunkt auf einen Snapshot des Modells wieder ausführen um das originale
 Model wiederherzustellen. Weitere Informationen im
 \hyperref[subsubsec:replaylogging]{replaylogging}-Package. Des Weiteren bietet dieses
 Design den großen Vorteil, dass es hohes Erweiterbarkeitspotential hat. Zum Beispiel
-könnte man relativ einfach eine undo- und redo-Funktion in einen Command einbauen, um
-zwischen verschiedene Modelzuständen hin und zurück zu springen. So eine
-Funktionalität ist zwar nicht eingeplannt, aber sie wäre durch dieses Design nicht schwer zu implementieren.
+könnte man relativ einfach eine undo- und redo-Funktion in die Commands einbauen, um
+zwischen verschiedenen Modelzuständen hin und zurück zu springen, oder generell dem User ermöglichen Eingaben im Programmablauf durch undo und redo zu kontrollieren. So eine
+Funktionalität ist zwar nicht eingeplannt, wäre durch dieses Design jedoch nicht schwer zu implementieren.
 \newline
 \newline
 Ein potenzielles Problem das auftreten kann, wäre wenn ein Command zu lange braucht, um
 ausgeführt zu werden und so das ganze Programm zum stillstand kommt.
-In dem jetztigen Entwurf wird dieses Problem nicht auftreten, da jeder Command
+In dem jetzigen Entwurf wird dieses Problem nicht auftreten, da jeder Command
 nur schnelle Befehle ausführt, welche das System nicht
-aufhängen. Wenn jedoch \programname mal so erweitert wird, dass es doch Commands gibt,
+aufhängen. Wenn jedoch \gls{programname} mal so erweitert wird, dass es doch Commands gibt,
 die eine lange Ausführungszeit haben, so sollten diese in seperaten Threads
 ausgeführt werden um zu verhindern, dass sich das ganze Programm an einem Command
 aufhängt.
@@ -345,10 +346,10 @@ D.h. es besitzt kein eigenen Thread und wird wie eine Datenstruktur von den
     \end{figure}
 
     \medskip
-    Im configdata-Package werden gegliche Konfigurationen gespeichert, hin von den
-    Beschriftungen der Knöpfe in der \gls{gui} bis zu den erstellten Filterlisten. Dieses
+    Im configdata-Package werden jegliche Konfigurationen gespeichert, hin von den
+    Beschriftungen der Bedienelemente in der \gls{gui} bis zu den erstellten Filterlisten. Dieses
     wird zum Großteil durch Java Property Files gemacht, welche den Vorteil haben, dass
-    sie mit Java Propertyobjekten gekoppelt sind und von daher sehr austauschbar sind.
+    sie mit Java Propertyobjekten gekoppelt sind und dadurch leicht auszutauschen sind.
     Das heißt, wenn der Benutzter beispielsweise die Sprache des Programms ändern
     will, so muss intern nur eine andere Property File geladen werden.
     \newline
