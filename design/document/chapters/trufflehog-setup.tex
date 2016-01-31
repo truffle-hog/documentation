@@ -1,7 +1,8 @@
 \chapter{Aufbau \gls{programname}}
 \label{ch:aufbau_programname}
                                         TODO:
-                                        Superpackages Bilder machen und einfügen.
+                                        graph package image einfügen? quer? view image quer? text davor oder danach? mit sidewaysfigure wird die section auf eine eigene seite gestellt.
+                                        gleiches bei marks sqdiag beachten, das addpckdata.
                                         die unteren 2 Packages noch beschreiben.
                                         Korrekturlesen.
 \section{Architekturbeschreibung}
@@ -18,6 +19,13 @@ Threadsicheren Datenstrukturen.\newline
 \subsection{command}
 \label{subsec:command}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../diagramimages/command.png}
+  \caption{command-Package}
+\end{figure}
+
+\medskip
 Das command-Package beinhaltet alle Commands, deren Struktur und die Datenstruktur
 \textit{CommandQueue}. Ein Command ist eine Befehlssequenz, die auf
 dem Model ausgeführt wird. Das heißt, alle Objekte, die das Model irgendwie verändern,
@@ -47,12 +55,6 @@ aufhängen. Wenn jedoch \gls{programname} mal so erweitert wird, dass es doch Co
 die eine lange Ausführungszeit haben, so sollten diese in seperaten Threads
 ausgeführt werden um zu verhindern, dass sich das ganze Programm an einem Command
 aufhängt.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{../diagramimages/command.png}
-  \caption{command-Package}
-\end{figure}
 
 Es gibt 2 Arten von Commands, TruffleCommands für die Bearbeitung empfangener
 Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle.
@@ -164,7 +166,7 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     \end{figure}
 
     \medskip
-    Der replaylogging-Service besteht aus 2 Prozessen die jeweils ihre eigenen Threads haben        //same//.
+    Der replaylogging-Service besteht aus 2 Hauptaufgaben, die jeweils ihren eigenen Thread haben.
     Der erste ist der \textit{ReplayLogSaveService} und kümmert sich um das speichern das aktuellen
     Graphen. Der zweite ist der \textit{ReplayLogLoadService} und kümmert sich um das
     wiederherstellen eines gespeicherten Graphen.
@@ -296,18 +298,19 @@ trägt zur Modularität von \gls{programname} bei.
 \subsection{model}
 \label{subsec:model}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../diagramimages/model.png}
+  \caption{model-Package}
+\end{figure}
+
+\medskip
 Das Model beinhaltet jegliche Datenstrukturen, die von \gls{programname} genutzt
 werden. Zum Beispiel ist sowohl der Graph, welcher im View angezeigt wird,
 als auch alle Konfigurationen, die der Benutzer eingestellt hat, hier enthalten. Wir haben uns
 dafür entschieden dem Model keine Ausführungslogik zu geben.
 D.h. es besitzt kein eigenen Thread und wird wie eine Datenstruktur von den
 \hyperref[subsec:service]{Services} und dem \hyperref[subsec:view]{View} verwendet.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{../diagramimages/model.png}
-  \caption{model-Package}
-\end{figure}
 
     \subsubsection{graph}
     \label{subsubsec:graph}
@@ -386,5 +389,16 @@ D.h. es besitzt kein eigenen Thread und wird wie eine Datenstruktur von den
 \subsection{view}
 \label{subsec:view}
 
-\subsection{interactors}
-\label{subsec:interactors}
+***view image here**
+
+\subsection{interaction}
+\label{subsec:interaction}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../diagramimages/interaction.png}
+  \caption{interaction-Package}
+\end{figure}
+
+\medskip
+
