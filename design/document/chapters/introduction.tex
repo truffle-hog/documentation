@@ -10,12 +10,13 @@ Der Entwurf von \gls{programname} baut auf das klassische \gls{mvc} Design auf, 
   Erweiterte Strukturierung des Programms nach dem \gls{mvp} Muster
   \label{fig:arch_diagram}
 \end{figure}\newpage
+
 \textbf{MODEL:}\newline
-Wie im traditionellen \gls{mvc} Muster dient das Model ausschließlich zur Speicherung von Daten in geeigneten Datenstrukturen. Im Fall von \gls{programname} umfasst dies den Graphen (Kapitel~\ref{subsubsec:graph}), die Programmeinstellungen (Kapitel~\ref{subsubsec:configdata}), Filter (Kapitel~\ref{subsubsec:filter}) und das Graphdatenlog (Kapitel~\ref{subsubsec:graphlog}).\newline
+Wie im traditionellen \gls{mvc} Muster dient das Model ausschließlich zur Speicherung von Daten in geeigneten Datenstrukturen. Im Fall von \gls{programname} umfasst dies den Graphen (Kapitel~\ref{subsubsec:graph}), die Programmeinstellungen (Kapitel~\ref{subsubsec:configdata}), Filter (Kapitel~\ref{subsubsec:filter}) und das Graphdatenlog (Kapitel~\ref{subsubsec:graphlog}). \newline
  \newline
 \textbf{VIEW:}\newline
-Auch der View unterscheidet sich kaum von der ursprünglichen Funktionalität. Er dient weiterhin dazu, dem Benutzer eine Plattform zur Interaktion mit dem Programm zu bieten. Ein wesentlicher Unterschied zum ursprünglichen Aufbau ist hierbei jedoch, dass der View nur spezifische Interaktionen (siehe Kapitel~\ref{subsec:interaction}: interaction) kennt und ausführen kann. Wobei der View keine Kenntnis über die hinter der Aktion stehende Logik hat.
-~\newline
+Auch der View unterscheidet sich kaum von der ursprünglichen Funktionalität. Er dient weiterhin dazu, dem Benutzer eine Plattform zur Interaktion mit dem Programm zu bieten. Ein wesentlicher Unterschied zum ursprünglichen Aufbau ist hierbei jedoch, dass der View nur spezifische Interaktionen (siehe Kapitel~\ref{subsec:interaction}: interaction) kennt und ausführen kann. Wobei der View keine Kenntnis über die hinter der Aktion stehende Logik hat. \newline
+ \newline
 \textbf{INTERACTIONS:}\newline
 Wie bereits im vorherigen Absatz beschrieben, dienen Interaktionen dem View als Verknüpfung zwischen den tatsächlich ausgeführten Commmands und den Nutzerinteraktionen.\newline
  \newline
