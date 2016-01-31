@@ -1,9 +1,10 @@
 \chapter{Aufbau \gls{programname}}
 \label{ch:aufbau_programname}
                                         TODO:
-                                        Superpackages Bilder machen und einfügen.
+                                        graph package image einfügen? quer? view image quer?
                                         die unteren 2 Packages noch beschreiben.
                                         Korrekturlesen.
+                                        replaylogging nochmal verbessern und korrektur lesen.
 \section{Architekturbeschreibung}
 Im Groben gehalten funktioniert der Daten- und Befehlsfluss im Trufflehog-Entwurf
 wie im klassischen \gls{mvc}. Der Presenter aktiviert Services, welche das Model basierend
@@ -297,18 +298,19 @@ trägt zur Modularität von \gls{programname} bei.
 \subsection{model}
 \label{subsec:model}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../diagramimages/model.png}
+  \caption{model-Package}
+\end{figure}
+
+\medskip
 Das Model beinhaltet jegliche Datenstrukturen, die von \gls{programname} genutzt
 werden. Zum Beispiel ist sowohl der Graph, welcher im View angezeigt wird,
 als auch alle Konfigurationen, die der Benutzer eingestellt hat, hier enthalten. Wir haben uns
 dafür entschieden dem Model keine Ausführungslogik zu geben.
 D.h. es besitzt kein eigenen Thread und wird wie eine Datenstruktur von den
 \hyperref[subsec:service]{Services} und dem \hyperref[subsec:view]{View} verwendet.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{../diagramimages/model.png}
-  \caption{model-Package}
-\end{figure}
 
     \subsubsection{graph}
     \label{subsubsec:graph}
@@ -387,5 +389,16 @@ D.h. es besitzt kein eigenen Thread und wird wie eine Datenstruktur von den
 \subsection{view}
 \label{subsec:view}
 
+***view image here**
+
 \subsection{interaction}
 \label{subsec:interaction}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../diagramimages/interaction.png}
+  \caption{interaction-Package}
+\end{figure}
+
+\medskip
+
