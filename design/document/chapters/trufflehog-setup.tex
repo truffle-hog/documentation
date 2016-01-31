@@ -5,7 +5,6 @@
                                         gleiches bei marks sqdiag beachten, das addpckdata.
                                         die unteren 2 Packages noch beschreiben.
                                         Korrekturlesen.
-                                        replaylogging nochmal verbessern und korrektur lesen.
 \section{Architekturbeschreibung}
 Im Groben gehalten funktioniert der Daten- und Befehlsfluss im Trufflehog-Entwurf
 wie im klassischen \gls{mvc}. Der Presenter aktiviert Services, welche das Model basierend
@@ -167,7 +166,7 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     \end{figure}
 
     \medskip
-    Der replaylogging-Service besteht aus 2 Prozessen die jeweils ihre eigenen Threads haben        //same//.
+    Der replaylogging-Service besteht aus 2 Hauptaufgaben, die jeweils ihren eigenen Thread haben.
     Der erste ist der \textit{ReplayLogSaveService} und kümmert sich um das speichern das aktuellen
     Graphen. Der zweite ist der \textit{ReplayLogLoadService} und kümmert sich um das
     wiederherstellen eines gespeicherten Graphen.
