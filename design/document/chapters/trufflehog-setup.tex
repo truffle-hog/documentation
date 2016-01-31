@@ -3,17 +3,38 @@
 
 \section{Architekturbeschreibung}
 
-\gls{programname} ist nach dem \gls{mvp}-Prinzip Aufgebaut. Der
+\gls{programname} ist nach dem \gls{mvp}-Prinzip aufgebaut. Der
 \hyperref[subsec:presenter]{Presenter} baut alle anderen Packages auf und
 initialisiert diese. Dadurch hat er Zugriff auf jede andere Komponente in \gls{programname},
-und kann so sehr gut die Kapselung einzelner Komponenten kontrollieren. Dieses Design
+und kann somit die Kapselung einzelner Komponenten kontrollieren. Dieses Design
 trägt zu der Erweiterbarkeit \gls{programname}s bei, da an einer einzigen
 Stelle entschieden wird welches Package welches andere Package kennt.
 \newline
 \newline
 Das \hyperref[subsec:service]{service}-Package zusammen mit dem \hyperref[subsec:presenter]{Presenter}
-bildet den Controller aus dem \gls{mvc}-Prinzip. Das heißt, das service-Package
-beinhaltet jeden Prozess der ein seinem eigenen Thread läuft. Dazu zählt
+bilden den Controller des \gls{mvc}-Musters. Die Services laufen unabhängig voneinander in 
+jeweils eigenen Threads und führen bis zur Terminierung des Programms ihre Routinen durch. 
+Um Services zu kontaktieren werden Commands benötigt, die von einem Executor (ebenfalls ein 
+Service) ausgeführt werden. So sind die Services als Listener gemeldet bei allen, die ihre 
+Dienste in Anspruch nehmen wollen (wie z.B. die View, wenn diese Eingaben vom Benutzer erhält).
+\newline
+\newline
+Das \hyperref[subsec:model]{model}-Package wird zur Datenhaltung verwendet. Durch das Service 
+können am Model Änderungen durchgeführt werden. Falls das Model verändert wird, wird View 
+darüber in Kenntnis gesetzt, damit es sich mit den neuen Daten neuzeichnen kann. In unserer 
+Architektur haben wir eine 2:1:1 Beziehung zwischen Model, View und Control, da wir einen 
+Live- und einen Replaygraphen anbieten wollen.
+\newline
+\newline
+Zum Darstellung des Models wird das \hyperref[subsec:view]{view}-Package verwendet. Dieses 
+hat einen eigenen Thread, der dafür zuständig ist, die Graphdaten bei Bedarf neuzuzeichnen, 
+sowie mithilfe von Interactors die Benutzereingaben als Commands zum Service zu leiten.
+\newline
+\newline
+Zusätzlich gibt es die \hyperref[subsec:command]{command}-, \hyperref[subsec:interaction]{interaction}- 
+und \hyperref[subsec:util]{util}-Packages, die unserer Variation des \gls{mvc} zur Unterstützung dienen.
+Ihre Funktionsweise wird in 
+
 
 \begin{figure}[H]
   \centering
