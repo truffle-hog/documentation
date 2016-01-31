@@ -1,2 +1,27 @@
 \chapter{Ressourcen}
+\section{Dateien und Strukturen}
+Im Folgenden ist das Datenhaltungsverzeichnis von \gls{programname} visualisiert. Alle persistenten, das heißt einen Neustart des Programms überdauernden Daten sind in Dateien in Unterordnern des Ordners \texttt{data} gespeichert.  
+\begin{figure}[H]
+  \centering
+\begin{verbatim}
+.
+`-- data
+    |-- config
+    |   |-- filtermenu_en.properties
+    |   |-- graphwindow_en.properties
+    |   |-- logwindow_en.properties
+    |   |-- notificationview_en.properties
+    |   |-- settingsmenu_en.properties
+    |   `-- statistics_en.properties
+    |-- log
+    |   `-- trufflehog.log
+    |-- replay_log
+    |   |-- graph_TIMESTAMP2.trufflesnapshot
+    |   `-- graph_TIMESTAMP.trufflesnapshot
+    `-- truffle_data_log
+        |-- nodeA.xml
+        `-- nodeB.xml
+\end{verbatim}
+  \caption[Ordner- und Dateiestruktur von \gls{programname}]{Ordner- und Dateiestruktur von \gls{programname}}
+\end{figure}
 
