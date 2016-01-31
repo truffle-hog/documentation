@@ -18,6 +18,13 @@ Threadsicheren Datenstrukturen.\newline
 \subsection{command}
 \label{subsec:command}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../diagramimages/command.png}
+  \caption{command-Package}
+\end{figure}
+
+\medskip
 Das command-Package beinhaltet alle Commands, deren Struktur und die Datenstruktur
 \textit{CommandQueue}. Ein Command ist eine Befehlssequenz, die auf
 dem Model ausgeführt wird. Das heißt, alle Objekte, die das Model irgendwie verändern,
@@ -47,12 +54,6 @@ aufhängen. Wenn jedoch \gls{programname} mal so erweitert wird, dass es doch Co
 die eine lange Ausführungszeit haben, so sollten diese in seperaten Threads
 ausgeführt werden um zu verhindern, dass sich das ganze Programm an einem Command
 aufhängt.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{../diagramimages/command.png}
-  \caption{command-Package}
-\end{figure}
 
 Es gibt 2 Arten von Commands, TruffleCommands für die Bearbeitung empfangener
 Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle.
@@ -386,5 +387,5 @@ D.h. es besitzt kein eigenen Thread und wird wie eine Datenstruktur von den
 \subsection{view}
 \label{subsec:view}
 
-\subsection{interactors}
-\label{subsec:interactors}
+\subsection{interaction}
+\label{subsec:interaction}
