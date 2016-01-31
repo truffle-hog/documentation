@@ -1,18 +1,24 @@
 \chapter{Aufbau \gls{programname}}
 \label{ch:aufbau_programname}
-                                        TODO:
-                                        graph package image einfügen? quer? view image quer? text davor oder danach? mit sidewaysfigure wird die section auf eine eigene seite gestellt.
-                                        gleiches bei marks sqdiag beachten, das addpckdata.
-                                        die unteren 2 Packages noch beschreiben.
-                                        Korrekturlesen.
+
+Muss hier etwas hin? Wenn ja was?
+
 \section{Architekturbeschreibung}
 Im Groben gehalten funktioniert der Daten- und Befehlsfluss im Trufflehog-Entwurf
 wie im klassischen \gls{mvc}. Der Presenter aktiviert Services, welche das Model basierend
 auf empfangenem Netzwerkverkehr verändert und das View aktualisiert sich am Model.
 Da viele Threads im Programm parallel arbeiten aber dennoch kommunizieren müssen,
 verlassen wir uns an einigen Stellen auf das \gls{observerpattern} mit
-Threadsicheren Datenstrukturen.\newline
+Threadsicheren Datenstrukturen.
 \newline
+\newline
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../diagramimages/trufflehog-component.png}
+  \caption{\gls{programname} Packageüberblick}
+\end{figure}
+
 
 \section{Paketbeschreibung}
 
@@ -21,7 +27,7 @@ Threadsicheren Datenstrukturen.\newline
 \input{chapters/trufflehog-setup/service}
 
 \input{chapters/trufflehog-setup/util}
-    
+
 \input{chapters/trufflehog-setup/presenter}
 
 \input{chapters/trufflehog-setup/model}
