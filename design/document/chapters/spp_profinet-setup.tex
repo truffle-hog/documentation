@@ -4,7 +4,7 @@
 
 Sinn und Zweck des \gls{snort} \gls{praeprozessor}s \gls{sppname} ist das Abfangen,
 Komprimieren und Weiterleiten von \gls{profinet}-\glspl{paket}n. Diese
-sind am \gls{ethertype} erkennbar. Er muss der Hexadezimalzahl 0x8892 entsprechen.
+sind durch \gls{ethertype} unterscheidbar. Er muss der Hexadezimalzahl 0x8892 entsprechen.
 Hauptbestandteil des \gls{praeprozessor}s ist eine erweiterbare Baumstruktur von Decodern, welche rekursiv, Schicht für Schicht, ein \gls{paket} bearbeiten und benötigte Informationen in ein \gls{truffle} schreiben. Ein \gls{truffle} ist eine von uns vordefinierte Datenstruktur im \gls{praeprozessor}.
 Pro Netzwerk-\gls{paket} entsteht ein \gls{truffle}, welches erheblich kleiner und kompakter als herkömmliche Netzwerkpakete sind. Dieses wird dann über den \gls{ipc}-Teil des \gls{praeprozessor}s
 an \gls{programname} versendet, ????? um den Informationsfluss zu erhalten aber auch zu minimieren. SINN? ??????\newline

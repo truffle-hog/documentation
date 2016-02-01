@@ -20,3 +20,5 @@
 
 # Astah Files
 *.lock
+
+!arch_diagram_mvp.pdf
