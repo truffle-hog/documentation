@@ -17,11 +17,11 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
 
     Der packetdataprocessor-Service läuft konstant im Hintergrund, in einem eigenen Thread,
     und empfängt die im \gls{sppname} erstellten Truffles.
-    Diese packt er in ein Java-Truffle-Objekt, welches dann wiederum von dem
+    Diese werden in ein Java-Truffle-Objekt gepackt, welches dann wiederum von dem
     \textit{TruffleReceiver} in ein Command gesteckt wird. Da der \textit{TruffleReceiver}
-    auch ein \gls{notifier} ist, verschickt er den Command auch gleich an
-    alle registrierten \gls{listener}, sodass der CommandExecutor die Commands bekommt, wo sie
-    als nächstes auf dem Model angewendet werden.
+    ein \gls{notifier} ist, verschickt er den Command an
+    alle registrierten \gls{listener}, sodass der CommandExecutor die Commands bekommt. Dort werden sie
+    dann ausgeführt.
 
     \clearpage
     \begin{sidewaysfigure}
@@ -47,24 +47,24 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     gepackt werden. Zusätzlich zu den Commands wird auch noch ein Snapshot
     von dem aktuellen Graphen angefertigt, der dann zusammen mit der erstellten
     Command-Liste in ein ReplayLog-Objekt gepackt wird. Dieses
-    ReplayLog-Objekt wird dann von Java serialisiert und gespeichert.
+    ReplayLog-Objekt wird dann serialisiert und gespeichert.
     \newline
     \newline
-    Diese Logs können zu einem späteren Zeitpunkt wieder geladen werden um den
+    Diese Logs können zu einem späteren Zeitpunkt wieder geladen werden, um den
     Graphen wiederherzustellen. Dazu ist der \textit{ReplayLogLoadService} da. Wenn
     der Nutzer die Replayfunktion aktiviert, fängt der ReplayLogLoadService an, die
     ReplayLogs zu laden. Dann wird in der View der Snapshotgraph angezeigt
     und die gespeicherten Commands aus dem ReplayLog werden auf
-    diesem Snapshot angewendet. Der ReplayLogLoadService kontrolliert somit die
-    Wiedergabe des alten Graphen und kann sogar hin und her zwischen Snapshots
+    diesem Snapshot ausgeführt. Der ReplayLogLoadService kontrolliert somit die
+    Wiedergabe des alten Graphen und kann sogar zwischen Snapshots hin und her
     springen (momentan nicht zwischen einzelnen Commands, da diese keine undo-
     und redo-Funktion besitzten).
     \newline
     \newline
     Der ReplayLogLoadService läuft in seinem eigenen Thread, weil er sich darum
     kümmert, dass immer genügend Daten im Speicher liegen. In anderen Worten, er
-    buffert die ReplayLogs vor, damit sich der Graph bei dem Benutzer flüssig
-    abspielt.
+    buffert die ReplayLogs vor, damit der Graph bei dem Benutzer flüssig
+    abgespielt wird.
 
     \clearpage
     \begin{sidewaysfigure}
@@ -84,11 +84,11 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     \end{figure}
 
     \medskip
-    Der executor-Service läuft auch wieder konstant im Hintegrund in seinem
+    Der executor-Service läuft ebenfalls konstant im Hintegrund in seinem
     eigenen Thread. Er ist ein \gls{listener}, der sowohl bei dem TruffleReceiver aus dem
     \hyperref[subsubsec:packetdataprocessor]{packetdataprocessor}-Package als
     auch bei den view-Controllern aus dem \hyperref[subsec:view]{view}-Package
-    registriert ist. D.h., er bekommt wie das \hyperref[subsubsec:replaylogging]{replaylogging}
+    registriert ist. D.h., er bekommt, wie das \hyperref[subsubsec:replaylogging]{replaylogging},
     alle \hyperref[subsubsec:trufflecommand]{TruffleCommands} und führt diese
     dann auf dem aktuellen Model aus.
     \newline
@@ -96,5 +96,5 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     In \gls{programname} gibt es zwei Instanzen vom Executor. Die erste bearbeitet
     den aktuellen Graphen und die zweite bearbeitet die Snapshot-Instanz, falls
     eine existiert. So kann der aktuelle Graph auf dem neuesten Stand bleiben, während
-    gleichzeitig der Benutzer einen alten Graphen aus
+    der Benutzer gleichzeitig einen alten Graphen aus
     ReplayLogs rekonstruiert anschaut.
