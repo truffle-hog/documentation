@@ -9,7 +9,7 @@
 
 \medskip
 Im service-Package befinden sich alle kontinuierlich laufenden Threads von \gls{programname},
-mit Ausnahme von \hyperref[subsec:view]{view}, das ein eigenes Package zur verzögerungsfreien Darstellung ist, und dem
+mit Ausnahme von \hyperref[subsec:view]{view}, das in einem eigenen Thread zur verzögerungsfreien Darstellung läuft, und dem
 main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende Funktionalität. In den folgenden Abschnitten ist erklärt, was genau die Unterpackages packetdataprocessor, replaylogging und executor machen.
 
     \subsubsection{packetdataprocessor}
@@ -21,7 +21,7 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     \textit{TruffleReceiver} in ein Command gesteckt wird. Da der \textit{TruffleReceiver}
     auch ein \gls{notifier} ist, verschickt er den Command auch gleich an
     alle registrierten \gls{listener}, sodass der CommandExecutor die Commands bekommt, wo sie
-    als nächstes auf dem Model angewandt werden.
+    als nächstes auf dem Model angewendet werden.
 
     \clearpage
     \begin{sidewaysfigure}
@@ -52,10 +52,10 @@ main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende F
     \newline
     Diese Logs können zu einem späteren Zeitpunkt wieder geladen werden um den
     Graphen wiederherzustellen. Dazu ist der \textit{ReplayLogLoadService} da. Wenn
-    der User die Replayfunktion aktiviert, fängt der ReplayLogLoadService an, die
+    der Nutzer die Replayfunktion aktiviert, fängt der ReplayLogLoadService an, die
     ReplayLogs zu laden. Dann wird in der View der Snapshotgraph angezeigt
     und die gespeicherten Commands aus dem ReplayLog werden auf
-    diesem Snapshot angewandt. Der ReplayLogLoadService kontrolliert somit die
+    diesem Snapshot angewendet. Der ReplayLogLoadService kontrolliert somit die
     Wiedergabe des alten Graphen und kann sogar hin und her zwischen Snapshots
     springen (momentan nicht zwischen einzelnen Commands, da diese keine undo-
     und redo-Funktion besitzten).
