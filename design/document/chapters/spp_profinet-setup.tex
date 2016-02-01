@@ -10,7 +10,7 @@ Hauptbestandteil des \gls{praeprozessor}s ist eine erweiterbare Baumstruktur von
 Pro Netzwerk-\gls{paket} entsteht ein \gls{truffle}, welches erheblich kleiner und kompakter als herkömmliche Netzwerkpakete sind. Das Truffle wird über die Serververbindung des {praeprozessor}s
 an \gls{programname} versendet (Sender). Die klar definierte Truffle Struktur ermöglicht einerseits einen geringeren Overhead bei der Übermittlung der Paketdaten (anstelle des gesamten Pakets) und gewährt zusätzlich einen Gewinn an Sicherheit. Durch das bewusste einfügen von Informationen des Pakets am Ende der Dissektion in die Trufflestruktur vermeidet man, dass falsch (auch vorsätzlich falsch) definierte Daten versehentlich als echte Information zum Client gesendet werden. Ab diesem Zeitpunkt kann somit für einiges mehr an Sicherheit im Informationsfluss gesorgt werden.
 Ein weiterer Vorteil der \glspl{truffle} ist die Gelegenheit für einen Sicherheitscheck bevor es gesendet wird. Wir wissen aufgrund der rekursiven Struktur unseres Decoder-Baums welche Daten wir zu erwarten haben. Sollte wir Inkonsistenzen feststellen, es ein Fehler vorliegen, oder etwas anderes keinen Sinn ergeben, so setzen wir im Truffle entsprechende Flags, damit \gls{programname} Statistiken für Auffälligkeiten einzelner Kommunikationsteilnehmer anfertigen kann.\newline
-\gls{sppname} ist absichtlich klein gehalten, da es empfohlen wird \gls{snort}-\gls{praeprozessor}en nicht performance-lastig zu entwerfen. Der oben beschriebenen Ablauf findet sich als Sequenzdiagramm in Kapitel 4 !!!!! ref hinzufügen? !!!!!.
+\gls{sppname} ist absichtlich klein gehalten, da es empfohlen wird \gls{snort}-\gls{praeprozessor}en nicht performance-lastig zu entwerfen. Der oben beschriebenen Ablauf findet sich als Sequenzdiagramm in Kapitel~\ref{fig:spp_sqd} wieder.
 
 
 \section{UML-Diagramm}
@@ -19,4 +19,5 @@ Ein weiterer Vorteil der \glspl{truffle} ist die Gelegenheit für einen Sicherhe
   \centering
   \includegraphics[width=\paperwidth]{../diagramimages/spp_profinet.png}
   \caption{\gls{praeprozessor} \gls{sppname}}
+  
 \end{sidewaysfigure}
