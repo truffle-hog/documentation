@@ -98,7 +98,7 @@ Paketdaten und UserCommands für die Verwaltung der Benutzeroberflächenbefehle.
       Die Commands, welche beispielsweise der Executor abarbeiten soll, werden in
       einer passenden Datenstruktur zwischengespeichert. Es sind gegebenenfalls mehrere
       tatsächliche Queues vorhanden, was nach einem Manager verlangt, um nach dem
-      Round-Robin-Prinzip faire Abarbeitung zu ermöglichen. Diese CommandQueue
+      Round-Robin-Prinzip faire Abarbeitung zu ermöglichen. Die CommandQueue
       ist das empfangende Ende des \gls{observerpattern}s an mehreren Stellen unseres
       Programms. Bei Aktualisierung durch einen \gls{notifier} geht dieser alle
       seine \gls{listener} durch und fügt bei jedem in genau einer diese
