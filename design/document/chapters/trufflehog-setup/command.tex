@@ -32,7 +32,7 @@ Funktionalität ist zwar nicht eingeplant, wäre durch dieses Design jedoch nich
 Ein potenzielles Problem, dass auftreten kann, wäre, wenn ein Command zu lange braucht, um
 ausgeführt zu werden und so das ganze Programm zum Stillstand kommt.
 In dem jetzigen Entwurf wird dieses Problem nicht auftreten, da jeder Command
-nur schnelle Befehlssequenze ausführt, welche das System nicht
+nur schnelle Befehlssequenzen ausführt, welche das System nicht
 aufhängen. Wenn jedoch \gls{programname} mal so erweitert wird, dass es doch Commands gibt,
 die eine lange Ausführungszeit haben, so sollten diese in seperaten Threads
 ausgeführt werden um zu verhindern, dass sich das ganze Programm an einem Command
@@ -52,7 +52,7 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
 
       \medskip
       Jegliche empfangenen \glspl{truffle} vom \gls{praeprozessor} werden zuerst in Java-Objekt-\glspl{truffle} umgewandelt, wie
-      im \hyperref[subsubsec:truffleprocessor]{truffleprocessor}-Package erleutert. Dort
+      im \hyperref[subsubsec:truffleprocessor]{truffleprocessor}-Package erläutert. Dort
       werden die erzeugten Java-\glspl{truffle} in ein Command gesteckt und per \gls{observerpattern}
       wie im \hyperref[subsec:util]{util}-Package beschrieben an alle Interessenten, also die \gls{listener}, verschickt.
       \newline
