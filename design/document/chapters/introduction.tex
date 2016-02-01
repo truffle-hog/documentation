@@ -2,14 +2,14 @@
 Dieses Dokument dient der genaueren Beschreibung und Dokumentation des Entwurfs zum Visualisierungstool \gls{programname}, dessen Hauptaufgabe die Darstellung des Netzwerkverkehrs eines \gls{profinet}-Systems ist. Des Weiteren wird der im \gls{ids} \gls{snort} eingebaute \gls{praeprozessor} \gls{sppname} und die genaue Funktionsweise der \gls{ipc} zu \gls{programname} erläutert.\newline
  \newline
 Der Entwurf von \gls{programname} baut auf das klassische \gls{mvc} Design auf, welches bereits im Pflichtenheft präsentiert wurde. Abbildung~\ref{fig:arch_diagram} zeigt den erweiterten Aufbau des \gls{mvp} Musters und den detaillierteren Aufbau des Profinet Präprozessors. Im Folgenden wird auf die einzelnen Komponenten dieses Diagramms genauer eingegangen.\newline
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{../diagramimages/arch_diagram_mvp.png}
-  \caption[Erweiterte Architekturübersicht]{Erweiterte Architekturübersicht}
-  \medskip
-  Erweiterte Strukturierung des Programms nach dem \gls{mvp} Muster
-  \label{fig:arch_diagram}
-\end{figure}\newpage
+%\begin{figure}[H]
+%  \centering
+%  \includegraphics[width=\textwidth]{../diagramimages/arch_diagram_mvp.png}
+%  \caption[Erweiterte Architekturübersicht]{Erweiterte Architekturübersicht}
+%  \medskip
+%  Erweiterte Strukturierung des Programms nach dem \gls{mvp} Muster
+%  \label{fig:arch_diagram}
+%\end{figure}\newpage
 
 \textbf{MODEL:}\newline
 Wie im traditionellen \gls{mvc} Muster dient das Model ausschließlich zur Speicherung von Daten in geeigneten Datenstrukturen. Im Fall von \gls{programname} umfasst dies den Graphen (Kapitel~\ref{subsubsec:graph}), die Programmeinstellungen (Kapitel~\ref{subsubsec:configdata}), Filter (Kapitel~\ref{subsubsec:filter}) und das Graphdatenlog (Kapitel~\ref{subsubsec:graphlog}). Der Benachrichtigungspfeil vom Model ausgehend bedeutet, dass bei Veränderung des Models eine Nachricht an alle Listener geschickt wird die unter Verwendung des Frameworks mit dem Model in Kontakt stehen.\newline
@@ -33,5 +33,15 @@ Die Bestandteile des service Packages sind eigenständige Programmroutinen. Entk
 \textbf{NOTIFICATION FRAMEWORK:}\newline
 Das Notification Framework dient zur Kommunkation zwischen den einzelnen Programmteilen und ermöglicht dabei den Aufbau einer entkoppelten Logik.\newline
  \newline
- 
-Innerhalb Snorts erfolgt der Ablauf wie folgt: 
+\textbf{SNORT:}\newline
+Innerhalb Snorts erfolgt der Ablauf wie folgt: Snort initialisiert den Präprozessor, wodurch dieser den Server aufbaut und als neuen Thread für einen Client abrufbar macht. Während des Programmablaufs übergibt Snort die intern dekodierten Pakete an den Präprozessor. Dieser nutzt die Dissector Struktur um das Paket zu dekodieren. Im Anschluss wird aus dem dekodierten Paket ein \gls{truffle} mit speziellen Informationen erstellt, welches dem Client über die Serververbindung bereitgestellt wird.\newline
+
+\begin{sidewaysfigure}
+  \centering
+  \includegraphics[width=\textwidth]{../diagramimages/arch_diagram_mvp.png}
+  \caption[Erweiterte Architekturübersicht]{Erweiterte Architekturübersicht}
+  \medskip
+  Erweiterte Strukturierung des Programms nach dem \gls{mvp} Muster
+  \label{fig:arch_diagram}
+\end{sidewaysfigure}
+\FloatBarrier
