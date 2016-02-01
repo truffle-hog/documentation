@@ -8,11 +8,10 @@
 \end{figure}
 
 \medskip
-Im util-Package befinden sich Klassen, die komplett von \gls{programname} abgekoppelt
-sind. D.h., sie werden nur als Ressource wie eine Liste benutzt und nehmen keinen
-Bezug auf das Programm. Konkret befinden sich drei Klassen im util-Package, die alle zusammen eine
+Im util-Package befinden sich Klassen und Interface, die mit ihrer Logik komplett von \gls{programname} entkoppelt sind.
+Sie dienen nur als Wekzeug oder zur Bereitstellung eindeutiger Schnitstellen. Konkret befinden sich drei Klassen im util-Package, die alle zusammen eine
 Variation des \gls{observerpattern}s realisieren. Der \textit{Notifier} ist dazu da,
-ein beliebiges Objekt zu verschicken, deshalb der Generic. Er ist das Subjekt aus
+ein beliebiges Objekt zu verschicken. Er ist das Subjekt aus
 dem \gls{observerpattern}.
 \newline
 \newline
@@ -22,7 +21,7 @@ schon eine andere Klasse beerbt. Dieses Problem tritt beispielsweise im
 \hyperref[subsec:view]{view}-Package auf, wo viele Klassen \gls{gui}-Aktionen als Commands
 gekapselt an den Executor verschicken und gleichzeitig JavaFX Klassen beerben müssen.
 Um dieses Problem zu lösen, implementieren diese Klassen das INotifer-Interface
-und haben ein Hilfsobjekt, das Notifier vererbt um somit die gewünschte Funktionalität zu
+und haben ein Hilfsobjekt, das Notifier vererbt, um somit die gewünschte Funktionalität zu
 bieten.
 \newline
 \newline
@@ -38,8 +37,7 @@ hat große Vorteile, da die Sender und die Empfänger komplett voneinander abgek
 sind. Der \hyperref[subsec:presenter]{Presenter} registriert die \gls{listener} bei Programmstart
 bei den \gls{notifier}n. Somit kennt der \gls{listener} nicht seinen \gls{notifier}, und der
 \gls{notifier} weiß nicht, was sich hinter einem \gls{listener} versteckt. Durch diese lose
-Kopplung ist es einfach, \gls{programname} um einen zusätzlichen Service zu erweitern,
-da kein Service wirklich von einem anderen abhängt.
+Kopplung ist es einfach, \gls{programname} um einen zusätzlichen Service zu erweitern.
 \newline
 \newline
 Ein Beispiel dieser losen Kopplung kann man zwischen dem
