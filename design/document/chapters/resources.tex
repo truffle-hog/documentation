@@ -31,12 +31,12 @@ Im Folgenden ist das Datenhaltungsverzeichnis von \gls{programname} visualisiert
   \caption[Ordner- und Dateiestruktur von \gls{programname}]{Beispielhafte Ordner- und Dateiestruktur von \gls{programname}}
 \end{figure}
 
-\begin{itemize}
+\begin{description}[style=multiline, leftmargin=3.3cm, labelwidth=3.3cm]
 \item[\texttt{config}] Einen Neustart des Programms überdauernde Informationen über die visuellen Teile des Programms und sprachliche Lokalisierungen. Diese Einstellen werden bei Programmneustart aufgerufen und \gls{programname} wird in den alten Nutzungszustand versetzt.
 \item[\texttt{log}] Zentrale Logdatei des Programms. Gespeichert wird der ankommende Truffle-Netzverkehr als kurzer Text zeitlich geordnet.
 \item[\texttt{replay\_log}] Gesamtzustand des Graphen zu einem Zeitpunkt plus Veränderungen über eine gewisse Zeitspanne. Realisiert ist das über die Serialisierung von sowohl eines Graph-Snapshots in regelmäßigen Abständen, als auch alle dazwischenliegenden Commands als komprimierte Liste. Wie der Name schon sagt sind diese serialisierten Objekte Kernbestand der Replay-Funktion.
 \item[\texttt{truffle\_data\_log}] Logdatei zu jedem Knoten mit zeilenweiser Auflistung der verarbeiteten Truffles als Text. Dies Ermöglicht eine eventuelle Abfrage von Knoten-spezifischen Logs in der \gls{gui} und die spätere externe Analyse für den Ursprung von fehlerhaften Netzwerkpaketen.
-\end{itemize}
+\end{description}
 
 \section{Externe Bibliotheken}
 \subsection{Java Universal Network/Graph Framework}
