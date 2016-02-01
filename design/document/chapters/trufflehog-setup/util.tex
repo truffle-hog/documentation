@@ -26,10 +26,9 @@ und haben ein Hilfsobjekt, das Notifier vererbt um somit die gewünschte Funktio
 bieten.
 \newline
 \newline
-Der \textit{Listener} ist der Beobachter aus dem \gls{observerpattern}. Hier ist nicht
-viel variiert worden, mit Ausnahme der receive-Methode, bei der wir einen Parameter eingeführt
-haben, damit der Listener das verschickte Objekt des \gls{notifier}s auch empfangen kann.
-Zu diesem Zweck existiert auch wieder ein Generic.
+Der \textit{IListener} ist der Beobachter aus dem \gls{observerpattern}. Hier ist nicht
+viel variiert worden, mit Ausnahme der receive-Methode, bei der ein Parameter eingeführt
+wurde, damit der Listener das verschickte Objekt des \gls{notifier}s empfangen und darauf arbeiten kann. Zu diesem Zweck existiert erneut ein Generic.
 \newline
 \newline
 Dieses \gls{observerpattern} verwaltet das Verschicken und Empfangen von Commands in

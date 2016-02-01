@@ -22,8 +22,8 @@ Dienste in Anspruch nehmen wollen (wie z.B. die View, wenn diese Eingaben vom Be
 Das \hyperref[subsec:model]{model}-Package wird zur Datenhaltung verwendet. Durch das Service
 können am Model Änderungen durchgeführt werden. Falls das Model verändert wird, wird View
 darüber in Kenntnis gesetzt (über JavaFX Property Bindings), damit es sich mit den neuen Daten
-aktualisieren kann. In unserer Architektur haben wir eine 2:1:1 Beziehung zwischen Model,
-View und Controller, da wir einen Live- und einen Replaygraphen anbieten wollen.
+aktualisieren kann. In der Architektur wird eine 2:1:1 Beziehung zwischen Model,
+View und Controller realisiert, da ein Live- und einen Replaygraph existiert.
 \newline
 \newline
 Zur Darstellung des Models wird das \hyperref[subsec:view]{view}-Package verwendet. Dieses
