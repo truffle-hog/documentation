@@ -22,3 +22,4 @@
 *.lock
 
 !arch_diagram_mvp.pdf
+!sd_receiver_executor_com.pdf

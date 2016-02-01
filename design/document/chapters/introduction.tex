@@ -25,7 +25,7 @@ Die Bestandteile des service Packages sind eigenständige Programmroutinen. Entk
 \textbf{NOTIFICATION FRAMEWORK} (Kapitel~\ref{subsec:util}):\newline
 Das Notification Framework dient zur Kommunkation zwischen den einzelnen Programmteilen und ermöglicht dabei den Aufbau einer entkoppelten Logik.\newline
  \newline
-\textbf{SNORT} (Kapitel~\ref{sec:spp_arch} und~\ref{sec:spp_sq})\newline
+\textbf{SNORT} (Kapitel~\ref{sec:spp_arch} und~\ref{sec:spp_sq}):\newline
 Innerhalb Snorts erfolgt der Ablauf wie folgt: Snort initialisiert den Präprozessor, wodurch dieser den Server aufbaut und als neuen Thread für einen Client abrufbar macht. Während des Programmablaufs übergibt Snort die intern dekodierten Pakete an den Präprozessor. Dieser nutzt die Dissector Struktur um das Paket zu dekodieren. Im Anschluss wird aus dem dekodierten Paket ein \gls{truffle} mit speziellen Informationen erstellt, welches dem Client über die Serververbindung bereitgestellt wird.\newline
 
 \begin{sidewaysfigure}
