@@ -8,28 +8,26 @@
 \end{figure}
 
 \medskip
-Das command-Package beinhaltet alle Commands, deren Struktur und die Datenstruktur
+Das command-Package beinhaltet alle Commands, deren Struktur, und die Datenstruktur
 \textit{CommandQueue}. Ein Command ist eine Befehlssequenz, die auf
 dem Model ausgeführt wird. Das heißt, alle Objekte, die das Model irgendwie verändern,
-werden als Command gekapselt, sodass die Veränderung auf dem Model
-ausgeführt werden kann. Es werden alle empfangene Netzwerkpakete
-und Benutzerbefehle als Command gekapselt, da diese direkt das Model beeinflussen
+werden als Command gekapselt. Alle empfangenen Netzwerkpakete
+und Benutzerbefehle werden als Command gekapselt, da diese direkt das Model beeinflussen,
 indem sie im Executor ausgeführt werden.
 \newline
 \newline
 Dieses Design hat zwei große Vorteile. Zum einen herrscht eine lose Kopplung zwischen
-allen Programmteilen, welche das Model verändern wollen und dem Model selbst, was zur Modularität des ganzen
+allen Programmteilen, welche das Model verändern wollen und dem Model selbst, was zur Modularität des
 Programms beiträgt. Zum anderen kann man die Commands speichern und zu einem
-späteren Zeitpunkt auf einem Snapshot des Models wieder ausführen, um das originale
-Model wiederherzustellen. Weitere Informationen im
+späteren Zeitpunkt wieder ausführen, um zum Beispiel eine Replay-Funktion zu realisieren. Weitere Informationen dazu im
 \hyperref[subsubsec:replaylogging]{replaylogging}-Package. Des Weiteren bietet dieses
 Design den großen Vorteil, dass es hohes Erweiterbarkeitspotential hat. Zum Beispiel
 könnte man relativ einfach eine undo- und redo-Funktion in die Commands einbauen, um
-zwischen verschiedenen Modelzuständen hin und zurück zu springen, oder generell dem User ermöglichen, Eingaben im Programmablauf durch undo und redo zu kontrollieren. So eine
-Funktionalität ist zwar nicht eingeplant, wäre durch dieses Design jedoch nicht schwer zu implementieren.
+zwischen verschiedenen Modelzuständen hin und zurück zu springen, oder generell dem Benutzer zu ermöglichen, Eingaben im Programmablauf durch undo und redo zu kontrollieren. So eine
+Funktionalität ist zwar vorerst nicht eingeplant, wäre durch dieses Design jedoch leicht zu implementieren.
 \newline
 \newline
-Ein potenzielles Problem, dass auftreten kann, wäre, wenn ein Command zu lange braucht, um
+Ein potenzielles Problem das auftreten kann, wäre, wenn ein Command zu lange braucht, um
 ausgeführt zu werden und so das ganze Programm zum Stillstand kommt.
 In dem jetzigen Entwurf wird dieses Problem nicht auftreten, da jeder Command
 nur schnelle Befehlssequenzen ausführt, welche das System nicht
@@ -38,8 +36,8 @@ die eine lange Ausführungszeit haben, so sollten diese in seperaten Threads
 ausgeführt werden um zu verhindern, dass sich das ganze Programm an einem Command
 aufhängt.
 
-Es gibt 2 Arten von Commands, TruffleCommands für die Bearbeitung empfangener
-Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle.
+Es gibt 2 Arten von Commands: TruffleCommands für die Bearbeitung empfangener
+Paketdaten und UserCommands für die Verwaltung der Benutzeroberflächenbefehle.
 
       \subsubsection{trufflecommand}
       \label{subsubsec:trufflecommand}
@@ -51,19 +49,21 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
       \end{figure}
 
       \medskip
-      Jegliche empfangenen \glspl{truffle} vom \gls{praeprozessor} werden zuerst in Java-Objekt-\glspl{truffle} umgewandelt, wie
-      im \hyperref[subsubsec:truffleprocessor]{truffleprocessor}-Package erläutert. Dort
-      werden die erzeugten Java-\glspl{truffle} in ein Command gesteckt und per \gls{observerpattern}
-      wie im \hyperref[subsec:util]{util}-Package beschrieben an alle Interessenten, also die \gls{listener}, verschickt.
+      Jegliche vom \gls{praeprozessor} empfangenen \glspl{truffle} werden zuerst in Java-Objekt-\glspl{truffle} umgewandelt. (Siehe
+      \hyperref[subsubsec:truffleprocessor]{truffleprocessor}-Package) Anschließend
+      werden die erzeugten Java-\glspl{truffle} einem Command übergeben und per \gls{observerpattern}
+      (Siehe \hyperref[subsec:util]{util}-Package) an alle Interessenten, also die \gls{listener}, verschickt.
       \newline
       \newline
-      Es gibt nur einen Command-Typen für die empfangen \gls{truffle}-\glspl{paket}, nämlich den
-      AddPacketDataCommand. Diese Entscheidung wurde getroffen, um das Programm einfach
-      zu halten. Commands wie AddNode oder AddEdge sind überflüßig, da diese leicht aus
-      dem Inhalt des \glspl{truffle} geschlossen werden können.
+      Es gibt nur einen Command-Typen für die empfangen \gls{truffle}-\glspl{paket}: Den
+      AddPacketDataCommand. Es wäre nicht sinngemäß, mehrere Commands für die Funktionalität
+      dieses Commands zu verwenden. Wenn man zum Beispiel mehrere Commands für das Bearbeiten von
+      verschiedenen Daten hätte, so müssten in jedem Command anfragen an den Graph gestellt werden.
+      Erledigt man alles in einem Command, so verringert sich die Anzahl der Aufrufe an den Graphen,
+      was der Performance zugunsten kommt.
       \newline
       \newline
-      Der PluginNotRunningCommand wird genau dann vom truffleprocessor verschickt, wenn sich \gls{programname}
+      Der PluginNotRunningCommand wird genau dann vom TrufflProcessor verschickt, wenn sich \gls{programname}
       nicht mit \gls{sppname} oder einem äquivalenten Plugin verbinden konnte. Wir
       haben die Funktionalität, dass \gls{programname} automatisch \gls{sppname} startet,
       aufgegeben, um die beiden Programme unabhängiger zu gestalten, und um dem Benutzer
@@ -80,9 +80,8 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
 
       \medskip
       Wenn der Benutzer eine \gls{gui}-Aktion startet, die das Model beeinflusst,
-      wird ein entsprechender Command an alle \gls{listener} durch das \gls{observerpattern}, wie im
-      \hyperref[subsec:util]{util}-Package beschrieben, verschickt. Für jede mögliche
-      \gls{gui}-Aktion, welche das Model beeinflusst, gibt es einen passenden Command.
+      wird mittels des \gls{observerpattern}s ein entsprechender Command an alle \gls{listener} verschickt. Für jede mögliche
+      \gls{gui}-Aktion gibt es einen passenden Command.
       Diese werden in den ViewControllern aus dem \hyperref[subsec:view]{view}-Package, wieder nach \gls{observerpattern},
       an den Executor verschickt.
 
@@ -97,11 +96,10 @@ Paketdaten, und UserCommands für die Verwaltung der Benutzeroberflächenbefehle
 
       \medskip
       Die Commands, welche beispielsweise der Executor abarbeiten soll, werden in
-      einer passenden Datenstruktur zwischengespeichert. Es sind ggf. mehrere
+      einer passenden Datenstruktur zwischengespeichert. Es sind gegebenenfalls mehrere
       tatsächliche Queues vorhanden, was nach einem Manager verlangt, um nach dem
       Round-Robin-Prinzip faire Abarbeitung zu ermöglichen. Diese CommandQueue
       ist das empfangende Ende des \gls{observerpattern}s an mehreren Stellen unseres
       Programms. Bei Aktualisierung durch einen \gls{notifier} geht dieser alle
       seine \gls{listener} durch und fügt bei jedem in genau einer diese
-      CommandQueue das neue Command-Objekt ein. Die Implementierung der Queues
-      als BlockingQueue ermöglicht in diesem Fall die Kommunikation zwischen Threads.
+      CommandQueue das neue Command-Objekt ein.

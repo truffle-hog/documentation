@@ -8,9 +8,9 @@
 \end{figure}
 
 \medskip
-Im service-Package befinden sich alle durchlaufenden Threads von \gls{programname},
+Im service-Package befinden sich alle kontinuierlich laufenden Threads von \gls{programname},
 mit Ausnahme von \hyperref[subsec:view]{view}, das ein eigenes Package zur verzögerungsfreien Darstellung ist, und dem
-main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende Funktionalität, meist eine pro Thread. In den folgenden Abschnitten ist erklärt, was genau die Unterpackages packetdataprocessor, replaylogging und executor machen.
+main-Thread. Jedes Unterpackage kapselt dabei genau eine selbständig laufende Funktionalität. In den folgenden Abschnitten ist erklärt, was genau die Unterpackages packetdataprocessor, replaylogging und executor machen.
 
     \subsubsection{packetdataprocessor}
     \label{subsubsec:truffleprocessor}
