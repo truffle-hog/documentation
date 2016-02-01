@@ -8,8 +8,9 @@ wird ein AddPacketDataCommand erstellt und das Truffle übergeben. Der Command w
 an diesen übergeben. Die receive Methode schreibt dann intern auf die CommandQueue des CommandExecutors. Dadurch wird dieser wieder aufgeweckt,
 um die neuen Commands abzuarbeiten.
 
-\begin{figure}[H]
+\FloatBarrier
+\begin{sidewaysfigure}
   \centering
   \includegraphics[width=\textwidth]{../diagramimages/sd_receiver_executor_comm.png}
   \caption[Sequenzdiagramm Receiver Executor communication]{Sequenzdiagramm Receiver Executor communication}
-\end{figure}
+\end{sidewaysfigure} \FloatBarrier 
