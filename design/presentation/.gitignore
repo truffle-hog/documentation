@@ -6,6 +6,7 @@
 *.ilg
 *.aux
 *.out
+*.snm
 *.blg
 *.bbl
 *.synctex
