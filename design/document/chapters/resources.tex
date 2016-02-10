@@ -1,35 +1,49 @@
 \chapter{Ressourcen}
 \section{Dateien und Strukturen}
 Im Folgenden ist das Datenhaltungsverzeichnis von \gls{programname} visualisiert. Alle persistenten, das heißt einen Neustart des Programms überdauernden Daten sind in Dateien in Unterordnern des Ordners \texttt{data} gespeichert.
+\clearpage
 \begin{figure}[htb]
   \centering
 \begin{verbatim}
 .
 `-- data
     |-- config
-    |   |-- filtermenu_en.properties
-    |   |-- filtermenu_de.properties
-    |   |-- graphwindow_en.properties
-    |   |-- graphwindow_de.properties
-    |   |-- logwindow_en.properties
-    |   |-- logwindow_de.properties
-    |   |-- notificationview_en.properties
-    |   |-- notificationview_de.properties
-    |   |-- settingsmenu_en.properties
-    |   |-- settingsmenu_de.properties
-    |   |-- statistics_en.properties
-    |   `-- statistics_de.properties
+    |   |-- filtermenu
+    |   |   |-- filtermenu_en.properties
+    |   |   |-- filtermenu_de.properties
+    |   |   `-- filtermenu.json
+    |   |-- graphwindow
+    |   |   |-- graphwindow_en.properties
+    |   |   |-- graphwindow_de.properties
+    |   |   `-- graphwindow.json
+    |   |-- logwindow
+    |   |   |-- logwindow_en.properties
+    |   |   |-- logwindow_de.properties
+    |   |   `-- logwindow.json
+    |   |-- notificationview
+    |   |   |-- notificationview_en.properties
+    |   |   |-- notificationview_de.properties
+    |   |   `-- notificationview.json
+    |   |-- settingsmenu
+    |   |   |-- settingsmenu_en.properties
+    |   |   |-- settingsmenu_de.properties
+    |   |   `-- settingsmenu.json
+    |   `-- statistics
+    |       |-- statistics_en.properties
+    |       |-- statistics_de.properties
+    |       `-- statistics.json
     |-- log
-    |   `-- trufflehog.log
+    |   `-- edu.kit.trufflehog.log
     |-- replay_log
-    |   |-- 20151020171450.trufflesnapshot
-    |   `-- 20151020171950.trufflesnapshot
+    |   |-- 20151020171450-20151020171510.replaylog
+    |   `-- 20151020171950-20151020172035.replaylog
     `-- truffle_data_log
-        |-- node_00-0a-95-9d-68-16.xml
-        `-- node_00-0a-95-9d-68-20.xml
+        |-- node_00-0a-95-9d-68-16.json
+        `-- node_00-0a-95-9d-68-20.json
 \end{verbatim}
   \caption[Ordner- und Dateiestruktur von \gls{programname}]{Beispielhafte Ordner- und Dateiestruktur von \gls{programname}}
 \end{figure}
+\clearpage
 
 \begin{description}[style=multiline, leftmargin=3.3cm, labelwidth=3.3cm]
 \item[\texttt{config}] Einen Neustart des Programms überdauernde Informationen über die visuellen Teile des Programms und sprachliche Lokalisierungen. Diese Einstellen werden bei Programmneustart aufgerufen und \gls{programname} wird in den alten Nutzungszustand versetzt.
