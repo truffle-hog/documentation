@@ -1,0 +1,299 @@
+\chapter{Systemmodelle}
+
+
+
+\section{Szenarien}
+
+\subsubsection*{Akteure}
+
+\begin{tabular}{lp{0.9\linewidth}}
+
+Alice & Die Benutzerin des Programms \gls{programname}. \\
+
+Bob & Der Angreifer des Firmennetzwerkes. \\
+
+Insekura & Die Firma deren Geräte \gls{profinet} zur internen Kommunikation verwenden. \\
+
+\gls{programname} & Die Software zur Beobachtung der Netzwerkkommunikation.\\
+
+\end{tabular}
+
+\subsection{Szenario 1: Hinzufügen von erlaubten Adressen}
+
+Alice's Firma Insekura nutzt das industrielle Protokoll \gls{profinet} für die Kommunikation zwischen den Geräten des Systems. Bisher hat Alice keine Möglichkeit gehabt, den Netzwerkverkehr zwischen den Drehmaschinen zu kontrollieren. Während des laufenden Betriebs greift der ehemalige Mitarbeiter Bob unbeobachtet auf den Maschinenablauf zu und verursacht dadurch eine Werkzeugkollision. Der materielle Schaden für die Firma ist groß, ein Mitarbeiter wurde leicht verletzt. Zudem kann Alice den Ablauf der Kommunikation, und damit die Ursache des Schadens, nicht zurückverfolgen.\\
+In der Hoffnung Unfälle und Attacken solcher Art in Zukunft vermeiden zu können, installiert sie die freie Software \gls{programname} und lässt sie auf einem gut sichtbaren Bildschirm in ihrem Büro dauerhaft in Betrieb. Auf dem Display sieht sie sämtliche \textit{Geräte als Knoten} eines Graphen und kann die \textit{Kommunikationswege zwischen Geräten und Controllern durch gerichtete Kanten} gut verfolgen. In den Einstellungen von \gls{programname} \textit{fügt sie den Adressraum des Firmennetzes zu den erlaubten Kommunikationsadressen hinzu}.
+
+\subsection{Szenario 2: Echtzeit Beobachtung von Angriffen}
+
+Im Laufe der nächsten Tage startet Bob einen weiteren Versuch seiner alten Firma zu schaden. Letztes Mal hat das wunderbar funktioniert, keiner konnte seine fremde Adresse identifizieren und er hatte uneingeschränkte Möglichkeiten falsche Daten an die Drehmaschinen zu übermitteln.\\
+Während sich Bob den Zugang auf das System verschafft, sitzt Alice in ihrem Büro und hat ihren Blick gerade auf den Bildschirm mit dem laufenden \gls{programname} gerichtet. Sie sieht wie ein \textit{roter Knoten auf dem Bildschirm erscheint} und mit einer der Drehmaschinen zu kommunizieren beginnt. \textit{Die Kommunikationskante ist auch rot gekennzeichnet}. Sofort eilt Alice zur Tür und drückt auf den Notfall Ausschalter des Systems. Schlimmeres konnte verhindert werden.
+
+\subsection{Szenario 3: Auslesen von Logdateien}
+
+Alice \textit{öffnet die Logdatei des roten Knotens}, der den Angriff gestartet hat, und kann dadurch zurückverfolgen, wer sich unerlaubten Zugriff auf das Firmennetzwerk verschafft hat. Bob steht eine große Schadensersatzklage bevor.
+
+
+\section{Anwendungsfälle}
+
+\subsection{Markieren von Adressen und Namen}
+
+\begin{tabular}{lp{0.9\linewidth}}
+
+\textbf{Name} & Anpassen erlaubter/unerlaubter Adressen und Namen \\
+
+\textbf{Teilnehmender Akteur} & Benutzer \\
+
+\textbf{Eingangsbedingung} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+
+				\item \gls{programname} und \gls{snort} mit \gls{sppname} sind in Betrieb
+
+				\end{itemize}
+				\end{minipage} \\
+\textbf{Ereignisfluss} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+
+				\item Benutzer navigiert ins Einstellungsmenü
+				\item Benutzer passt die gewünschte Liste an
+				\item Benutzer bestätigt Änderungen
+
+				\end{itemize}
+				\end{minipage} \\
+
+\end{tabular}
+
+\subsection{Netzwerkaktivität beoboachten}
+
+\begin{tabular}{lp{0.9\linewidth}}
+\textbf{Name} & Netzwerkaktivität beobachten \\
+
+\textbf{Teilnehmender Akteur} & Benutzer \\
+
+\textbf{Eingangsbedingung} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+
+				\item \gls{programname} und \gls{snort} mit \gls{sppname} sind in Betrieb
+				\item Aktiver Datenverkehr zwischen Geräten des Netzwerkes
+
+				\end{itemize}
+				\end{minipage} \\
+\textbf{Ereignisfluss} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+
+				\item Benutzer beobachtet und interagiert mit der Benutzeroberfläche
+				\end{itemize}
+				\end{minipage} \\
+
+\end{tabular}
+
+\subsection{Graph skalieren}
+
+\begin{tabular}{lp{0.9\linewidth}}
+\textbf{Name} & Graph skalieren \\
+
+\textbf{Teilnehmender Akteur} & Benutzer \\
+
+\textbf{Eingangsbedingung} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+
+				\item \gls{programname} und \gls{snort} mit \gls{sppname} sind in Betrieb
+				\item Aktiver Datenverkehr zwischen Geräten des Netzwerkes
+
+				\end{itemize}
+				\end{minipage} \\
+\textbf{Ereignisfluss} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+				\item Benutzer dreht das Mausrad
+				\end{itemize}
+				\end{minipage} \\
+\end{tabular}
+
+\subsection{Einstellungen speichern}
+
+\begin{tabular}{lp{0.9\linewidth}}
+\textbf{Name} & Einstellungen speichern \\
+
+\textbf{Teilnehmender Akteur} & Benutzer \\
+
+\textbf{Eingangsbedingung} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+
+				\item \gls{programname} und \gls{snort} mit \gls{sppname} sind in Betrieb
+
+				\end{itemize}
+				\end{minipage} \\
+\textbf{Ereignisfluss} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+				\item Benutzer navigiert ins Einstellungsmen"u
+				\item Benutzer klickt auf den ``Einstellungen speichern'' Eintrag
+				\end{itemize}
+				\end{minipage} \\
+\end{tabular}
+
+\subsection{Programm beenden}
+
+\begin{tabular}{lp{0.9\linewidth}}
+\textbf{Name} & Programm beenden \\
+
+\textbf{Teilnehmender Akteur} & Benutzer \\
+
+\textbf{Eingangsbedingung} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+
+				\item \gls{programname} und \gls{snort} mit \gls{sppname} sind in Betrieb
+
+				\end{itemize}
+				\end{minipage} \\
+\textbf{Ereignisfluss} &
+				\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut,leftmargin=10pt]
+				\item Benutzer navigiert ins File Men"u
+				\item Benutzer klickt auf den Eintrag ``Exit''
+				\item Benutzer wird gefragt, ob Einstellungen gespeichert werden sollen
+				\item Programm wird beendet
+				\end{itemize}
+				\end{minipage} \\
+\end{tabular}
+
+\pagebreak
+
+\subsection*{Anwendungsfalldiagramm - Benutzerinteraktion}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{../diagrams/UC_Benutzerinteraktion.png}
+    \caption[Anwendungsfalldiagramm Benutzerinteraktion]{Anwendungsfalldiagramm Benutzerinteraktion}
+\end{figure}
+
+\pagebreak
+\section{Dynamische Modelle}
+
+	\subsection{Beschreibung: Programmablauf}
+
+	\begin{easylist}[enumerate]
+	\ListProperties(Style2*=,Numbers=a,Numbers1=R,FinalMark1={.},FinalMark2={.},FinalMark3={.},Numbers4=l)
+
+
+	& \gls{programname} wird gestartet (siehe Grafik ``Starte Programm'')
+
+	& \gls{programname} und \gls{sppname} laufen als getrennte Prozesse
+
+		&& Prozess: Wenn Snort noch nicht läuft wird Snort gestartet und sendet Paketdaten an den \gls{programname} Prozess (siehe Grafik ``Pr"aprozessoraktivitäten'')
+
+		&& Prozess: \gls{programname} startet mehrere Threads
+
+			&&& Kontrollfluss:
+			&&&& Prüfen auf neue \glspl{paket}
+			&&&& Vorhandenes \gls{paket} wird gelesen und aus dem Puffer gelöscht
+			&&&& \gls{paket} wird verarbeitet wenn vorhanden (siehe Grafik ``Verarbeite Paketdaten'')
+
+			&&& Kontrollfluss:
+			&&&& \gls{programname} reagiert und verarbeitet Benutzerinteraktion (siehe Anwendungsfälle ``Benutzerinteraktion'')
+
+			&&& Kontrollfluss:
+			&&&& \gls{programname} empf"angt Paketdaten von Snort und schreibt sie in den prozessinternen Paketpuffer
+
+	& Unabhängig voneinander wird die \gls{gui} nach jeder Veränderung durch neue Paketdaten oder Benutzereingaben aktualisiert
+	& Das Programm wird bei Bedarf beendet
+
+	\end{easylist}
+
+	\pagebreak
+
+  \begin{figure}[h!]
+      \hspace*{0.15cm}\includegraphics[width=\textwidth]{../diagrams/AD_Programmablauf}
+      \caption[Aktivit"atsdiagramm Programmablauf]{Aktivit"atsdiagramm Programmablauf}
+  \end{figure}
+
+	\pagebreak
+\subsection{Beschreibung: Starte Programm}
+
+	\begin{easylist}[enumerate]
+	\ListProperties(Style2*=,Numbers=a,Numbers1=R,FinalMark1={.},FinalMark2={.},FinalMark3={.},Numbers4=l)
+
+
+	& Initialisiere relevante Daten
+
+	& Wenn \gls{snort} noch nicht läuft, frage den Benutzer ob \gls{snort} gestartet werden soll
+		&& Wenn der Benutzer zustimmt, wird \gls{snort} mit dem \gls{praeprozessor} gestartet
+		&& Wenn der Benutzer ablehnt, wird \gls{programname} beendet
+
+	& Wenn \gls{snort} schon läuft, Benutzer fragen ob \gls{praeprozessor} gestartet werden soll
+	    && Wenn der Benutzer zustimmt, wird \gls{snort} mit dem \gls{praeprozessor} neu geladen
+	    && Wenn der Benutzer nicht zustimmt, wird \gls{programname} beendet
+
+	\end{easylist}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=\textwidth]{../diagrams/AD_Starte_Programm}
+        \caption[Aktivitätsdiagramm Starte Programm]{Aktivitätsdiagramm Starte Programm}
+    \end{figure}
+
+\pagebreak
+\subsection{Beschreibung: Präprozessoraktivitäten}
+
+	\begin{easylist}[enumerate]
+	\ListProperties(Style2*=,Numbers=a,FinalMark1={.},FinalMark2={.},FinalMark3={.},Numbers4=l)
+
+
+	& Der \gls{snort} \gls{praeprozessor} empfängt ein neues \gls{paket}
+	& Das \gls{paket} wird dekodiert
+	& Das dekodierte \gls{paket} wird auf Fehler geprüft
+	    && Wenn ein Fehler gefunden wurde, wird das \gls{paket} als fehlerhaft markiert
+	& Das \gls{paket} wird an \gls{programname} weitergesendet
+	& Das \gls{paket} wird für weitere Analysen auch an \gls{snort} weitergegeben
+
+	\end{easylist}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.5\textwidth]{../diagrams/AD_Praeprozessoraktivitaeten}
+        \caption[Aktivitätsdiagramm Starte Programm]{Aktivitätsdiagramm Präprozessoraktivitäten}
+    \end{figure}
+
+\pagebreak
+\subsection{Beschreibung: Verarbeite Paketdaten}
+
+	\begin{easylist}[enumerate]
+	\ListProperties(Style2*=,Numbers=a,Numbers1=R,FinalMark1={.},FinalMark2={.},FinalMark3={.},Numbers4=l)
+
+
+	& Der \gls{snort} \gls{praeprozessor} empfängt ein neues \gls{paket}
+	& Das \gls{paket} wird dekodiert
+	& Das dekodierte \gls{paket} wird auf Fehler geprüft
+	    && Wenn ein Fehler gefunden wurde, wird das \gls{paket} als fehlerhaft markiert
+	& Das \gls{paket} wird an \gls{programname} weitergesendet
+	& Das \gls{paket} wird für weitere Analysen auch an \gls{snort} weitergegeben
+
+	\end{easylist}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.5\textwidth]{../diagrams/AD_Verarbeite_Paketdaten}
+        \caption[Aktivitätsdiagramm Verarbeite Paketdaten]{Aktivitätsdiagramm Verarbeite Paketdaten}
+    \end{figure}
+
+\section{Statische Modelle}
+
+\subsection{Komponentenmodell}
+\begin{easylist}[enumerate]
+	\ListProperties(Style2*=,Numbers=a,Numbers1=R,FinalMark1={.},FinalMark2={.},FinalMark3={.},Numbers4=l)
+    &Der Neztwerkverkehr erreicht \gls{snort} über einen Port und wird innerhalb von \gls{snort} von Komponente zu Komponente
+    &nach unten weiter bearbeitet. Unser einprogrammierter \gls{praeprozessor} leitet die \glspl{paket} über die vordefinierte &Schnittstelle an den Controller von \gls{programname}, damit dieser entscheiden kann, wie die \glspl{paket} einzuordnen &sind. Darüber hinaus gibt es eine optionale Schnittstelle eines Snort-Output-Plugins, um die \gls{alert} an den Controller des \gls{programname} weiter zu schicken.
+
+	\end{easylist}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{../diagrams/CMP_Architekturdiagramm.png}
+    \caption[Komponentenmodell]{Komponentenmodell}
+\end{figure}

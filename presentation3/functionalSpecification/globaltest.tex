@@ -1,0 +1,81 @@
+\chapter{Globale Testfälle}
+
+\section{Funktionstests}
+
+%\((?:FA([0-9]+),*|([0-9])+)\)
+
+%\newcommand\litem[1]{\item{\textbf{#1},\\}}
+
+\newcounter{testnr}[section]
+\newcommand\testno{\arabic{testnr}}
+
+%\setcounter{testnr}{10}
+%\newcommand\testcase[2]{\item[\namedlabel{#1}{T\testno #2}]\addtocounter{testnr}{10}}
+\newcommand\testcase[2]{\item[\namedlabel{#1}{(\testno) #2}]\stepcounter{testnr}}
+
+
+\begin{description}[style=multiline, leftmargin=4cm, labelwidth=4cm]
+
+  \testcase{start}{Programm starten} Der Nutzer startet \gls{programname}, wird gefragt ob er \gls{snort}, welches schon läuft, mit dem \gls{praeprozessor} neu starten will (\ref{fa110}), da dieser noch nicht läuft, und entscheidet sich dies zu tun. Nach dem Start prüft er die Korrektheit der \gls{gui} (\ref{fa365}) und des Einstellungsmenüs (\ref{fa375}) und stellt dann die Länge des Kommunikationslogs auf 10 Minuten (\ref{fa350}). \par
+      \textit{Beschreibung:} Ein Programmstart-Szenario, das das Verhalten der Komponenten beim Start zueinander testet und eine Einstellung für \glspl{log}.
+
+  \testcase{altstart}{Alternativer Start} Der Nutzer startet \gls{programname}, aber \gls{snort} läuft nicht und der \gls{praeprozessor} ist deaktiviert. Er wird gefragt, ob er den \gls{praeprozessor} starten will (\ref{fa100}), während sich \gls{snort} im Hintergrund selbst startet (\ref{fa90}). \par
+      \textit{Beschreibung:} Alternativer Programmstart, wenn \gls{snort} noch nicht aktiv ist.
+
+  \testcase{addNetNode}{Kommunikationsteilnehmer hinzufügen} Ein Kommunikationsteilnehmer wird zum Netzwerk hinzugefügt indem er anfängt \gls{profinet}-\glspl{paket} zu senden. \gls{praeprozessor} erkennt die Kommunikation als \gls{profinet} (\ref{fa20}, \ref{fa30}), sendet die nötigen Informationen an \gls{programname} (\ref{fa50}, \ref{fa70}, \ref{fa120}). Er erscheint auf der \gls{gui} (\ref{fa130}, \ref{fa132}, \ref{fa133}, \ref{fa135}), Gerätename / \gls{ip}-Adresse / \gls{mac}-Adresse ist direkt sichtbar (\ref{fa140}). Falls implementiert: Der Nutzer aktiviert/deaktiviert die Darstellung des Paket-Volumens in der GUI (\ref{fa305}). \par
+      \textit{Beschreibung:} Ein einfacher Testfall, in welchem eine einzige Kommunikationsverbindung und der entsprechende Sender erkannt und verarbeitet werden muss.
+
+  \testcase{infobox}{Details anzeigen} Der Nutzer lässt sich mit einem Klick die Knoten-Details eines vorhandenen Knotens anzeigen (\ref{fa180}, \ref{fa190}, \ref{fa390}). Weiter, falls vorhanden, hovert der Nutzer mit der Maus über einem zweiten Knoten und vergleicht die dargestellten Details (\ref{fa410}). Falls implementiert: Ein Klick auf einen Knoten zeigt ein Overlay mit zeitlichen Statistiken korrekt an (\ref{fa430}).
+
+  \testcase{normalWatch}{Normale Netzwerküberwachung} Es kommuniziert ein Beispielnetzwerk von 5 Teilnehmern über \gls{profinet} mit verschiedenen Protokollen (\ref{fa40}), in der \gls{gui} baut sich ein Graph selbständig auf (\ref{fa220}) und zeigt jeden Kommunikationsteilnehmer sowie die zugehörigen Verbindungen (\ref{fa170}) mit Unterscheidung der Protokolle an (\ref{fa250}). Alle Kommunikationswege werden als legal gekennzeichnet und die \gls{gui} zeigt Randinformationen an (\ref{fa400}). Falls implementiert: Der Nutzer bestimmt einen \gls{io-supervisor} (\ref{fa470}) und Verbindungsrichtungen werden ermittelt (F480). \par
+      \textit{Beschreibung:} Ein größerer Test, der die Unterscheidungen aller Art von mehreren Teilnehmern prüfen soll.
+
+  \testcase{logs}{Log-Dateien anzeigen} Der Nutzer lässt sich die \gls{log}-Dateien eines Knotens der letzten 10 Minuten anzeigen (\ref{fa260}, \ref{fa270}, \ref{fa320}, \ref{fa330}, \ref{fa340}). \par
+      \textit{Beschreibung:} Die komplexen FAs für \gls{log}-Dateien lassen sich in einem solchem Umfeld mit einer Ausgabe auf Korrektheit prüfen.
+
+  \testcase{guiDisplay}{Korrekte GUI Darstellung} Ein Paketsender sendet den gleichen Datenverkehr zu einem zweiten, neuen Empfänger, die \gls{gui} zeigt dies an. Weiter sind die \glspl{log} der Verbindungen, welche in der \gls{gui} durch den Nutzer abgerufen werden, bis auf die Adressen und Zeitstempel identisch zwischen beiden Empfängern. \par
+      \textit{Beschreibung:} Ein seperater Test zur Prüfung der Korrektheit und Konsistenz der \gls{log}-Funktionalität.
+
+  \testcase{video}{Rückverfolgung (optional)} Der Nutzer lässt sich, nach 5 Minuten aktiver Kommunikation, durch die Videofunktion (\ref{fa290}) die Situation von vor 3 Minuten anzeigen.
+
+  \testcase{timeout}{Timeoutbenachrichtigung (optional)} Der \gls{iocontroller} sendet einen \gls{identifyrequest} an ein Gerät im Netzwerk, dieses antwortet jedoch nicht. Der Nutzer wird darüber auf der \gls{gui} informiert (\ref{fa315}).
+
+  \testcase{filter}{Filter anwenden (optional)} Der Nutzer stellt im Filtereinstellungsmenü den Namensfilter ein (\ref{fa360}, \ref{fa440}, \ref{fa450}), zunächst eine fehlerhafte Eingabe, nach Korrektur eine gültige (\ref{fa370}), und lässt sich alle Knoten mit Unternamen “Haribo” markieren. Falls implementiert: Die \gls{gui} unterscheidet gefilterte Knoten von den gesuchten (\ref{fa310}) und der Nutzer deaktiviert die Filter per Hotkey wieder (\ref{fa460}). Zusätzlich markiert der Nutzer einen Knoten als unwichtig (\ref{fa500}).
+
+  \testcase{guiChanging}{Graph verändern} Der Nutzer skaliert den Graphen klein(zoomt raus) (\ref{fa380}). Falls implementiert: Der Nutzer wählt einen alternativen Graph-Darstellungsalgorithmus (\ref{fa490}).
+
+  \testcase{inactive}{Netzteilnehmer wird inaktiv} Ein Paketsender wird aus dem Netz entfernt (hört auf zu senden) (\ref{fa300}). Falls implementiert: Er wird nach zuvor vom Nutzer eingestellten 5 Sekunden als inaktiv markiert (\ref{fa300}).
+
+  \testcase{errpak}{Fehlerhaftes Paket} Ein fehlerhaftes \gls{paket} wird von einem Paketsender gesendet und vom \gls{praeprozessor} erkannt (\ref{fa80}) und der Nutzer lässt sich die \gls{log}-Dateien anzeigen und sieht das als fehlerhaft markierte \gls{paket}(\ref{fa280}).
+
+  \testcase{blacklist}{Blacklist} Das bisher vorhandene Netzwerk wird auf die \gls{whitelist} gesetzt (\ref{fa425}). Alle anderen möglichen Adress-Räume werden geblacklistet (FA 420). Weiter aktiviert der Nutzer beide Listen als Filter im Einstellungsmenü (\ref{fa427}). Ein Angreifer mit \gls{blacklist}-Adresse im Netzwerk löst einen Illegale-Kommunikation-Alarm aus und erscheint auf der \gls{gui} inklusive Warnung für den Nutzer. Die Kommunikation wird als illegal angezeigt (\ref{fa150}, \ref{fa160}). Falls implementiert: Der Angreifer löst einen \gls{snort}-\gls{alert} aus, dieser wird in der GUI sichtbar (\ref{fa317}).
+
+  \testcase{inactiveBlacklist}{Inaktiver geblacklisteter Teilnehmer} Ein erkannter Angreifer hört auf zu kommunizieren. Daraufhin wird er als inaktiv aber weiterhin als Angreifer angezeigt. Seine \glspl{log} werden gehalten.
+
+  \testcase{Exit}{Exit} \gls{programname} (Programm) beenden.
+
+  \testcase{Absturz}{Absturz} \gls{programname}-Prozess wird terminiert. Es muss sichergestellt sein, dass keine Dateninkonsistenzen auftreten. \gls{snort} und \gls{sppname} (\ref{nfa20}) dürfen davon nicht beeinträchtigt werden.
+
+\end{description}
+
+\par
+Diese für den Betrieb elementaren Funktionen vereinen jeweils einige FAs, decken jedoch zusammen alle ab. Die nachfolgenden Szenarien sind Kombinationen der obigen Funktionen, enthalten aber jede mindestens einmal. In der Testphase können weitere Kombinationen als Stresstests beliebig hinzugefügt werden.
+
+\section{Testszenarien}
+
+\begin{itemize}
+  \item \ref{start}, \ref{Exit}
+  \item \ref{altstart}, \ref{Exit}
+  \item \ref{start}, \ref{addNetNode}, \ref{infobox}, \ref{Exit}
+  \item \ref{start}, \ref{normalWatch},\ref{infobox}, \ref{Exit}
+  \item \ref{start}, \ref{normalWatch},\ref{timeout}, \ref{Exit}
+  \item \ref{start}, \ref{normalWatch},\ref{video}, \ref{Exit}
+  \item \ref{start}, \ref{normalWatch}, \ref{guiDisplay}, \ref{logs}, \ref{Exit}
+  \item \ref{start}, \ref{filter}, \ref{Exit}
+  \item \ref{start}, \ref{normalWatch}, \ref{guiChanging}, \ref{infobox}, \ref{Exit}
+  \item \ref{start}, \ref{normalWatch}, \ref{inactive}, \ref{Exit}
+  \item \ref{start}, \ref{addNetNode}, \ref{errpak}, \ref{logs}, \ref{Exit}
+  \item \ref{start}, \ref{normalWatch}, \ref{blacklist}, \ref{inactiveBlacklist}, \ref{Exit}
+  \item \ref{start}, \ref{normalWatch}, \ref{Absturz}
+  \item \ref{start}, \ref{normalWatch}, \ref{infobox}, \ref{Absturz}, \ref{altstart}, \ref{addNetNode}, \ref{errpak}, \ref{logs}, \ref{Absturz}, \ref{start}, \ref{normalWatch}, \ref{infobox}, \ref{logs}, \ref{Exit}
+\end{itemize}

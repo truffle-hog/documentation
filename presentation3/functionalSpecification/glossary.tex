@@ -1,0 +1,176 @@
+
+\newdualentry{gui}
+	{GUI}
+	{Graphical User Interface}
+	{Die grafische Benutzeroberfläche}
+
+\newdualentry{tcp}
+	{TCP}
+	{Transmission Control Protocol}
+	{Das Transmission Control Protocol (TCP) ist ein verbindungsorientiertes Transportprotokoll für den Einsatz in paketvermittelten Netzen. Das Protokoll baut auf dem Internet Protokoll (IP) auf. Es unterstützt die Funktionen der Transportschicht und stellt vor der Datenübertragung eine gesicherte Verbindung zwischen den Instanzen her}
+
+\newdualentry{udp}
+	{UDP}
+	{User Datagram Protocol}
+	{Ein verbindungsloses Transportprotokoll für den Datenaustausch zwischen Rechnern. Das UDP-Protokoll wurde definiert damit Anwendungsprozesse direkt Datagramme versenden können und damit die Anforderungen an transaktionsorientierten Verkehrs erfüllen. Das UDP-Protokoll baut direkt auf dem darunter liegenden IP-Protokoll auf und zeichnet sich durch seinen geringen Overhead und die kurzen Latenzzeiten aus.}
+
+\newdualentry{lldp}
+	{LLDP}
+	{Link Layer Discovery Protocol}
+	{Ein herstellerunabhängiges Protokoll der zweiten Schicht (\gls{osi}) und die Möglichkeit bietet, Informationen zwischen Nachbargeräten auszutauschen}
+
+\newdualentry{io}
+	{IO}
+	{Input/Output}
+	{Input und Output}
+
+
+\newdualentry{ids}
+	{IDS}
+	{Intrusion Detection System}
+	{System oder Software zur Entdeckung von Netzwerkangriffen}
+
+
+\newdualentry{ip}
+	{IP}
+	{Internet Protocol}
+	{Protokoll zur Übermittlung von Daten im Internet. Seine Aufgabe besteht darin, Datenpakete von einem Sender über mehrere Netze hinweg zu einem Empfänger zu transportieren}
+
+\newdualentry{osi}
+	{OSI-Modell}
+	{Open Systems Interconnection Model}
+	{Das OSI-Referenzmodell der Internationalen Standardisierungs-Organisation (ISO) wurde ab 1977 als Grundlage für die Bildung von Kommunikationsstandards entworfen}
+
+
+\newdualentry{mac}
+	{MAC}
+	{Media-Access-Control-Adresse}
+	{Die MAC-Adresse ist die Hardware-Adresse jedes einzelnen Netzwerkadapters, die als eindeutiger Identifikator des Geräts in einem Rechnernetz dient}
+
+
+\newdualentry{ipc}
+	{IPC}
+	{Inter-Process Communication}
+	{Methoden zum Informationsaustausch, informatisch gesprochen Datenübertragung, von nebenläufigen Prozessen oder Threads}
+
+
+\newdualentry{mvc}
+	{MVC}
+	{Model View Controller}
+	{Ein Muster zur Strukturierung von Software-Entwicklung in die drei Einheiten Datenmodell (engl. model), Präsentation (engl. view) und Programmsteuerung (engl. controller)}
+
+
+\newglossaryentry{alert} {
+  name=Alert,
+  plural=Alerts,
+  description={Ein von Snort versendeter Alarm, welcher durch verschiedene Regeln abgefangen und verarbeitet werden kann}
+}
+
+\newglossaryentry{whitelist} {
+  name=Whitelist,
+  description={Eine Liste auf der sich vertrauenswürdige Geräte befinden. Alle Geräte, die sich nicht auf dieser Liste befinden, werden als potenziell gefährlich gewertet und entsprechend markiert}
+}
+
+\newglossaryentry{blacklist}{
+  name=Blacklist,
+  description={Eine Liste auf der sich \textbf{nicht} vertrauenswürdige Geräte (Knoten) befinden. Alle Geräte, die sich auf dieser Liste befinden, werden markiert, alle anderen nicht}
+}
+
+\newglossaryentry{ethernet}{
+  name=Ethernet,
+  description={Eine Technologie, die Software und Hardware für kabelgebundene Datennetze spezifiziert, welche ursprünglich für lokale Datennetze (LANs) gedacht war und daher auch als LAN-Technik bezeichnet wird}
+}
+
+\newglossaryentry{headerdaten}{
+  name=Headerdaten,
+  description={Die Kopfzeile eines Datenblocks, die wichtige informationen über diesen Datenblock beinhaltet (Bsp. ziel E-Mail Addresse in den Headerdaten einer E-Mail)}
+}
+
+\newglossaryentry{linux}{
+  name=GNU/Linux,
+  description={Freie, unix basierende Betriebssysteme, die auf dem Linux-Kernel basieren und GNU Pakete als Betriebssystemsoftware benutzen.}
+}
+
+\newglossaryentry{programname}{
+  name=\programname,
+  description={Das Netzwerktool worum es sich unter anderem in diesem Dokument handelt. Das Programm dient zur Darstellung des Netzwerkgraphen}
+}
+
+\newglossaryentry{profinet}{
+  name=PROFINET,
+  plural=Netzwerkpakete,
+  description={PROFINET (Process Field Network) ist der offene Industrial Ethernet-Standard von Profibus \& Profinet International (PI) für die Automatisierung. Profinet nutzt \gls{tcp}/\gls{ip} und IT-Standards, ist Echtzeit-\gls{ethernet}-fähig und ermöglicht die Integration von Feldbus-Systemen}
+}
+
+\newglossaryentry{profinet-tcp}{
+  name=PROFINET TCP,
+  description={Für NRT (non-real-time) Kommunikation benutzt \gls{profinet} unter anderem das Transmission Control Protocol (TCP)}
+}
+
+\newglossaryentry{snort}{
+  name=Snort,
+  description={Snort ist ein open source \gls{ids} mit realtime Paketanalyse und Paketlogging}
+}
+
+\newglossaryentry{praeprozessor}{
+  name=Präprozessor,
+  plural=Präprozessoren,
+  description={Ein Präprozessor ist eine Art Plugin für \gls{snort}. Er wird nach den Decodern und vor der Rules Engine aufgerufen. Er dient zur fortgeschrittenen Paketverarbeitung wie z.B. Normalisierung oder weiteres Dekodieren}
+}
+
+\newglossaryentry{sppname}{
+  name=\sppname,
+  description={Der Name des Präprozessors. Der Präprozessor ist dafür zuständig \gls{profinet} \glspl{paket} zu dekodieren}
+}
+
+\newglossaryentry{frameid}{
+  name=Frame ID,
+  description={Ein Realtime-Frame beginnt immer mit einer 2-Byte FrameID. Darin steht in welcher Klasse sich das Frame befindet (z.B. die Geschwindigkeitsklasse)}
+}
+
+\newglossaryentry{interprocess}{
+    name=Interprozesskommunikation,
+    description={Kommunikation, die zwischen zwei unabhängigen Prozessen stattfindet}
+}
+
+\newglossaryentry{paket}{
+    name=Paket,
+    plural=Pakete,
+    description={Eine in sich geschlossene Dateneinheit, die ein Sender (z.B. ein digitaler Messfühler) oder auch ein sendender Prozess einem Empfänger sendet}
+}
+
+\newglossaryentry{log}{
+    name=Log,
+    plural=Logs,
+    description={Eine Logdatei enthält das automatisch geführte Protokoll aller oder bestimmter Aktionen eines Prozesses}
+}
+
+\newglossaryentry{fehlerflag}{
+    name=Fehlerflag,
+    description={Ein Bit, welches bestimmt, ob der Eintrag fehlerhaft ist, oder nicht}
+}
+
+\newglossaryentry{io-supervisor}{
+    name=IO-Supervisor,
+    description={Dies ist typischerweise ein Programmiergerät (PG), Personal Computer (PC) oder Human-Machine-Interface-Gerät (HMI) für die Inbetriebsetzung oder Diagnose (Beispielsweise eine Engineering-Station die für den Zweck der Inbetriebnahme einen temporären Zugriff auf die Feldgeräte besitzen kann)}
+}
+
+\newglossaryentry{io-device}{
+    name=IO-Device,
+    description={Ein IO-Device ist ein dezentral angeordnetes IO-Gerät, das über Profinet IO angekoppelt wird.}
+}
+
+\newglossaryentry{iocontroller}{
+    name=IO-Controller,
+    description={Ein \gls{profinet} IO-Controller hat die Kontrolle über den auf ein oder mehrere Feldgeräte verteilten Prozess. Bei ihm laufen die Prozess-Daten und Alarme ein und werden im Anwenderprogramm verarbeitet. In einer Automatisierungsanlage ist ein IO-Controller normalerweise eine Speicher-Programmierbare-Steuerung (SPS), ein DCS-System oder ein PC. Das Einrichten der Kommunikationswege erfolgt beim System-Hochlauf}
+}
+
+\newglossaryentry{identifyrequest}{
+    name=Identify Request,
+    description={Eine Anfrage eines Netzwerkteilnehmers (typischerweise eines \gls{io-supervisor}s oder \gls{iocontroller}s) im \gls{profinet} System, die die Identität eines anderen einfordert}
+}
+
+\newglossaryentry{x86}{
+  name=x86\_64,
+  description={64 Bit Architektur}
+}
