@@ -1,0 +1,27 @@
+wie geht es weiter? 
+	kurzfristig: nächste ein bis zwei wochen
+		stabilisieren: komponenten- und systemtests
+			weitere junit-tests
+				gui in versch. szenarien
+
+mittelfristig
+	optionale features mit
+		implementation teilweise oder
+			konzeption sehr fortgeschritten
+
+julian: replayfunktion
+	gleichzeitiges betrachten von aufzeichnung und live
+		1. tiling des fensters
+			2. statistiken weiter aufbereiten
+			
+graphen im programm einbinden
+	bsp. paketdurchsatz nach zeit
+		zusammenhang des graphen nach zeit
+			kategorisierung der knoten
+langfristig
+	was könnte man noch mit den projekt machen?
+		präprozessor: groundwork für erweiterung von snort
+			dissektoren weiter ausbauen
+			
+anbindung an snort-regel-engine
+	möglichkeit zur PN-netzwerküberwachung mit snort allein	
