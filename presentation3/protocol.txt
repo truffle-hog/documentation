@@ -1,0 +1,39 @@
+sicherheit -> it sicherheit
+
+warum it security? dazu nochmal genauer.
+
+Durch unsere Lösung wollen wir it sicherheit im industriellen umfeld einzusetzen
+
+Musskriterien: dynamische Graphendarstellung < Kommunikationsbeziehungen sollen dargestellt werden
+
+verdeutlichen dass kommunikationsbeziehungen dargestellt werden nicht nur die Teilnehmer..!!! das nochmal kalr machen
+
+legal und illegale Kommunikation muss erkennbar sein??? das wurde vorher noch nicht defineirte
+
+detaillierte information in dei detailfenster zur ""KOMMUNIKATION"" !! (z.B. , u.a. ... uswn.. .da kann man argumetnieren dass e snur bsp waren aber man war konkret)
+
+die Darstellung des Graphen skalieren und nicht den Graphen selbst
+
+Es gibt ein Einstellugnsmenü mit BSP versehen!! z.b auch FAs in klammern rein
+
+Darstellungsvarianten vom Graphen sollen ausgewählt werden können
+
+Der Übertragungstyp wir dargestellt falls bekannt ("zu undefiniert!!! genauer spezifizieren)
+
+-- issue Musskriterien und FAs aneinander anpassen
+
+FUnktional Anforderungen:
+
+start von TruffleHog... !!!! snort soll trufflehog nich automatisch starten
+
+Man muss immer immer den Benutzer fragen ob er etwas machen möchte oder nicht.. nix automatisch
+
+genauer spezifizieren was "vorläufiges löschen" heißt bei der Paketinformation
+
+Globale Testfälle auch Nummern... damit man sich da in de Testszenarien drauf beziehen kann.
+
+OSI Model
+
+Glossar überarbeiten??
+
+ARP Plugin für Snort angucken

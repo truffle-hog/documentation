@@ -1,0 +1,100 @@
+\chapter{Zielbestimmung}
+
+\gls{sppname} soll das \gls{ids} \gls{snort} um das Identifizieren von \gls{profinet} \glspl{paket}n erweitern und dekodierte \glspl{paket} an \gls{programname} senden. Hierbei soll \gls{programname} eine übersichtliche Darstellung der Beziehungen und Datenflüsse des überwachten Netzwerkes bieten.
+
+\section{Musskriterien}
+
+\subsection{\gls{sppname} (Snort-Präprozessor)}
+
+\begin{itemize}
+\item Der \gls{praeprozessor} muss \gls{ethernet} \gls{profinet} Pakete erkennen und dekodieren können.
+
+\item Der \gls{praeprozessor} muss ein Ausgabeinterface bereitstellen damit \gls{programname} die dekodierten Paketdaten empfangen und weiterverarbeiten kann.
+
+\item Der \gls{praeprozessor} muss die \gls{profinet} \gls{headerdaten} zusammenfassen und an \gls{programname} weitergeben.
+\end{itemize}
+
+\subsection{\gls{programname} (Analyseprogramm)}
+
+\begin{itemize}
+\item Das Analyseprogramm muss eine grafische Oberfläche mit folgenden Funktionen bieten:
+
+	\begin{itemize}
+    \item Übersichtliche Darstellung der Kommunikationsbeziehungen eines Netzwerks mithilfe eines Graphen.
+
+    \item Netzwerkteilnehmer werden im Graphen als Knoten dargestellt, Kommunikationswege als Kanten.
+
+    \item Möglichkeit zur zusätzlichen Darstellung von detaillierten Informationen (z.B. Paketdurchsatz, letzte Aktivität).
+
+    \item Vergößern und Verkleinern des Graphen (Zoom).
+
+    \item Es gibt ein Einstellungsmenü, welches dem Nutzer ermöglicht grundlegende Einstellungen (bspw. Sprachwahl, Farbwahl) vorzunehmen.
+    \end{itemize}
+
+\item Es gibt eine Möglichkeit Bestimmte Subnetze auf eine \gls{blacklist} bzw. \gls{whitelist} zu setzen.
+
+\item Durch White- oder Blacklist als legal bzw. illegal markierte Kommunikation muss unterschiedlich dargestellt werden.
+
+\item \gls{programname} zeichnet Netzwerkkommunikation in \glspl{log} auf.
+
+\item Die Maximalgröße aufzuzeichnender \glspl{log} kann im Einstellungsmenü festgelegt werden.
+
+\item Das Analyseprogramm muss die Möglichkeit zur Datenhaltung und möglichen späteren Auswertung bieten.
+
+\item Das Programm funktioniert eigenständig und hat möglichst wenige Abhängigkeiten.
+
+\item Der Paketdurchsatz kann in einem Detailfenster in textueller Form eingesehen werden.
+
+\item Die Bezeichnung der \gls{frameid} eines Paketes kann, soweit bekannt, im Graph dargestellt werden.
+
+\end{itemize}
+
+\section{Kannkritierien}
+
+\subsection{\gls{sppname}}
+
+\begin{itemize}
+
+\item Der \gls{praeprozessor} kann die dekodierten Pakete \gls{snort} zur Verfügung stellen, damit sie dort weiterverarbeitet werden können.
+
+\item Der \gls{praeprozessor} ist in der Lage andere Protokollarten die \gls{profinet} verwendet zur Weiterverarbeitung an \gls{programname} zu senden (z.B. \gls{tcp}, \gls{udp}, \gls{lldp}).
+
+\item Der \gls{praeprozessor} kann \gls{snort} \glspl{alert} auslösen. Die Rule Engine von \gls{snort} wird dabei nicht verwendet.
+\end{itemize}
+
+\subsection{\gls{programname}}
+
+\begin{itemize}
+\item Das Analysetool kann dem Nutzer grafische Statistiken des bisher stattgefundenen Netzwerkverkehrs anzeigen.
+
+\item Das Analysetool kann von \gls{snort} ausgelöste \glspl{alert} im Graph darstellen.
+
+\item Die Richtung des Kommunikationsflusses kann im Graphen dargestellt werden.
+
+\item Der Paketdurchsatz kann im Graph visuell gekennzeichnet werden (z.B. Farbe der Kante).
+
+\item Dem Benutzer wird ermöglicht, Knoten anhand von Kriterien zu filtern (z.B. Adresse, Name).
+
+\item Der Benutzer hat die Möglichkeit über ein Menü geeignete Algorithmen zur Darstellung des Graphen auszuwählen.
+\end{itemize}
+
+\section{Abgrenzungskriterien}
+
+\subsection{\gls{sppname}}
+\begin{itemize}
+\item Der \gls{praeprozessor} soll nicht die Arbeit von \gls{snort} und dem Analysetool übernehmen.
+
+\item Der \gls{praeprozessor} soll nur dekodieren und nicht analysieren.
+
+\end{itemize}
+
+\subsection{\gls{programname}}
+\begin{itemize}
+
+\item \gls{programname} bietet keinen aktiven Schutz vor Angriffen, sondern zeigt solche nur an (Das Programm dient lediglich der Analyse und Visualisierung des Netzwerkverkehrs).
+
+\item Die Graphalgorithmen  werden einer Bibliothek entnommen und nicht selbst entwickelt.
+
+\item Die \gls{gui} wird nicht von Grund auf neu entwickelt, sondern verwendet Bibliotheken um die Entwicklung zu erleichtern.
+
+\end{itemize}
