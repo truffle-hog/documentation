@@ -1,0 +1,47 @@
+Untertitel unter den Aufgabennamen.
+
+
+IT Sicherheit für Prod netzt
+
+Angriffe erkennen
+
+Intrusion Detection gibts shon ewig für office netze für industrei noch nciht so
+
+Was nicht geht im office netz direkt in Produktion weil andere technologie
+
+Es gibt andere COM Protokolle mit anderen Anforderungen daher ander Desingt...
+
+
+
+
+=>Großes Ziel Angriffe erkennen
+
+Es gibt nichtmal möglcihkeit anzusehen wie sieht netz aus
+indem ich auf den Verkehr höre
+
+Daher unserse aufgabe auf Basis von IDS
+
+Ein BSP.
+
+
+=> Echtzeitfähiges Ethernet mit größtem Marktanteil
+
+Aufgabenstellung--------------
+
+snort logo neben "snort"
+
+trufflehog logo neben "trufflehog"
+
+Designentscheidungen------------------- => Anforderungen (Es gibt welche die alle umsetzen müssen aber auch haben wir:)
+Modularer Aufbau
+
+( IDee: Alles mit häkchen... was haben wir geschafft -- SKalierbarkeit )
+
+Wie haben wir skalierbarkeit realisiert
+
+schön aussehen und effizient (Umsetzung?)
+
+---- BILDER
+Gesamtüberblicksbild vorher !!! kurz erklären zeigen wie was zusammenspielt!!!
+
+Bild Titel "Weg eines Pakets"!!!
