@@ -1,111 +1,38 @@
-% Quality assurance for ProfiSnort
-\documentclass[listof=totoc,a4paper]{scrreprt}
+% Design for ProfiSnort
+ \documentclass[listof=totoc,a4paper]{scrreprt}
 
-\usepackage[german]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{ae}
-\usepackage[bookmarks,bookmarksnumbered]{hyperref}
-\usepackage{csquotes}
-\usepackage{longtable}
-\usepackage{enumitem, hyperref}
-\usepackage{graphicx}
+ \usepackage[german]{babel}
+@@ -64,7 +64,7 @@
 
-\usepackage{float}
-\usepackage{verbatim}
-\usepackage{rotating}
-\usepackage{placeins}
+ \begin{document}
 
-\usepackage[ampersand]{easylist}
-\usepackage{xcolor}
+\title{\programname \ \& \sppname \ -- Entwurf}
+ \author{
+     Brendl, Julian
+     \texttt{julian.brendl@student.kit.edu}
+@@ -97,25 +97,15 @@
+ \newpage
+ \listoffigures
 
-\usepackage[toc,acronym]{glossaries}
-\makeglossaries
+\printglossary[title=Abkürzungsverzeichnis,toctitle=Abkürzungsverzeichnis,type=acronym]
 
-\setuptoc{toc}{totoc}
-\setcounter{tocdepth}{2}
+ \clearpage
+ \setcounter{savepage}{\arabic{page}}
+ \pagenumbering{arabic}
+ \setcounter{page}{\thesavepage}
 
-\usepackage{xparse}
-\DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
-  \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
-    description={#6},#1
-  }
-  \makeglossaries
-  \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
-}
+\input{chapters/introduction}
 
-\renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}}
+\input{chapters/spp_profinet-setup}
 
-\hypersetup{
-	backref,
-    colorlinks,
-    linkcolor=[RGB]{0,153,84},
-    citecolor={blue!40!black},
-    urlcolor={blue!70!black},
-    linktocpage=true
-}
+\input{chapters/trufflehog-setup}
 
-\makeatletter
-\def\namedlabel#1#2{\begingroup
-    #2%
-    \def\@currentlabel{#2}%
-    \phantomsection\label{#1}\endgroup
-}
-\makeatother
+\input{chapters/procedures}
 
-\newcounter{savepage}
+\input{chapters/resources}
 
-\newcommand{\sppname}{spp\_profinet}
-\newcommand{\programname}{TruffleHog}
+\appendix
 
-\loadglsentries{../../global_tex_files/glossary}
+\printglossary[title=Glossar,toctitle=Glossar]
 
-\setlength{\parindent}{0em}
-
-\begin{document}
-
-\title{\programname \ \& \sppname \ -- Testbericht}
-\author{
-    Brendl, Julian
-    \texttt{julian.brendl@student.kit.edu}
-    \and
-    Diez, Maximilian
-    \texttt{maximilian.diez@student.kit.edu}
-    \and
-    Giraud, Mark
-    \texttt{mark.giraud@student.kit.edu}
-    \and
-    Hermes, Jan
-    \texttt{jan.hermes@student.kit.edu}
-    \and
-    Höhler, Dimitri
-    \texttt{dimitri.hoehler@student.kit.edu}
-    \and
-    Kiechle, Valentin
-    \texttt{valentin.kiechle@student.kit.edu}
-}
-
-\titlehead{\includegraphics[width=150pt]{images/title.png}}
-
-\maketitle
-
-\pagenumbering{Roman}
-\setcounter{page}{2}
-
-\newpage
-\tableofcontents
-\newpage
-\listoffigures
-
-%\printglossary[title=Abkürzungsverzeichnis,toctitle=Abkürzungsverzeichnis,type=acronym]
-
-\clearpage
-\setcounter{savepage}{\arabic{page}}
-\pagenumbering{arabic}
-\setcounter{page}{\thesavepage}
-
-
-
-% \printglossary[title=Glossar,toctitle=Glossar]
-
-\end{document}
+ \end{document}
