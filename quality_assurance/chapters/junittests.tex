@@ -1,1 +1,12 @@
 \chapter{JUnit Testergebnisse}
+Das Verwenden von JUnit, einer sehr oft genutzten Testbibliothek für Java Programme, erschien als der einfachte Weg, geschriebenen Quellcode zu prüfen. Um korrekte, ausführlicher Tests bei der Entwicklung zu fördern, wurde im Entwicklungs-Repository von TruffleHog auf github.com eine Kontrollinstanz namens Travis-CI (https://travis-ci.org/) verwendet. Aufgabe dieses Tools ist das ausführen und validieren aller Tests von TruffleHog bei jedem Commit in den Master Entwicklungsbranch. Auf diese Weise wurden fehlerhafte Commits aus dem Master Branch fern gehalten und die Entwicklung des Projekt nicht gestört.
+
+\section{Command Package}
+
+Die zentrale Ausführungslogik von TruffleHog war im besonderen Fokus der Tests. Auf das Testen von trivialen Methoden wie Getter/Setter wurde verzichtet. Daher beträgt die Line Coverage im Command Package  70\%. Es wurden alle Klassen auf Funktionalität in den wenigen möglichen Anwendungsfällen geprüft.
+
+\section{Interaction Package}
+Ein Paket ohne Funktionalität. Eine Ansammlung von Enums, welche für die Überleitung von Benutzerinteraktion zu Commands gebraucht werden. Das aktive Testen entfällt daher. Durch Aufrufe anderer Tests kommt das Paket jedoch auf 81\% Line Coverage.
+
+\section{Model Package}
+Das größe Paket mit etwa 2000 Zeilen Programmcode. Eine hohe Coverage lies sich nicht erreichen, da die bereits getestete Graphbibliothek Jung tief eingebunden wurde und diese natürlich nicht zu Coverage beiträgt. Wieder wurden einfache Setter/Getter vom Testen ausgeschlossen, von denen es realtiv viele in der Graphstruktur gibt. Die Line Coverage beträgt 38\%.
