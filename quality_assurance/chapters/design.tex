@@ -1,0 +1,166 @@
+\chapter{Umsetzung \& Designänderungen}
+
+\newcounter{fanr}[section]
+\newcommand\fano{\arabic{fanr}}
+\newcommand\fa[3]{\namedlabel{fa#1}{FA#1}: & \textit{#2: } #3 \\}
+
+\section{Umsetzung}
+
+In diesem Abschnitt sind alle funktionalen Anforderungen aufgezählt. Neben jeder Anforderung steht, inwiefern diese Umgesetzt wurde.
+
+\subsection{\gls{sppname} - Funktionalität}
+
+\def\arraystretch{1.5}
+\begin{tabular}{lp{0.9\linewidth}}
+
+\fa{20}{Erkennen von \gls{profinet} \glspl{paket}n}{Implementiert}
+
+\fa{30}{Dekodieren von \gls{profinet} \glspl{paket}n}{Implementiert -- Pakete können teilweise dekodiert werden. Weitere Daten können leicht durch zusätzliche Subdekoder extrahiert werden. Mehr Informationen finden sich im Designheft.}
+
+\fa{40}{Unterscheiden der verschiedenen \gls{frameid}s}{Implementiert -- \gls{frameid}s Lassen sich unterscheiden. Einige Frames werden dekodiert und weitere lassen sich bei Bedarf durch die gewählte Struktur schnell hinzufügen.}
+
+\fa{50}{Output Kanal zu \gls{programname}}{Implementiert -- Eine \gls{interprocess} ist mittels unix sockets implementiert.}
+
+\fa{70}{Ausgabeschnittstelle}{Implementiert -- Die Schnittstelle ist durch ein C struct gegeben.}
+
+\end{tabular}
+
+\subsection{\gls{sppname} - Optionale Funktionalität}
+
+\begin{tabular}{lp{0.9\linewidth}}
+
+\fa{80}{Markierung fehlerhafter Pakete}{Nicht Implementiert -- Fehlerhafte Pakete werden zur Zeit noch nicht markiert.}
+
+\end{tabular}
+
+\subsection{\gls{programname} - Funktionalität}
+
+\begin{longtable}{lp{0.9\linewidth}}
+
+\fa{90}{Starten von \gls{snort}}{Gestrichen -- Da \gls{snort} meistens als Service läuft und manuelle Konfiguration benötigt, wurde dieses Feature gestrichen.}
+
+\fa{100}{\gls{sppname} anschalten}{Gestrichen -- Da \gls{snort} meistens als Service läuft und im Moment neu Kompiliert werden muss, um \gls{sppname} zu beinhalten, wurde dieses Feature gestrichen. Manuelle Konfiguration ist hier sinnvoller.}
+
+\fa{110}{\gls{snort} läuft, aber \gls{sppname} ist deaktiviert}{Verändert implementiert -- Der Benutzer wird, aus den selben Gründen wie oben, nur darauf hingewiesen, dass das Plugin nicht über \gls{interprocess} erreichbar ist.}
+
+\fa{120}{Empfangen von Paketinformationen}{Implementiert}
+
+\fa{130}{Erkennen neuer Netzwerkteilnehmer}{Implementiert}
+
+\fa{132}{Erkennen neuer Netzwerkkommunikation}{Implementiert}
+
+\fa{133}{Erstellen neuer Kanten}{Implementiert}
+
+\fa{135}{Erstellen neuer Knoten}{Implementiert}
+
+\fa{140}{Erkennen von Gerätenamen}{Implementiert}
+
+\fa{150}{Kennzeichnen illegaler Knoten}{Implementiert}
+
+\fa{160}{Kennzeichnen illegaler Kanten}{Nicht implementiert -- Da Knoten schon gekennzeichnet werden, ist dies nicht sehr sinnvoll, da es die Übersichtlichkeit verschlechtert.}
+
+\fa{170}{Erkennen der Kommunikationswege}{Implementiert}
+
+\fa{180}{Paketaustausch Statistik}{Implementiert}
+
+\fa{190}{Gesamtzahl der Pakete}{Implementiert}
+
+\fa{220}{Zeichnen des Graphen}{Implementiert}
+
+\fa{250}{Kantenunterschied}{Nicht implementiert -- GRUND? EVTL NOCH IMPLEMENTIEREN?}
+
+\fa{260}{Logging}{Nicht implementiert -- Da der Netzwerkverkehr auch direkt als PCAP Datei aufgezeichnet werden kann, ist dieses Feature nicht nötig.}
+
+\fa{270}{Spezifisches Logging}{Nicht implementiert -- Siehe \ref{fa260}}
+
+
+
+\end{longtable}
+
+\subsection{\gls{programname} - Optionale Funktionalität}
+\begin{longtable}{lp{0.9\linewidth}}
+
+\fa{280}{Fehlerhafte Pakete}{Nicht implementiert -- Lässt sich bei Bedarf leicht hinzufügen.}
+
+\fa{290}{Rückverfolgung}{Teilweise implementiert -- Die Grundstruktur ist implementiert, muss aber noch überarbeitet und von Bugs befreit werden.}
+
+\fa{300}{Kennzeichnen inaktiver Knoten}{Nicht implementiert}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fa{305}{Darstellung des Paketvolumens}{???????? Das Paketvolumen einzelner Verbindungen ist im Graph visuell darstellbar. Diese Darstellung kann in den Einstellungen der Übersicht halber deaktiviert werden. ????????}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\fa{310}{Abgrenzen gefilterter Knoten}{Implementiert}
+
+\fa{315}{Timeoutbenachrichtigung}{Nicht implementiert}
+
+\fa{317}{Darstellen von \gls{snort} Alerts}{Nicht implementiert}
+
+\end{longtable}
+\pagebreak
+\subsection{\gls{programname} - Datenhaltung}
+
+\begin{longtable}{lp{0.9\linewidth}}
+
+\fa{320}{Speichern des Datenverkehrs}{Nicht implementiert -- Da der Datenverkehr einfach mittels PCAPs gespeichert werden kann, ist dieses Feature nicht nötig.}
+
+\fa{330}{Kategorisierung der Daten}{Nicht implementiert -- Siehe \ref{fa320}}
+
+\fa{340}{Datenausgabe}{Nicht implementiert -- Siehe \ref{fa320}}
+
+\fa{350}{Zeitraum der Datenspeicherung}{Nicht implementiert -- Siehe \ref{fa320}}
+
+\end{longtable}
+
+\subsection{\gls{programname} - Benutzerinteraktion}
+
+\begin{longtable}{lp{0.9\linewidth}}
+
+\fa{360}{Speichern der Einstellungen}{Implementiert}
+
+\fa{365}{\gls{gui}}{Implementiert}
+
+\fa{370}{Fehlerhafte Benutzereingaben}{Implementiert}
+
+\fa{375}{Einstellungsmenü}{Nicht implementiert -- Da keine Einstellungen vorhanden sind, wird ein Einstellungsmenü nicht benötigt.}
+
+\fa{380}{Skalierung des Graphen}{Implementiert}
+
+\fa{390}{Detaillierte Information zu Knoten}{Implementiert}
+
+\fa{400}{Generelle Informationen}{Implementiert}
+
+\fa{410}{Hover über einem Knoten}{Nicht implementiert -- Diese Funktionalität ist unübersichtlich und wurde daher nicht implementiert.}
+
+\fa{415}{Die \gls{mac}-Addresse wird als eindeutigen identifikator für einen Knoten des Graphen benutzt.}{Implementiert}
+
+\fa{420}{\gls{blacklist}}{Verändert implementiert -- Blacklist und Whitelist wurden vereinigt in einen allgemeinen Filter, da sie Komplementär sind}
+
+\fa{425}{\gls{whitelist}}{Siehe \ref{fa420}}
+
+\fa{427}{Whitelist/Blacklist aktivieren}{Verändert implementiert -- Es gibt ein Fenster mit einer Filterliste, über das man die Filter aktivieren, deaktivieren und bearbeiten kann.}
+
+\end{longtable}
+
+\subsection{\gls{programname} - Optionale Benutzerinteraktion}
+
+\begin{longtable}{lp{0.9\linewidth}}
+
+\fa{430}{Statistiken zu Knoten}{Nicht implementiert}
+
+\fa{440}{Filtereinstellungen}{Verändert implementiert -- Es gibt ein Filtermenü, über das die Einstellungen vorgenommen werden können.}
+
+\fa{450}{Filteroptionen}{Teilweise implementiert -- Alles, bis auf den Aktivitätsfilter wurde implementiert.}
+
+\fa{460}{Filter deaktivieren/reaktivieren}{Verändert implementiert -- Die Filter können im Filtermenü aktiviert und deaktiviert werden. Hotkeys sind nicht sinnvoll, da der Benutzer die Möglichkeit hat, beliebig viele Filter zu erstellen.}
+
+\fa{470}{\gls{io-supervisor} festlegen}{Nicht implementiert}
+
+\fa{480}{Verbindungsrichtung}{Verändert implementiert -- Verbindungsrichtungen werden immer dargestellt.}
+
+\fa{490}{Graphdarstellungsalgorithmen}{Nicht implementiert}
+
+\fa{500}{Kategorisierung}{Verändert implementiert -- Die Filter bieten eine Möglichkeit, bestimmte Knoten zu kategorisieren.}
+\end{longtable}
