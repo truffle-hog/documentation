@@ -10,3 +10,21 @@ Ein Paket ohne Funktionalität. Eine Ansammlung von Enums, welche für die Über
 
 \section{Model Package}
 Das größe Paket mit etwa 2000 Zeilen Programmcode. Eine hohe Coverage lies sich nicht erreichen, da die bereits getestete Graphbibliothek Jung tief eingebunden wurde und diese natürlich nicht zu Coverage beiträgt. Wieder wurden einfache Setter/Getter vom Testen ausgeschlossen, von denen es realtiv viele in der Graphstruktur gibt. Die Line Coverage beträgt 38\%.
+
+\section{Presenter Package}
+
+Da dieses Paket lediglich für den initialen Aufbau der internen Strukturen und Abhängigkeiten zuständig ist, wird die gesamte Funktionalität genau einmal pro Programmstart genutzt. Es gibt nur einfache Tests, da der Presenter nur in einem Kontext verwendet werden kann. Fehler in diesem Programm Paket würden ebenfalls sehr schnell in den Testszenarien auffallen, da die gesamte Benutzeroberfläche hierdurch gebaut wird. Line Coverage beträgt 73\%.
+
+\section{Service Package}
+
+Die Hauptarbeitsroutinen von TruffleHog werden im Gegensatz zum Presenter zwar regelmäßig aufgerufen, haben aber einen sehr spezifischen Einsatzbereich und wenig Variationsmöglichkeit der Parameter. Der Testfokus lag daher auf der korrekten Ausführung von mehreren Befehlen und die Einhaltung der Command Reihenfolge anstatt unmögliche Eingaben zu testen. Die relativ niedrige Line Coverage von 36\% lässt sich durch zwei Dinge begründen. Zum einen wird das ReplayLogging Service im fertigen Programm nicht verwendet und ist daher ungetestet. Zum anderen wurden für die Inter-Prozess-Kommunikationsschnittstelle eine Vielzahl von eigenen Exceptions definiert um das Debugging zu erleichtern. Diese Exceptions unterscheiden sich fast ausschliesslich im Namen, um den Feheler schnell zu finden, aber rufen getestete Methoden der Superklassen auf, daher sind diese Exceptions nicht Teil der Line Coverage.
+
+\section{Util Package}
+
+Ein Hilfspaket, hauptsächlich für die Umsetzung von Designpatterns und PropertyBindings gedacht, bietet selbst nur begrenzte aber generische Funktionalität. Methoden der PropertyBindings, die ausschliesslich Methoden der Java Superklassen verwenden sind von den Tests ausgeschlossen. Line Coverage beträgt 47\%.
+
+\section{View Package} %31
+
+Der Hauptbenutzeroberfläche von TruffleHog liegt JavaFX zugrunde.
+
+\section{Viewmodel Package} %66
