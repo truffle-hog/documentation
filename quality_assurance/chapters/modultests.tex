@@ -1,1 +1,46 @@
-\chapter{Modulare Testergebnisse}
+\chapter{Testszenarien}
+//TODO
+haben wir inaktive Knotenmarkierung?:
+haben wir Fehlerflag für Pakete?:
+was macht viewmodel Paket?:
+
+
+
+
+In diesem Kapitel werden die im Pflichtenheft definierten globalen Testszenarien ausgewertet. Aufgrund der Unterschiede vom Pflichtenheft zu den endgültigen Implementierungsergebnissen werden die einzelnen Szenarien angepasst, ihre Abdeckung bezüglich umgesetzer funktionaler Anforderungen bleibt jedoch gleich.
+
+\section{Nicht umsetzbare Funktionstests}
+
+Einige der gewünschten Funktionstests stellten sich als nicht durchführbar heraus, da sie nicht implementiert werden konnten.
+
+\begin{itemize}
+  \item (1)  Alternativer Start bzw. (0) Programm Start. Die Wahl Snort/Präprozessor einzuschalten entfällt. Wird zusammengelegt.
+  \item (2)  Kommunikationsteilnehmer hinzufügen. Wird in dem (4) Normale Netzwerküberwachung automatisch mehrfach ausgeführt.
+  \item (7)  Rückverfolgung. War optional, wurde nicht umgesetzt.
+  \item (8)  Timeoutbenachrichtigung. War optional, nicht in der GUI umgesetzt.
+  \item (11) Netzteilnehmer wird inaktiv. Keine Unterscheidung von aktiven zu inaktiven Knoten umgesetzt.
+\end{itemize}
+
+\section{Testszenario 1}
+
+\begin{itemize}
+  \item Beschreibung: Programm starten und beenden.
+  \item Ergebnis: Reibungslos abgelaufen.
+  \item Coverage: 24\% Zeilen, 39\% Klassen.
+\end{itemize} 
+
+\section{Testszenario 2}
+
+\begin{itemize}
+  \item Beschreibung: Beispielnetzwerk mit 10 Knoten zufällig kommunizieren lassen und Detailfenster zu einem Knoten aufrufen.
+  \item Ergebnis: Reibungslos abgelaufen. Informationsdarstellung korrekt.
+  \item Coverage: 41\% Zeilen, 54\% Klassen.
+\end{itemize}
+
+\section{Testszenario 3}
+
+\begin{itemize}
+  \item Beschreibung:
+  \item Ergebnis:
+  \item Coverage:
+\end{itemize}

@@ -17,7 +17,7 @@ Da dieses Paket lediglich für den initialen Aufbau der internen Strukturen und 
 
 \section{Service Package}
 
-Die Hauptarbeitsroutinen von TruffleHog werden im Gegensatz zum Presenter zwar regelmäßig aufgerufen, haben aber einen sehr spezifischen Einsatzbereich und wenig Variationsmöglichkeit der Parameter. Der Testfokus lag daher auf der korrekten Ausführung von mehreren Befehlen und die Einhaltung der Command Reihenfolge anstatt unmögliche Eingaben zu testen. Die relativ niedrige Line Coverage von 36\% lässt sich durch zwei Dinge begründen. Zum einen wird das ReplayLogging Service im fertigen Programm nicht verwendet und ist daher ungetestet. Zum anderen wurden für die Inter-Prozess-Kommunikationsschnittstelle eine Vielzahl von eigenen Exceptions definiert um das Debugging zu erleichtern. Diese Exceptions unterscheiden sich fast ausschliesslich im Namen, um den Feheler schnell zu finden, aber rufen getestete Methoden der Superklassen auf, daher sind diese Exceptions nicht Teil der Line Coverage.
+Die Hauptarbeitsroutinen von TruffleHog werden im Gegensatz zum Presenter zwar regelmäßig aufgerufen, haben aber einen sehr spezifischen Einsatzbereich und wenig Variationsmöglichkeit der Parameter. Der Testfokus lag daher auf der korrekten Ausführung von mehreren Befehlen und die Einhaltung der Command Reihenfolge anstatt unmögliche Eingaben zu testen. Die relativ niedrige Line Coverage von 36\% lässt sich durch zwei Dinge begründen. Zum einen wird das ReplayLogging Service im fertigen Programm nicht verwendet und ist daher ungetestet. Zum anderen wurden für die Inter-Prozess-Kommunikationsschnittstelle eine Vielzahl von eigenen Exceptions definiert um das Debugging zu erleichtern. Diese Exceptions unterscheiden sich fast ausschliesslich im Namen, um den Fehler schnell zu finden, aber rufen getestete Methoden der Superklassen auf, daher sind diese Exceptions nicht Teil der Line Coverage.
 
 \section{Util Package}
 
@@ -25,6 +25,6 @@ Ein Hilfspaket, hauptsächlich für die Umsetzung von Designpatterns und Propert
 
 \section{View Package} %31
 
-Der Hauptbenutzeroberfläche von TruffleHog liegt JavaFX zugrunde.
+Der Hauptbenutzeroberfläche von TruffleHog liegt JavaFX zugrunde. Alle nichttrivialen Tests werden von den Testszenarien abgedeckt. Daher beträgt die Line Coverage 31\%.
 
 \section{Viewmodel Package} %66
