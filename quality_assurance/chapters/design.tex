@@ -72,9 +72,6 @@ In diesem Abschnitt sind alle funktionalen Anforderungen aufgezählt. Neben jede
 \fa{260}{Logging}{Nicht implementiert -- Da der Netzwerkverkehr auch direkt als PCAP Datei aufgezeichnet werden kann, ist dieses Feature nicht nötig.}
 
 \fa{270}{Spezifisches Logging}{Nicht implementiert -- Siehe \ref{fa260}}
-
-
-
 \end{longtable}
 
 \subsection{\gls{programname} - Optionale Funktionalität}
@@ -86,11 +83,7 @@ In diesem Abschnitt sind alle funktionalen Anforderungen aufgezählt. Neben jede
 
 \fa{300}{Kennzeichnen inaktiver Knoten}{Nicht implementiert}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\fa{305}{Darstellung des Paketvolumens}{???????? Das Paketvolumen einzelner Verbindungen ist im Graph visuell darstellbar. Diese Darstellung kann in den Einstellungen der Übersicht halber deaktiviert werden. ????????}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fa{305}{Darstellung des Paketvolumens}{Implementiert -- Kann nicht deaktiviert werden, da übersichtlich genug}
 
 \fa{310}{Abgrenzen gefilterter Knoten}{Implementiert}
 
@@ -99,7 +92,6 @@ In diesem Abschnitt sind alle funktionalen Anforderungen aufgezählt. Neben jede
 \fa{317}{Darstellen von \gls{snort} Alerts}{Nicht implementiert}
 
 \end{longtable}
-\pagebreak
 \subsection{\gls{programname} - Datenhaltung}
 
 \begin{longtable}{lp{0.9\linewidth}}
@@ -164,3 +156,34 @@ In diesem Abschnitt sind alle funktionalen Anforderungen aufgezählt. Neben jede
 
 \fa{500}{Kategorisierung}{Verändert implementiert -- Die Filter bieten eine Möglichkeit, bestimmte Knoten zu kategorisieren.}
 \end{longtable}
+
+\section{Designänderungen}
+
+Dieser Abschnitt behandelt nennenswerte Änderungen, die sich gegenüber dem ursprünglichen Design ergeben haben.
+
+\subsection{Networkmodel}
+
+Im Model wurde die Graphstruktur um eine Networkport Struktur erweitert und der Graph selbst um eine Component Struktur, die in den folgenden zwei Abschnitten näher beschrieben werden.
+
+\subsubsection{Network-Ports}
+
+TEXT?
+
+\subsubsection{Components}
+
+TEXT?
+
+\subsection{NodeStatisticsUpdater}
+
+Der NodeStatisticsUpdater ist ein Service, der neu hinzugekommmen ist. Er ist dafür Zuständig in regelmäßigen Zeitabständern (eine Sekunde) den Graph zu traversieren und
+in jedem Knoten die zeitlichen Statistiken zu aktualisieren.
+
+\subsection{Filter}
+
+Das im Entwurfsheft festgelegte Muster für die Filter wurde komplett verworfen. Stattdessen gibt es jetzt ein Filter interface, das einen Knoten entgegennimmt, und in der
+FilterPropertiesComponent entsprechende Flags setzt, je nach dem, ob der Knoten gematcht wurde, oder nicht. Zusätzlich wird bei den Filtern nicht mehr zwischen Whitelist und
+Blacklist differenziert, weswegen diese jetzt eine Priorität und Farbe besitzen. So können beliebig viele Gruppierungen mittels Filtern erstellt werden. \par
+Da es jetzt die Möglichkeit gibt, viele Filter gleichzeitig aktiviert zu haben, musste eine Möglichkeit geschaffen werden, diese an einer Stelle zu verwalten, sodass sie problemlos
+auf alle neu erstellten Knoten angewendet werden können. Zu diesem Zweck wurde ein MakroFilter implementiert, der dem Filter Interface entspricht. Dieser Filter hat lediglich eine
+Liste an Filtern und zwei Methoden, um einzelne Filter hinzufügen, oder entfernen zu können. Alle teile des Programms können nun mit diesem MakroFilter arbeiten, indem sie die check()
+Methode aufrufen. Diese Methode iteriert dann durch alle internen Filter und ruft jeweils bei diesen die check() Methode auf.
