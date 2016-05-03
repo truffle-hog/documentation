@@ -19,7 +19,12 @@ Einige der gewünschten Funktionstests stellten sich als nicht durchführbar her
   \item (7)  Rückverfolgung. War optional, wurde nicht umgesetzt.
   \item (8)  Timeoutbenachrichtigung. War optional, nicht in der GUI umgesetzt.
   \item (11) Netzteilnehmer wird inaktiv. Keine Unterscheidung von aktiven zu inaktiven Knoten umgesetzt.
+  \item (12) Fehlerhaften Paket. Nicht implementiert.
+  \item (13) Blacklist. Wird manuell umgesetzt durch Filter.
+  \item (14) Inaktiver geblacklisteter Teilnehmer. Aus Mangel an 11.
 \end{itemize}
+
+Alle daraus resultierenden Testszenarien wurden verändert oder in andere integriert. Die FA-Abdeckung bleibt gleich.
 
 \section{Testszenario 1}
 
@@ -27,7 +32,7 @@ Einige der gewünschten Funktionstests stellten sich als nicht durchführbar her
   \item Beschreibung: Programm starten und beenden.
   \item Ergebnis: Reibungslos abgelaufen.
   \item Coverage: 24\% Zeilen, 39\% Klassen.
-\end{itemize} 
+\end{itemize}
 
 \section{Testszenario 2}
 
@@ -40,7 +45,31 @@ Einige der gewünschten Funktionstests stellten sich als nicht durchführbar her
 \section{Testszenario 3}
 
 \begin{itemize}
-  \item Beschreibung:
-  \item Ergebnis:
-  \item Coverage:
+  \item Beschreibung: Beispielnetzwerk mit 10 Knoten, Paketlogs eines Knoten anezeigen lassen.
+  \item Ergebnis: Reibungslos abgelaufen. Es bestehen 2 Möglichkeiten die Logs zu lesen, jeweils korrekt.
+  \item Coverage: 48\% Zeilen, 54\% Klassen.
+\end{itemize} 
+
+\section{Testszenario 4}
+
+\begin{itemize}
+  \item Beschreibung: Filter auf Netzwerk anwenden. Eine MAC-Adresse wird gefiltert.
+  \item Ergebnis: Reibungslos abgelaufen.
+  \item Coverage: 50\% Zeilen, 56\% Klassen.
+\end{itemize}
+
+\section{Testszenario 5}
+
+\begin{itemize}
+  \item Beschreibung: Graphische Änderung des Netzwerks in der GUI, Verschieben von Knoten, Formalgorithmus auf Graph anwenden per Hotkey, Zoomfunktion. Detailfenster überprüfen.
+  \item Ergebnis: Merkliche Performanceeinbuße beim Algorithmus. Funktionalität dennoch vollständig und richtig.
+  \item Coverage: 44\% Zeilen, 54\% Klassen.
+\end{itemize}
+
+\section{Testszenario 6}
+
+\begin{itemize}
+  \item Beschreibung: Programmabsturz durch Prozesstermination.
+  \item Ergebnis: Bereits erstellte Filter bleiben vorhanden sind aber deaktiviert in der View. Programm beendet mit Exit Code 0. Snort und spp_profinet nicht beeinflusst. Test als Erfolg einzustufen.
+  \item Coverage: 54\% Zeilen, 54\% Klassen.
 \end{itemize}
