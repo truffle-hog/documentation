@@ -182,7 +182,13 @@ Alles in Allem kann man die einzelnen Schnittstellen als Fassaden für die versc
 
 \subsubsection{Components}
 
-Die Komponentenstruktur lehnt sich an das Entwurfsmuster Kompositum an. Hierbei Sind die einzelnen Bestandteile des Graphen (Knoten und Kanten) jeweils Kompositionen aus verschiedenen Komponenten die beliebig erweiterbar sind.
+Die Komponentenstruktur ist eine Implementierung des Kompositum Entwurfsmusters. Hierbei Sind die einzelnen Bestandteile des Graphen (Knoten und Kanten) jeweils Kompositionen aus verschiedenen Komponenten die beliebig erweiterbar sind.
+
+Dieses Design ermöglicht, dass jede Netzwerkkomponente...
+
+Ein Netzwerkknoten kann infolgedessen bspw. aus einem Renderer-, Info- und Filterkomponenten bestehen, welche jeweils aus dem Hauptkompositum zurückgegeben werden können.
+
+In Zukunft ist es also möglich beliebige weitere Komponenten für die Netzwerkbestandteile zu entwickeln und diese ohne Veränderung vorhandener Klassen einzubinden und zu verwenden.
 
 
 \subsection{NodeStatisticsUpdater}
