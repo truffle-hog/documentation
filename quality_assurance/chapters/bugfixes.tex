@@ -1,1 +1,35 @@
 \chapter{Große Fehlerbehebungen}
+
+
+\section{Quantum Toolkit Error}
+
+\begin{enumerate}
+  \item[Beschreibung]
+    Zufälliges Auftreten von Quantum Toolkit (JavaFX) Exceptions.
+  \item[Ursache]
+    Graphische Updates werden nicht im FX-Application Thread ausgeführt.
+  \item[Behebung]
+    Die Betroffenen Methoden wurden in Platform.runLater() geschachtelt.
+\end{enumerate}
+
+\section{Fehler im Rendering}
+
+\begin{enumerate}
+  \item[Beschreibung]
+    Im Rendering waren einige Fehler vorhanden. Diese beinhalteten unter anderem falsch dargestellte Pfeilspitzen, schlechte Performance und fehlerhafte Animationen.
+  \item[Ursache]
+    Der Jung Renderingprozess ist nicht für Echtzeitrendering, bzw. dynamische Größenveränderung der Knoten ausgelegt.
+  \item[Behebung]
+    Durch Migrierung des Renderingprozesses von Swing nach JavaFX wurde das Problem behoben.
+\end{enumerate}
+
+\section{Snort Absturz bei IPC Verbindungsabbruch}
+
+\begin{enumerate}
+  \item[Beschreibung]
+    Das Unterbrechen der IPC Verbindung nach einem vorherigen Aufbau führt zum Absturz des Snort Plugins (broken pipe Fehler).
+  \item[Ursache]
+    Der Absturz wird durch fehlerhaftes Zurücksetzen der Verbindung bei Trennung durch \programname hervorgerufen.
+  \item[Behebung]
+    Durch Senden einer Disconnectanfrage und Abfangen des broken pipe Fehlers wurde das Problem behoben.
+\end{enumerate}

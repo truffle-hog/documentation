@@ -67,7 +67,7 @@ In diesem Abschnitt sind alle funktionalen Anforderungen aufgezählt. Neben jede
 
 \fa{220}{Zeichnen des Graphen}{Implementiert}
 
-\fa{250}{Kantenunterschied}{Nicht implementiert -- GRUND? EVTL NOCH IMPLEMENTIEREN?}
+\fa{250}{Kantenunterschied}{Nicht implementiert -- Kanten beziehen sich nur auf ein Protokoll.}
 
 \fa{260}{Logging}{Nicht implementiert -- Da der Netzwerkverkehr auch direkt als PCAP Datei aufgezeichnet werden kann, ist dieses Feature nicht nötig.}
 
@@ -186,4 +186,4 @@ Blacklist differenziert, weswegen diese jetzt eine Priorität und Farbe besitzen
 Da es jetzt die Möglichkeit gibt, viele Filter gleichzeitig aktiviert zu haben, musste eine Möglichkeit geschaffen werden, diese an einer Stelle zu verwalten, sodass sie problemlos
 auf alle neu erstellten Knoten angewendet werden können. Zu diesem Zweck wurde ein MakroFilter implementiert, der dem Filter Interface entspricht. Dieser Filter hat lediglich eine
 Liste an Filtern und zwei Methoden, um einzelne Filter hinzufügen, oder entfernen zu können. Alle teile des Programms können nun mit diesem MakroFilter arbeiten, indem sie die check()
-Methode aufrufen. Diese Methode iteriert dann durch alle internen Filter und ruft jeweils bei diesen die check() Methode auf.
+Methode aufrufen. Diese Methode iteriert dann durch alle internen Filter und ruft jeweils bei diesen die check() Methode auf. 
