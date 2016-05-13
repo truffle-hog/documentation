@@ -167,11 +167,23 @@ Im Model wurde die Graphstruktur um eine Networkport Struktur erweitert und der 
 
 \subsubsection{Network-Ports}
 
-TEXT?
+Die ganze Netzwerkstruktur wurde um eine Abstraktionsstufe erweitert. Der Graph selbst ist nicht mehr die zentrale Schnittstelle des Netzwerks. Der Graph ist Teil der übergeordneten Netzwerkstruktur, wobei dieser lediglich für die Datenhaltung der einzelnen Knoten und Kanten verantwortlich ist.
+
+Zusätzlich wurde diese Netzwerkstruktur mit mehreren Schnittstellen versehen die jeweils klare Aufgabenbereiche abdecken. Diese unterteilen sich in drei sogenannte Ports: ReadingPort, WritingPort und ViewPort.
+
+Der ReadingPort dient zur spezifischen Abfrage von Informationen über den Netzwerkstatus. Zum Beispiel kann man hier einzelne Knoten anhand ihrer Adressen und Namen zurückgeben lassen. Auch kann man hier generelle Informationen über das Netzwerk erhalten wie u.a. die Anzahl an Netzwerkteilnehmern, den durchschnittliche Paketdurchsatz oder die Menge an Verbindungen.
+
+Der WritingPort dient ausschließlich zum Schreiben neuer Informationen in das Netzwerk. Im derzeitigen Status ist dies auf das Hinzufügen von neuen Netzwerkteilnehmern und Verbindungen beschränkt.
+
+Der ViewPort ist die Verbindung der reinen Netzwerkdaten zur Grafischen Darstellung. Somit stellt diese Schnittstelle sämtliche Informationen zur Verfügung welche auf der GUI zu sehen sein soll.
+Dies beinhaltet einerseits den Graphen selbst, also die Darstellung von Knoten und Kanten. Aber auch die statistischen Informationen welche auf der GUI in Form von tabellarisch angeordneten Werten visualisiert werden.
+
+Alles in Allem kann man die einzelnen Schnittstellen als Fassaden für die verschiedenen Verantwortungsbereiche des Programms verstehen (Einfacher und klarer zu benutzende Schnittstellen).
 
 \subsubsection{Components}
 
-TEXT?
+Die Komponentenstruktur lehnt sich an das Entwurfsmuster Kompositum an. Hierbei Sind die einzelnen Bestandteile des Graphen (Knoten und Kanten) jeweils Kompositionen aus verschiedenen Komponenten die beliebig erweiterbar sind.
+
 
 \subsection{NodeStatisticsUpdater}
 
