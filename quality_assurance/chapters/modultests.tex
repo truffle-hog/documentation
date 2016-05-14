@@ -1,11 +1,4 @@
 \chapter{Testszenarien}
-//TODO
-haben wir inaktive Knotenmarkierung?:
-haben wir Fehlerflag für Pakete?:
-was macht viewmodel Paket?:
-
-
-
 
 In diesem Kapitel werden die im Pflichtenheft definierten globalen Testszenarien ausgewertet. Aufgrund der Unterschiede vom Pflichtenheft zu den endgültigen Implementierungsergebnissen werden die einzelnen Szenarien angepasst, ihre Abdeckung bezüglich umgesetzer funktionaler Anforderungen bleibt jedoch gleich.
 
@@ -72,4 +65,12 @@ Alle daraus resultierenden Testszenarien wurden verändert oder in andere integr
   \item[Beschreibung] Programmabsturz durch Prozesstermination.
   \item[Ergebnis] Bereits erstellte Filter bleiben vorhanden sind aber deaktiviert in der View. Programm beendet mit Exit Code 0. Snort und spp\_profinet nicht beeinflusst. Test als Erfolg einzustufen.
   \item[Coverage] 54\% Zeilen, 54\% Klassen.
+\end{enumerate} 
+
+\section{Testszenario 7}
+
+\begin{enumerate}
+  \item[Beschreibung] Zufälliges Klicken in der GUI und kombinieren von Aktionen in zufälligem Muster.
+  \item[Ergebnis] Keine Auffälligkeiten. Programm funktioniert weiterhin einwandfrei.
+  \item[Coverage] 61\% Zeilen, 56\% Klassen.
 \end{enumerate}
