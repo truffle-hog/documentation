@@ -1,0 +1,260 @@
+%% LaTeX-Beamer template for KIT design
+%% by Erik Burger, Christian Hammer
+%% title picture by Klaus Krogmann
+%%
+%% version 2.1
+%%
+%% mostly compatible to KIT corporate design v2.0
+%% http://intranet.kit.edu/gestaltungsrichtlinien.php
+%%
+%% Problems, bugs and comments to
+%% burger@kit.edu
+
+\documentclass[18pt]{beamer}
+
+%% SLIDE FORMAT
+
+% use 'beamerthemekit' for standard 4:3 ratio
+% for widescreen slides (16:9), use 'beamerthemekitwide'
+
+\usepackage{templates/beamerthemekit}
+\usepackage[utf8]{inputenc}
+% \usepackage{templates/beamerthemekitwide}
+
+\usepackage{graphicx}
+
+\setbeamercovered{invisible}
+
+%% TITLE PICTURE
+
+% if a custom picture is to be used on the title page, copy it into the 'logos'
+% directory, in the line below, replace 'mypicture' with the
+% filename (without extension) and uncomment the following line
+% (picture proportions: 63 : 20 for standard, 169 : 40 for wide
+% *.eps format if you use latex+dvips+ps2pdf,
+% *.jpg/*.png/*.pdf if you use pdflatex)
+
+\titleimage{labor}
+
+%% TITLE LOGO
+
+% for a custom logo on the front page, copy your file into the 'logos'
+% directory, insert the filename in the line below and uncomment it
+
+\titlelogo{title}
+
+% (*.eps format if you use latex+dvips+ps2pdf,
+% *.jpg/*.png/*.pdf if you use pdflatex)
+
+%% TikZ INTEGRATION
+
+% use these packages for PCM symbols and UML classes
+% \usepackage{templates/tikzkit}
+% \usepackage{templates/tikzuml}
+
+% the presentation starts here
+
+\title[Intrusion Detection in PROFINET-Netzwerken]{Intrusion Detection in PROFINET-Netzwerken}
+\subtitle{Erweiterung des Intrusion-Detection-Tools Snort und Entwicklung einer Visualisierungssoftware}
+\author{Julian Brendl, Maximilian Diez, Mark Giraud, Jan Hermes, Dimitri Höhler, Valentin Kiechle}
+
+\institute{Fraunhofer IOSB: Gruppe für sichere vernetzte Systeme}
+
+% Bibliography
+
+%\usepackage[citestyle=authoryear,bibstyle=numeric,hyperref,backend=biber]{biblatex}
+%\addbibresource{templates/example.bib}
+%\bibhang1em
+
+%\renewcommand*\contentsname{Summary}
+
+
+\begin{document}
+
+% change the following line to "ngerman" for German style date and logos
+\selectlanguage{ngerman}
+
+%title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+%table of contents
+
+\tableofcontents
+
+
+\section{Einleitung}
+\subsection{Motivation}
+\begin{frame}{Einleitung: Motivation}
+	\begin{figure}
+  		\includegraphics[width=0.9\textwidth]{./images/max_1.png}
+  	\end{figure}
+\end{frame}
+\begin{frame}{Einleitung: Motivation}
+  	\begin{figure}
+  		\includegraphics[width=0.9\textwidth]{./images/max_2.png}
+  	\end{figure}
+\end{frame}
+\begin{frame}{Einleitung: Motivation}
+  	\begin{figure}
+  		\includegraphics[width=0.9\textwidth]{./images/max_3.png}
+  	\end{figure}
+\end{frame}
+\begin{frame}{Einleitung: Motivation}
+  	\begin{figure}
+	   	\includegraphics[width=0.9\textwidth]{./images/max_4.png}
+   	\end{figure}
+\end{frame}
+
+\subsection{PROFINET-Plugin für Snort}
+\begin{frame}{Einleitung: PROFINET-Plugin für Snort}
+	\pause
+    \begin{itemize}
+      \item Identifikation und Dekodierung von PROFINET Paketen (Ethertyp 0x8892)
+      \pause
+      \item Bereitstellen von Verbindungsdaten für einen Klienten
+      \pause
+      \item Optional: Auslösen von Alerts in Snort zur automatisierten Überwachung
+    \end{itemize}
+\end{frame}
+
+\subsection{Visualisierungstool TruffleHog}
+\begin{frame}{Einleitung: Visualisierungstool TruffleHog}
+	\pause
+    \begin{itemize}
+      \item Empfängt Verbindungsdaten
+      \pause
+      \item Verarbeitet Pakete und\dots
+      \pause
+      \begin{itemize}
+        \item stellt Netzwerkteilnehmer als Knoten, \pause
+        \item Verbindungen als Kanten dar.
+      \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\section{Anforderungen}
+
+\subsection{Snort-Präprozessor}
+\begin{frame}{Anforderungen: Snort-Präprozessor}
+    \begin{itemize}
+      \item Pakete von Snort bekommen
+      \pause
+      \item Dekodieren von PROFINET Paketen (z.B. DCP oder RT1-3)
+      \pause
+      \item Extraktion kritischer Daten (z.B. Adressen, Identitäten)
+      \pause
+      \item Zusammenfassung und Bereitstellung an einen anderen Prozess
+      \pause
+      \item Steuerung über die Snort Konfigurationsdatei (Ein, Aus, etc...)
+      \pause
+      \item Optional: Auslösen von Alerts
+    \end{itemize}
+\end{frame}
+
+
+\subsection{TruffleHog}
+\begin{frame}{Anforderungen: TruffleHog}
+    \begin{itemize}
+      \item Auswertung der Paketdaten: \pause
+      \begin{itemize}
+        \item Aufbau des Graphen \pause
+        \item Abgleichen mit Blacklist/Whitelist \pause
+        \item Erstellen von Statistiken \pause
+      \end{itemize}
+
+      \item Darstellung des Graphen  \pause
+      \item Unterscheidung der Protokollarten, Kommunikationsrichtung, etc.
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+		\includegraphics[height=0.95\textheight]{./images/GUI.png}
+	\end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------------------------
+
+\section{Architektur}
+%\subsection{Interaktion}
+	\input{slides/architecture/architecture1}
+	\input{slides/architecture/architecture2}
+	\input{slides/architecture/architecture3}
+	\input{slides/architecture/architecture4}
+	\input{slides/architecture/architecture5}
+	\input{slides/architecture/architecture6}
+	\input{slides/architecture/architecture7}
+	\input{slides/architecture/architecture8}
+	\input{slides/architecture/architecture9}
+	\input{slides/architecture/architecture10}
+	\input{slides/architecture/architecture11}
+	\input{slides/architecture/architecture12}
+	\input{slides/architecture/architecture13}
+	\input{slides/architecture/architecture14}
+	\input{slides/architecture/architecture15}
+	\input{slides/architecture/architecture16}
+	\input{slides/architecture/architecture17}
+	\input{slides/architecture/architecture18}
+	\input{slides/architecture/architecture19}
+	\input{slides/architecture/architecture20}
+
+\subsection{Snort-Präprozessor}
+	\subsubsection{Dissector}
+		\input{slides/preprocessor/preprocessor1}
+		\input{slides/preprocessor/preprocessor2}
+		\input{slides/preprocessor/preprocessor3}
+		\input{slides/preprocessor/preprocessor4}
+		\input{slides/preprocessor/preprocessor5}
+		\input{slides/preprocessor/preprocessor6}
+		\input{slides/preprocessor/preprocessor7}
+	\subsubsection{Buffer und Protokollbaum}
+		\input{slides/preprocessor/buffer_and_proto}
+	\subsubsection{Exemplarischer Protokollbaum}
+		\input{slides/preprocessor/tree}
+	\subsubsection{Zusammenfassung}
+		\input{slides/sumup}
+
+\subsection{TruffleHog}
+	\input{slides/truffleHogPackages}
+	\subsubsection{presenter}
+		\input{slides/presenter}
+	\subsubsection{service}
+		\input{slides/service}
+	\subsubsection{command}
+		\input{slides/command}
+	\subsubsection{util}
+		\input{slides/util}
+	\subsubsection{model}
+		\input{slides/model}
+	\subsubsection{view}
+		\input{slides/view}
+	\subsubsection{interaction}
+		\input{slides/interaction}
+
+\section{Implementation}
+
+\section{Testphase}
+%----------------------------------------------------------------------------------------------
+\section{Ergebnis}
+    \input{slides/Endstand}
+    \input{slides/Ergebnis}
+
+\begin{frame}
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/title}
+\end{frame}
+
+\appendix
+\beginbackup
+
+%\begin{frame}[allowframebreaks]{References}
+%\printbibliography
+%\end{frame}
+
+\backupend
+
+\end{document}

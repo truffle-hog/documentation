@@ -1,0 +1,36 @@
+
+
+Paket
+  |
+  v
+Snort
+  |
+  v
+Profinet Plugin
+     | c
+     v
+  Baum Struktur aus Paket
+     |
+     v
+ Truffle
+    | senden
+    v
+MailBox
+   ^
+   | abholen
+Truffle
+   |
+   v
+Truffle auslesen
+   |
+   v
+Kanten und Knoten aus Informationen erstellen
+   |
+   v
+Kanten und Knoten dem Graphen hinzufügiven
+   |
+   v
+Bild von Daten Modell
+   | Service Bild (Jung)
+   v
+Bild von graphischem Modell
