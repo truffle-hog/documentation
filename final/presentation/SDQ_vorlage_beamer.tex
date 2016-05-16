@@ -22,6 +22,7 @@
 % \usepackage{templates/beamerthemekitwide}
 
 \usepackage{graphicx}
+\usepackage{array}
 
 \setbeamercovered{invisible}
 
@@ -86,98 +87,18 @@
 
 \section{Einleitung}
 \subsection{Motivation}
-\begin{frame}{Einleitung: Motivation}
-	\begin{figure}
-  		\includegraphics[width=0.9\textwidth]{./images/max_1.png}
-  	\end{figure}
-\end{frame}
-\begin{frame}{Einleitung: Motivation}
-  	\begin{figure}
-  		\includegraphics[width=0.9\textwidth]{./images/max_2.png}
-  	\end{figure}
-\end{frame}
-\begin{frame}{Einleitung: Motivation}
-  	\begin{figure}
-  		\includegraphics[width=0.9\textwidth]{./images/max_3.png}
-  	\end{figure}
-\end{frame}
-\begin{frame}{Einleitung: Motivation}
-  	\begin{figure}
-	   	\includegraphics[width=0.9\textwidth]{./images/max_4.png}
-   	\end{figure}
-\end{frame}
+    \input{slides/Motivation}
+\subsection{Aufgabenstellung}
+    \input{slides/Aufgabenstellung}
+\subsection{Designentscheidungen}
+    \input{slides/Designentscheidungen}
 
-\subsection{PROFINET-Plugin für Snort}
-\begin{frame}{Einleitung: PROFINET-Plugin für Snort}
-	\pause
-    \begin{itemize}
-      \item Identifikation und Dekodierung von PROFINET Paketen (Ethertyp 0x8892)
-      \pause
-      \item Bereitstellen von Verbindungsdaten für einen Klienten
-      \pause
-      \item Optional: Auslösen von Alerts in Snort zur automatisierten Überwachung
-    \end{itemize}
-\end{frame}
-
-\subsection{Visualisierungstool TruffleHog}
-\begin{frame}{Einleitung: Visualisierungstool TruffleHog}
-	\pause
-    \begin{itemize}
-      \item Empfängt Verbindungsdaten
-      \pause
-      \item Verarbeitet Pakete und\dots
-      \pause
-      \begin{itemize}
-        \item stellt Netzwerkteilnehmer als Knoten, \pause
-        \item Verbindungen als Kanten dar.
-      \end{itemize}
-    \end{itemize}
-\end{frame}
-
-
-\section{Anforderungen}
-
-\subsection{Snort-Präprozessor}
-\begin{frame}{Anforderungen: Snort-Präprozessor}
-    \begin{itemize}
-      \item Pakete von Snort bekommen
-      \pause
-      \item Dekodieren von PROFINET Paketen (z.B. DCP oder RT1-3)
-      \pause
-      \item Extraktion kritischer Daten (z.B. Adressen, Identitäten)
-      \pause
-      \item Zusammenfassung und Bereitstellung an einen anderen Prozess
-      \pause
-      \item Steuerung über die Snort Konfigurationsdatei (Ein, Aus, etc...)
-      \pause
-      \item Optional: Auslösen von Alerts
-    \end{itemize}
-\end{frame}
-
-
-\subsection{TruffleHog}
-\begin{frame}{Anforderungen: TruffleHog}
-    \begin{itemize}
-      \item Auswertung der Paketdaten: \pause
-      \begin{itemize}
-        \item Aufbau des Graphen \pause
-        \item Abgleichen mit Blacklist/Whitelist \pause
-        \item Erstellen von Statistiken \pause
-      \end{itemize}
-
-      \item Darstellung des Graphen  \pause
-      \item Unterscheidung der Protokollarten, Kommunikationsrichtung, etc.
-
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
+\begin{frame}{Einleitung: Concept Art}
 	\begin{figure}
 		\includegraphics[height=0.95\textheight]{./images/GUI.png}
 	\end{figure}
 \end{frame}
 
-%----------------------------------------------------------------------------------------------
 
 \section{Architektur}
 %\subsection{Interaktion}
@@ -202,6 +123,8 @@
 	\input{slides/architecture/architecture19}
 	\input{slides/architecture/architecture20}
 
+%--------------------------------------------------------------
+\iffalse
 \subsection{Snort-Präprozessor}
 	\subsubsection{Dissector}
 		\input{slides/preprocessor/preprocessor1}
@@ -234,14 +157,24 @@
 		\input{slides/view}
 	\subsubsection{interaction}
 		\input{slides/interaction}
+\fi
+%---------------------------------------------------------------
 
-\section{Implementation}
+
+\section{Implementierung}
+    \input{slides/implementierung0}
+    \input{slides/implementierung1}
 
 \section{Testphase}
-%----------------------------------------------------------------------------------------------
+    \begin{frame}{Testphase}
+        \begin{itemize}
+          \item blub
+        \end{itemize}
+    \end{frame}
+    
 \section{Ergebnis}
-    \input{slides/Endstand}
-    \input{slides/Ergebnis}
+    \input{slides/endstand}
+    \input{slides/ergebnis}
 
 \begin{frame}
 	\centering
