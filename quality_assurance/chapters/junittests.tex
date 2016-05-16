@@ -1,32 +1,66 @@
-\chapter{JUnit Testergebnisse}
-Das Verwenden von JUnit, einer sehr oft genutzten Testbibliothek für Java Programme, erschien als der einfachte Weg, geschriebenen Quellcode zu prüfen. Um korrekte, ausführlicher Tests bei der Entwicklung zu fördern, wurde im Entwicklungs-Repository von TruffleHog auf github.com eine Kontrollinstanz namens Travis-CI (https://travis-ci.org/) verwendet. Aufgabe dieses Tools ist das ausführen und validieren aller Tests von TruffleHog bei jedem Commit in den Master Entwicklungsbranch. Auf diese Weise wurden fehlerhafte Commits aus dem Master Branch fern gehalten und die Entwicklung des Projekt nicht gestört.
+\chapter{Testergebnisse}
 
-\section{Command Package}
+Diese Sektion beschreibt den Aufbau der Tests für \gls{programname} und \gls{sppname} sowie die dafür genutzten Testbibliotheken. Zusätzlich werden zusammenfassend Ergebnisse und Erklärungen zur Testüberdeckung bereitgestellt.
+
+\section{\programname}
+
+Für die Unit Tests von \gls{programname} wurde die Testbibliothek JUnit in der Version 4.11 in Kombination mit dem Mocking Framework Mockito in der Version 1.8.4 verwendet.
+
+Um korrekte und ausführliche Tests bei der Entwicklung zu fördern, wurde im Entwicklungs-Repository von TruffleHog auf github.com eine Kontrollinstanz namens Travis-CI (https://travis-ci.org/) verwendet. Aufgabe dieses Tools ist das ausführen und validieren aller Tests von TruffleHog bei jedem Commit in den Master Entwicklungsbranch. Auf diese Weise wurden fehlerhafte Commits aus dem Master Branch fern gehalten und die Entwicklung des Projekt nicht gestört.
+
+\subsection{Command Package}
 
 Die zentrale Ausführungslogik von TruffleHog war im besonderen Fokus der Tests. Auf das Testen von trivialen Methoden wie Getter/Setter wurde verzichtet. Daher beträgt die Line Coverage im Command Package  70\%. Es wurden alle Klassen auf Funktionalität in den wenigen möglichen Anwendungsfällen geprüft.
 
-\section{Interaction Package}
+\subsection{Interaction Package}
 Ein Paket ohne Funktionalität. Eine Ansammlung von Enums, welche für die Überleitung von Benutzerinteraktion zu Commands gebraucht werden. Das aktive Testen entfällt daher. Durch Aufrufe anderer Tests kommt das Paket jedoch auf 81\% Line Coverage.
 
-\section{Model Package}
-Das größe Paket mit etwa 2000 Zeilen Programmcode. Eine hohe Coverage lies sich nicht erreichen, da die bereits getestete Graphbibliothek Jung tief eingebunden wurde und diese natürlich nicht zu Coverage beiträgt. Wieder wurden einfache Setter/Getter vom Testen ausgeschlossen, von denen es realtiv viele in der Graphstruktur gibt. Die Line Coverage beträgt 38\%.
+\subsection{Model Package}
+Das größe Paket mit etwa 2000 Zeilen Programmcode. Eine hohe Coverage lies sich nicht erreichen, da die bereits getestete Graphbibliothek Jung tief eingebunden wurde und diese natürlich nicht zu Coverage beiträgt. Wieder wurden einfache Setter/Getter vom Testen ausgeschlossen, von denen es realtiv viele in der Graphstruktur gibt. Die Line Coverage beträgt 39\%.
 
-\section{Presenter Package}
+\subsection{Presenter Package}
 
-Da dieses Paket lediglich für den initialen Aufbau der internen Strukturen und Abhängigkeiten zuständig ist, wird die gesamte Funktionalität genau einmal pro Programmstart genutzt. Es gibt nur einfache Tests, da der Presenter nur in einem Kontext verwendet werden kann. Fehler in diesem Programm Paket würden ebenfalls sehr schnell in den Testszenarien auffallen, da die gesamte Benutzeroberfläche hierdurch gebaut wird. Line Coverage beträgt 73\%.
+Da dieses Paket lediglich für den initialen Aufbau der internen Strukturen und Abhängigkeiten zuständig ist, wird die gesamte Funktionalität genau einmal pro Programmstart genutzt. Es gibt nur einfache Tests, da der Presenter nur in einem Kontext verwendet werden kann. Fehler in diesem Programm Paket würden ebenfalls sehr schnell in den Testszenarien auffallen, da die gesamte Benutzeroberfläche hierdurch aufgebaut wird. Line Coverage beträgt 77\%.
 
-\section{Service Package}
+\subsection{Service Package}
 
-Die Hauptarbeitsroutinen von TruffleHog werden im Gegensatz zum Presenter zwar regelmäßig aufgerufen, haben aber einen sehr spezifischen Einsatzbereich und wenig Variationsmöglichkeit der Parameter. Der Testfokus lag daher auf der korrekten Ausführung von mehreren Befehlen und die Einhaltung der Command Reihenfolge anstatt unmögliche Eingaben zu testen. Die relativ niedrige Line Coverage von 36\% lässt sich durch zwei Dinge begründen. Zum einen wird das ReplayLogging Service im fertigen Programm nicht verwendet und ist daher ungetestet. Zum anderen wurden für die Inter-Prozess-Kommunikationsschnittstelle eine Vielzahl von eigenen Exceptions definiert um das Debugging zu erleichtern. Diese Exceptions unterscheiden sich fast ausschliesslich im Namen, um den Fehler schnell zu finden, aber rufen getestete Methoden der Superklassen auf, daher sind diese Exceptions nicht Teil der Line Coverage.
+Die Hauptarbeitsroutinen von TruffleHog werden im Gegensatz zum Presenter zwar regelmäßig aufgerufen, haben aber einen sehr spezifischen Einsatzbereich und wenig Variationsmöglichkeit der Parameter. Der Testfokus lag daher auf der korrekten Ausführung von mehreren Befehlen und die Einhaltung der Command Reihenfolge anstatt unmögliche Eingaben zu testen. Die relativ niedrige Line Coverage von 38\% lässt sich durch zwei Dinge begründen. Zum einen wird das ReplayLogging Service im fertigen Programm nicht verwendet und ist daher ungetestet. Zum anderen wurden für die Inter-Prozess-Kommunikationsschnittstelle eine Vielzahl von eigenen Exceptions definiert um das Debugging zu erleichtern. Diese Exceptions unterscheiden sich fast ausschliesslich im Namen, um den Fehler schnell zu finden, aber rufen getestete Methoden der Superklassen auf, daher sind diese Exceptions nicht Teil der Line Coverage.
 
-\section{Util Package}
+\subsection{Util Package}
 
 Ein Hilfspaket, hauptsächlich für die Umsetzung von Designpatterns und PropertyBindings gedacht, bietet selbst nur begrenzte aber generische Funktionalität. Methoden der PropertyBindings, die ausschliesslich Methoden der Java Superklassen verwenden sind von den Tests ausgeschlossen. Line Coverage beträgt 47\%.
 
-\section{View Package}
+\subsection{View Package}
 
 Der Hauptbenutzeroberfläche von TruffleHog liegt JavaFX zugrunde. Alle nichttrivialen Tests werden von den Testszenarien abgedeckt. Daher beträgt die Line Coverage 31\%.
 
-\section{Viewmodel Package}
+\subsection{Viewmodel Package}
 
 Ein aufgearbeitetes Zwischenmodel, das der View direkt aufgearbeitete Daten zum Ablesen bereitstellt. Dies betrifft vor allem statistische Informationen. Coverage beträgt 66\%.
+
+\section{\sppname}
+Für \sppname wurde ein eigens entwickeltes Testing Framework entwickelt (Basierend auf Programmcode im Buch "Learn C the hard way" von Zed A. Shaw). Mit Hilfe von Makros und Bash Scripts ist dadurch eine komplett automatisiertes Testen der einzelnen Quelldateien und definierten Methoden möglich. Es wurden keinerlei Analysemöglichkeiten für die Testabdeckung implementiert, daher fehlt diese Information im Testbericht zu \gls{sppname}.
+
+Beim Testen der einzelnen Dissektoren wurde außerdem das Programm Scapy und der darauf basierende, frei verfügbare Packetfuzzer ProFuzz (https://github.com/HSASec/ProFuzz) verwendet, um die Integrität des Dekodierungsprozesses sicherzustellen.
+
+	\subsection{Dissect Package}
+	In diesem Paket wurde lediglich die Datenstruktur DissectorRegister getestet. Bei "Dissector" handelt es sich um eine Schnittstelle welche von den konkreten Dissektoren im Unterpaket "dissectors" implementiert wird.
+	
+		\subsubsection{Buffer Package}
+		Die bis dato im Präprozessor verwendeten Methoden wurden alle getestet. Es existieren allerdings einige Funktionalitäten, welche in \gls{programname} bisher nicht verwendet wurden. Das Testen dieser Methoden wird integriert, sobald sie für die Weiterentwicklung benötigt werden.
+		
+		\subsubsection{Dissectors Package}
+		Für das Testen der Dissektoren wurde das eingangs erwähnte Tool Scapy und ProFuzz verwendet, um möglichst viele Paketarten und fehlerhafte Pakete zu kontrollieren. Da die Dissektoren noch nicht vollständig implementiert sind, haben die Fuzzer einige Lücken aufgedeckt an denen in Zukunft gearbeitet werden muss.
+		
+		\subsubsection{Tree Package}
+		Die hauptsächlich verwendeten Funktionen des PackageTrees wurden getestet. Einige weniger verwendete Funktionen wurden aus zeitlichen gründen noch nicht in die Unittests integriert.
+	
+	\subsection{Send Package}
+	Die Schnittstelle "Sender" wird hier vom "UnixSocketSender" implementiert. Verbindungsaufbau und Trennung wurden durch Unit Tests überprüft. Es existiert noch ein kleiner Bug welcher mit der thread Schließung zusammenhängt. Der Bug hat jedoch keinerlei Auswirkungen auf den korrekten Ablauf des Programms.
+	
+	\subsection{Util Package}
+	Alle Quelldateien dieses Pakets wurden getestet. Die Datenstrukturen Hashmap und Dynamic Array funktionieren, alle Operationen wurden getestet. Keine Speicherlücken sind vorhanden.
+
+
+
+
