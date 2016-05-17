@@ -53,10 +53,10 @@ Beim Testen der einzelnen Dissektoren wurde außerdem das Programm Scapy und der
 		Für das Testen der Dissektoren wurde das eingangs erwähnte Tool Scapy und ProFuzz verwendet, um möglichst viele Paketarten und fehlerhafte Pakete zu kontrollieren. Da die Dissektoren noch nicht vollständig implementiert sind, haben die Fuzzer einige Lücken aufgedeckt an denen in Zukunft gearbeitet werden muss.
 		
 		\subsubsection{Tree Package}
-		Die hauptsächlich verwendeten Funktionen des PackageTrees wurden getestet. Einige weniger verwendete Funktionen wurden aus zeitlichen gründen noch nicht in die Unittests integriert.
+		Die hauptsächlich verwendeten Funktionen des PackageTrees wurden getestet. Einige weniger verwendete Funktionen wurden aus zeitlichen Gründen noch nicht in die Unittests integriert.
 	
 	\subsection{Send Package}
-	Die Schnittstelle "Sender" wird hier vom "UnixSocketSender" implementiert. Verbindungsaufbau und Trennung wurden durch Unit Tests überprüft. Es existiert noch ein kleiner Bug welcher mit der thread Schließung zusammenhängt. Der Bug hat jedoch keinerlei Auswirkungen auf den korrekten Ablauf des Programms.
+	Die Schnittstelle "Sender" wird hier vom "UnixSocketSender" implementiert. Verbindungsaufbau und Trennung wurden durch Unit Tests überprüft. Es existiert noch ein kleiner Bug welcher mit dem Beenden eines Threads zusammenhängt. Der Bug hat jedoch keinerlei Auswirkungen auf den korrekten Ablauf des Programms.
 	
 	\subsection{Util Package}
 	Alle Quelldateien dieses Pakets wurden getestet. Die Datenstrukturen Hashmap und Dynamic Array funktionieren, alle Operationen wurden getestet. Keine Speicherlücken sind vorhanden.
