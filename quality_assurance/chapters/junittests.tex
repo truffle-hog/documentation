@@ -6,7 +6,7 @@ Diese Sektion beschreibt den Aufbau der Tests für \gls{programname} und \gls{sp
 
 Für die Unit Tests von \gls{programname} wurde die Testbibliothek JUnit in der Version 4.11 in Kombination mit dem Mocking Framework Mockito in der Version 1.8.4 verwendet.
 
-Um korrekte und ausführliche Tests bei der Entwicklung zu fördern, wurde im Entwicklungs-Repository von TruffleHog auf github.com eine Kontrollinstanz namens Travis-CI (https://travis-ci.org/) verwendet. Aufgabe dieses Tools ist das ausführen und validieren aller Tests von TruffleHog bei jedem Commit in den Master Entwicklungsbranch. Auf diese Weise wurden fehlerhafte Commits aus dem Master Branch fern gehalten und die Entwicklung des Projekt nicht gestört.
+Um korrekte und ausführliche Tests bei der Entwicklung zu fördern, wurde im Entwicklungs-Repository von TruffleHog auf \texttt{github.com} eine Kontrollinstanz namens Travis-CI \newline (\hyperlink{https://travis-ci.org/}{\texttt{https://travis-ci.org/}}) verwendet. Aufgabe dieses Tools ist das ausführen und validieren aller Tests von TruffleHog bei jedem Commit in den Master Entwicklungsbranch. Auf diese Weise wurden fehlerhafte Commits aus dem Master Branch fern gehalten und die Entwicklung des Projekt nicht gestört.
 
 \subsection{Command Package}
 
@@ -39,12 +39,12 @@ Der Hauptbenutzeroberfläche von TruffleHog liegt JavaFX zugrunde. Alle nichttri
 Ein aufgearbeitetes Zwischenmodel, das der View direkt aufgearbeitete Daten zum Ablesen bereitstellt. Dies betrifft vor allem statistische Informationen. Coverage beträgt 66\%.
 
 \section{\sppname}
-Für \sppname wurde ein eigens entwickeltes Testing Framework entwickelt (Basierend auf Programmcode im Buch "Learn C the hard way" von Zed A. Shaw). Mit Hilfe von Makros und Bash Scripts ist dadurch eine komplett automatisiertes Testen der einzelnen Quelldateien und definierten Methoden möglich. Es wurden keinerlei Analysemöglichkeiten für die Testabdeckung implementiert, daher fehlt diese Information im Testbericht zu \gls{sppname}.
+Für \sppname wurde ein eigens entwickeltes Testing Framework entwickelt (Basierend auf Programmcode im Buch "{}Learn C the hard way"{} von Zed A. Shaw). Mit Hilfe von Makros und Bash Scripts ist dadurch eine komplett automatisiertes Testen der einzelnen Quelldateien und definierten Methoden möglich. Es wurden keinerlei Analysemöglichkeiten für die Testabdeckung implementiert, daher fehlt diese Information im Testbericht zu \gls{sppname}.
 
-Beim Testen der einzelnen Dissektoren wurde außerdem das Programm Scapy und der darauf basierende, frei verfügbare Packetfuzzer ProFuzz (https://github.com/HSASec/ProFuzz) verwendet, um die Integrität des Dekodierungsprozesses sicherzustellen.
+Beim Testen der einzelnen Dissektoren wurde außerdem das Programm Scapy und der darauf basierende, frei verfügbare Packetfuzzer ProFuzz \newline (\hyperlink{https://github.com/HSASec/ProFuzz}{\texttt{https://github.com/HSASec/ProFuzz}}) verwendet, um die Integrität des Dekodierungsprozesses sicherzustellen.
 
 	\subsection{Dissect Package}
-	In diesem Paket wurde lediglich die Datenstruktur DissectorRegister getestet. Bei "Dissector"{} handelt es sich um eine Schnittstelle welche von den konkreten Dissektoren im Unterpaket "dissectors" implementiert wird.
+	In diesem Paket wurde lediglich die Datenstruktur DissectorRegister getestet. Bei "{}Dissector"{} handelt es sich um eine Schnittstelle welche von den konkreten Dissektoren im Unterpaket "{}dissectors"{} implementiert wird.
 	
 		\subsubsection{Buffer Package}
 		Die bis dato im Präprozessor verwendeten Methoden wurden alle getestet. Es existieren allerdings einige Funktionalitäten, welche in \gls{programname} bisher nicht verwendet wurden. Das Testen dieser Methoden wird integriert, sobald sie für die Weiterentwicklung benötigt werden.
