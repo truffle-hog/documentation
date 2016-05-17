@@ -44,7 +44,7 @@ Für \sppname wurde ein eigens entwickeltes Testing Framework entwickelt (Basier
 Beim Testen der einzelnen Dissektoren wurde außerdem das Programm Scapy und der darauf basierende, frei verfügbare Packetfuzzer ProFuzz (https://github.com/HSASec/ProFuzz) verwendet, um die Integrität des Dekodierungsprozesses sicherzustellen.
 
 	\subsection{Dissect Package}
-	In diesem Paket wurde lediglich die Datenstruktur DissectorRegister getestet. Bei "Dissector" handelt es sich um eine Schnittstelle welche von den konkreten Dissektoren im Unterpaket "dissectors" implementiert wird.
+	In diesem Paket wurde lediglich die Datenstruktur DissectorRegister getestet. Bei "Dissector"{} handelt es sich um eine Schnittstelle welche von den konkreten Dissektoren im Unterpaket "dissectors" implementiert wird.
 	
 		\subsubsection{Buffer Package}
 		Die bis dato im Präprozessor verwendeten Methoden wurden alle getestet. Es existieren allerdings einige Funktionalitäten, welche in \gls{programname} bisher nicht verwendet wurden. Das Testen dieser Methoden wird integriert, sobald sie für die Weiterentwicklung benötigt werden.
@@ -56,7 +56,7 @@ Beim Testen der einzelnen Dissektoren wurde außerdem das Programm Scapy und der
 		Die hauptsächlich verwendeten Funktionen des PackageTrees wurden getestet. Einige weniger verwendete Funktionen wurden aus zeitlichen Gründen noch nicht in die Unittests integriert.
 	
 	\subsection{Send Package}
-	Die Schnittstelle "Sender" wird hier vom "UnixSocketSender" implementiert. Verbindungsaufbau und Trennung wurden durch Unit Tests überprüft. Es existiert noch ein kleiner Bug welcher mit dem Beenden eines Threads zusammenhängt. Der Bug hat jedoch keinerlei Auswirkungen auf den korrekten Ablauf des Programms.
+	Die Schnittstelle "{}Sender"{} wird hier vom "{}UnixSocketSender"{} implementiert. Verbindungsaufbau und Trennung wurden durch Unit Tests überprüft. Es existiert noch ein kleiner Bug welcher mit dem Beenden eines Threads zusammenhängt. Der Bug hat jedoch keinerlei Auswirkungen auf den korrekten Ablauf des Programms.
 	
 	\subsection{Util Package}
 	Alle Quelldateien dieses Pakets wurden getestet. Die Datenstrukturen Hashmap und Dynamic Array funktionieren, alle Operationen wurden getestet. Keine Speicherlücken sind vorhanden.
