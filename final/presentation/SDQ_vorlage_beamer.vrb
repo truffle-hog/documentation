@@ -1,5 +1,5 @@
-\begin{frame}[fragile]{Einleitung: Anforderungen \& Umsetzung}
-    \begin{itemize}
+\frametitle{Einleitung: Anforderungen \& Umsetzung}
+\begin{itemize}
         \item Objektorientierung:
         \begin{itemize}
             \item Plugin für Snort: Code in C! Annäherung durch \texttt{function pointers} und \texttt{structs}
@@ -17,4 +17,3 @@
             \item Services
         \end{itemize}
     \end{itemize}
-\end{frame} 
